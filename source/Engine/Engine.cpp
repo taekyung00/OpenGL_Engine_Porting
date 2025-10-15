@@ -11,6 +11,7 @@
 #include "CS200/ImmediateRenderer2D.hpp"
 #include "CS200/NDC.hpp"
 #include "CS200/RenderingAPI.hpp"
+#include "Demo/DemoManager.hpp"
 #include "FPS.hpp"
 #include "GameState.hpp"
 #include "GameStateManager.hpp"
@@ -48,6 +49,7 @@ public:
     CS230::GameStateManager    gameStateManager{};
     CS200::ImmediateRenderer2D renderer2D{};
     CS230::TextureManager      textureManager{};
+    CS200::DemoManager         demomanager{};
 };
 
 Engine& Engine::Instance()
@@ -91,6 +93,11 @@ CS230::TextureManager& Engine::GetTextureManager()
     return Instance().impl->textureManager;
 }
 
+CS200::DemoManager& Engine::GetDemoManager()
+{
+    return Instance().impl->demomanager;
+}
+
 void Engine::Start(std::string_view window_title)
 {
     impl->logger.LogEvent("Engine Started");
@@ -121,8 +128,11 @@ void Engine::Stop()
 void Engine::Update()
 {
     updateEnvironment();
+
+    //service update
     impl->window.Update();
     impl->input.Update();
+    impl->demomanager.UpdateDemo();
     auto& state_manager = impl->gameStateManager;
     state_manager.Update();
     const auto        viewport      = impl->viewport;

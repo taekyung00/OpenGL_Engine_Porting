@@ -19,6 +19,21 @@ set(SOURCE_CODE
     Demo/DemoShapes.hpp Demo/DemoShapes.cpp
     Demo/DemoFramebuffer.hpp Demo/DemoFramebuffer.cpp
     Demo/DemoText.hpp Demo/DemoText.cpp
+    Demo/DemoVAO.hpp Demo/DemoVAO.cpp
+    Demo/DemoBufferTypes.hpp Demo/DemoBufferTypes.cpp
+    Demo/DemoTexturing.hpp Demo/DemoTexturing.cpp
+    Demo/DemoCS230Textures.hpp Demo/DemoCS230Textures.cpp
+    Demo/DemoUpdate.hpp Demo/DemoUpdate.cpp
+
+
+    Game/Background.h Game/Background.cpp
+    Game/Fonts.h
+    Game/GameObjectTypes.h
+    Game/MainMenu.h Game/MainMenu.cpp
+    Game/Particles.h
+    Game/Score.h Game/Score.cpp
+    Game/Splash.h
+    Game/States.h
 
     Engine/Engine.hpp Engine/Engine.cpp
     Engine/Error.hpp
@@ -37,6 +52,16 @@ set(SOURCE_CODE
     Engine/Timer.hpp
     Engine/Vec2.hpp Engine/Vec2.cpp
     Engine/Window.hpp Engine/Window.cpp
+    Engine/Animation.cpp Engine/Animation.h
+    Engine/Camera.cpp Engine/Camera.h
+    Engine/Collision.cpp Engine/Collision.h
+    Engine/Component.h
+    Engine/ComponentManager.h
+    Engine/GameObject.cpp Engine/GameObject.h
+    Engine/GameObjectManager.cpp Engine/GameObjectManager.h
+    Engine/Particle.cpp Engine/Particle.h
+    Engine/ShowCollision.cpp Engine/ShowCollision.h
+    Engine/Sprite.cpp Engine/Sprite.h
 
     OpenGL/Buffer.hpp OpenGL/Buffer.cpp
     OpenGL/Environment.hpp

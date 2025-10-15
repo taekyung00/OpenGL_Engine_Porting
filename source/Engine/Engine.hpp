@@ -26,6 +26,7 @@ namespace CS230
 namespace CS200
 {
     class IRenderer2D;
+    class DemoManager;
 }
 
 /**
@@ -235,6 +236,8 @@ public:
      * - Support for different texture formats and properties
      */
     static CS230::TextureManager& GetTextureManager();
+
+    static CS200::DemoManager& GetDemoManager();
 
 
 public:

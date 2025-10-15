@@ -38,6 +38,10 @@
          {
              return std::min(point_1.y, point_2.y);
          }
+
+         Math::vec2 Center() const noexcept{
+            return {(Left() + Right()) * 0.5, (Top() + Bottom()) * 0.5};
+         }
          Math::vec2 Size() const noexcept
          {
              return { Right() - Left(), Top() - Bottom() };
