@@ -10,8 +10,8 @@ Created:    May 29, 2025
 #include "Score.h"
 
 
-Score::Score( int value) 
-	:  value(value){}
+Score::Score( int _value) 
+	:  value(_value){}
 
 void Score::Add(int dv)
 {

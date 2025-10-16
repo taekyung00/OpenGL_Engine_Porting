@@ -16,7 +16,7 @@ Created:    May 17, 2025
 
 namespace CS230
 {
-    RectCollision::RectCollision(Math::irect boundary, CS230::GameObject* object) : boundary(boundary), object(object)
+    RectCollision::RectCollision(Math::irect _boundary, CS230::GameObject* _object) : boundary(_boundary), object(_object)
     {
     }
 
@@ -91,7 +91,7 @@ namespace CS230
         return false;
     }
 
-    CircleCollision::CircleCollision(double radius, GameObject* object) : radius(radius), object(object)
+    CircleCollision::CircleCollision(double _radius, GameObject* _object) :  object(_object), radius(_radius)
     {
     }
 

@@ -8,49 +8,66 @@ Author:     Taekyung Ho
 Created:    May 17, 2025
 */
 #pragma once
+#include <algorithm>
 #include <vector>
 
 #include "Component.h"
-namespace CS230 {
-    class ComponentManager {
+
+namespace CS230
+{
+    class ComponentManager
+    {
     public:
-        ~ComponentManager() { Clear(); }
-        void UpdateAll(double dt) {
-            for (Component* component : components) {
+        ~ComponentManager()
+        {
+            Clear();
+        }
+
+        void UpdateAll(double dt)
+        {
+            for (Component* component : components)
+            {
                 component->Update(dt);
             }
         }
-        void AddComponent(Component* component) {
+
+        void AddComponent(Component* component)
+        {
             components.push_back(component);
         }
-        template<typename T>
-        T* GetComponent() {
-            for (Component* component : components) {
+
+        template <typename T>
+        T* GetComponent()
+        {
+            for (Component* component : components)
+            {
                 T* ptr = dynamic_cast<T*>(component);
-                if (ptr != nullptr) {
+                if (ptr != nullptr)
+                {
                     return ptr;
                 }
             }
             return nullptr;
         }
-        template<typename T>
-        void RemoveComponent() {
-            auto it = std::find_if(
-                components.begin(), components.end(), [](Component* element) {
-                    return (dynamic_cast<T*>(element) != nullptr);
-                }
-            );
-            delete* it;
+
+        template <typename T>
+        void RemoveComponent()
+        {
+            auto it = std::find_if(components.begin(), components.end(), [](Component* element) { return (dynamic_cast<T*>(element) != nullptr); });
+            delete *it;
             components.erase(it);
         }
-        void Clear() {
-            for (Component* component : components) {
+
+        void Clear()
+        {
+            for (Component* component : components)
+            {
                 delete component;
             }
             components.clear();
         }
+
     private:
         std::vector<Component*> components;
     };
 }
-

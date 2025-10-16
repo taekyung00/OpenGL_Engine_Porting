@@ -100,7 +100,7 @@ CS200::DemoManager& Engine::GetDemoManager()
     return Instance().impl->demomanager;
 }
 
-CS230::Font& Engine::GetFont(int index)
+CS230::Font& Engine::GetFont(size_t index)
 {
     return Instance().impl->fonts[index];
 }

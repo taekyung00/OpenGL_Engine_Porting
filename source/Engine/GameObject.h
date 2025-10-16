@@ -70,6 +70,7 @@ namespace CS230 {
             virtual void Update(GameObject* object, double dt) = 0;
             virtual void CheckExit(GameObject* object) = 0;
             virtual std::string GetName() = 0;
+            virtual ~State(){}
         };
 
 
@@ -101,15 +102,18 @@ namespace CS230 {
             void Update(GameObject*, double) override {}
             void CheckExit(GameObject*) override {}
             std::string GetName() { return ""; }
+            ~State_None(){}
         };
         State_None state_none;
 
         Math::TransformationMatrix object_matrix;
 
-        double rotation;
-        Math::vec2 scale;
+        
+        
         Math::vec2 position;
         Math::vec2 velocity;
+        Math::vec2 scale;
+        double rotation;
 
         ComponentManager componentmanager;
     };

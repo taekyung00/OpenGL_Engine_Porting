@@ -12,16 +12,17 @@ Created:    April 25, 2025
 #include "GameStateManager.hpp"
 #include "ShowCollision.h"
 
-CS230::GameObject::GameObject(Math::vec2 position) :
-    GameObject(position, 0, { 1, 1 })
+CS230::GameObject::GameObject(Math::vec2 _position) :
+    GameObject(_position, 0, { 1, 1 })
 {
 }
 
-CS230::GameObject::GameObject(Math::vec2 position, double rotation, Math::vec2 scale) :
-    velocity({ 0,0 }),
-    position(position),
-    scale(scale),
-    rotation(rotation),
+CS230::GameObject::GameObject(Math::vec2 _position, double _rotation, Math::vec2 _scale) :
+    
+    position(_position),
+    velocity({ 0.0,0.0 }),
+    scale(_scale),
+    rotation(_rotation),
     current_state(&state_none),
     matrix_outdated(true),
     destroy(false)

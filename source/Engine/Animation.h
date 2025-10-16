@@ -21,7 +21,7 @@ namespace CS230 {
         ~Animation();
 
         void Update(double dt);
-        int CurrentFrame();
+        size_t CurrentFrame();
         void Reset();
         bool Ended();
     private:
@@ -46,11 +46,11 @@ namespace CS230 {
 
         class Loop : public Command {
         public:
-            Loop(int loop_index);
+            Loop(size_t loop_index);
             virtual CommandType Type() override { return CommandType::Loop; }
-            int LoopIndex();
+            size_t LoopIndex();
         private:
-            int loop_index;
+            size_t loop_index;
         };
 
         class PlayFrame : public Command {
@@ -60,14 +60,14 @@ namespace CS230 {
             void Update(double dt);
             bool Ended();
             void ResetTime();
-            int Frame();
+            size_t Frame();
         private:
-            int frame;
+            size_t frame;
             double target_time;
             double timer;
         };
 
-        int current_command;
+        size_t current_command;
         std::vector<Command*> commands;
         bool ended;
         PlayFrame* current_frame;

@@ -11,8 +11,9 @@ Created:    June 6, 2025
 
 namespace CS230 {
 	Particle::Particle(const std::filesystem::path& sprite_file) : 
-		life(0.0),
-		GameObject({0,0})
+		
+		GameObject({0,0}),
+		life(0.0)
 	{
 		AddGOComponent(new Sprite(sprite_file, this));
 	}

@@ -33,6 +33,12 @@ public:
     static constexpr unsigned int non_seleted_color = 0x3ADF00FF;
     static constexpr unsigned int seleted_color = 0xFFFFFFFF;
 private:
+enum class Option
+    {
+        cs230_final,
+        exit
+    };
+    Option current_option;
     std::shared_ptr<CS230::Texture> title_texture;
     std::shared_ptr<CS230::Texture> cs230_final_texture;
     std::shared_ptr<CS230::Texture> exit_texture;
@@ -40,12 +46,8 @@ private:
     unsigned int cs230_final_color ;
     unsigned int exit_color ;
 
-    enum class Option
-    {
-        cs230_final,
-        exit
-    };
-    Option current_option;
+    
+    
     void update_textures();
 
 };

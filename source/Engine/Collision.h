@@ -34,7 +34,7 @@ namespace CS230 {
 
     class RectCollision : public Collision {
     public:
-        RectCollision(Math::irect boundary, GameObject* object);
+        RectCollision(Math::irect _boundary, GameObject* _object);
         CollisionShape Shape() override {
             return CollisionShape::Rect;
         }
@@ -43,8 +43,9 @@ namespace CS230 {
         bool IsCollidingWith(GameObject* other_object) override;
         bool IsCollidingWith(Math::vec2 point) override;
     private:
-        GameObject* object;
         Math::irect boundary;
+        GameObject* object;
+        
         static constexpr float line_width = 5.f;
     };
 

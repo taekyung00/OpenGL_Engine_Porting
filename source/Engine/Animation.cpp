@@ -82,7 +82,7 @@ void CS230::Animation::Update(double dt)
 
 }
 
-int CS230::Animation::CurrentFrame()
+size_t CS230::Animation::CurrentFrame()
 {
     return current_frame->Frame();
 }
@@ -100,7 +100,7 @@ bool CS230::Animation::Ended()
     return ended;
 }
 
-CS230::Animation::PlayFrame::PlayFrame(int frame, double duration) : frame(frame),target_time(duration), timer(0.0){}
+CS230::Animation::PlayFrame::PlayFrame(size_t _frame, double duration) : frame(_frame),target_time(duration), timer(0.0){}
 
 void CS230::Animation::PlayFrame::Update(double dt)
 {
@@ -124,14 +124,14 @@ void CS230::Animation::PlayFrame::ResetTime()
     timer = 0.0;
 }
 
-int CS230::Animation::PlayFrame::Frame()
+size_t CS230::Animation::PlayFrame::Frame()
 {
     return frame;
 }
 
-CS230::Animation::Loop::Loop(int loop_index) : loop_index(loop_index){}
+CS230::Animation::Loop::Loop(size_t _loop_index) : loop_index(_loop_index){}
 
-int CS230::Animation::Loop::LoopIndex()
+size_t CS230::Animation::Loop::LoopIndex()
 {
     return loop_index;
 }

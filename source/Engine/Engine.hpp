@@ -241,7 +241,7 @@ public:
 
     static CS200::DemoManager& GetDemoManager();
 
-    static CS230::Font& GetFont(int);
+    static CS230::Font& GetFont(size_t);
 
     void AddFont(const std::filesystem::path& file_name);
 
