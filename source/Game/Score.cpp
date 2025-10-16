@@ -17,3 +17,8 @@ void Score::Add(int dv)
 {
 	value += dv;
 }
+
+void Score::Sub(int dv)
+{
+    value -= dv;
+}

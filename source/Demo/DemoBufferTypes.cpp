@@ -17,6 +17,7 @@
 #include "Engine/Window.hpp"
 #include "OpenGL/Buffer.hpp"
 #include "OpenGL/GL.hpp"
+#include "../Game/MainMenu.h"
 #include <cmath>
 #include <imgui.h>
 #include <numbers>
@@ -35,7 +36,7 @@ void DemoBufferTypes::Unload()
 {
     OpenGL::DestroyShader(backgroundShader);
     OpenGL::DestroyShader(villagerShader);
-    GL::DeleteBuffers(1, &uniformBlock), uniformBlock                                   = 0;
+    //GL::DeleteBuffers(1, &uniformBlock), uniformBlock                                   = 0;
     GL::DeleteVertexArrays(1, &background.modelHandle), background.modelHandle          = 0;
     GL::DeleteVertexArrays(1, &villager.modelHandle), villager.modelHandle              = 0;
     GL::DeleteBuffers(1, &background.vertexBufferHandle), background.vertexBufferHandle = 0;
@@ -66,7 +67,7 @@ void DemoBufferTypes::Update([[maybe_unused]]double dt)
     updateVillagers();
 }
 
-void DemoBufferTypes::Draw() const
+void DemoBufferTypes::Draw() 
 {
     CS200::RenderingAPI::Clear();
 
@@ -131,6 +132,13 @@ void DemoBufferTypes::DrawImGui()
         if (ImGui::Button("Regenerate All"))
         {
             regenerate_all_villagers();
+        }
+
+        ImGui::SeparatorText("Switch Demo");
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
         }
 
 

@@ -20,6 +20,7 @@
 #include "Engine/Window.hpp"
 #include "OpenGL/Buffer.hpp"
 #include "OpenGL/GL.hpp"
+#include "../Game/MainMenu.h"
 #include <cmath>
 #include <imgui.h>
 #include <limits>
@@ -80,7 +81,7 @@ void DemoTexturing::Update([[maybe_unused]]double dt)
     ease_to_target(settings.ProceduralTileSize, settings.TargetProceduralTileSize, static_cast<float>(environment.DeltaTime), 1.5f);
 }
 
-void DemoTexturing::Draw() const
+void DemoTexturing::Draw() 
 {
     CS200::RenderingAPI::Clear();
 
@@ -194,6 +195,11 @@ void DemoTexturing::DrawImGui()
         {
             Engine::GetGameStateManager().PopState();
             Engine::GetGameStateManager().PushState<DemoCS230Textures>();
+        }
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
         }
     }
     ImGui::End();

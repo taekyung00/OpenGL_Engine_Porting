@@ -22,6 +22,7 @@
 #include "Engine/TextureManager.hpp"
 #include "Engine/Window.hpp"
 #include "OpenGL/GL.hpp"
+#include "../Game/MainMenu.h"
 
 #include <cmath>
 #include <imgui.h>
@@ -118,7 +119,7 @@ void DemoFramebuffer::Update([[maybe_unused]]double dt)
     updateWindParticles(delta_time);
 }
 
-void DemoFramebuffer::Draw() const
+void DemoFramebuffer::Draw() 
 {
     CS200::RenderingAPI::Clear();
 
@@ -239,6 +240,11 @@ void DemoFramebuffer::DrawImGui()
         {
             Engine::GetGameStateManager().PopState();
             Engine::GetGameStateManager().PushState<DemoText>();
+        }
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
         }
     }
     ImGui::End();

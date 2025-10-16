@@ -36,7 +36,7 @@ namespace CS230
 
         // make texture slice matrix
         const Math::vec2           frame_size_scale = { static_cast<double>(frame_size.x) / image_size.x, static_cast<double>(frame_size.y) / image_size.y };
-        //const Math::vec2 translation_before_frame_size_scale = {static_cast<double>(texel_position.x) / frame_size.x, static_cast<double>(image_size.y - (texel_position.y + frame_size.y)) / frame_size.y};
+        
         const Math::vec2 translation_before_frame_size_scale = { static_cast<double>(texel_position.x) / frame_size.x, static_cast<double>(slice_amount.y - (texel_position.y / frame_size.y) - 1) };
         Math::TransformationMatrix texcoord_transform = Math::ScaleMatrix(frame_size_scale) * Math::TranslationMatrix(translation_before_frame_size_scale);
         Math::vec2                 texel_coord_bl                      = texcoord_transform * Math::vec2{ 0.0, 0.0 };
@@ -44,18 +44,15 @@ namespace CS230
 
         // world transformation
         const Math::vec2 world_scale = { display_matrix[0][0] * frame_size.x, display_matrix[1][1] * frame_size.y };
-        //const Math::vec2 set_bottom_left = { (image_size.x < frame_size.x ? image_size.x - frame_size.x : 0.0) +
-        //                                         (world_scale.x >= 0.0 ? static_cast<double>(frame_size.x) * 0.5 : -static_cast<double>(frame_size.x) * 0.5), // hardcord to reflect flip/background
-        //                                     (image_size.y < frame_size.y ? image_size.y - frame_size.y : 0.0) + static_cast<double>(frame_size.y) * 0.5 };
         Math::vec2       set_bottom_left{};
         Math::vec2       world_tranlation{};
-        if (Math::IsIdentityMatrix(display_matrix))
+        if (Math::IsIdentityMatrix(display_matrix) || slice_amount == Math::ivec2{1,1})//background or just draw without slicing
         {
             //make bottomleft always one, slice reallign
             const auto bl_y_left = texel_coord_bl.y;
             texel_coord_bl.y -= bl_y_left;
             texel_coord_tr.y -= bl_y_left;
-            //texel_coord_bl = { 0.0, 0.0} ; //always
+
             set_bottom_left = { (image_size.x < frame_size.x ? image_size.x - frame_size.x : 0.0) + frame_size.x * 0.5,
                                 (image_size.y < frame_size.y ? image_size.y - frame_size.y : 0.0) + frame_size.y * 0.5 };
             

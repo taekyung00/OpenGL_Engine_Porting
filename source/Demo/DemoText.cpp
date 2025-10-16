@@ -16,6 +16,7 @@
 #include "Engine/GameStateManager.hpp"
 #include "Engine/Texture.hpp"
 #include "Engine/Window.hpp"
+#include "../Game/MainMenu.h"
 #include <imgui.h>
 #include <sstream>
 
@@ -54,7 +55,7 @@ void DemoText::Unload()
 {
 }
 
-void DemoText::Draw() const
+void DemoText::Draw() 
 {
     CS200::RenderingAPI::Clear();
     auto& renderer2d = Engine::GetRenderer2D();
@@ -210,6 +211,12 @@ void DemoText::DrawImGui()
         {
             Engine::GetGameStateManager().PopState();
             Engine::GetGameStateManager().PushState<DemoShapes>();
+        }
+
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
         }
     }
 

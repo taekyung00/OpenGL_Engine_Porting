@@ -17,19 +17,20 @@
 #include "OpenGL/GL.hpp"
 #include "Texture.hpp"
 #include "Window.hpp"
-
+#include "Path.hpp"
 namespace CS230
 {
     std::shared_ptr<Texture> TextureManager::Load(const std::filesystem::path& file_name)
     {
-        if (textures.find(file_name) == textures.end())
+        const std::filesystem::path file_path = assets::locate_asset(file_name); 
+        if (textures.find(file_path) == textures.end())
         {
             // textures[file_name] = new Texture(file_name);
-            textures[file_name] = std::shared_ptr<Texture>(new Texture(file_name));
+            textures[file_path] = std::shared_ptr<Texture>(new Texture(file_path));
 
-            Engine::GetLogger().LogEvent("Loading Texture: " + file_name.string());
+            Engine::GetLogger().LogEvent("Loading Texture: " + file_path.string());
         }
-        return textures[file_name];
+        return textures[file_path];
     }
 
     void TextureManager::Unload()
@@ -45,6 +46,7 @@ namespace CS230
     void TextureManager::StartRenderTextureMode([[maybe_unused]] int width, [[maybe_unused]] int height)
     {
         auto& renderer_2d = Engine::GetRenderer2D();
+        auto& render_info = get_render_info();
         // TODO implement this function
         //  * - Ends current 2D renderer scene to ensure clean state transition
         renderer_2d.EndScene();
@@ -74,6 +76,7 @@ namespace CS230
     {
         // TODO implement this function
         auto& renderer_2d = Engine::GetRenderer2D();
+        auto& render_info = get_render_info();
         // * Cleanup and Restoration Process:
         //  * - Ends current 2D renderer scene to flush any pending draw operations
         renderer_2d.EndScene();

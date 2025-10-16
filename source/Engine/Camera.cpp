@@ -10,7 +10,7 @@ Created:    March 8, 2023
 #include "Camera.h"
 #include "Engine.hpp"
 
-CS230::Camera::Camera(Math::rect _player_zone) :  position({0.0,0.0}), player_zone(_player_zone)  {}
+CS230::Camera::Camera(Math::rect _player_zone) :  position(Math::vec2{0.0,0.0}), player_zone(_player_zone)  {}
 
 void CS230::Camera::SetPosition(Math::vec2 new_position){
     position = new_position;

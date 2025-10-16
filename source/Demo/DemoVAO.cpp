@@ -12,6 +12,7 @@
 #include "OpenGL/GL.hpp"
 #include "OpenGL/Shader.hpp"
 #include "OpenGL/VertexArray.hpp"
+#include "../Game/MainMenu.h"
 #include <algorithm>
 #include <imgui.h>
 
@@ -47,7 +48,7 @@ void DemoVAO::Update([[maybe_unused]]double dt)
         hue -= 360.0f;
 }
 
-void DemoVAO::Draw() const
+void DemoVAO::Draw() 
 {
     constexpr GLsizei        indices_count            = 6;
     constexpr GLenum         primitive_pattern        = GL_TRIANGLES;
@@ -84,6 +85,12 @@ void DemoVAO::DrawImGui()
             float r = 0, g = 0, b = 0;
             ImGui::ColorConvertHSVtoRGB(hue / 360.0f, saturation, value, r, g, b);
             ImGui::LabelText("Background Color", "RGB(%.0f,%.0f,%.0f)", static_cast<double>(r * 255), static_cast<double>(g * 255), static_cast<double>(b * 255));
+        }
+        ImGui::SeparatorText("Switch Demo");
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
         }
 
     }

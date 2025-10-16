@@ -8,11 +8,10 @@
 #pragma once
 
 #include <chrono>
-
+#include "Component.h"
 namespace util
 {
-    class [[nodiscard]] Timer
-    {
+    class [[nodiscard]] Timer : public CS230::Component{
     private:
         using clock_t  = std::chrono::steady_clock;
         using second_t = std::chrono::duration<double, std::ratio<1>>;

@@ -22,6 +22,7 @@ namespace CS230 {
         void SetPosition(Math::vec2 new_position);
         const Math::vec2& GetPosition() const;
         void SetLimit(Math::irect new_limit);
+        using Component::Update; // say i'll use this version too, so don't hide anymore
         void Update(const Math::vec2& player_position);
         Math::TransformationMatrix GetMatrix();
     private:

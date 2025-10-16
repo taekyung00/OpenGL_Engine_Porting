@@ -19,13 +19,13 @@ CS230::GameObject::GameObject(Math::vec2 _position) :
 
 CS230::GameObject::GameObject(Math::vec2 _position, double _rotation, Math::vec2 _scale) :
     
-    position(_position),
-    velocity({ 0.0,0.0 }),
-    scale(_scale),
-    rotation(_rotation),
     current_state(&state_none),
     matrix_outdated(true),
-    destroy(false)
+    destroy(false),
+    position(_position),
+    velocity(Math::vec2{ 0.0,0.0 }),
+    scale(_scale),
+    rotation(_rotation)    
 {}
 
 bool CS230::GameObject::IsCollidingWith(GameObject* other_object)

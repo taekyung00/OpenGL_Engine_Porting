@@ -23,6 +23,7 @@ namespace CS230 {
         void Unload();
 
         void UpdateAll(double dt);
+        void SortForDraw();
         void DrawAll(Math::TransformationMatrix camera_matrix);
 
         void CollisionTest();

@@ -18,6 +18,7 @@
 #include "Engine/Texture.hpp"
 #include "Engine/TextureManager.hpp"
 #include "Engine/Window.hpp"
+#include "../Game/MainMenu.h"
 
 #include <cmath>
 #include <imgui.h>
@@ -63,7 +64,7 @@ void DemoCS230Textures::Update([[maybe_unused]]double dt)
     ease_to_target(characterTintColor[3], targetCharacterTintColor[3], delta_time, weight);
 }
 
-void DemoCS230Textures::Draw() const
+void DemoCS230Textures::Draw() 
 {
     CS200::RenderingAPI::Clear();
     auto& renderer_2d = Engine::GetRenderer2D();
@@ -193,6 +194,11 @@ void DemoCS230Textures::DrawImGui()
         {
             Engine::GetGameStateManager().PopState();
             Engine::GetGameStateManager().PushState<DemoTexturing>();
+        }
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
         }
     }
     ImGui::End();

@@ -11,7 +11,6 @@
 #include "CS200/ImmediateRenderer2D.hpp"
 #include "CS200/NDC.hpp"
 #include "CS200/RenderingAPI.hpp"
-#include "Demo/DemoManager.hpp"
 #include "FPS.hpp"
 #include "Font.hpp"
 #include "GameState.hpp"
@@ -19,6 +18,7 @@
 #include "Input.hpp"
 #include "Logger.hpp"
 #include "TextureManager.hpp"
+#include "TextManager.hpp"
 #include "Timer.hpp"
 #include "Window.hpp"
 
@@ -50,8 +50,7 @@ public:
     CS230::GameStateManager    gameStateManager{};
     CS200::ImmediateRenderer2D renderer2D{};
     CS230::TextureManager      textureManager{};
-    CS200::DemoManager         demomanager{};
-    std::vector<CS230::Font>   fonts;
+    TextManager                textManager{};
 };
 
 Engine& Engine::Instance()
@@ -95,20 +94,12 @@ CS230::TextureManager& Engine::GetTextureManager()
     return Instance().impl->textureManager;
 }
 
-CS200::DemoManager& Engine::GetDemoManager()
-{
-    return Instance().impl->demomanager;
-}
+ TextManager& Engine::GetTextManager()
+ {
+     return Instance().impl->textManager;
+ }
 
-CS230::Font& Engine::GetFont(size_t index)
-{
-    return Instance().impl->fonts[index];
-}
 
-void Engine::AddFont(const std::filesystem::path& file_name)
-{
-    impl->fonts.push_back(CS230::Font(file_name));
-}
 
 void Engine::Start(std::string_view window_title)
 {
@@ -127,6 +118,7 @@ void Engine::Start(std::string_view window_title)
     window.SetEventCallback(ImGuiHelper::FeedEvent);
     impl->renderer2D.Init();
     impl->timer.ResetTimeStamp();
+    impl->textManager.Init();
 }
 
 void Engine::Stop()
@@ -145,7 +137,7 @@ void Engine::Update()
     auto& environment = impl->environment;
     impl->window.Update();
     impl->input.Update();
-    impl->demomanager.UpdateDemo();
+    
     auto& state_manager = impl->gameStateManager;
     state_manager.Update(environment.DeltaTime);
     const auto        viewport      = impl->viewport;

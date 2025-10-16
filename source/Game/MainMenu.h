@@ -15,23 +15,21 @@ Created:    May 6, 2025
 #include "../Engine/Texture.hpp"
 #include "../Engine/Font.hpp"
 
-#include "Fonts.h"
+#include "../Engine/Fonts.h"
 
 class MainMenu : public CS230::GameState {
 public:
     MainMenu();
-    void Load() override;
-    void Update(double dt) override;
-    void Unload() override;
-    void Draw() const override;
-    
+    void          Load() override;
+    void          Update(double dt) override;
+    void          Unload() override;
+    void          Draw() override;
+    void          DrawImGui() override;
+    gsl::czstring GetName() const override;
+    static constexpr CS200::RGBA  title_color       = 0x9A2EFEFF;
+    static constexpr CS200::RGBA  non_seleted_color = 0x3ADF00FF;
+    static constexpr CS200::RGBA  seleted_color     = 0xFFFFFFFF;
 
-    gsl::czstring GetName() const override {
-        return "MainMenu";
-    }
-    static constexpr unsigned int title_color = 0x9A2EFEFF;
-    static constexpr unsigned int non_seleted_color = 0x3ADF00FF;
-    static constexpr unsigned int seleted_color = 0xFFFFFFFF;
 private:
 enum class Option
     {
@@ -39,15 +37,15 @@ enum class Option
         exit
     };
     Option current_option;
-    std::shared_ptr<CS230::Texture> title_texture;
-    std::shared_ptr<CS230::Texture> cs230_final_texture;
-    std::shared_ptr<CS230::Texture> exit_texture;
+    //std::shared_ptr<CS230::Texture> title_texture;
+    //std::shared_ptr<CS230::Texture> cs230_final_texture;
+    //std::shared_ptr<CS230::Texture> exit_texture;
 
-    unsigned int cs230_final_color ;
-    unsigned int exit_color ;
+    CS200::RGBA cs230_final_color ;
+    CS200::RGBA exit_color;
 
     
     
-    void update_textures();
+    void update_colors();
 
 };

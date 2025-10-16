@@ -23,21 +23,39 @@ set(SOURCE_CODE
     Demo/DemoBufferTypes.hpp Demo/DemoBufferTypes.cpp
     Demo/DemoTexturing.hpp Demo/DemoTexturing.cpp
     Demo/DemoCS230Textures.hpp Demo/DemoCS230Textures.cpp
-    Demo/DemoManager.hpp Demo/DemoManager.cpp
 
 
     Game/Background.h Game/Background.cpp
-    Game/Fonts.h
     Game/GameObjectTypes.h
     Game/MainMenu.h Game/MainMenu.cpp
     Game/Particles.h
     Game/Score.h Game/Score.cpp
-    Game/Splash.h
+    Game/Splash.h Game/Splash.cpp
     Game/States.h
+
+    Game/CS230_Final/Components/Bounce.h Game/CS230_Final/Components/Bounce.cpp
+    Game/CS230_Final/Components/Grid.h Game/CS230_Final/Components/Grid.cpp
+    Game/CS230_Final/Components/Random.h Game/CS230_Final/Components/Random.cpp
+    Game/CS230_Final/Components/Ziggle.h Game/CS230_Final/Components/Ziggle.cpp
+
+    Game/CS230_Final/Objects/Bus.h Game/CS230_Final/Objects/Bus.cpp
+    Game/CS230_Final/Objects/BusLine.h
+    Game/CS230_Final/Objects/Constants.h
+    Game/CS230_Final/Objects/Bus.h Game/CS230_Final/Objects/Bus.cpp
+    Game/CS230_Final/Objects/Food.h Game/CS230_Final/Objects/Food.cpp
+    Game/CS230_Final/Objects/Obstacle.h Game/CS230_Final/Objects/Obstacle.cpp
+    Game/CS230_Final/Objects/Passenger.h Game/CS230_Final/Objects/Passenger.cpp
+    Game/CS230_Final/Objects/Player.h Game/CS230_Final/Objects/Player.cpp
+
+    Game/CS230_Final/States/BadSandwich.h Game/CS230_Final/States/BadSandwich.cpp
+    Game/CS230_Final/States/GoodSandwich.h Game/CS230_Final/States/GoodSandwich.cpp
+    Game/CS230_Final/States/NormalSandwich.h Game/CS230_Final/States/NormalSandwich.cpp
+    Game/CS230_Final/States/Project.h Game/CS230_Final/States/Project.cpp
 
     Engine/Engine.hpp Engine/Engine.cpp
     Engine/Error.hpp
     Engine/Font.hpp Engine/Font.cpp
+    Engine/Fonts.h
     Engine/FPS.hpp
     Engine/GameState.hpp
     Engine/GameStateManager.hpp Engine/GameStateManager.cpp
@@ -49,6 +67,7 @@ set(SOURCE_CODE
     Engine/Rect.hpp
     Engine/Texture.hpp Engine/Texture.cpp
     Engine/TextureManager.hpp Engine/TextureManager.cpp
+    Engine/TextManager.hpp Engine/TextManager.cpp
     Engine/Timer.hpp
     Engine/Vec2.hpp Engine/Vec2.cpp
     Engine/Window.hpp Engine/Window.cpp

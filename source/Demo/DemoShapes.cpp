@@ -20,6 +20,7 @@
 #include "Engine/Logger.hpp"
 #include "Engine/Matrix.hpp"
 #include "Engine/Window.hpp"
+#include "../Game/MainMenu.h"
 #include <cmath>
 #include <imgui.h>
 #include <iomanip>
@@ -118,7 +119,7 @@ void DemoShapes::Update([[maybe_unused]]double dt)
     lineColor = CS200::pack_color(currentLineColor);
 }
 
-void DemoShapes::Draw() const
+void DemoShapes::Draw() 
 {
     CS200::RenderingAPI::Clear();
     auto& renderer2d = Engine::GetRenderer2D();
@@ -214,6 +215,12 @@ void DemoShapes::DrawImGui()
         {
             Engine::GetGameStateManager().PopState();
             Engine::GetGameStateManager().PushState<DemoText>();
+        }
+
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
         }
     }
     ImGui::End();

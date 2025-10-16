@@ -21,7 +21,7 @@ public:
     void          Load() override;
     void          Update(double dt) override;
     void          Unload() override;
-    void          Draw() const override;
+    void          Draw() override;
     void          DrawImGui() override;
     gsl::czstring GetName() const override;
 

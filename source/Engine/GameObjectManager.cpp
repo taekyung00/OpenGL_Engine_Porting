@@ -35,6 +35,11 @@ void CS230::GameObjectManager::UpdateAll(double dt){
 	}
 }
 
+void CS230::GameObjectManager::SortForDraw()
+{
+    objects.sort([](GameObject* a, GameObject* b) { return a->DrawPriority() < b->DrawPriority(); });
+}
+
 void CS230::GameObjectManager::DrawAll(Math::TransformationMatrix camera_matrix){
 	for (GameObject* object : objects) {
 		object->Draw(camera_matrix);		

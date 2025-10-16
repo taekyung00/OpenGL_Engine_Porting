@@ -38,7 +38,7 @@ namespace CS230
 
         [[nodiscard]] Math::ivec2 GetSize() const noexcept
         {
-            return { size.x, size.y };
+            return { window_size.x, window_size.y };
         }
 
         void          Clear(CS200::RGBA color);
@@ -68,7 +68,7 @@ namespace CS230
         gsl::owner<SDL_Window*>   sdl_window = nullptr;
         gsl::owner<SDL_GLContext> gl_context = nullptr;
         bool                      closed     = false;
-        Math::ivec2               size       = { 800, 600 };
+        //Math::ivec2               size       = { 800, 600 };
 
         WindowEventCallback eventCallback;
 

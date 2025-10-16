@@ -55,7 +55,7 @@ namespace CS230 {
 
         class PlayFrame : public Command {
         public:
-            PlayFrame(int frame, double duration);
+            PlayFrame(size_t frame, double duration);
             virtual CommandType Type() override { return CommandType::PlayFrame; }
             void Update(double dt);
             bool Ended();

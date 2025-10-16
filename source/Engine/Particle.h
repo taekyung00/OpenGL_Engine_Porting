@@ -43,11 +43,11 @@ namespace CS230
     public:
         ParticleManager();
         ~ParticleManager();
-        void Emit(int count, Math::vec2 emitter_position, Math::vec2 emitter_velocity, Math::vec2 direction, double spread);
+        void Emit(size_t count, Math::vec2 emitter_position, Math::vec2 emitter_velocity, Math::vec2 direction, double spread);
 
     private:
         std::vector<T*> particles;
-        int             index;
+        size_t             index;
     };
 
     template <typename T>
@@ -66,17 +66,17 @@ namespace CS230
     template <typename T>
     inline ParticleManager<T>::~ParticleManager()
     {
-        for (T* particle : particles)
-        {
-            particle->Destroy();
-        }
+        //for (T* particle : particles)
+        //{
+        //    particle->Destroy();
+        //}
         particles.clear();
     }
 
     template <typename T>
-    inline void ParticleManager<T>::Emit(int count, Math::vec2 emitter_position, Math::vec2 emitter_velocity, Math::vec2 direction, double spread)
+    inline void ParticleManager<T>::Emit(size_t count, Math::vec2 emitter_position, Math::vec2 emitter_velocity, Math::vec2 direction, double spread)
     {
-        for (int i = 0; i < count; ++i)
+        for (size_t i = 0; i < count; ++i)
         {
             if (particles[i]->Alive())
             {
@@ -85,14 +85,14 @@ namespace CS230
             double angle_variation = 0.0;
             if (spread != 0)
             {
-                angle_variation = ((rand() % static_cast<int>(spread * 1024)) / 1024.0f) - spread / 2;
+                angle_variation = static_cast<double>((rand() % static_cast<int>(spread * 1024)) / 1024) - spread / 2;
             }
-            Math::vec2 random_magnitude  = direction * (((rand() % 1024) / 2048.0f) + 0.5f);
+            Math::vec2 random_magnitude  = direction * (static_cast<float>((rand() % 1024) / 2048) + 0.5f);
             Math::vec2 particle_velocity = Math::RotationMatrix(angle_variation) * random_magnitude + emitter_velocity;
             particles[index]->Start(emitter_position, particle_velocity, T::MaxLife);
 
             ++index;
-            if (index >= static_cast<int>(particles.size()))
+            if (index >= particles.size())
             {
                 index = 0;
             }

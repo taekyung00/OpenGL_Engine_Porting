@@ -107,10 +107,10 @@ namespace CS230
         window_size.y = default_height;
 
         // Get actual drawable size for high-DPI displays
-        SDL_GL_GetDrawableSize(sdl_window, &size.x, &size.y);
+        SDL_GL_GetDrawableSize(sdl_window, &window_size.x, &window_size.y);
 
 
-        GL::Viewport(0, 0, size.x, size.y);
+        GL::Viewport(0, 0, window_size.x, window_size.y);
 
         // Set initial clear color through our rendering abstraction
         CS200::RenderingAPI::SetClearColor(default_background);
@@ -129,10 +129,10 @@ namespace CS230
             switch (event.window.event)
             {
                 case SDL_WINDOWEVENT_CLOSE: closed = true; break;
-                case SDL_WINDOWEVENT_RESIZED: size = { event.window.data1, event.window.data2 }; break;
+                case SDL_WINDOWEVENT_RESIZED: window_size = { event.window.data1, event.window.data2 }; break;
                 case SDL_WINDOWEVENT_SIZE_CHANGED:
-                    SDL_GL_GetDrawableSize(sdl_window, &size.x, &size.y);
-                    GL::Viewport(0, 0, size.x, size.y);
+                    SDL_GL_GetDrawableSize(sdl_window, &window_size.x, &window_size.y);
+                    GL::Viewport(0, 0, window_size.x, window_size.y);
                     break;
                     break;
                 default: break;

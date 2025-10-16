@@ -28,8 +28,9 @@ namespace CS230
 namespace CS200
 {
     class IRenderer2D;
-    class DemoManager;
 }
+
+class TextManager;
 
 /**
  * \brief Runtime information about the window and application state
@@ -239,11 +240,7 @@ public:
      */
     static CS230::TextureManager& GetTextureManager();
 
-    static CS200::DemoManager& GetDemoManager();
-
-    static CS230::Font& GetFont(size_t);
-
-    void AddFont(const std::filesystem::path& file_name);
+     static TextManager& GetTextManager();
 
 
 public:

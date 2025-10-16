@@ -12,10 +12,11 @@ Created:    March 19, 2025
 #include "Sprite.h"
 #include "TextureManager.hpp"
 #include "Logger.hpp"
+#include "Path.hpp"
 #include <fstream>
 
-CS230::Sprite::Sprite(const std::filesystem::path& sprite_file, GameObject* given_object) {
-    Load(sprite_file, given_object);
+CS230::Sprite::Sprite(const std::filesystem::path& sprite_file, GameObject* _given_object) {
+    Load(sprite_file, _given_object);
 }
 
 CS230::Sprite::~Sprite()
@@ -53,15 +54,18 @@ void CS230::Sprite::Update(double dt)
 
 void CS230::Sprite::Load(const std::filesystem::path& sprite_file, GameObject* _given_object)
 {
+    const std::filesystem::path sprite_path = assets::locate_asset(sprite_file);
     given_object = _given_object;
     animations.clear();
-    if (sprite_file.extension() != ".spt") {
-        throw std::runtime_error(sprite_file.generic_string() + " is not a .spt file");
+    if (sprite_path.extension() != ".spt")
+    {
+        throw std::runtime_error(sprite_path.generic_string() + " is not a .spt file");
     }
-    std::ifstream in_file(sprite_file);
+    
+    std::ifstream               in_file(sprite_path);
 
     if (in_file.is_open() == false) {
-        throw std::runtime_error("Failed to load " + sprite_file.generic_string());
+        throw std::runtime_error("Failed to load " + sprite_path.generic_string());
     }
 
     hotspots.clear();
@@ -143,9 +147,9 @@ void CS230::Sprite::Draw(Math::TransformationMatrix display_matrix){
     texture->Draw(display_matrix * Math::TranslationMatrix(-GetHotSpot(0)), GetFrameTexel(animations[current_animation]->CurrentFrame()), GetFrameSize());
 }
 
-Math::ivec2 CS230::Sprite::GetHotSpot(int index)
+Math::ivec2 CS230::Sprite::GetHotSpot(size_t index)
 {
-	if (index < 0 || index > hotspots.size()) {
+	if ( index > hotspots.size()) {
 		Engine::GetLogger().LogDebug("Invalid index in hospot!");
 		return Math::ivec2{ 0,0 };
 	}
@@ -157,9 +161,9 @@ Math::ivec2 CS230::Sprite::GetFrameSize()
     return frame_size;
 }
 
-void CS230::Sprite::PlayAnimation(int animation)
+void CS230::Sprite::PlayAnimation(size_t animation)
 {
-    if (animation < 0 || animation >= animations.size()) {
+    if (animation >= animations.size()) {
         Engine::GetLogger().LogDebug("Invalid index in animation!");
         current_animation = 0;
         return;
@@ -173,9 +177,9 @@ bool CS230::Sprite::AnimationEnded()
     return animations[current_animation]->Ended();
 }
 
-Math::ivec2 CS230::Sprite::GetFrameTexel(int index) const
+Math::ivec2 CS230::Sprite::GetFrameTexel(size_t index) const
 {
-    if (index < 0 || index >= frame_texels.size()) {
+    if ( index >= frame_texels.size()) {
         Engine::GetLogger().LogDebug("Invalid index in frametexles!");
         return Math::ivec2{ 0,0 };
     }
