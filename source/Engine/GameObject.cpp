@@ -9,6 +9,8 @@ Created:    April 25, 2025
 */
 #include "GameObject.h"
 #include "GameState.hpp"
+#include "GameStateManager.hpp"
+#include "ShowCollision.h"
 
 CS230::GameObject::GameObject(Math::vec2 position) :
     GameObject(position, 0, { 1, 1 })

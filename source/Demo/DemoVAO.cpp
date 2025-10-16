@@ -12,7 +12,6 @@
 #include "OpenGL/GL.hpp"
 #include "OpenGL/Shader.hpp"
 #include "OpenGL/VertexArray.hpp"
-#include "DemoMyModel.hpp"
 #include <algorithm>
 #include <imgui.h>
 
@@ -41,7 +40,7 @@ void DemoVAO::Unload()
     std::fill(std::begin(indexBufferHandles), std::end(indexBufferHandles), 0);
 }
 
-void DemoVAO::Update()
+void DemoVAO::Update([[maybe_unused]]double dt)
 {
     hue += 0.25f;
     if (hue >= 360.0f)
@@ -87,12 +86,6 @@ void DemoVAO::DrawImGui()
             ImGui::LabelText("Background Color", "RGB(%.0f,%.0f,%.0f)", static_cast<double>(r * 255), static_cast<double>(g * 255), static_cast<double>(b * 255));
         }
 
-        ImGui::Separator();
-        if (ImGui::Button("Switch to Taekyung Ho Demo"))
-        {
-            Engine::GetGameStateManager().PopState();
-            Engine::GetGameStateManager().PushState<DemoMyModel>();
-        }
     }
     ImGui::End();
 }

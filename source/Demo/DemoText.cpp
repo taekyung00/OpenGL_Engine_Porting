@@ -29,7 +29,7 @@ void DemoText::Load()
     updateCachedTextures();
 }
 
-void DemoText::Update()
+void DemoText::Update([[maybe_unused]]double dt)
 {
     const auto& environment = Engine::GetWindowEnvironment();
 

@@ -25,7 +25,7 @@ class DemoCS230Textures : public CS230::GameState
 {
 public:
     void          Load() override;
-    void          Update() override;
+    void          Update(double dt) override;
     void          Unload() override;
     void          Draw() const override;
     void          DrawImGui() override;
@@ -94,9 +94,9 @@ private:
         }
     };
 
-    std::vector<CS230::Texture*> backgroundTextures;
-    CS230::Texture*              robotTexture              = nullptr;
-    CS230::Texture*              catTexture                = nullptr;
+    std::vector<std::shared_ptr<CS230::Texture>> backgroundTextures;
+    std::shared_ptr<CS230::Texture>              robotTexture              = nullptr;
+    std::shared_ptr<CS230::Texture>              catTexture                = nullptr;
     std::array<float, 4>         backgroundTintColor       = { 0.1f, 0.2f, 0.3f, 0.4f };
     std::array<float, 4>         characterTintColor        = { 0.4f, 0.3f, 0.2f, 0.1f };
     std::array<float, 4>         targetBackgroundTintColor = { 1.0f, 1.0f, 1.0f, 1.0f };

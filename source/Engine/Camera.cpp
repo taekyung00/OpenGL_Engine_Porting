@@ -8,7 +8,7 @@ Author:     Jonathan Holmes
 Created:    March 8, 2023
 */
 #include "Camera.h"
-#include "Engine.h"
+#include "Engine.hpp"
 
 CS230::Camera::Camera(Math::rect player_zone) : player_zone(player_zone) , position({0,0}) {}
 

@@ -10,9 +10,10 @@ Created:    May 6, 2025
 
 #pragma once
 
-#include "../Engine/Engine.h"
-#include "../Engine/GameState.h"
-#include "../Engine/Texture.h"
+#include "../Engine/Engine.hpp"
+#include "../Engine/GameState.hpp"
+#include "../Engine/Texture.hpp"
+#include "../Engine/Font.hpp"
 
 #include "Fonts.h"
 
@@ -22,29 +23,26 @@ public:
     void Load() override;
     void Update(double dt) override;
     void Unload() override;
-    void Draw() override;
+    void Draw() const override;
     
 
-    std::string GetName() override {
+    gsl::czstring GetName() const override {
         return "MainMenu";
     }
     static constexpr unsigned int title_color = 0x9A2EFEFF;
     static constexpr unsigned int non_seleted_color = 0x3ADF00FF;
     static constexpr unsigned int seleted_color = 0xFFFFFFFF;
 private:
-    CS230::Texture* title_texture;
-    CS230::Texture* side_scroller_texture;
-    CS230::Texture* space_shooter_texture;
-    CS230::Texture* exit_texture;
+    std::shared_ptr<CS230::Texture> title_texture;
+    std::shared_ptr<CS230::Texture> cs230_final_texture;
+    std::shared_ptr<CS230::Texture> exit_texture;
 
-    unsigned int side_scroller_color ;
-    unsigned int space_shooter_color ;
+    unsigned int cs230_final_color ;
     unsigned int exit_color ;
 
     enum class Option
     {
-        side_scroller,
-        space_shooter,
+        cs230_final,
         exit
     };
     Option current_option;

@@ -9,6 +9,7 @@ Created:    March 29, 2025
 */
 
 #include "Background.h"
+#include "../Engine/TextureManager.hpp"
 
 void Background::Add(const std::filesystem::path& texture_path, double speed){
 	backgrounds.push_back(ParallaxLayer{Engine::GetTextureManager().Load(texture_path),speed});

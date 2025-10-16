@@ -9,8 +9,8 @@ Created:    March 29, 2025
 */
 
 #pragma once
-#include "../Engine/Engine.h"
-#include "../Engine/Texture.h"
+#include "../Engine/Engine.hpp"
+#include "../Engine/Texture.hpp"
 #include "../Engine/Camera.h"
 #include "../Engine/Component.h"
 
@@ -22,7 +22,7 @@ public:
     Math::ivec2 GetSize();
 private:
     struct ParallaxLayer {
-        CS230::Texture* texture;
+        std::shared_ptr<CS230::Texture> texture;
         double speed = 1;
     };
 

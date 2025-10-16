@@ -47,7 +47,7 @@ static void ease_to_target(T& current, const T& target, FLOAT delta_time, FLOAT 
     current += easing * (target - current);
 }
 
-void DemoCS230Textures::Update()
+void DemoCS230Textures::Update([[maybe_unused]]double dt)
 {
     const auto& environment = Engine::GetWindowEnvironment();
     updateAnimation(environment.DeltaTime);
@@ -73,7 +73,7 @@ void DemoCS230Textures::Draw() const
     {
         texture->Draw(Math::TransformationMatrix{}, background_tint);
     }
-    CS230::Texture*  currentTexture = (selectedCharacter == CharacterType::Robot) ? robotTexture : catTexture;
+    std::shared_ptr<CS230::Texture>  currentTexture = (selectedCharacter == CharacterType::Robot) ? robotTexture : catTexture;
     const auto       middle_x       = Engine::GetWindowEnvironment().DisplaySize.x / 2.0;
     const auto       texel_base     = getCurrentFrameTexelPosition();
     const auto       frame_size     = getCurrentFrameSize();

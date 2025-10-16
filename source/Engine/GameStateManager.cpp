@@ -20,10 +20,10 @@ namespace CS230
         state->Unload();
     }
 
-    void GameStateManager::Update()
+    void GameStateManager::Update(double dt)
     {
         mToClear.clear();
-        mGameStateStack.back()->Update();
+        mGameStateStack.back()->Update(dt);
     }
 
     void GameStateManager::Draw()

@@ -12,6 +12,7 @@
 #include <gsl/gsl>
 #include <memory>
 #include <string_view>
+#include <filesystem>
 
 namespace CS230
 {
@@ -21,6 +22,7 @@ namespace CS230
     class GameState;
     class GameStateManager;
     class TextureManager;
+    class Font;
 }
 
 namespace CS200
@@ -238,6 +240,10 @@ public:
     static CS230::TextureManager& GetTextureManager();
 
     static CS200::DemoManager& GetDemoManager();
+
+    static CS230::Font& GetFont(int);
+
+    void AddFont(const std::filesystem::path& file_name);
 
 
 public:

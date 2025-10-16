@@ -7,8 +7,12 @@ Project:    CS230 Engine
 Author:     Taekyung Ho
 Created:    March 12, 2025
 */
-#include "..\Engine\Engine.h"
-#include "States.h"
+#include "../Engine/Engine.hpp"
+#include "../Engine/TextureManager.hpp"
+#include "../Engine/Logger.hpp"
+#include "../Engine/GameStateManager.hpp"
+#include "../Engine/Window.hpp"
+#include "MainMenu.h"
 #include "Splash.h"
 
 Splash::Splash() {
@@ -23,7 +27,8 @@ void Splash::Load() {
 void Splash::Update([[maybe_unused]] double dt) {
     Engine::GetLogger().LogDebug(std::to_string(counter));
     if (counter >= 2.0) {
-        Engine::GetGameStateManager().SetNextGameState(static_cast<int>(States::MainMenu));
+        Engine::GetGameStateManager().PopState();
+        Engine::GetGameStateManager().PushState<MainMenu>();
     }
     counter+=dt;
 }
@@ -32,7 +37,7 @@ void Splash::Unload() {
 
 }
 
-void Splash::Draw(){
+void Splash::Draw() const {
     Engine::GetWindow().Clear(UINT_MAX);
     texture->Draw(Math::TranslationMatrix({ (Engine::GetWindow().GetSize() - texture->GetSize()) / 2.0 }));
 }

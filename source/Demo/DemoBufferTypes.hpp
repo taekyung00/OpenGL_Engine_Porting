@@ -19,7 +19,7 @@ class DemoBufferTypes : public CS230::GameState
 public:
     void          Load() override;
     void          Unload() override;
-    void          Update() override;
+    void          Update(double dt) override;
     void          Draw() const override;
     void          DrawImGui() override;
     gsl::czstring GetName() const override;

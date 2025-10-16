@@ -64,7 +64,7 @@ static void ease_to_target(T& current, const T& target, FLOAT delta_time, FLOAT 
     current += easing * (target - current);
 }
 
-void DemoTexturing::Update()
+void DemoTexturing::Update([[maybe_unused]]double dt)
 {
     const auto& environment = Engine::GetWindowEnvironment();
     if (settings.AnimateProceduralTexture)

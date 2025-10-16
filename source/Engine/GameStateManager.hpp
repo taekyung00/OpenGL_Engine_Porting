@@ -22,7 +22,7 @@ namespace CS230
         template <typename STATE>
         void PushState();
         void PopState();
-        void Update();
+        void Update(double);
         void Draw();
         void DrawImGui();
 
@@ -32,6 +32,12 @@ namespace CS230
         }
 
         void Clear();
+
+        template <typename T>
+        T* GetGSComponent()
+        {
+            return mGameStateStack.back()->GetGSComponent<T>();
+        }
 
     private:
         std::vector<std::unique_ptr<GameState>> mGameStateStack;

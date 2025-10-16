@@ -11,7 +11,7 @@ Created:    April 25, 2025
 #pragma once
 #include <list>
 #include "GameObject.h"
-#include "Matrix.h"
+#include "Matrix.hpp"
 #include "Component.h"
 
 namespace Math { class TransformationMatrix; }

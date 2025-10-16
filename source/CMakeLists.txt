@@ -23,7 +23,7 @@ set(SOURCE_CODE
     Demo/DemoBufferTypes.hpp Demo/DemoBufferTypes.cpp
     Demo/DemoTexturing.hpp Demo/DemoTexturing.cpp
     Demo/DemoCS230Textures.hpp Demo/DemoCS230Textures.cpp
-    Demo/DemoUpdate.hpp Demo/DemoUpdate.cpp
+    Demo/DemoManager.hpp Demo/DemoManager.cpp
 
 
     Game/Background.h Game/Background.cpp

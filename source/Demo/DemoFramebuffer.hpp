@@ -26,7 +26,7 @@ class DemoFramebuffer : public CS230::GameState
 {
 public:
     void          Load() override;
-    void          Update() override;
+    void          Update(double dt) override;
     void          Unload() override;
     void          Draw() const override;
     void          DrawImGui() override;

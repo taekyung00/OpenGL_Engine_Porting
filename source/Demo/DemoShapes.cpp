@@ -68,7 +68,7 @@ static void ease_to_target(T& current, const T& target, FLOAT delta_time, FLOAT 
     current += easing * (target - current);
 }
 
-void DemoShapes::Update()
+void DemoShapes::Update([[maybe_unused]]double dt)
 {
     const auto& environment = Engine::GetWindowEnvironment();
 

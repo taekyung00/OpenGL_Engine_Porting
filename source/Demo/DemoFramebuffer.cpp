@@ -74,7 +74,7 @@ static void ease_to_target(T& current, const T& target, FLOAT delta_time, FLOAT 
     current += easing * (target - current);
 }
 
-void DemoFramebuffer::Update()
+void DemoFramebuffer::Update([[maybe_unused]]double dt)
 {
     const auto&  environment = Engine::GetWindowEnvironment();
     const double delta_time  = environment.DeltaTime;

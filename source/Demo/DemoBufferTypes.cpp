@@ -7,7 +7,6 @@
  */
 
 #include "DemoBufferTypes.hpp"
-#include "DemoMyModel.hpp"
 
 #include "CS200/NDC.hpp"
 #include "CS200/Renderer2DUtils.hpp"
@@ -50,7 +49,7 @@ void DemoBufferTypes::Unload()
     villagers.clear();
 }
 
-void DemoBufferTypes::Update()
+void DemoBufferTypes::Update([[maybe_unused]]double dt)
 {
     // Check for display size changes
     const auto newDisplaySize = Engine::GetWindowEnvironment().DisplaySize;
@@ -134,14 +133,7 @@ void DemoBufferTypes::DrawImGui()
             regenerate_all_villagers();
         }
 
-        // Replace STUDENTDEMO with the name of your demo
 
-        ImGui::Separator();
-        if (ImGui::Button("Switch to MyModel Demo"))
-        {
-            Engine::GetGameStateManager().PopState();
-            Engine::GetGameStateManager().PushState<DemoMyModel>();
-        }
     }
     ImGui::End();
 }

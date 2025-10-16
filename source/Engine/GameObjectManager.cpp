@@ -8,6 +8,7 @@ Author:     Taekyung Ho
 Created:    April 25, 2025
 */
 #include "GameObjectManager.h"
+#include "Logger.hpp"
 
 void CS230::GameObjectManager::Add(GameObject* object){
 	objects.push_back(object);
