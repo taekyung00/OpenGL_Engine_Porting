@@ -1,7 +1,7 @@
 /**
  * \file
  * \author Rudy Castan
- * \author TODO: Your Name
+ * \author Taekyung Ho
  * \date 2025 Fall
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
@@ -22,7 +22,6 @@ namespace OpenGL
     FramebufferWithColor CreateFramebufferWithColor(Math::ivec2 size)
     {
         FramebufferWithColor fb{};
-        // TODO create framebuffer with color attachment
         //  * - A color texture attachment in RGBA format for storing rendered pixels
         fb.ColorAttachment = CreateRGBATexture(size);
         GL::GenFramebuffers(1,&(fb.Framebuffer));
@@ -31,7 +30,6 @@ namespace OpenGL
         //  * - Proper draw buffer configuration for color output
         constexpr GLenum draw_buffers[] = { GL_COLOR_ATTACHMENT0 };
         GL::DrawBuffers(1, draw_buffers);
-        // TODO verify framebuffer completeness
         //  * - Complete framebuffer validation to ensure it's ready for use
         verify_framebuffer_complete(fb.Framebuffer);
         return fb;
@@ -39,8 +37,6 @@ namespace OpenGL
 
     void DestroyFramebufferWithColor(FramebufferWithColor& framebuffer_with_color) noexcept
     {
-        // TODO destroy framebuffer and color attachment
-        // TODO set handles to 0
         GL::DeleteTextures(1, &framebuffer_with_color.ColorAttachment), framebuffer_with_color.ColorAttachment = 0;
     }
 }
@@ -49,13 +45,10 @@ namespace
 {
     void verify_framebuffer_complete(OpenGL::FramebufferHandle framebuffer)
     {
-        // TODO bind framebuffer
         GL::BindFramebuffer(GL_FRAMEBUFFER,framebuffer);
-        // TODO check framebuffer status
         const auto status_result = GL::CheckFramebufferStatus(GL_FRAMEBUFFER);
         if (status_result == GL_FRAMEBUFFER_COMPLETE)
         {
-            // TODO unbind framebuffer
             GL::BindFramebuffer(GL_FRAMEBUFFER, 0);
             return; // Framebuffer is complete and ready to use
         }
@@ -77,7 +70,7 @@ namespace
 
             case GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER:
                 message << "\t[Draw Buffer Error] Draw buffers are referencing attachments that don't exist or are incomplete.\n"
-                        << "\t-> Confirm that GL_COLOR_ATTACHMENTx exists for each buffer in glDrawBuffers().\n";
+                        << "\t-> Confirm that GL_COLOR_ATTACHMENTx exists for each buffer in GL::DrawBuffers().\n";
                 break;
 
             case GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER:
@@ -97,7 +90,6 @@ namespace
         }
 
         Engine::GetLogger().LogError(message.str());
-        // TODO unbind framebuffer
         GL::BindFramebuffer(GL_FRAMEBUFFER, 0);
         throw std::runtime_error{ message.str() };
     }

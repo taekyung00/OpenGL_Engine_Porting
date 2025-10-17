@@ -144,7 +144,7 @@ namespace CS230
             {
             }
 
-            std::string GetName()
+            std::string GetName() override
             {
                 return "";
             }

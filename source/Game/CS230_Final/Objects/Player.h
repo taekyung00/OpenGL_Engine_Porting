@@ -33,8 +33,8 @@ private:
 	const Math::vec2	player_velocity = { 96.0,96.0 };
 	
 	int					score = 0;
-	CS230::Texture*		score_texture = nullptr;
-	CS230::Texture*		score_amount_texture = nullptr;
+	// CS230::Texture*		score_texture = nullptr;
+	// CS230::Texture*		score_amount_texture = nullptr;
 	void				update_score_text();
 
 	std::vector<bool>	can_steel = { false,false,false,false,false };

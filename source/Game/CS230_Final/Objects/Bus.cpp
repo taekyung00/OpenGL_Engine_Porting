@@ -106,7 +106,12 @@ void Bus::Update(double dt)
         player_can_steel[static_cast<int>(BusLine::line3)] = false;
         player_can_steel[static_cast<int>(BusLine::line4)] = false;
         player_can_steel[static_cast<int>(BusLine::line5)] = false;
-        if (player->GetGOComponent<Score>()->Value() >= 80)
+
+        const auto score = player->GetGOComponent<Score>();
+        if(score == nullptr){
+            throw std::runtime_error("no score, logical issue");
+        }
+        if (score->Value() >= 80)
         {
             is_end         = true;
             sandwich_level = SandwichLevel::GoodSandwich;

@@ -8,7 +8,7 @@ class Player;
 class Obstacle : public CS230::GameObject {
 public:
 	Obstacle(Player*, Math::vec2 pos);
-	virtual int			DrawPriority() const { return 12; }
+	int			DrawPriority() const override{ return 12; }
 	GameObjectTypes		Type() override { return GameObjectTypes::Obstacle; }
 	std::string			TypeName() override { return "Obstacle"; }
 

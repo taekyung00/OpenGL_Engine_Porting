@@ -38,7 +38,7 @@ CS230::Animation::Animation(const std::filesystem::path& animation_file) : curre
             in_file >> frame;
             in_file >> target_time;
 
-            commands.push_back(new PlayFrame(frame, target_time));
+            commands.push_back(new PlayFrame(frame, static_cast<double>(target_time)));
         }
         else if (command == "Loop")
         {

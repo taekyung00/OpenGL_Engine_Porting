@@ -10,6 +10,7 @@ Created:    May 17, 2025
 #pragma once
 #include <algorithm>
 #include <vector>
+#include <stdexcept>
 
 #include "Component.h"
 

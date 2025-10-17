@@ -2,7 +2,7 @@
  * \file
  * \author Rudy Castan
  * \author Jonathan Holmes
- * \author TODO: Your Name
+ * \author Taekyung Ho
  * \date 2025 Fall
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
@@ -143,7 +143,6 @@ namespace CS230
         std::shared_ptr<Texture> PrintToTexture(const std::string& text, CS200::RGBA color = 0xFFFFFFFF);
 
     private:
-        // TODO: Add private helper methods as needed
         void         FindCharRects();
         Math::irect& GetCharRect(char c);
         Math::ivec2  MeasureText(std::string text);
@@ -151,7 +150,6 @@ namespace CS230
         CS200::RGBA  GetPixel(Math::ivec2 texel);
 
 
-        // TODO: Add private member variables as needed
         Texture texture;
 
         struct TimeTexture

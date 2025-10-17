@@ -27,8 +27,8 @@ public:
     void          DrawImGui() override;
     gsl::czstring GetName() const override;
     static constexpr CS200::RGBA  title_color       = 0x9A2EFEFF;
-    static constexpr CS200::RGBA  non_seleted_color = 0x3ADF00FF;
-    static constexpr CS200::RGBA  seleted_color     = 0xFFFFFFFF;
+    static constexpr CS200::RGBA  non_seleted_color = 0xFFFFFFFF;
+    static constexpr CS200::RGBA  seleted_color     = 0x3ADF00FF;
 
 private:
 enum class Option

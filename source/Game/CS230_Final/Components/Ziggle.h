@@ -11,7 +11,7 @@ public:
 private:
 	CS230::GameObject* given_object;
 	bool looping;
-	bool finished = false;
+	// bool finished = false;
 	double timer;
 	bool toggle = false;
 };

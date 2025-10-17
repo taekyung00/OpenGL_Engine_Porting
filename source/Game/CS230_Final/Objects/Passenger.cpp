@@ -4,8 +4,7 @@
 #include "../../Score.h"
 
 Passenger::Passenger(BusLine _busline, Player* _player, int is_right)
-    :
-      GameObject(
+    : GameObject(
           { BusStartPosition + static_cast<double>(is_right * SeatWidthHeight * 2) + PassengerPadding,
             static_cast<double>(static_cast<int>(_busline) * (SeatWidthHeight + GapHeight)) + PassengerPadding }),
       player(_player), busline(_busline)
@@ -81,23 +80,43 @@ void Passenger::State_Sad::Enter([[maybe_unused]] GameObject* object)
     Passenger* passenger = static_cast<Passenger*>(object);
     passenger->player->GetGOComponent<Score>()->Add(20);
     passenger->GetGOComponent<CS230::Sprite>()->PlayAnimation(static_cast<int>(Animations::Sad));
-    passenger->GetGOComponent<util::Timer>()->ResetTimeStamp();
-    Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Tears>>()->Emit(
-        1, Math::vec2{ 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { -10, -10 }, 3.1415926535 / 3);
-    Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Tears>>()->Emit(
-        1, Math::vec2{ PassengerWidthHeight - 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { 10, -10 }, 3.1415926535 / 3);
+    const auto timer = passenger->GetGOComponent<util::Timer>();
+    if (!timer)
+    {
+        throw std::logic_error("No Timer in Passenger!");
+    }
+    else
+    {
+        timer->ResetTimeStamp();
+    }
+    const auto tears_particle = Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Tears>>();
+    if (tears_particle)
+    {
+        tears_particle->Emit(1, Math::vec2{ 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { -10, -10 }, 3.1415926535 / 3);
+        tears_particle->Emit(1, Math::vec2{ PassengerWidthHeight - 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { 10, -10 }, 3.1415926535 / 3);
+    }
 }
 
 void Passenger::State_Sad::Update([[maybe_unused]] GameObject* object, [[maybe_unused]] double dt)
 {
     Passenger* passenger = static_cast<Passenger*>(object);
-    if (passenger->GetGOComponent<util::Timer>()->GetElapsedSeconds() >= cry_timer)
+    const auto timer = passenger->GetGOComponent<util::Timer>();
+    if ((timer)&&(timer->GetElapsedSeconds() >= cry_timer))
     {
-        passenger->GetGOComponent<util::Timer>()->ResetTimeStamp();
-        Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Tears>>()->Emit(
-            1, Math::vec2{ 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { -10, -10 }, 3.1415926535 / 3);
-        Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Tears>>()->Emit(
-            1, Math::vec2{ PassengerWidthHeight - 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { 10, -10 }, 3.1415926535 / 3);
+        if (!timer)
+        {
+            throw std::logic_error("No Timer in Passenger!");
+        }
+        else{
+            timer->ResetTimeStamp();
+        }
+        
+        const auto tears_particle = Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Tears>>();
+        if (tears_particle)
+        {
+            tears_particle->Emit(1, Math::vec2{ 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { -10, -10 }, 3.1415926535 / 3);
+            tears_particle->Emit(1, Math::vec2{ PassengerWidthHeight - 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { 10, -10 }, 3.1415926535 / 3);
+        }
     }
 }
 

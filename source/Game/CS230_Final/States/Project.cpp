@@ -3,6 +3,7 @@
 #include "GoodSandwich.h"
 #include "NormalSandwich.h"
 #include "../../MainMenu.h"
+#include "../../../OpenGL/Environment.hpp"
 #include "../../../Engine/Window.hpp"
 #include "../../../Engine/Input.hpp"
 
@@ -24,7 +25,10 @@ void Project::Load()
 	camera->SetLimit({ {0,0},Engine::GetWindow().GetSize() });
 	AddGSComponent(camera);*/
 	//GetGSComponent<CS230::Camera>()->SetPosition({ 0.0, 0.0 });
-    Engine::GetWindow().ForceResize(600, 800);
+	if(!OpenGL::IsWebGL){
+		Engine::GetWindow().ForceResize(600, 800);
+	}
+    
 	
 #ifdef _DEBUG
 	AddGSComponent(new CS230::ShowCollision());

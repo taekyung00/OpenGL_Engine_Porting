@@ -47,7 +47,6 @@ namespace CS230
     {
         auto& renderer_2d = Engine::GetRenderer2D();
         auto& render_info = get_render_info();
-        // TODO implement this function
         //  * - Ends current 2D renderer scene to ensure clean state transition
         renderer_2d.EndScene();
 
@@ -74,7 +73,6 @@ namespace CS230
 
     std::shared_ptr<Texture> TextureManager::EndRenderTextureMode()
     {
-        // TODO implement this function
         auto& renderer_2d = Engine::GetRenderer2D();
         auto& render_info = get_render_info();
         // * Cleanup and Restoration Process:
@@ -101,6 +99,6 @@ namespace CS230
         //  * - Preserves original dimensions specified in StartRenderTextureMode()
         //  * - Maintains RGBA format with alpha channel for transparency support
         //  * - Content includes all drawing operations performed during render-to-texture mode
-        return std::shared_ptr<Texture>(scene_texture); // TODO replace this line with the correct return value
+        return std::shared_ptr<Texture>(scene_texture); 
     }
 }

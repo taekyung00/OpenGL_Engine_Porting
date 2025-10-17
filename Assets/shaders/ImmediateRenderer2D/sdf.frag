@@ -3,7 +3,7 @@ precision mediump float;
 
 /**
  * \file
- * \author TODO Your Name
+ * \author Taekyung Ho
  * \date 2025 Fall
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology

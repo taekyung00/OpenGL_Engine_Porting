@@ -38,7 +38,7 @@ namespace CS230 {
         CollisionShape Shape() override {
             return CollisionShape::Rect;
         }
-        void Draw(Math::TransformationMatrix display_matrix);
+        void Draw(Math::TransformationMatrix display_matrix) override;
         Math::rect WorldBoundary();
         bool IsCollidingWith(GameObject* other_object) override;
         bool IsCollidingWith(Math::vec2 point) override;
@@ -46,7 +46,7 @@ namespace CS230 {
         Math::irect boundary;
         GameObject* object;
         
-        static constexpr float line_width = 5.f;
+        static constexpr double line_width = 5.0;
     };
 
     class CircleCollision : public Collision {
@@ -56,14 +56,14 @@ namespace CS230 {
             return CollisionShape::Circle;
         }
 
-        void Draw(Math::TransformationMatrix display_matrix);
+        void Draw(Math::TransformationMatrix display_matrix) override;
         double GetRadius();
         bool IsCollidingWith(GameObject* other_object) override;
         bool IsCollidingWith(Math::vec2 point) override;
     private:
         GameObject* object;
         double radius;
-        static constexpr float line_width = 5.f;
+        static constexpr double line_width = 5.0;
     };
 
 }

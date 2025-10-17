@@ -78,7 +78,7 @@ namespace CS230
     {
         for (size_t i = 0; i < count; ++i)
         {
-            if (particles[i]->Alive())
+            if ((particles[i])&&(particles[i]->Alive()))
             {
                 Engine::GetLogger().LogEvent("Particle overwritten");
             }
@@ -87,7 +87,7 @@ namespace CS230
             {
                 angle_variation = static_cast<double>((rand() % static_cast<int>(spread * 1024)) / 1024) - spread / 2;
             }
-            Math::vec2 random_magnitude  = direction * (static_cast<float>((rand() % 1024) / 2048) + 0.5f);
+            Math::vec2 random_magnitude  = direction * static_cast<double>(static_cast<float>((rand() % 1024) / 2048) + 0.5f);
             Math::vec2 particle_velocity = Math::RotationMatrix(angle_variation) * random_magnitude + emitter_velocity;
             particles[index]->Start(emitter_position, particle_velocity, T::MaxLife);
 

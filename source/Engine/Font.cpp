@@ -2,7 +2,7 @@
  * \file
  * \author Rudy Castan
  * \author Jonathan Holmes
- * \author TODO: Your Name
+ * \author Taekyung Ho
  * \date 2025 Fall
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
@@ -249,5 +249,4 @@ namespace CS230
         //}
     }
 
-    // TODO: Implement Font class methods and any necessary helper functions or data structures
-}
+}    

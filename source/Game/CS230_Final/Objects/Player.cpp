@@ -75,7 +75,8 @@ void Player::ResolveCollision(GameObject* other_object) {
 }
 
 void Player::update_score_text() {
-    if (score != GetGOComponent<Score>()->Value()) {
-        score = GetGOComponent<Score>()->Value();
+    const auto current_score = GetGOComponent<Score>();
+    if ((current_score)&& (score != current_score->Value())) {
+        score = current_score->Value();
     }
 }

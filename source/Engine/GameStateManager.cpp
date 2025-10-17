@@ -42,7 +42,9 @@ namespace CS230
 
     void GameStateManager::DrawImGui()
     {
-        mGameStateStack.back()->DrawImGui();
+        if(!mGameStateStack.empty()){
+            mGameStateStack.back()->DrawImGui();
+        }        
     }
 
     void GameStateManager::Clear()
