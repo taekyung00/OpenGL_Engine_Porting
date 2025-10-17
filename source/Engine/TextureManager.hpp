@@ -35,19 +35,19 @@ namespace CS230
         
         struct RenderInfo
         {
-            RenderInfo() = default;
+            //RenderInfo() = default;
             OpenGL::FramebufferWithColor Target{};
             Math::ivec2                  Size{};
             std::array<GLfloat, 4>       ClearColor{};
             std::array<GLint, 4>         Viewport{};
         };
 
-        
+        // inline static RenderInfo render_info{};
 
         static RenderInfo& get_render_info()
         {
-            static RenderInfo instance;
-            return instance;
+           static RenderInfo instance;
+           return instance;
         }
     };
 }

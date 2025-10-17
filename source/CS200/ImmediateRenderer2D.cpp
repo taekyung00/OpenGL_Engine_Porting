@@ -83,11 +83,11 @@ namespace CS200
         };
         sdfVeretexArrayHandle = OpenGL::CreateVertexArrayObject(layout_position_only, quad.indexBufferHandle);
         //- Create uniform buffer for camera/view-projection matrix
-        camera_uniform_buffer = OpenGL::CreateBuffer(OpenGL::BufferType::UniformBlocks, sizeof(camera_array));
+       camera_uniform_buffer = OpenGL::CreateBuffer(OpenGL::BufferType::UniformBlocks, sizeof(camera_array));
 
 
         //- Bind uniform buffer to both shaders with name "Camera"
-        OpenGL::BindUniformBufferToShader(texturingCombineShader.Shader, 0, camera_uniform_buffer, "NDC");
+        //OpenGL::BindUniformBufferToShader(texturingCombineShader.Shader, 0, camera_uniform_buffer, "NDC");
     }
 
     void ImmediateRenderer2D::Shutdown()
@@ -112,6 +112,8 @@ namespace CS200
 
         //- Bind uniform buffer for use by shaders
         GL::BindBuffer(GL_UNIFORM_BUFFER, camera_uniform_buffer);
+
+        OpenGL::BindUniformBufferToShader(texturingCombineShader.Shader, 0, camera_uniform_buffer, "NDC");
     }
 
     void ImmediateRenderer2D::EndScene()

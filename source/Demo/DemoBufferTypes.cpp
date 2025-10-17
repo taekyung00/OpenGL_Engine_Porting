@@ -36,7 +36,7 @@ void DemoBufferTypes::Unload()
 {
     OpenGL::DestroyShader(backgroundShader);
     OpenGL::DestroyShader(villagerShader);
-    //GL::DeleteBuffers(1, &uniformBlock), uniformBlock                                   = 0;
+    GL::DeleteBuffers(1, &uniformBlock), uniformBlock                                   = 0;
     GL::DeleteVertexArrays(1, &background.modelHandle), background.modelHandle          = 0;
     GL::DeleteVertexArrays(1, &villager.modelHandle), villager.modelHandle              = 0;
     GL::DeleteBuffers(1, &background.vertexBufferHandle), background.vertexBufferHandle = 0;
@@ -89,6 +89,7 @@ void DemoBufferTypes::Draw()
         GL::UniformMatrix3fv(villagerShader.UniformLocations.at("uModel"), 1, GL_FALSE, model_opengl_mat.data());
         drawObject(villager);
     }
+    GL::BindBuffer(GL_UNIFORM_BUFFER, 0);
 }
 
 void DemoBufferTypes::DrawImGui()

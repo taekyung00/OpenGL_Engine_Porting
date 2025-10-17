@@ -105,7 +105,7 @@ target_include_directories(cs200_fun PRIVATE .)
 # Check the IS_DEVELOPER_VERSION cache variable
 # This is set by the cmake configure preset
 if (IS_DEVELOPER_VERSION)
-    target_compile_definitions(cs200_fun PRIVATE DEVELOPER_VERSION)
+    target_compile_definitions(cs200_fun PRIVATE DEVELOPER_VERSION _DEBUG)
 endif()
 
 if(EMSCRIPTEN)
