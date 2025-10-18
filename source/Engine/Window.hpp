@@ -43,6 +43,7 @@ namespace CS230
 
         void          Clear(CS200::RGBA color);
         void          ForceResize(int w, int h);
+        void          SetWindowPosition(int x, int y);
         SDL_Window*   GetSDLWindow() const;
         SDL_GLContext GetGLContext() const;
 
@@ -51,7 +52,7 @@ namespace CS230
 
         static void SetBackgroundColor(float r, float g, float b) noexcept;
 
-        //Math::ivec2 GetWindowSize() const;
+        // Math::ivec2 GetWindowSize() const;
 
     private:
 
@@ -68,7 +69,7 @@ namespace CS230
         gsl::owner<SDL_Window*>   sdl_window = nullptr;
         gsl::owner<SDL_GLContext> gl_context = nullptr;
         bool                      closed     = false;
-        //Math::ivec2               size       = { 800, 600 };
+        // Math::ivec2               size       = { 800, 600 };
 
         WindowEventCallback eventCallback;
 

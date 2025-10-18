@@ -8,6 +8,7 @@ Author:     Taekyung Ho
 Created:    May 6, 2025
 */
 #include "MainMenu.h"
+#include "./OpenGL/Environment.hpp"
 #include "../CS200/IRenderer2D.hpp"
 #include "../CS200/NDC.hpp"
 #include "../CS200/RenderingAPI.hpp"
@@ -34,6 +35,10 @@ MainMenu::MainMenu() : current_option(Option::cs230_final)
 void MainMenu::Load()
 {
     CS200::RenderingAPI::SetClearColor(0x000000FF);
+    if(!OpenGL::IsWebGL){
+		Engine::GetWindow().ForceResize(default_window_size.x,default_window_size.y);
+		Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED);
+	}
     update_colors();
 }
 

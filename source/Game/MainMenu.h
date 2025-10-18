@@ -45,4 +45,5 @@ enum class Option
 
     void update_colors();
 
+    static constexpr Math::ivec2 default_window_size = {800,600};
 };

@@ -159,6 +159,11 @@ namespace CS230
         window_size.y = desired_height;
     }
 
+    void Window::SetWindowPosition(int x, int y)
+    {
+        SDL_SetWindowPosition(sdl_window,x,y);
+    }
+
     SDL_Window* Window::GetSDLWindow() const
     {
         return sdl_window;

@@ -1,4 +1,5 @@
 #include "Project.h"
+#include <SDL.h>
 #include "BadSandwich.h"
 #include "GoodSandwich.h"
 #include "NormalSandwich.h"
@@ -27,6 +28,7 @@ void Project::Load()
 	//GetGSComponent<CS230::Camera>()->SetPosition({ 0.0, 0.0 });
 	if(!OpenGL::IsWebGL){
 		Engine::GetWindow().ForceResize(600, 800);
+		Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED);
 	}
     
 	
