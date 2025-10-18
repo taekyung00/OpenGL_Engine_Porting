@@ -23,6 +23,7 @@ namespace CS230
     class GameStateManager;
     class TextureManager;
     class Font;
+    
 }
 
 namespace CS200
@@ -31,6 +32,7 @@ namespace CS200
 }
 
 class TextManager;
+class EventBus;
 
 /**
  * \brief Runtime information about the window and application state
@@ -241,6 +243,8 @@ public:
     static CS230::TextureManager& GetTextureManager();
 
      static TextManager& GetTextManager();
+
+     static EventBus& GetEventBus();
 
 
 public:

@@ -20,7 +20,7 @@
 namespace CS230
 {
     
-    void Texture::Draw(const Math::TransformationMatrix& display_matrix, unsigned int color)
+    void Texture::Draw([[maybe_unused]]const Math::TransformationMatrix& display_matrix, unsigned int color)
     {
         const auto window_size = Engine::GetWindow().GetSize();
         const Math::ivec2 draw_size   = { std::min(window_size.x, image_size.x), std::min(window_size.y, image_size.y) };
@@ -52,6 +52,10 @@ namespace CS230
             const auto bl_y_left = texel_coord_bl.y;
             texel_coord_bl.y -= bl_y_left;
             texel_coord_tr.y -= bl_y_left;
+
+            const auto bl_x_left = texel_coord_bl.x;
+            texel_coord_bl.x -= bl_x_left;
+            texel_coord_tr.x -= bl_x_left;
 
             set_bottom_left = { (image_size.x < frame_size.x ? image_size.x - frame_size.x : 0.0) + frame_size.x * 0.5,
                                 (image_size.y < frame_size.y ? image_size.y - frame_size.y : 0.0) + frame_size.y * 0.5 };

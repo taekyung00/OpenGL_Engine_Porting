@@ -52,6 +52,34 @@ set(SOURCE_CODE
     Game/CS230_Final/States/NormalSandwich.h Game/CS230_Final/States/NormalSandwich.cpp
     Game/CS230_Final/States/Project.h Game/CS230_Final/States/Project.cpp
 
+    Game/DragonicTactics/Objects/Actions/Action.h Game/DragonicTactics/Objects/Actions/Action.cpp
+    Game/DragonicTactics/Objects/Actions/ActionAttack.h Game/DragonicTactics/Objects/Actions/ActionAttack.cpp
+
+    Game/DragonicTactics/Objects/Components/ActionPoints.h Game/DragonicTactics/Objects/Components/ActionPoints.cpp
+    Game/DragonicTactics/Objects/Components/GridPosition.h Game/DragonicTactics/Objects/Components/GridPosition.cpp
+    Game/DragonicTactics/Objects/Components/SpellSlots.h Game/DragonicTactics/Objects/Components/SpellSlots.cpp
+    Game/DragonicTactics/Objects/Components/StatsComponent.h Game/DragonicTactics/Objects/Components/StatsComponent.cpp
+
+    Game/DragonicTactics/Objects/Character.h Game/DragonicTactics/Objects/Character.cpp
+    Game/DragonicTactics/Objects/Dragon.h Game/DragonicTactics/Objects/Dragon.cpp
+    Game/DragonicTactics/Objects/Fighter.h Game/DragonicTactics/Objects/Fighter.cpp
+
+    Game/DragonicTactics/Singletons/EventBus.h Game/DragonicTactics/Singletons/EventBus.cpp
+    Game/DragonicTactics/Singletons/DiceManager.h Game/DragonicTactics/Singletons/DiceManager.cpp
+
+    Game/DragonicTactics/StateComponents/GridSystem.h Game/DragonicTactics/StateComponents/GridSystem.cpp
+
+    Game/DragonicTactics/States/Test.h Game/DragonicTactics/States/Test.cpp
+
+    Game/DragonicTactics/Test/Week1TestMocks.h
+
+    Game/DragonicTactics/Types/CharacterTypes.h
+    Game/DragonicTactics/Types/Events.h
+    Game/DragonicTactics/Types/GameObjectTypes.h
+    Game/DragonicTactics/Types/GameTypes.h
+
+
+
     Engine/Engine.hpp Engine/Engine.cpp
     Engine/Error.hpp
     Engine/Font.hpp Engine/Font.cpp

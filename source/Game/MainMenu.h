@@ -34,18 +34,15 @@ private:
 enum class Option
     {
         cs230_final,
+        dragonic_tactics,
         exit
     };
     Option current_option;
-    //std::shared_ptr<CS230::Texture> title_texture;
-    //std::shared_ptr<CS230::Texture> cs230_final_texture;
-    //std::shared_ptr<CS230::Texture> exit_texture;
 
     CS200::RGBA cs230_final_color ;
+    CS200::RGBA dragonic_tactics_color ;
     CS200::RGBA exit_color;
 
-    
-    
     void update_colors();
 
 };

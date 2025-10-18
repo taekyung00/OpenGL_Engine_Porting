@@ -135,6 +135,11 @@ namespace Math
         // length
         double Length() const noexcept;
 
+        bool operator<(const vec2& other) const
+        {
+            return (x < other.x) || (x == other.x && y < other.y);
+        }
+
         // normalize
         vec2 Normalize();
     };

@@ -25,10 +25,13 @@ namespace CS230
     {
         mToClear.clear();
         mGameStateStack.back()->Update(dt);
-        GameObjectManager* current_gameobject_manager = mGameStateStack.back()->GetGSComponent<GameObjectManager>();
-        if (current_gameobject_manager != nullptr)
+        if (!mGameStateStack.empty())
         {
-            current_gameobject_manager->CollisionTest();
+            GameObjectManager* current_gameobject_manager = mGameStateStack.back()->GetGSComponent<GameObjectManager>();
+            if (current_gameobject_manager != nullptr)
+            {
+                current_gameobject_manager->CollisionTest();
+            }
         }
     }
 
@@ -42,9 +45,10 @@ namespace CS230
 
     void GameStateManager::DrawImGui()
     {
-        if(!mGameStateStack.empty()){
+        if (!mGameStateStack.empty())
+        {
             mGameStateStack.back()->DrawImGui();
-        }        
+        }
     }
 
     void GameStateManager::Clear()
