@@ -1,4 +1,4 @@
-#pragma once
+
 #include "Test.h"
 
 #include "./Engine/Engine.hpp"

@@ -20,6 +20,7 @@ Project::Project() :
 
 void Project::Load() 
 {
+	
 	//srand(static_cast<unsigned int>(time(NULL)));
 	//Engine::GetWindow().SetSize({ default_width, default_height });
 	/*camera = new CS230::Camera({ Math::vec2{ 0,0 }, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) });
@@ -64,6 +65,7 @@ void Project::Load()
 
 void Project::Update([[maybe_unused]] double dt) 
 {
+	Engine::GetLogger().LogEvent("Final Update");
 	UpdateGSComponents(dt);
 	/*camera->SetLimit({ {0,0},Engine::GetWindow().GetSize() });
 	camera->Update(static_cast<Math::vec2>(Engine::GetWindow().GetSize()));*/
@@ -112,7 +114,10 @@ void Project::Draw()
     renderer_2d.BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
 	//Math::TransformationMatrix camera_matrix = camera->GetMatrix();
 	GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
+	#ifdef _DEBUG
 	GetGSComponent<Grid>()->Draw(*(GetGSComponent<CS230::Camera>()));
+	#endif
+	
     renderer_2d.EndScene();
 
 }

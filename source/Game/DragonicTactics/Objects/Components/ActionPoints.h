@@ -12,7 +12,7 @@ Created:    Oct 12, 2025
 
 class ActionPoints : public CS230::Component {
 public:
-	ActionPoints(int max_points);
+	ActionPoints(int _max_points);
 	void Refresh();
 	bool Consume(int amount = 1);
 	int GetCurrentPoints() const;

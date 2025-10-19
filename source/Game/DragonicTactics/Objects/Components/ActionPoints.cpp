@@ -1,7 +1,7 @@
 #include "ActionPoints.h"
 
-ActionPoints::ActionPoints(int max_points)
-    : max_points(max_points), current_points(max_points)
+ActionPoints::ActionPoints(int _max_points)
+    : max_points(_max_points), current_points(max_points)
 {
 }
 

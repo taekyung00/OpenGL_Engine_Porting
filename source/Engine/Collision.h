@@ -46,7 +46,7 @@ namespace CS230 {
         Math::irect boundary;
         GameObject* object;
         
-        static constexpr double line_width = 5.0;
+        static constexpr double line_width = 2.0;
     };
 
     class CircleCollision : public Collision {

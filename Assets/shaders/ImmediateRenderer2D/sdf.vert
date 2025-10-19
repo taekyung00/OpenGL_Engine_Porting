@@ -20,9 +20,10 @@ uniform vec2 uSDFScale;
 
 out vec2 vTestPoint;
 
+uniform float uDepth;
 void main()
 {
     vec3 ndc_point = uToNDC * uModel * vec3(aVertexPosition,1.0);
-    gl_Position = vec4(ndc_point.xy, 0.0, 1.0);
+    gl_Position = vec4(ndc_point.xy, uDepth, 1.0);
     vTestPoint = aVertexPosition * uSDFScale; //scale
 }

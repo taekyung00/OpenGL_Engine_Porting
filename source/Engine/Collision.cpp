@@ -38,14 +38,14 @@ namespace CS230
         Math::rect world_boundary = WorldBoundary();
         auto&      renderer2d     = Engine::GetRenderer2D();
 
-        [[maybe_unused]] Math::vec2 bottom_left  = /*display_matrix * */ Math::vec2{ world_boundary.Left(), world_boundary.Bottom() };
-        [[maybe_unused]] Math::vec2 bottom_right = /*display_matrix * */ Math::vec2{ world_boundary.Right(), world_boundary.Bottom() };
-        [[maybe_unused]] Math::vec2 top_left     = /*display_matrix * */ Math::vec2{ world_boundary.Left(), world_boundary.Top() };
-        [[maybe_unused]] Math::vec2 top_right    = /*display_matrix * */ Math::vec2{ world_boundary.Right(), world_boundary.Top() };
+        // [[maybe_unused]] Math::vec2 bottom_left  = /*display_matrix * */ Math::vec2{ world_boundary.Left(), world_boundary.Bottom() };
+        // [[maybe_unused]] Math::vec2 bottom_right = /*display_matrix * */ Math::vec2{ world_boundary.Right(), world_boundary.Bottom() };
+        // [[maybe_unused]] Math::vec2 top_left     = /*display_matrix * */ Math::vec2{ world_boundary.Left(), world_boundary.Top() };
+        // [[maybe_unused]] Math::vec2 top_right    = /*display_matrix * */ Math::vec2{ world_boundary.Right(), world_boundary.Top() };
 
-        const auto center_matrix = display_matrix * Math::TranslationMatrix(world_boundary.Center());
+        // const auto center_matrix = display_matrix * Math::TranslationMatrix(world_boundary.Center());
 
-        renderer2d.DrawRectangle(center_matrix, CS200::CLEAR, 0xFF9800FF, line_width);
+        renderer2d.DrawRectangle(display_matrix*Math::TranslationMatrix(world_boundary.Center())*Math::ScaleMatrix(world_boundary.Size()), CS200::CLEAR, CS200::WHITE, line_width);
     }
 
     Math::rect RectCollision::WorldBoundary()

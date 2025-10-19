@@ -9,8 +9,8 @@
 // Mock Character for EventBus and GridSystem testing
 class MockCharacter {
 public:
-    MockCharacter(const std::string& name = "MockChar")
-        : name(name), hp(100), maxHP(100), gridPos{ 0, 0 } {
+    MockCharacter(const std::string& _name = "MockChar")
+        : name(_name), hp(100), maxHP(100), gridPos{ 0, 0 } {
     }
 
     // EventBus interface

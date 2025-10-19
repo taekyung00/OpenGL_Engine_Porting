@@ -34,7 +34,7 @@ public:
 #ifdef DEVELOPER_VERSION
           logger(CS230::Logger::Severity::Debug, true, std::chrono::system_clock::now())
 #else
-          logger(CS230::Logger::Severity::Event, false, std::chrono::system_clock::now())
+          logger(CS230::Logger::Severity::Debug, true, std::chrono::system_clock::now())
 #endif
           ,
           window{}, input{}

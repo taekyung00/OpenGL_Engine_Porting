@@ -150,7 +150,7 @@ namespace CS200
         GL::UniformMatrix3fv(locations.at("uTexCoordTransform"), 1, GL_FALSE, texture_transform.data());
 
 
-        GL::Uniform1f(locations.at("uDepth"), 1);
+        GL::Uniform1f(locations.at("uDepth"), 0);
 
 
         const auto colors = unpack_color(tintColor);
@@ -217,6 +217,7 @@ namespace CS200
        //GL::UniformMatrix3fv(locations.at("uToNDC"), 1, GL_FALSE, CS200::Renderer2DUtils::to_opengl_mat3(CS200::build_ndc_matrix(Engine::GetWindow().GetSize())).data());
         GL::UniformMatrix3fv(locations.at("uModel"), 1, GL_FALSE, sdf_transform.QuadTransform.data());
         GL::Uniform2f(locations.at("uSDFScale"), sdf_transform.QuadSize[0], sdf_transform.QuadSize[1]);
+        GL::Uniform1f(locations.at("uDepth"), 1);
 
         // fragment
         GL::Uniform4fv(locations.at("uFillColor"), 1, CS200::unpack_color(fill_color).data());
