@@ -7,7 +7,6 @@
  * \copyright DigiPen Institute of Technology
  */
 #include "Engine.hpp"
-#include "./Game/DragonicTactics/Singletons/EventBus.h"
 #include "CS200/ImGuiHelper.hpp"
 #include "CS200/ImmediateRenderer2D.hpp"
 #include "CS200/NDC.hpp"
@@ -52,7 +51,6 @@ public:
     CS200::ImmediateRenderer2D renderer2D{};
     CS230::TextureManager      textureManager{};
     TextManager                textManager{};
-    EventBus                   eventbus{};
 };
 
 Engine& Engine::Instance()
@@ -101,10 +99,6 @@ TextManager& Engine::GetTextManager()
     return Instance().impl->textManager;
 }
 
-EventBus& Engine::GetEventBus()
-{
-    return Instance().impl->eventbus;
-}
 
 void Engine::Start(std::string_view window_title)
 {

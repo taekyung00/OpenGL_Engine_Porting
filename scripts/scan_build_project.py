@@ -300,7 +300,7 @@ def get_executable_info(folder, build_type, target):
     
     if target == "web":
         # Web builds create HTML files
-        html_file = build_dir / "cs200_fun.html"
+        html_file = build_dir / "engine_porting.html"
         if html_file.exists():
             return {
                 'type': 'web',
@@ -310,7 +310,7 @@ def get_executable_info(folder, build_type, target):
             }
     else:
         # Native builds create executables
-        exe_name = "cs200_fun.exe" if platform.system() == "Windows" else "cs200_fun"
+        exe_name = "engine_porting.exe" if platform.system() == "Windows" else "engine_porting"
         exe_file = build_dir / exe_name
         if exe_file.exists():
             return {
@@ -431,7 +431,7 @@ def build_project(folder, target_filter=None, build_type_filter=None):
                     colored_print(f"   📄 HTML file: {exe_info['path']}", Colors.WHITE)
                     colored_print(f"   🌐 To run: cd {exe_info['directory']}", Colors.YELLOW)
                     colored_print(f"           python3 -m http.server 8000", Colors.YELLOW)
-                    colored_print(f"           # Then open: http://localhost:8000/cs200_fun.html", Colors.YELLOW)
+                    colored_print(f"           # Then open: http://localhost:8000/engine_porting.html", Colors.YELLOW)
                 else:
                     colored_print(f"   📱 Executable: {exe_info['path']}", Colors.WHITE)
                     colored_print(f"   ▶️  To run: {exe_info['run_command']}", Colors.YELLOW)
