@@ -6,6 +6,7 @@
 Grid::Grid()
 {
     window_size = Engine::GetWindow().GetSize();
+    white_dot   = Engine::GetTextureManager().Load("Assets/images/CS230_Final/WhiteDot.png");
     black_dot   = Engine::GetTextureManager().Load("Assets/images/CS230_Final/BlackDot.png");
     red_dot     = Engine::GetTextureManager().Load("Assets/images/CS230_Final/RedDot.png");
     blue_dot    = Engine::GetTextureManager().Load("Assets/images/CS230_Final/BlueDot.png");
@@ -17,9 +18,12 @@ void Grid::Update([[maybe_unused]] double dt)
     {
         draw = !draw;
     }
+    if(window_size != Engine::GetWindow().GetSize()){
+        window_size = Engine::GetWindow().GetSize();
+    }
 }
 
-void Grid::Draw([[maybe_unused]] const CS230::Camera& camera)
+void Grid::Draw(DotColor dc)
 {
     if (draw)
     {
@@ -38,7 +42,17 @@ void Grid::Draw([[maybe_unused]] const CS230::Camera& camera)
                 }
                 else
                 {
-                    black_dot->Draw(draw_matrix);
+                    switch (dc)
+                    {
+                    case DotColor::white:
+                        white_dot->Draw(draw_matrix);
+                        break;
+                    
+                    case DotColor::black:
+                        black_dot->Draw(draw_matrix);
+                        break;
+                    }
+                    
                 }
             }
         }

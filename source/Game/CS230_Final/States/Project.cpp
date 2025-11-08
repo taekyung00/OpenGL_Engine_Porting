@@ -115,7 +115,7 @@ void Project::Draw()
 	//Math::TransformationMatrix camera_matrix = camera->GetMatrix();
 	GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
 	#ifdef _DEBUG
-	GetGSComponent<Grid>()->Draw(*(GetGSComponent<CS230::Camera>()));
+	GetGSComponent<Grid>()->Draw(Grid::DotColor::black);
 	#endif
 	
     renderer_2d.EndScene();

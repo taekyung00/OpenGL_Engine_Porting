@@ -1,5 +1,9 @@
 #pragma once
+#include <memory>
+
 #include "./Engine/GameState.hpp"
+#include "./Engine/Texture.hpp"
+
 
 class RenderingTest : public CS230::GameState
 {
@@ -15,4 +19,11 @@ public:
 	{
 		return "Rendering Test";
 	}
+
+private:
+	std::shared_ptr<CS230::Texture> testTexture = nullptr;
+	Math::fvec2 scale = {1.f,1.f};
+	float rotate = 0.f;
+	Math::fvec2 translate = {0.f,0.f};
+	Math::ivec2 window_size;
 };

@@ -11,15 +11,21 @@
 class Grid : public CS230::Component
 {
 public:
-    Grid();
-    void Update(double dt) override;
-    void Draw(const CS230::Camera& camera);
+	enum class DotColor
+	{
+		black,
+		white
+	};
+	Grid();
+	void Update(double dt) override;
+	void Draw(DotColor);
+
 
 private:
-    Math::ivec2                     window_size;
-    bool                            draw = true;
-    std::shared_ptr<CS230::Texture> black_dot;
-    std::shared_ptr<CS230::Texture> red_dot;
-    std::shared_ptr<CS230::Texture> blue_dot;
-    std::shared_ptr<CS230::Texture> dot_number;
+	Math::ivec2						window_size;
+	bool							draw = true;
+	std::shared_ptr<CS230::Texture> white_dot;
+	std::shared_ptr<CS230::Texture> black_dot;
+	std::shared_ptr<CS230::Texture> red_dot;
+	std::shared_ptr<CS230::Texture> blue_dot;
 };

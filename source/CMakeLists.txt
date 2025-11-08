@@ -7,55 +7,6 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 set(SOURCE_CODE 
 
-    CS200/Image.hpp CS200/Image.cpp
-    CS200/ImGuiHelper.hpp CS200/ImGuiHelper.cpp
-    CS200/ImmediateRenderer2D.hpp CS200/ImmediateRenderer2D.cpp
-    CS200/IRenderer2D.hpp
-    CS200/NDC.hpp
-    CS200/Renderer2DUtils.hpp CS200/Renderer2DUtils.cpp
-    CS200/RenderingAPI.hpp CS200/RenderingAPI.cpp
-    CS200/RGBA.hpp
-
-    Demo/DemoShapes.hpp Demo/DemoShapes.cpp
-    Demo/DemoFramebuffer.hpp Demo/DemoFramebuffer.cpp
-    Demo/DemoText.hpp Demo/DemoText.cpp
-    Demo/DemoVAO.hpp Demo/DemoVAO.cpp
-    Demo/DemoBufferTypes.hpp Demo/DemoBufferTypes.cpp
-    Demo/DemoTexturing.hpp Demo/DemoTexturing.cpp
-    Demo/DemoCS230Textures.hpp Demo/DemoCS230Textures.cpp
-
-
-    Game/Background.h Game/Background.cpp
-    Game/GameObjectTypes.h
-    Game/MainMenu.h Game/MainMenu.cpp
-    Game/Particles.h
-    Game/Score.h Game/Score.cpp
-    Game/Splash.h Game/Splash.cpp
-    Game/States.h
-
-    Game/CS230_Final/Components/Bounce.h Game/CS230_Final/Components/Bounce.cpp
-    Game/CS230_Final/Components/Grid.h Game/CS230_Final/Components/Grid.cpp
-    Game/CS230_Final/Components/Random.h Game/CS230_Final/Components/Random.cpp
-    Game/CS230_Final/Components/Ziggle.h Game/CS230_Final/Components/Ziggle.cpp
-
-    Game/CS230_Final/Objects/Bus.h Game/CS230_Final/Objects/Bus.cpp
-    Game/CS230_Final/Objects/BusLine.h
-    Game/CS230_Final/Objects/Constants.h
-    Game/CS230_Final/Objects/Bus.h Game/CS230_Final/Objects/Bus.cpp
-    Game/CS230_Final/Objects/Food.h Game/CS230_Final/Objects/Food.cpp
-    Game/CS230_Final/Objects/Obstacle.h Game/CS230_Final/Objects/Obstacle.cpp
-    Game/CS230_Final/Objects/Passenger.h Game/CS230_Final/Objects/Passenger.cpp
-    Game/CS230_Final/Objects/Player.h Game/CS230_Final/Objects/Player.cpp
-
-    Game/CS230_Final/States/BadSandwich.h Game/CS230_Final/States/BadSandwich.cpp
-    Game/CS230_Final/States/GoodSandwich.h Game/CS230_Final/States/GoodSandwich.cpp
-    Game/CS230_Final/States/NormalSandwich.h Game/CS230_Final/States/NormalSandwich.cpp
-    Game/CS230_Final/States/Project.h Game/CS230_Final/States/Project.cpp
-
-    Game/States/ConsoleTest.h Game/States/ConsoleTest.cpp
-    Game/States/RenderingTest.h Game/States/RenderingTest.cpp
-
-
     Engine/Engine.hpp Engine/Engine.cpp
     Engine/Error.hpp
     Engine/Font.hpp Engine/Font.cpp
@@ -96,6 +47,54 @@ set(SOURCE_CODE
     OpenGL/Shader.cpp OpenGL/Shader.hpp
     OpenGL/Texture.hpp OpenGL/Texture.cpp
     OpenGL/VertexArray.cpp OpenGL/VertexArray.hpp
+
+    CS200/Image.hpp CS200/Image.cpp
+    CS200/ImGuiHelper.hpp CS200/ImGuiHelper.cpp
+    CS200/ImmediateRenderer2D.hpp CS200/ImmediateRenderer2D.cpp
+    CS200/IRenderer2D.hpp
+    CS200/NDC.hpp
+    CS200/Renderer2DUtils.hpp CS200/Renderer2DUtils.cpp
+    CS200/RenderingAPI.hpp CS200/RenderingAPI.cpp
+    CS200/RGBA.hpp
+
+    Demo/DemoShapes.hpp Demo/DemoShapes.cpp
+    Demo/DemoFramebuffer.hpp Demo/DemoFramebuffer.cpp
+    Demo/DemoText.hpp Demo/DemoText.cpp
+    Demo/DemoVAO.hpp Demo/DemoVAO.cpp
+    Demo/DemoBufferTypes.hpp Demo/DemoBufferTypes.cpp
+    Demo/DemoTexturing.hpp Demo/DemoTexturing.cpp
+    Demo/DemoCS230Textures.hpp Demo/DemoCS230Textures.cpp
+
+    Game/Background.h Game/Background.cpp
+    Game/GameObjectTypes.h
+    Game/MainMenu.h Game/MainMenu.cpp
+    Game/Particles.h
+    Game/Score.h Game/Score.cpp
+    Game/Splash.h Game/Splash.cpp
+    Game/States.h
+
+    Game/CS230_Final/Components/Bounce.h Game/CS230_Final/Components/Bounce.cpp
+    Game/CS230_Final/Components/Grid.h Game/CS230_Final/Components/Grid.cpp
+    Game/CS230_Final/Components/Random.h Game/CS230_Final/Components/Random.cpp
+    Game/CS230_Final/Components/Ziggle.h Game/CS230_Final/Components/Ziggle.cpp
+
+    Game/CS230_Final/Objects/Bus.h Game/CS230_Final/Objects/Bus.cpp
+    Game/CS230_Final/Objects/BusLine.h
+    Game/CS230_Final/Objects/Constants.h
+    Game/CS230_Final/Objects/Bus.h Game/CS230_Final/Objects/Bus.cpp
+    Game/CS230_Final/Objects/Food.h Game/CS230_Final/Objects/Food.cpp
+    Game/CS230_Final/Objects/Obstacle.h Game/CS230_Final/Objects/Obstacle.cpp
+    Game/CS230_Final/Objects/Passenger.h Game/CS230_Final/Objects/Passenger.cpp
+    Game/CS230_Final/Objects/Player.h Game/CS230_Final/Objects/Player.cpp
+
+    Game/CS230_Final/States/BadSandwich.h Game/CS230_Final/States/BadSandwich.cpp
+    Game/CS230_Final/States/GoodSandwich.h Game/CS230_Final/States/GoodSandwich.cpp
+    Game/CS230_Final/States/NormalSandwich.h Game/CS230_Final/States/NormalSandwich.cpp
+    Game/CS230_Final/States/Project.h Game/CS230_Final/States/Project.cpp
+
+    Game/States/ConsoleTest.h Game/States/ConsoleTest.cpp
+    Game/States/RenderingTest.h Game/States/RenderingTest.cpp
+
 
     main.cpp
 )
