@@ -38,7 +38,7 @@ namespace OpenGL
     void DestroyFramebufferWithColor(FramebufferWithColor& framebuffer_with_color) noexcept
     {
         GL::DeleteTextures(1, &framebuffer_with_color.ColorAttachment), framebuffer_with_color.ColorAttachment = 0;
-    }
+        GL::DeleteFramebuffers(1, &framebuffer_with_color.Framebuffer), framebuffer_with_color.Framebuffer     = 0;
 }
 
 namespace

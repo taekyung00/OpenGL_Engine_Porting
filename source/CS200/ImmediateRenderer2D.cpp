@@ -93,10 +93,15 @@ namespace CS200
     void ImmediateRenderer2D::Shutdown()
     {
         OpenGL::DestroyShader(texturingCombineShader);
+        OpenGL::DestroyShader(sdfShader);
+
         GL::DeleteBuffers(1, &quad.positionBufferHandle), quad.positionBufferHandle = 0;
         GL::DeleteBuffers(1, &quad.texCoordBufferHandle), quad.texCoordBufferHandle = 0;
         GL::DeleteBuffers(1, &quad.indexBufferHandle), quad.indexBufferHandle       = 0;
         GL::DeleteBuffers(1, &sdfBufferHandle), sdfBufferHandle                     = 0;
+
+        GL::DeleteVertexArrays(1, &quad.modelHandle), quad.modelHandle           = 0;
+        GL::DeleteVertexArrays(1, &sdfVeretexArrayHandle), sdfVeretexArrayHandle = 0;
     }
 
     void ImmediateRenderer2D::BeginScene([[maybe_unused]] const Math::TransformationMatrix& view_projection)
