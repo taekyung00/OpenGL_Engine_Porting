@@ -29,7 +29,8 @@
 
 void DemoFramebuffer::Load()
 {
-    auto&      texture_manager        = Engine::GetTextureManager();
+	auto& texture_manager = Engine::GetTextureManager();
+	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
     const auto background_image_paths = { "Assets/images/DemoFramebuffer/Planets.png", "Assets/images/DemoFramebuffer/Ships.png", "Assets/images/DemoFramebuffer/Foreground.png" };
     for (const auto& path : background_image_paths)
     {
@@ -123,7 +124,7 @@ void DemoFramebuffer::Draw()
 {
     CS200::RenderingAPI::Clear();
 
-    auto& renderer_2d          = Engine::GetRenderer2D();
+    auto renderer_2d          = Engine::GetTextureManager().GetRenderer2D();
     const auto [width, height] = Engine::GetWindow().GetSize();
 
     // Begin offscreen rendering for wind particles
@@ -143,7 +144,7 @@ void DemoFramebuffer::Draw()
     lastFramebufferTexture = scene_texture;
 
     // Render main scene to screen
-    renderer_2d.BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+    renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
 
     // Draw background
     for (const auto& texture : backgroundTextures)
@@ -163,10 +164,10 @@ void DemoFramebuffer::Draw()
         const auto scale     = Math::ScaleMatrix({ static_cast<double>(width), static_cast<double>(height) });
         const auto rotate    = Math::RotationMatrix(static_cast<double>(windDirection));
         const auto transform = to_center * rotate * scale;
-        renderer_2d.DrawQuad(transform, scene_texture);
+        renderer_2d->DrawQuad(transform, scene_texture);
     }
 
-    renderer_2d.EndScene();
+    renderer_2d->EndScene();
 
     // Note: Don't delete scene_texture here anymore since we're storing it for ImGui
 }
@@ -428,7 +429,8 @@ void DemoFramebuffer::updateWindParticles(double delta_time)
 
 void DemoFramebuffer::drawWindParticles() const
 {
-    auto& renderer_2d = Engine::GetRenderer2D();
+	auto texture_manager = Engine::GetTextureManager();
+	auto renderer_2d = texture_manager.GetRenderer2D();
 
     for (const auto& particle : windParticles)
     {
@@ -442,7 +444,7 @@ void DemoFramebuffer::drawWindParticles() const
             const float       alpha      = static_cast<float>(particle.alpha);
             const CS200::RGBA dust_color = CS200::pack_color({ particleColor[0], particleColor[1], particleColor[2], alpha });
             // Draw particle as a small circle
-            renderer_2d.DrawCircle(transform, dust_color, CS200::CLEAR);
+            renderer_2d->DrawCircle(transform, dust_color, CS200::CLEAR);
         }
     }
 }
@@ -450,11 +452,11 @@ void DemoFramebuffer::drawWindParticles() const
 DemoFramebuffer::RenderInfo DemoFramebuffer::beginOffscreenRendering() const
 {
     RenderInfo render_info;
-    auto&      renderer_2d     = Engine::GetRenderer2D();
+    auto      renderer_2d     = Engine::GetTextureManager().GetRenderer2D();
     const auto [width, height] = Engine::GetWindow().GetSize();
 
     // End current scene
-    renderer_2d.EndScene();
+    renderer_2d->EndScene();
 
     // Set up offscreen framebuffer
     render_info.Size   = { width / 2, height / 2 };
@@ -466,7 +468,7 @@ DemoFramebuffer::RenderInfo DemoFramebuffer::beginOffscreenRendering() const
 
     // Switch to offscreen rendering
     const auto ndc_matrix = Math::ScaleMatrix({ 1.0, 1.0 }) * CS200::build_ndc_matrix(render_info.Size);
-    renderer_2d.BeginScene(ndc_matrix);
+    renderer_2d->BeginScene(ndc_matrix);
     GL::BindFramebuffer(GL_FRAMEBUFFER, render_info.Target.Framebuffer);
     GL::Viewport(0, 0, render_info.Size.x, render_info.Size.y);
     GL::ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -477,10 +479,10 @@ DemoFramebuffer::RenderInfo DemoFramebuffer::beginOffscreenRendering() const
 
 GLuint DemoFramebuffer::endOffscreenRendering(const RenderInfo& render_info) const
 {
-    auto& renderer_2d = Engine::GetRenderer2D();
+    auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
 
     // End offscreen scene
-    renderer_2d.EndScene();
+    renderer_2d->EndScene();
 
     // Restore OpenGL state
     GL::BindFramebuffer(GL_FRAMEBUFFER, 0);

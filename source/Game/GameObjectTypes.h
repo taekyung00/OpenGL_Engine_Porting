@@ -17,5 +17,6 @@ enum class GameObjectTypes {
     Passenger,
     Particle,
     Character,
+    Samurai,
     Count
 };

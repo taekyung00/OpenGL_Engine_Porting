@@ -1,8 +1,17 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
 #pragma once
 #include <memory>
 
 #include "./Engine/GameState.hpp"
 #include "./Engine/Texture.hpp"
+
+#include "Demo/DemoSceneShowcase/Samurai.h"
 
 
 class RenderingTest : public CS230::GameState
@@ -21,6 +30,7 @@ public:
 	}
 
 private:
+	Samurai*						samurai = nullptr;
 	std::shared_ptr<CS230::Texture> testTexture = nullptr;
 	Math::fvec2 scale = {1.f,1.f};
 	float rotate = 0.f;

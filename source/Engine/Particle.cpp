@@ -17,11 +17,14 @@ namespace CS230 {
 	{
 		AddGOComponent(new Sprite(sprite_file, this));
 	}
-	void Particle::Start(Math::vec2 _position, Math::vec2 _velocity, double max_life)
+
+
+	void Particle::Start(Math::vec2 _position, Math::vec2 _velocity, double max_life, CS200::RGBA _color)
 	{
 		SetPosition(_position);
 		SetVelocity(_velocity);
 		life = max_life;
+		real_color = _color;
 		GetGOComponent<Sprite>()->PlayAnimation(0);
 	}
 
@@ -33,9 +36,10 @@ namespace CS230 {
 		}
 	}
 
-	void Particle::Draw(Math::TransformationMatrix camera_matrix) {
+	void Particle::Draw(Math::TransformationMatrix camera_matrix, [[maybe_unused]]unsigned int color, float depth)
+	{
 		if (Alive()) {
-			GameObject::Draw(camera_matrix);
+			GameObject::Draw(camera_matrix, real_color, depth);
 		}
 	}
 }

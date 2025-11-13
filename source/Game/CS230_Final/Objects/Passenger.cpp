@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #include "Passenger.h"
 #include "../../../Engine/ShowCollision.h"
 #include "../../../Engine/Timer.hpp"
@@ -92,7 +99,7 @@ void Passenger::State_Sad::Enter([[maybe_unused]] GameObject* object)
     const auto tears_particle = Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Tears>>();
     if (tears_particle)
     {
-        tears_particle->Emit(1, Math::vec2{ 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { -10, -10 }, 3.1415926535 / 3);
+       tears_particle->Emit(1, Math::vec2{ 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { -10, -10 }, 3.1415926535 / 3);
         tears_particle->Emit(1, Math::vec2{ PassengerWidthHeight - 10, PassengerWidthHeight * 2 / 3 } + passenger->GetPosition(), { 0, 0 }, { 10, -10 }, 3.1415926535 / 3);
     }
 }

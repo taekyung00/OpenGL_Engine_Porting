@@ -39,7 +39,7 @@ namespace CS230
 
         virtual int DrawPriority() const
         {
-            return 10;
+			return DRAWPRIORITY; // higher for later, upper means low depth, 30 - 70 fix
         }
 
         bool         IsCollidingWith(GameObject* other_object);
@@ -48,7 +48,7 @@ namespace CS230
         virtual void ResolveCollision([[maybe_unused]] GameObject* other_object) { };
 
         virtual void Update(double dt);
-        virtual void Draw(Math::TransformationMatrix camera_matrix);
+		virtual void Draw(Math::TransformationMatrix camera_matrix, unsigned int color = 0xFFFFFFFF, float depth = 0.5f);
 
         const Math::TransformationMatrix& GetMatrix();
         const Math::vec2&                 GetPosition() const;
@@ -75,6 +75,8 @@ namespace CS230
         {
             destroy = true;
         }
+
+		static constexpr int DRAWPRIORITY = 50;
 
     protected:
 

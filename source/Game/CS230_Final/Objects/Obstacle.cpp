@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #include "Obstacle.h"
 #include "Player.h"
 #include "../../../Engine/GameStateManager.hpp"

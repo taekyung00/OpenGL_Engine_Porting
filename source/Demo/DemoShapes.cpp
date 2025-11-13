@@ -20,6 +20,7 @@
 #include "Engine/Logger.hpp"
 #include "Engine/Matrix.hpp"
 #include "Engine/Window.hpp"
+#include "Engine/TextureManager.hpp"
 #include "../Game/MainMenu.h"
 #include <cmath>
 #include <imgui.h>
@@ -53,6 +54,9 @@ namespace
 
 void DemoShapes::Load()
 {
+	auto& texture_manager = Engine::GetTextureManager();
+	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+
     CS200::RenderingAPI::SetClearColor(0x252525FF);
 
     targetShapePosition     = shapePosition;
@@ -122,12 +126,12 @@ void DemoShapes::Update([[maybe_unused]]double dt)
 void DemoShapes::Draw() 
 {
     CS200::RenderingAPI::Clear();
-    auto& renderer2d = Engine::GetRenderer2D();
-    renderer2d.BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+    auto renderer2d = Engine::GetTextureManager().GetRenderer2D();
+    renderer2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
 
     drawCurrentShape();
 
-    renderer2d.EndScene();
+    renderer2d->EndScene();
 }
 
 void DemoShapes::DrawImGui()
@@ -272,11 +276,11 @@ void DemoShapes::drawCurrentShape() const
 
 void DemoShapes::drawRectangles() const
 {
-    auto&      renderer2d = Engine::GetRenderer2D();
+    auto      renderer2d = Engine::GetTextureManager().GetRenderer2D();
     const auto transform  = getShapeTransform();
 
     // Draw main rectangle with current settings
-    renderer2d.DrawRectangle(transform, getFillColor(), getLineColor(), lineWidth);
+    renderer2d->DrawRectangle(transform, getFillColor(), getLineColor(), lineWidth);
 
     // Draw additional example rectangles to show different modes
     const double offset_x    = 200.0;
@@ -285,26 +289,26 @@ void DemoShapes::drawRectangles() const
     // Filled only example
     auto filled_transform =
         Math::TranslationMatrix(Math::vec2{ shapePosition.x - offset_x, shapePosition.y + 150.0 }) * Math::RotationMatrix(shapeRotation * 0.5) * Math::ScaleMatrix({ small_scale, small_scale });
-    renderer2d.DrawRectangle(filled_transform, 0x4CAF50FF, CS200::CLEAR, 0.0);
+    renderer2d->DrawRectangle(filled_transform, 0x4CAF50FF, CS200::CLEAR, 0.0);
 
     // Outlined only example
     auto outlined_transform =
         Math::TranslationMatrix(Math::vec2{ shapePosition.x, shapePosition.y + 150.0 }) * Math::RotationMatrix(-shapeRotation * 0.5) * Math::ScaleMatrix({ small_scale, small_scale });
-    renderer2d.DrawRectangle(outlined_transform, CS200::CLEAR, 0xFF9800FF, 2.0);
+    renderer2d->DrawRectangle(outlined_transform, CS200::CLEAR, 0xFF9800FF, 2.0);
 
     // Both fill and outline example
     auto both_transform =
         Math::TranslationMatrix(Math::vec2{ shapePosition.x + offset_x, shapePosition.y + 150.0 }) * Math::RotationMatrix(shapeRotation * 0.3) * Math::ScaleMatrix({ small_scale, small_scale });
-    renderer2d.DrawRectangle(both_transform, 0x9C27B0FF, 0xFFEB3BFF, 3.0);
+    renderer2d->DrawRectangle(both_transform, 0x9C27B0FF, 0xFFEB3BFF, 3.0);
 }
 
 void DemoShapes::drawCircles() const
 {
-    auto&      renderer2d = Engine::GetRenderer2D();
+    auto      renderer2d = Engine::GetTextureManager().GetRenderer2D();
     const auto transform  = getShapeTransform();
 
     // Draw main circle with current settings
-    renderer2d.DrawCircle(transform, getFillColor(), getLineColor(), lineWidth);
+    renderer2d->DrawCircle(transform, getFillColor(), getLineColor(), lineWidth);
 
     // Draw additional example circles to show different modes
     const double offset_x    = 200.0;
@@ -312,33 +316,33 @@ void DemoShapes::drawCircles() const
 
     // Filled only example
     auto filled_transform = Math::TranslationMatrix(Math::vec2{ shapePosition.x - offset_x, shapePosition.y + 150.0 }) * Math::ScaleMatrix({ small_scale, small_scale });
-    renderer2d.DrawCircle(filled_transform, 0xF44336FF, CS200::CLEAR, 0.0);
+    renderer2d->DrawCircle(filled_transform, 0xF44336FF, CS200::CLEAR, 0.0);
 
     // Outlined only example
     auto outlined_transform = Math::TranslationMatrix(Math::vec2{ shapePosition.x, shapePosition.y + 150.0 }) * Math::ScaleMatrix({ small_scale, small_scale });
-    renderer2d.DrawCircle(outlined_transform, CS200::CLEAR, 0x2196F3FF, 2.0);
+    renderer2d->DrawCircle(outlined_transform, CS200::CLEAR, 0x2196F3FF, 2.0);
 
     // Both fill and outline example
     auto both_transform = Math::TranslationMatrix(Math::vec2{ shapePosition.x + offset_x, shapePosition.y + 150.0 }) * Math::ScaleMatrix({ small_scale, small_scale });
-    renderer2d.DrawCircle(both_transform, 0xFF5722FF, 0x00BCD4FF, 3.0);
+    renderer2d->DrawCircle(both_transform, 0xFF5722FF, 0x00BCD4FF, 3.0);
 }
 
 void DemoShapes::drawLines() const
 {
-    auto& renderer2d = Engine::GetRenderer2D();
+	auto renderer2d = Engine::GetTextureManager().GetRenderer2D();
 
     // Draw transformation-based line (transforms with the shape)
     const auto transform = Math::TranslationMatrix(shapePosition) * Math::RotationMatrix(shapeRotation);
-    renderer2d.DrawLine(transform * Math::ScaleMatrix({ shapeScale.x, 1.0 }), Math::vec2{ -0.5, 0.0 }, Math::vec2{ 0.5, 0.0 }, getLineColor(), lineWidth);
-    renderer2d.DrawLine(transform * Math::ScaleMatrix({ 1.0, shapeScale.y }), Math::vec2{ 0.0, -0.5 }, Math::vec2{ 0.0, 0.5 }, getLineColor(), lineWidth);
+    renderer2d->DrawLine(transform * Math::ScaleMatrix({ shapeScale.x, 1.0 }), Math::vec2{ -0.5, 0.0 }, Math::vec2{ 0.5, 0.0 }, getLineColor(), lineWidth);
+    renderer2d->DrawLine(transform * Math::ScaleMatrix({ 1.0, shapeScale.y }), Math::vec2{ 0.0, -0.5 }, Math::vec2{ 0.0, 0.5 }, getLineColor(), lineWidth);
 
     const auto display_size = Engine::GetWindowEnvironment().DisplaySize;
     // Draw world-coordinate lines (fixed positions)
     const auto into_screen  = lineWidth * 0.5;
-    renderer2d.DrawLine({ 0.0, into_screen }, { display_size.x, into_screen }, lineColor, lineWidth);
-    renderer2d.DrawLine({ into_screen, 0.0 }, { into_screen, display_size.y }, lineColor, lineWidth);
-    renderer2d.DrawLine({ 0.0, display_size.y - into_screen }, { display_size.x, display_size.y - into_screen }, lineColor, lineWidth);
-    renderer2d.DrawLine({ display_size.x - into_screen, 0.0 }, { display_size.x - into_screen, display_size.y }, lineColor, lineWidth);
+    renderer2d->DrawLine({ 0.0, into_screen }, { display_size.x, into_screen }, lineColor, lineWidth);
+    renderer2d->DrawLine({ into_screen, 0.0 }, { into_screen, display_size.y }, lineColor, lineWidth);
+    renderer2d->DrawLine({ 0.0, display_size.y - into_screen }, { display_size.x, display_size.y - into_screen }, lineColor, lineWidth);
+    renderer2d->DrawLine({ display_size.x - into_screen, 0.0 }, { display_size.x - into_screen, display_size.y }, lineColor, lineWidth);
 }
 
 Math::TransformationMatrix DemoShapes::getShapeTransform() const

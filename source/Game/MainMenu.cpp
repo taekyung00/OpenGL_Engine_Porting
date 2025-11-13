@@ -8,27 +8,30 @@ Author:     Taekyung Ho
 Created:    May 6, 2025
 */
 #include "MainMenu.h"
-#include "../CS200/IRenderer2D.hpp"
-#include "../CS200/NDC.hpp"
-#include "../CS200/RenderingAPI.hpp"
-#include "../Engine/Engine.hpp"
-#include "../Engine/GameStateManager.hpp"
-#include "../Engine/Input.hpp"
-#include "../Engine/TextManager.hpp"
-#include "../Engine/Window.hpp"
-#include "../Demo/DemoBufferTypes.hpp"
-#include "../Demo/DemoCS230Textures.hpp"
-#include "../Demo/DemoFramebuffer.hpp"
-#include "../Demo/DemoShapes.hpp"
-#include "../Demo/DemoText.hpp"
-#include "../Demo/DemoTexturing.hpp"
-#include "../Demo/DemoVAO.hpp"
+#include "CS200/IRenderer2D.hpp"
+#include "CS200/NDC.hpp"
+#include "CS200/RenderingAPI.hpp"
+#include "Demo/DemoBatchInstance.hpp"
+#include "Demo/DemoSceneShowcase/SceneState.hpp"
+#include "Demo/DemoBufferTypes.hpp"
+#include "Demo/DemoCS230Textures.hpp"
+#include "Demo/DemoFramebuffer.hpp"
+#include "Demo/DemoShapes.hpp"
+#include "Demo/DemoText.hpp"
+#include "Demo/DemoTexturing.hpp"
+#include "Demo/DemoVAO.hpp"
+#include "Engine/Engine.hpp"
+#include "Engine/GameStateManager.hpp"
+#include "Engine/Input.hpp"
+#include "Engine/TextManager.hpp"
+#include "Engine/TextureManager.hpp"
+#include "Engine/Window.hpp"
 
-#include "./OpenGL/Environment.hpp"
+#include "OpenGL/Environment.hpp"
 
-#include "./Game/CS230_Final/States/Project.h"
-#include "./Game/States/ConsoleTest.h"
-#include "./Game/States/RenderingTest.h"
+#include "Game/CS230_Final/States/Project.h"
+#include "Game/States/ConsoleTest.h"
+#include "Game/States/RenderingTest.h"
 #include "States.h"
 #include <imgui.h>
 
@@ -47,57 +50,67 @@ namespace
 	const double MENU_START_Y_RATIO		 = 0.4;
 }
 
-MainMenu::MainMenu() : current_option(Option::CS230Final)
+MainMenu::MainMenu() : current_option(Option::CS200HW6Demo1)
 {
 }
 
 void MainMenu::DrawImGui()
 {
 	if (ImGui::Begin("Demo Controls"))
-    {
-        if (ImGui::Button("Switch to Demo DemoBufferTypes"))
-        {
-            Engine::GetGameStateManager().PopState();
-            Engine::GetGameStateManager().PushState<DemoBufferTypes>();
-        }
-        if (ImGui::Button("Switch to Demo DemoCS230Textures"))
-        {
-            Engine::GetGameStateManager().PopState();
-            Engine::GetGameStateManager().PushState<DemoCS230Textures>();
-        }
-        if (ImGui::Button("Switch to Demo DemoFramebuffer"))
-        {
-            Engine::GetGameStateManager().PopState();
-            Engine::GetGameStateManager().PushState<DemoFramebuffer>();
-        }
-        if (ImGui::Button("Switch to Demo DemoShapes"))
-        {
-            Engine::GetGameStateManager().PopState();
-            Engine::GetGameStateManager().PushState<DemoShapes>();
-        }
-        if (ImGui::Button("Switch to Demo DemoText"))
-        {
-            Engine::GetGameStateManager().PopState();
-            Engine::GetGameStateManager().PushState<DemoText>();
-        }
-        if (ImGui::Button("Switch to Demo DemoTexturing"))
-        {
-            Engine::GetGameStateManager().PopState();
-            Engine::GetGameStateManager().PushState<DemoTexturing>();
-        }
-        if (ImGui::Button("Switch to Demo DemoVAO"))
-        {
-            Engine::GetGameStateManager().PopState();
-            Engine::GetGameStateManager().PushState<DemoVAO>();
-        }
-    }
-    ImGui::End();
+	{
+		if (ImGui::Button("Switch to Demo DemoBufferTypes"))
+		{
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<DemoBufferTypes>();
+		}
+		if (ImGui::Button("Switch to Demo DemoCS230Textures"))
+		{
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<DemoCS230Textures>();
+		}
+		if (ImGui::Button("Switch to Demo DemoFramebuffer"))
+		{
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<DemoFramebuffer>();
+		}
+		if (ImGui::Button("Switch to Demo DemoShapes"))
+		{
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<DemoShapes>();
+		}
+		if (ImGui::Button("Switch to Demo DemoText"))
+		{
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<DemoText>();
+		}
+		if (ImGui::Button("Switch to Demo DemoTexturing"))
+		{
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<DemoTexturing>();
+		}
+		if (ImGui::Button("Switch to Demo DemoVAO"))
+		{
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<DemoVAO>();
+		}
+	}
+	ImGui::End();
 }
 
 void MainMenu::SelecetOption()
 {
 	switch (current_option)
 	{
+		case MainMenu::Option::CS200HW6Demo1:
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<DemoBatchInstance>();
+			break;
+
+		case MainMenu::Option::CS200HW6Demo2:
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<SceneState>();
+			break;
+
 		case MainMenu::Option::CS230Final:
 			Engine::GetGameStateManager().PopState();
 			Engine::GetGameStateManager().PushState<Project>();
@@ -114,6 +127,7 @@ void MainMenu::SelecetOption()
 			break;
 
 		case MainMenu::Option::Exit: Engine::GetGameStateManager().PopState(); break;
+		case MainMenu::Option::COUNT: break;
 	}
 }
 
@@ -124,6 +138,12 @@ void MainMenu::Load()
 	{
 		Engine::GetWindow().ForceResize(default_window_size.x, default_window_size.y);
 		Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+	}
+	Option temp_option = current_option;
+	while (temp_option != Option::COUNT)
+	{
+		colors[temp_option] = non_seleted_color;
+		temp_option			= static_cast<Option>(static_cast<int>(temp_option) + 1);
 	}
 	update_colors();
 
@@ -150,7 +170,7 @@ void MainMenu::Update([[maybe_unused]] double dt)
 {
 	CS230::Input& input		  = Engine::GetInput();
 	// Math::vec2	  mouse_pos	  = input.GetMousePos();
-	auto		  window_size = Engine::GetWindow().GetSize();
+	// auto		  window_size = Engine::GetWindow().GetSize();
 
 	if (input.KeyJustReleased(CS230::Input::Keys::Up))
 	{
@@ -204,37 +224,47 @@ void MainMenu::Unload()
 void MainMenu::Draw()
 {
 	CS200::RenderingAPI::Clear();
-	auto& renderer_2d = Engine::GetRenderer2D();
-	renderer_2d.BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
 
 	auto& text_manager = Engine::GetTextManager();
 
-	text_manager.DrawText("CS230 Porting", title_pos, Fonts::Outlined, title_scale, title_color);
+	text_manager.DrawText("CS200 HW6", title_pos, Fonts::Outlined, title_scale, title_color);
 
 	double current_item_y = 0;
 	int	   i			  = 0;
 
-	// Option: engine_porting
+	// Option: CS200 hw6 demo1
+	i			   = static_cast<int>(Option::CS200HW6Demo1);
+	current_item_y = menu_start_pos_bl.y - (i * menu_item_total_height);
+	text_manager.DrawText("CS200 HW6 DEMO1", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, colors[Option::CS200HW6Demo1]);
+
+	// Option: CS200 hw6 demo2
+	i			   = static_cast<int>(Option::CS200HW6Demo2);
+	current_item_y = menu_start_pos_bl.y - (i * menu_item_total_height);
+	text_manager.DrawText("CS200 HW6 DEMO2", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, colors[Option::CS200HW6Demo2]);
+
+	// Option: cs230 final
 	i			   = static_cast<int>(Option::CS230Final);
 	current_item_y = menu_start_pos_bl.y - (i * menu_item_total_height);
-	text_manager.DrawText("CS230 Final", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, cs230_color);
+	text_manager.DrawText("CS230 Final", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, colors[Option::CS230Final]);
 
 	// Option: console test
 	i			   = static_cast<int>(Option::ConsoleTest);
 	current_item_y = menu_start_pos_bl.y - (i * menu_item_total_height);
-	text_manager.DrawText("Console test", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, console_test_color);
+	text_manager.DrawText("Console test", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, colors[Option::ConsoleTest]);
 
 	// Option: rendering test
 	i			   = static_cast<int>(Option::RenderingTest);
 	current_item_y = menu_start_pos_bl.y - (i * menu_item_total_height);
-	text_manager.DrawText("Rendering test", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, rendering_test_color);
+	text_manager.DrawText("Rendering test", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, colors[Option::RenderingTest]);
 
 	// Option: exit
 	i			   = static_cast<int>(Option::Exit);
 	current_item_y = menu_start_pos_bl.y - (i * menu_item_total_height);
-	text_manager.DrawText("Exit", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, exit_color);
+	text_manager.DrawText("Exit", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, colors[Option::Exit]);
 
-	renderer_2d.EndScene();
+	renderer_2d->EndScene();
 }
 
 gsl::czstring MainMenu::GetName() const
@@ -244,34 +274,15 @@ gsl::czstring MainMenu::GetName() const
 
 void MainMenu::update_colors()
 {
-	switch (current_option)
+	for (auto& color : colors)
 	{
-		case MainMenu::Option::CS230Final:
-			cs230_color			 = seleted_color;
-			console_test_color	 = non_seleted_color;
-			rendering_test_color = non_seleted_color;
-			exit_color			 = non_seleted_color;
-			break;
-
-		case MainMenu::Option::ConsoleTest:
-			cs230_color			 = non_seleted_color;
-			console_test_color	 = seleted_color;
-			rendering_test_color = non_seleted_color;
-			exit_color			 = non_seleted_color;
-			break;
-
-		case MainMenu::Option::RenderingTest:
-			cs230_color			 = non_seleted_color;
-			console_test_color	 = non_seleted_color;
-			rendering_test_color = seleted_color;
-			exit_color			 = non_seleted_color;
-			break;
-
-		case MainMenu::Option::Exit:
-			cs230_color			 = non_seleted_color;
-			console_test_color	 = non_seleted_color;
-			rendering_test_color = non_seleted_color;
-			exit_color			 = seleted_color;
-			break;
+		if (color.first == current_option)
+		{
+			color.second = seleted_color;		
+		}
+		else
+		{
+			color.second = non_seleted_color;
+		}
 	}
 }

@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #include "Bus.h"
 #include "../../../Engine/GameStateManager.hpp"
 #include "../../Score.h"

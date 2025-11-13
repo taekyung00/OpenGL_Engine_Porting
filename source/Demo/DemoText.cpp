@@ -16,12 +16,15 @@
 #include "Engine/GameStateManager.hpp"
 #include "Engine/Texture.hpp"
 #include "Engine/Window.hpp"
+#include "Engine/TextureManager.hpp"
 #include "../Game/MainMenu.h"
 #include <imgui.h>
 #include <sstream>
 
 void DemoText::Load()
 {
+	auto& texture_manager = Engine::GetTextureManager();
+	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
     CS200::RenderingAPI::SetClearColor(0x2E3440FF);
 
     simpleFont   = std::make_unique<CS230::Font>("Assets/fonts/Font_Simple.png");
@@ -58,8 +61,8 @@ void DemoText::Unload()
 void DemoText::Draw() 
 {
     CS200::RenderingAPI::Clear();
-    auto& renderer2d = Engine::GetRenderer2D();
-    renderer2d.BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+	auto renderer2d = Engine::GetTextureManager().GetRenderer2D();
+    renderer2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
 
     const auto   display_size = Engine::GetWindowEnvironment().DisplaySize;
     // Draw world-coordinate lines (fixed positions)
@@ -67,7 +70,7 @@ void DemoText::Draw()
     const auto   into_screen  = line_width * 0.5;
     const auto   rect_size    = display_size - Math::vec2{ into_screen, into_screen };
     // const auto lineColor = CS200::BLACK;
-    renderer2d.DrawRectangle(Math::TranslationMatrix(rect_size * 0.5) * Math::ScaleMatrix(rect_size), 0x2E3440FF, CS200::BLACK, line_width);
+    renderer2d->DrawRectangle(Math::TranslationMatrix(rect_size * 0.5) * Math::ScaleMatrix(rect_size), 0x2E3440FF, CS200::BLACK, line_width);
     // renderer2d.DrawLine({ 0.0, into_screen }, { display_size.x, into_screen }, lineColor, line_width);
     // renderer2d.DrawLine({ into_screen, 0.0 }, { into_screen, display_size.y }, lineColor, line_width);
     // renderer2d.DrawLine({ 0.0, display_size.y - into_screen }, { display_size.x, display_size.y - into_screen }, lineColor, line_width);
@@ -135,7 +138,7 @@ void DemoText::Draw()
         drawCacheInfo(current_y, center_x);
     }
 
-    renderer2d.EndScene();
+    renderer2d->EndScene();
 }
 
 void DemoText::DrawImGui()

@@ -1,3 +1,12 @@
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Particles.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    May 29, 2025
+*/
 #pragma once
 #include "../Engine/Particle.h"
 
@@ -34,7 +43,8 @@ namespace Particles
     class MeteorBit : public CS230::Particle
     {
     public:
-        MeteorBit() : Particle("Assets/MeteorBit.spt") { };
+    
+        MeteorBit() : Particle("Assets/sprites/DemoSceneShowcase/Meteor.spt") { };
 
         std::string TypeName() override
         {
@@ -55,7 +65,7 @@ namespace Particles
             return "Tears Particle";
         }
 
-        static constexpr int    MaxCount = 30;
+        static constexpr int	MaxCount = 1000;
         static constexpr double MaxLife  = 3.0;
     };
 
@@ -69,7 +79,21 @@ namespace Particles
             return "Shining Particle";
         }
 
-        static constexpr int    MaxCount = 50;
+        static constexpr int    MaxCount = 1000;
         static constexpr double MaxLife  = 3.0;
     };
+
+    class Flame : public CS230::Particle
+	{
+	public:
+		Flame() : Particle("Assets/sprites/DemoSceneShowcase/Flame.spt") { };
+
+		std::string TypeName() override
+		{
+			return "Flame Particle";
+		}
+
+		static constexpr int	MaxCount = 5;
+		static constexpr double MaxLife	 = 1.25;
+	};
 }

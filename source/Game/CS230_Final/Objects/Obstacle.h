@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #pragma once
 #include "../../../Engine/GameObject.h"
 #include "../../Score.h"
@@ -8,7 +15,7 @@ class Player;
 class Obstacle : public CS230::GameObject {
 public:
 	Obstacle(Player*, Math::vec2 pos);
-	int			DrawPriority() const override{ return 12; }
+	int			DrawPriority() const override{ return 32; }
 	GameObjectTypes		Type() override { return GameObjectTypes::Obstacle; }
 	std::string			TypeName() override { return "Obstacle"; }
 

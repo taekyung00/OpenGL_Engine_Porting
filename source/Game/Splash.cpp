@@ -41,11 +41,11 @@ void Splash::Unload()
 void Splash::Draw()  {
 
     CS200::RenderingAPI::Clear();
-    auto& renderer_2d          = Engine::GetRenderer2D();
-    renderer_2d.BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+    renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
     texture->Draw(Math::TranslationMatrix({ (Engine::GetWindow().GetSize() - texture->GetSize()) / 2 }));
 
-    renderer_2d.EndScene();
+    renderer_2d->EndScene();
 }
 
 void Splash::DrawImGui()

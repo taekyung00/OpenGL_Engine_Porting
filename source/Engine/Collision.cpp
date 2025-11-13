@@ -13,6 +13,7 @@ Created:    May 17, 2025
 #include "../CS200/RGBA.hpp"
 #include "Engine.hpp"
 #include "Logger.hpp"
+#include "TextureManager.hpp"
 
 namespace CS230
 {
@@ -20,7 +21,7 @@ namespace CS230
     {
     }
 
-    void RectCollision::Draw(Math::TransformationMatrix display_matrix)
+    void RectCollision::Draw(Math::TransformationMatrix display_matrix, float depth)
     {
         /*const double render_height = rlGetFramebufferHeight();
 
@@ -34,9 +35,10 @@ namespace CS230
         DrawLine(int(bottom_right.x), int(bottom_right.y), int(top_right.x), int(top_right.y), WHITE);
         DrawLine(int(bottom_right.x), int(bottom_right.y), int(bottom_left.x), int(bottom_left.y), WHITE);
         DrawLine(int(top_left.x), int(top_left.y), int(bottom_left.x), int(bottom_left.y), WHITE);*/
-
+		auto& texture_manager = Engine::GetTextureManager();
+		//texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
         Math::rect world_boundary = WorldBoundary();
-        auto&      renderer2d     = Engine::GetRenderer2D();
+		auto	   renderer2d	  = texture_manager.GetRenderer2D();
 
         // [[maybe_unused]] Math::vec2 bottom_left  = /*display_matrix * */ Math::vec2{ world_boundary.Left(), world_boundary.Bottom() };
         // [[maybe_unused]] Math::vec2 bottom_right = /*display_matrix * */ Math::vec2{ world_boundary.Right(), world_boundary.Bottom() };
@@ -45,7 +47,7 @@ namespace CS230
 
         // const auto center_matrix = display_matrix * Math::TranslationMatrix(world_boundary.Center());
 
-        renderer2d.DrawRectangle(display_matrix*Math::TranslationMatrix(world_boundary.Center())*Math::ScaleMatrix(world_boundary.Size()), CS200::CLEAR, CS200::WHITE, line_width);
+        renderer2d->DrawRectangle(display_matrix*Math::TranslationMatrix(world_boundary.Center())*Math::ScaleMatrix(world_boundary.Size()), CS200::CLEAR, CS200::BLACK, line_width,depth);
     }
 
     Math::rect RectCollision::WorldBoundary()
@@ -95,7 +97,7 @@ namespace CS230
     {
     }
 
-    void CircleCollision::Draw(Math::TransformationMatrix display_matrix)
+    void CircleCollision::Draw(Math::TransformationMatrix display_matrix,float depth)
     {
         // const double render_height = rlGetFramebufferHeight();
         // Math::vec2 transformed_position = display_matrix * object->GetPosition();
@@ -113,9 +115,11 @@ namespace CS230
         //     }
         //     previous_vertex = vertex;
         // }
+		auto& texture_manager = Engine::GetTextureManager();
+		//texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
         const auto transform = display_matrix * Math::TranslationMatrix(object->GetPosition()) * Math::ScaleMatrix(2 * GetRadius());
-        auto&      renderer2d           = Engine::GetRenderer2D();
-        renderer2d.DrawCircle(transform);
+		auto	   renderer2d = texture_manager.GetRenderer2D();
+		renderer2d->DrawCircle(transform, CS200::CLEAR, CS200::BLACK, line_width, depth);
     }
 
     double CircleCollision::GetRadius()

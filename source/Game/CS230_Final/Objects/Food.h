@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #pragma once
 
 #include "../../../Engine/GameObject.h"
@@ -9,7 +16,7 @@ class Passenger;
 class Food : public CS230::GameObject {
 public:
 	Food(Passenger*, Math::vec2 pos);
-	virtual int		DrawPriority() const override { return 11; }
+	virtual int		DrawPriority() const override { return 33; }
 	GameObjectTypes Type() override { return GameObjectTypes::Food; }
 	std::string		TypeName() override { return "Food"; }
 	void			Update(double dt) override;

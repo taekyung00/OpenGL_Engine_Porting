@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
 #pragma once
 #include "./Engine/GameState.hpp"
 class ConsoleTest : public CS230::GameState

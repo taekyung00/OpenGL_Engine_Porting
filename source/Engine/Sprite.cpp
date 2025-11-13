@@ -143,8 +143,9 @@ void CS230::Sprite::Load(const std::filesystem::path& sprite_file, GameObject* _
 
 }
 
-void CS230::Sprite::Draw(Math::TransformationMatrix display_matrix){
-    texture->Draw(display_matrix * Math::TranslationMatrix(-GetHotSpot(0)), GetFrameTexel(animations[current_animation]->CurrentFrame()), GetFrameSize());
+void CS230::Sprite::Draw(Math::TransformationMatrix display_matrix, unsigned int color, float depth)
+{
+	texture->Draw(display_matrix * Math::TranslationMatrix(-GetHotSpot(0)), GetFrameTexel(animations[current_animation]->CurrentFrame()), GetFrameSize(), color,depth);
 }
 
 Math::ivec2 CS230::Sprite::GetHotSpot(size_t index)

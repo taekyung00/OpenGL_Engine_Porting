@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #include "Food.h"
 #include "../../../Engine/GameStateManager.hpp"
 #include "../../../Engine/Particle.h"

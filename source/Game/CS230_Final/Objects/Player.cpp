@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #include "Player.h"
 #include "../../../Engine/Window.hpp"
 #include "../../../Engine/Input.hpp"
@@ -41,8 +48,9 @@ void Player::Update([[maybe_unused]] double dt) {
     update_score_text();
 }
 
-void Player::Draw(Math::TransformationMatrix camera_matrix) {
-    GameObject::Draw(camera_matrix);
+void Player::Draw(Math::TransformationMatrix camera_matrix, unsigned int color, float depth)
+{
+    GameObject::Draw(camera_matrix,color,depth);
     auto& text_manager = Engine::GetTextManager();
     text_manager.DrawText("Score", Math::vec2{ 0, window_height - 68 }, Fonts::Outlined, { 1.0, 1.0 }, 0xFFFFFFFF);
     text_manager.DrawText(std::to_string(score), Math::vec2{ 0, window_height - 68 - 68 }, Fonts::Outlined, { 1.0, 1.0 }, 0xFFFFFFFF);

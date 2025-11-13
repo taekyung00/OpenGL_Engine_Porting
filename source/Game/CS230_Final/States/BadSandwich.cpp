@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #include "BadSandwich.h"
 #include "Project.h"
 #include "../../MainMenu.h"
@@ -5,6 +12,8 @@
 #include "../../../Engine/GameStateManager.hpp"
 #include "../../../Engine/Input.hpp"
 #include "../../../Engine/Window.hpp"
+
+#include "CS200/NDC.hpp"
 void BadSandwich::Load() {
     texture = Engine::GetTextureManager().Load("Assets/images/CS230_Final/BadSandwich.png");
 }
@@ -29,5 +38,9 @@ void BadSandwich::Unload() {
 
 void BadSandwich::Draw() {
     Engine::GetWindow().Clear(UINT_MAX);
-    texture->Draw(Math::TransformationMatrix());
+	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+	texture->Draw(Math::TransformationMatrix());
+
+	renderer_2d->EndScene();
 }

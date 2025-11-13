@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #include "Ziggle.h"
 
 Ziggle::Ziggle(CS230::GameObject* _given_object, bool _looping, double _timer) : 

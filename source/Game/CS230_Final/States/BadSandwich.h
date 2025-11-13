@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #pragma once
 #include "../../../Engine/GameState.hpp"
 #include "../../../Engine/Engine.hpp"

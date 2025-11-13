@@ -63,17 +63,32 @@ void CS230::GameObject::change_state(State* new_state) {
 }
 
 
-void CS230::GameObject::Draw(Math::TransformationMatrix camera_matrix) {
+void CS230::GameObject::Draw(Math::TransformationMatrix camera_matrix, unsigned int color , float depth )
+{
     
     Sprite* sprite = GetGOComponent<Sprite>();
     if (sprite != nullptr) {
-        sprite->Draw(camera_matrix * GetMatrix());
+
+		float real_depth;
+		if (DrawPriority() != DRAWPRIORITY)
+		{
+			real_depth = 1.f - (static_cast<float>(DrawPriority()) / 100.0f);
+			if (0.7f < real_depth)
+				real_depth = 0.7f;
+			if (0.3f > real_depth)
+				real_depth = 0.3f;
+        }
+		else
+		{
+			real_depth = depth;
+		}
+		sprite->Draw(camera_matrix * GetMatrix(), color, real_depth);
     }
     Collision* collision = GetGOComponent<Collision>();
     ShowCollision* showcollision = Engine::GetGameStateManager().GetGSComponent<ShowCollision>();
     if (showcollision != nullptr) {
         if ((collision != nullptr) && (showcollision->Enabled() == true)) {
-            collision->Draw(camera_matrix);
+            collision->Draw(camera_matrix,0.f);
         }
     }
     

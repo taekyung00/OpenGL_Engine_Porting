@@ -26,6 +26,7 @@
 void DemoCS230Textures::Load()
 {
     auto&      texture_manager        = Engine::GetTextureManager();
+	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
     const auto background_image_paths = { "Assets/images/DemoCS230Textures/Planets.png", "Assets/images/DemoCS230Textures/Ships.png", "Assets/images/DemoCS230Textures/Foreground.png" };
     for (const auto& path : background_image_paths)
     {
@@ -67,8 +68,8 @@ void DemoCS230Textures::Update([[maybe_unused]]double dt)
 void DemoCS230Textures::Draw() 
 {
     CS200::RenderingAPI::Clear();
-    auto& renderer_2d = Engine::GetRenderer2D();
-    renderer_2d.BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+    auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+    renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
     const auto background_tint = CS200::pack_color(backgroundTintColor);
     for (const auto& texture : backgroundTextures)
     {
@@ -86,7 +87,7 @@ void DemoCS230Textures::Draw()
     const auto       transform      = translate * scale * to_center;
     const auto       character_tint = CS200::pack_color(characterTintColor);
     currentTexture->Draw(transform, texel_base, frame_size, character_tint);
-    renderer_2d.EndScene();
+    renderer_2d->EndScene();
 }
 
 void DemoCS230Textures::DrawImGui()

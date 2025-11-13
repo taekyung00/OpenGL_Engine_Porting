@@ -1,0 +1,7 @@
+Assets/images/DemoSceneShowcase/SamuraiRun.png
+FrameSize 96 96
+HotSpot 50 10     
+HotSpot 64 32     
+RectCollision 0 0 96 96
+NumFrames 16
+Anim Assets/animations/DemoSceneShowcase/SamuraiRun.anm

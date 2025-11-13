@@ -13,6 +13,7 @@
 #include "CS200/IRenderer2D.hpp"
 #include "CS200/Image.hpp"
 #include "Engine.hpp"
+#include "TextureManager.hpp"
 #include "Matrix.hpp"
 #include "OpenGL/GL.hpp"
 #include "Window.hpp"
@@ -20,17 +21,17 @@
 namespace CS230
 {
 
-	void Texture::Draw([[maybe_unused]] const Math::TransformationMatrix& display_matrix, unsigned int color)
+	void Texture::Draw([[maybe_unused]] const Math::TransformationMatrix& display_matrix, unsigned int color, float depth)
 	{
 		const auto		  window_size = Engine::GetWindow().GetSize();
 		const Math::ivec2 draw_size	  = { std::min(window_size.x, image_size.x), std::min(window_size.y, image_size.y) };
 
-		Draw(display_matrix, { 0, 0 }, draw_size, color);
+		Draw(display_matrix, { 0, 0 }, draw_size, color,depth);
 	}
 
-	void Texture::Draw(const Math::TransformationMatrix& display_matrix, Math::ivec2 texel_position, Math::ivec2 frame_size, unsigned int color)
+	void Texture::Draw(const Math::TransformationMatrix& display_matrix, Math::ivec2 texel_position, Math::ivec2 frame_size, unsigned int color, float depth)
 	{
-		CS200::IRenderer2D& renderer = Engine::GetRenderer2D();
+		CS200::IRenderer2D* renderer = Engine::GetTextureManager().GetRenderer2D();
 
 		const Math::ivec2 slice_amount = { image_size.x / frame_size.x, image_size.y / frame_size.y };
 
@@ -64,7 +65,7 @@ namespace CS230
 		Math::vec2		 set_bottom_left{ frame_size.x * 0.5, frame_size.y * 0.5 };
 		const auto world_transfromation =  Math::TranslationMatrix(set_bottom_left) * Math::TransformationMatrix(display_matrix) * Math::ScaleMatrix(frame_size);
 
-		renderer.DrawQuad(world_transfromation, textureHandle, texel_coord_bl, texel_coord_tr, color);
+		renderer->DrawQuad(world_transfromation, textureHandle, texel_coord_bl, texel_coord_tr, color, depth);
 	}
 
 	Math::ivec2 Texture::GetSize() const

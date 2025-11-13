@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #include "Grid.h"
 #include "../../../Engine/Input.hpp"
 #include "../../../Engine/TextureManager.hpp"
@@ -23,7 +30,7 @@ void Grid::Update([[maybe_unused]] double dt)
     }
 }
 
-void Grid::Draw(DotColor dc)
+void Grid::Draw(DotColor dc,float depth)
 {
     if (draw)
     {
@@ -34,22 +41,20 @@ void Grid::Draw(DotColor dc)
                 Math::TransformationMatrix draw_matrix = Math::TranslationMatrix(Math::ivec2{ j * 10, i * 10 }) /** Math::TranslationMatrix(-camera.GetPosition())*/;
                 if (i == 0 && j == 0)
                 {
-                    blue_dot->Draw(draw_matrix * Math::ScaleMatrix(4.0));
+                    blue_dot->Draw(draw_matrix * Math::ScaleMatrix(4.0),CS200::WHITE,depth);
                 }
                 else if (i == 0 || i == window_size.y / 10 || j == 0 || j == window_size.x / 10)
                 {
-                    red_dot->Draw(draw_matrix * Math::ScaleMatrix(2.0));
+					red_dot->Draw(draw_matrix * Math::ScaleMatrix(2.0), CS200::WHITE, depth);
                 }
                 else
                 {
                     switch (dc)
                     {
-                    case DotColor::white:
-                        white_dot->Draw(draw_matrix);
+                    case DotColor::white: white_dot->Draw(draw_matrix, CS200::WHITE, depth);
                         break;
                     
-                    case DotColor::black:
-                        black_dot->Draw(draw_matrix);
+                    case DotColor::black: black_dot->Draw(draw_matrix, CS200::WHITE, depth);
                         break;
                     }
                     

@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #pragma once
 #include "../../../Engine/GameObjectManager.h"
 #include "../../../Engine/Collision.h"
@@ -13,7 +20,7 @@ public:
 	void			Update(double dt) override;
 	GameObjectTypes Type() override { return GameObjectTypes::Bus; }
 	std::string		TypeName() override { return "Bus"; }
-	int DrawPriority() const override { return 9; }
+	int DrawPriority() const override { return 30; }
 	
 	//bool			CanCollideWith(GameObjectTypes other_object_type) override;
 

@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #pragma once
 #include "../../../Engine/Camera.h"
 #include "../../../Engine/Component.h"
@@ -18,7 +25,7 @@ public:
 	};
 	Grid();
 	void Update(double dt) override;
-	void Draw(DotColor);
+	void Draw(DotColor,float);
 
 
 private:

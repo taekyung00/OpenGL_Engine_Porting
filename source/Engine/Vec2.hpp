@@ -216,9 +216,13 @@ namespace Math
     std::istream& operator>>(std::istream& is, fvec2& v);
 
     vec2 to_vec2(const fvec2& rhs);
+    vec2 to_vec2(const ivec2& rhs);
     
-
     fvec2 to_fvec2(const vec2& rhs);
+    fvec2 to_fvec2(const ivec2& rhs);
+
+    ivec2 to_ivec2(const fvec2& rhs);
+    ivec2 to_ivec2(const vec2& rhs);
     
 
     struct vec3

@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #pragma once
 
 #include "../../../Engine/GameObject.h"
@@ -13,14 +20,14 @@ class Player : public CS230::GameObject {
 public:
 	Player();
 	void				Update(double dt) override;
-	void				Draw(Math::TransformationMatrix camera_matrix) override;
+	void Draw(Math::TransformationMatrix camera_matrix, unsigned int color = 0xFFFFFFFF, float depth = 0.5f) override;
 	GameObjectTypes		Type() override { return GameObjectTypes::Player; }
 	std::string			TypeName() override { return "Player"; }
 
 	bool				CanCollideWith(GameObjectTypes other_object_type) override;
 	void				ResolveCollision(GameObject* other_object) override;
 
-	int					DrawPriority() const override { return 11; }
+	int					DrawPriority() const override { return 31; }
 
 	const Math::vec2&	GetPosition() const { return GameObject::GetPosition(); }
 

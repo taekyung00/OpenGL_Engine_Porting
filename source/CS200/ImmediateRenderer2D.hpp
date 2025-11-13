@@ -198,7 +198,7 @@ namespace CS200
          * - Draw using quad VAO and index buffer
          * - Use GL_TRIANGLES with 6 indices (2 triangles)
          */
-        void DrawQuad(const Math::TransformationMatrix& transform, OpenGL::TextureHandle texture, Math::vec2 texture_coord_bl, Math::vec2 texture_coord_tr, CS200::RGBA tintColor) override;
+        void DrawQuad(const Math::TransformationMatrix& transform, OpenGL::TextureHandle texture, Math::vec2 texture_coord_bl, Math::vec2 texture_coord_tr, CS200::RGBA tintColor, float depth) override;
 
         /**
          * \brief Draw a filled circle with optional outline using SDF rendering
@@ -212,7 +212,7 @@ namespace CS200
          * - Call DrawSDF() with SDFShape::Circle
          * - Radius determined by transform scale
          */
-        void DrawCircle(const Math::TransformationMatrix& transform, CS200::RGBA fill_color, CS200::RGBA line_color, double line_width) override;
+		void DrawCircle(const Math::TransformationMatrix& transform, CS200::RGBA fill_color, CS200::RGBA line_color, double line_width, float depth) override;
         /**
          * \brief Draw a filled rectangle with optional outline using SDF rendering
          * \param transform World transformation matrix (position, rotation, scale)
@@ -225,7 +225,7 @@ namespace CS200
          * - Call DrawSDF() with SDFShape::Rectangle
          * - Size determined by transform scale
          */
-        void DrawRectangle(const Math::TransformationMatrix& transform, CS200::RGBA fill_color, CS200::RGBA line_color, double line_width) override;
+		void DrawRectangle(const Math::TransformationMatrix& transform, CS200::RGBA fill_color, CS200::RGBA line_color, double line_width, float depth) override;
         /**
          * \brief Draw a line segment with specified thickness
          * \param transform Additional transformation to apply to the line
@@ -239,7 +239,7 @@ namespace CS200
          * - Draw as a rotated/scaled rectangle using SDF rendering
          * - Both fill and line colors set to same value
          */
-        void DrawLine(const Math::TransformationMatrix& transform, Math::vec2 start_point, Math::vec2 end_point, CS200::RGBA line_color, double line_width) override;
+		void DrawLine(const Math::TransformationMatrix& transform, Math::vec2 start_point, Math::vec2 end_point, CS200::RGBA line_color, double line_width, float depth) override;
         /**
          * \brief Draw a line segment with specified thickness (identity transform)
          * \param start_point Starting point of the line in world coordinates
@@ -251,7 +251,7 @@ namespace CS200
          * - Convenience overload that calls other DrawLine() with identity matrix
          * - Useful for simple line drawing without additional transformations
          */
-        void DrawLine(Math::vec2 start_point, Math::vec2 end_point, CS200::RGBA line_color, double line_width) override;
+		void DrawLine(Math::vec2 start_point, Math::vec2 end_point, CS200::RGBA line_color, double line_width, float depth) override;
     private:
 
         struct object
@@ -304,6 +304,12 @@ namespace CS200
          * - Use SDF vertex array and draw triangles
          * - Shape rendering handled entirely in fragment shader
          */
-        void DrawSDF(const Math::TransformationMatrix& transform, CS200::RGBA fill_color, CS200::RGBA line_color, double line_width, SDFShape sdf_shape);
+		void DrawSDF(const Math::TransformationMatrix& transform, CS200::RGBA fill_color, CS200::RGBA line_color, double line_width, SDFShape sdf_shape, float depth);
+
+        size_t draw_call = 0;
+		size_t GetDrawCallCounter() override;
+
+        size_t texture_call = 0;
+		size_t GetDrawTextureCounter() override;
     };
 }

@@ -354,15 +354,15 @@ namespace Math
 
      fvec2& fvec2::operator*=(int scalar) noexcept
     {
-        x *= scalar;
-        y *= scalar;
+        x *= static_cast<float>(scalar);
+        y *= static_cast<float>(scalar);
         return *this;
     }
 
      fvec2& fvec2::operator/=(int scalar) noexcept
     {
-        x /= scalar;
-        y /= scalar;
+        x /= static_cast<float>(scalar);
+        y /= static_cast<float>(scalar);
         return *this;
     }
 
@@ -403,13 +403,13 @@ namespace Math
 
      fvec2 operator*(const fvec2& v, int scalar) noexcept
     {
-        fvec2 new_vec{ v.x * scalar, v.y * scalar };
+        fvec2 new_vec{ v.x * static_cast<float>(scalar), v.y * static_cast<float>(scalar) };
         return new_vec;
     }
 
      fvec2 operator*(int scalar, const fvec2& v) noexcept
     {
-        fvec2 new_vec{ v.x * scalar, v.y * scalar };
+        fvec2 new_vec{ v.x * static_cast<float>(scalar), v.y * static_cast<float>(scalar) };
         return new_vec;
     }
 
@@ -427,7 +427,7 @@ namespace Math
 
      fvec2 operator/(const fvec2& v, int scalar) noexcept
     {
-        fvec2 new_vec{ v.x / scalar, v.y / scalar };
+        fvec2 new_vec{ v.x / static_cast<float>(scalar), v.y / static_cast<float>(scalar) };
         return new_vec;
     }
 
@@ -458,10 +458,30 @@ namespace Math
         return {static_cast<double>(rhs.x), static_cast<double>(rhs.y)};
     }
 
+	vec2 to_vec2(const ivec2& rhs)
+	{
+		return {static_cast<double>(rhs.x), static_cast<double>(rhs.y)};
+	}
+
 	fvec2 to_fvec2(const vec2& rhs)
 	{
         return {static_cast<float>(rhs.x), static_cast<float>(rhs.y)};
     }
+
+	fvec2 to_fvec2(const ivec2& rhs)
+	{
+		return {static_cast<float>(rhs.x), static_cast<float>(rhs.y)};
+	}
+
+	ivec2 to_ivec2(const fvec2& rhs)
+	{
+		return {static_cast<int>(rhs.x), static_cast<int>(rhs.y)};
+	}
+
+	ivec2 to_ivec2(const vec2& rhs)
+	{
+		return {static_cast<int>(rhs.x), static_cast<int>(rhs.y)};
+	}
 
 	/*===============================vec3==================================*/
      vec3& vec3::operator+=(const vec3& rhs) noexcept

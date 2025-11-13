@@ -34,6 +34,8 @@ public:
 private:
 enum class Option
     {
+        CS200HW6Demo1,
+        CS200HW6Demo2,
         CS230Final,
         ConsoleTest,
         RenderingTest,
@@ -42,10 +44,8 @@ enum class Option
     };
     Option current_option;
 
-    CS200::RGBA cs230_color ;
-    CS200::RGBA console_test_color ;
-    CS200::RGBA rendering_test_color ;
-    CS200::RGBA exit_color;
+    std::map<Option, CS200::RGBA> colors;
+
 
     Math::vec2 title_pos;
     Math::vec2 title_scale;

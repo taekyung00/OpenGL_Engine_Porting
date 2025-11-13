@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
 #pragma once
 #include <random>
 
@@ -18,6 +25,10 @@ public:
     GameObjectTypes		Type() override { return GameObjectTypes::Passenger; }
     std::string			TypeName() override { return "Passenger"; }
 
+	int DrawPriority() const override
+	{
+		return 31;
+	}
     bool				CanCollideWith(GameObjectTypes other_object_type) override;
     void				ResolveCollision(GameObject* other_object) override;
 
