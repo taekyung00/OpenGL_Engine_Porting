@@ -21,6 +21,11 @@ public:
 	GameObjectTypes Type() override { return GameObjectTypes::Bus; }
 	std::string		TypeName() override { return "Bus"; }
 	int DrawPriority() const override { return 30; }
+
+	int UpdatePriority() const override
+	{
+		return CS230::GameObject::UPDATEPRIORITY;
+	}
 	
 	//bool			CanCollideWith(GameObjectTypes other_object_type) override;
 

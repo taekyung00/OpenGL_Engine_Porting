@@ -11,10 +11,10 @@ Created:    May 20, 2025
 enum class GameObjectTypes {
     //Score,
     Bus,
-    Food,
-    Obstacle,
     Player,
+    Food,
     Passenger,
+    Obstacle,
     Particle,
     Character,
     Samurai,

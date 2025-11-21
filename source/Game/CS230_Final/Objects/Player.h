@@ -27,7 +27,9 @@ public:
 	bool				CanCollideWith(GameObjectTypes other_object_type) override;
 	void				ResolveCollision(GameObject* other_object) override;
 
+
 	int					DrawPriority() const override { return 31; }
+	int					UpdatePriority() const override { return CS230::GameObject::UPDATEPRIORITY + 2; }
 
 	const Math::vec2&	GetPosition() const { return GameObject::GetPosition(); }
 

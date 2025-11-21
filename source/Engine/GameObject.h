@@ -37,6 +37,11 @@ namespace CS230
         virtual GameObjectTypes Type()     = 0;
         virtual std::string     TypeName() = 0;
 
+		virtual int UpdatePriority() const
+		{
+			return UPDATEPRIORITY;
+		}
+
         virtual int DrawPriority() const
         {
 			return DRAWPRIORITY; // higher for later, upper means low depth, 30 - 70 fix
@@ -77,6 +82,7 @@ namespace CS230
         }
 
 		static constexpr int DRAWPRIORITY = 50;
+		static constexpr int UPDATEPRIORITY = 10;
 
     protected:
 

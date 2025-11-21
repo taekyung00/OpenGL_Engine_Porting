@@ -65,7 +65,7 @@ namespace Particles
             return "Tears Particle";
         }
 
-        static constexpr int	MaxCount = 1000;
+        static constexpr int	MaxCount = 30;
         static constexpr double MaxLife  = 3.0;
     };
 
@@ -79,7 +79,7 @@ namespace Particles
             return "Shining Particle";
         }
 
-        static constexpr int    MaxCount = 1000;
+        static constexpr int    MaxCount = 50;
         static constexpr double MaxLife  = 3.0;
     };
 

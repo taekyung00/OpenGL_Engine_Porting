@@ -17,6 +17,11 @@ class Food : public CS230::GameObject {
 public:
 	Food(Passenger*, Math::vec2 pos);
 	virtual int		DrawPriority() const override { return 33; }
+
+	int UpdatePriority() const override
+	{
+		return CS230::GameObject::UPDATEPRIORITY + 2;
+	}
 	GameObjectTypes Type() override { return GameObjectTypes::Food; }
 	std::string		TypeName() override { return "Food"; }
 	void			Update(double dt) override;

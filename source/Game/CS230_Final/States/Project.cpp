@@ -29,7 +29,8 @@ Project::Project() : player_ptr(nullptr)
 
 void Project::Load()
 {
-	Engine::GetTextureManager().SwitchRenderer(CS230::TextureManager::RendererType::Batch);
+	Engine::GetLogger().LogDebug("CS230 Final start loading");
+	Engine::GetTextureManager().SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
 	// srand(static_cast<unsigned int>(time(NULL)));
 	// Engine::GetWindow().SetSize({ default_width, default_height });
 	/*camera = new CS230::Camera({ Math::vec2{ 0,0 }, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) });
@@ -67,13 +68,15 @@ void Project::Load()
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line4, player_ptr, 1));
 	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line5, player_ptr, 1));
 	GetGSComponent<CS230::GameObjectManager>()->Add(
-		new Obstacle(player_ptr, { (BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (static_cast<double>(rand()) / RAND_MAX) * 2), SeatWidthHeight }));
+		new Obstacle(player_ptr, { (BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (static_cast<double>(rand()) / RAND_MAX) * 2), SeatWidthHeight * 2 }));
 	GetGSComponent<CS230::GameObjectManager>()->Add(
 		new Obstacle(player_ptr, { (BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (static_cast<double>(rand()) / RAND_MAX) * 2), SeatWidthHeight * 3 }));
 	GetGSComponent<CS230::GameObjectManager>()->Add(
 		new Obstacle(player_ptr, { (BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (static_cast<double>(rand()) / RAND_MAX) * 2), SeatWidthHeight * 5 }));
 
 	CS200::RenderingAPI::SetClearColor(0x000000FF);
+
+	Engine::GetLogger().LogDebug("CS230 Final finish loading");
 }
 
 void Project::Update([[maybe_unused]] double dt)
@@ -83,7 +86,7 @@ void Project::Update([[maybe_unused]] double dt)
 	GetGSComponent<CS230::GameObjectManager>()->UpdateAll(dt);
 
 	// Engine::GetGameStateManager().GetGSComponent<CS230::GameObjectManager>()->SortForDraw();
-
+	Engine::GetGameStateManager().GetGSComponent<CS230::GameObjectManager>()->SortForUpdate();
 	if (bus_ptr->IsEnd())
 	{
 		Bus::SandwichLevel level = bus_ptr->sandwich_level;
@@ -144,7 +147,11 @@ void Project::DrawImGui()
 	const auto current_renderer_type = texture_manager.GetCurrentRendererType();
 	// const auto renderer_2d = texture_manager.GetRenderer2D();
 	ImGui::Text("Renderer:");
-
+	if (ImGui::RadioButton("Immediate", current_renderer_type == CS230::TextureManager::RendererType::Immediate))
+	{
+		texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+	}
+	ImGui::SameLine();
 	if (ImGui::RadioButton("Batch", current_renderer_type == CS230::TextureManager::RendererType::Batch))
 	{
 		texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Batch);

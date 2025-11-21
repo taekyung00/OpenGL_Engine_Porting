@@ -29,6 +29,11 @@ public:
 	{
 		return 31;
 	}
+
+	int UpdatePriority() const override
+	{
+		return CS230::GameObject::UPDATEPRIORITY + 1;
+	}
     bool				CanCollideWith(GameObjectTypes other_object_type) override;
     void				ResolveCollision(GameObject* other_object) override;
 

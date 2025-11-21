@@ -16,6 +16,11 @@ class Obstacle : public CS230::GameObject {
 public:
 	Obstacle(Player*, Math::vec2 pos);
 	int			DrawPriority() const override{ return 32; }
+
+	int UpdatePriority() const override
+	{
+		return CS230::GameObject::UPDATEPRIORITY + 3;
+	}
 	GameObjectTypes		Type() override { return GameObjectTypes::Obstacle; }
 	std::string			TypeName() override { return "Obstacle"; }
 
