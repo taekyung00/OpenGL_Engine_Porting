@@ -46,6 +46,14 @@ void Samurai::Update([[maybe_unused]] double dt)
 		SetVelocity({ GetVelocity().x, 0 });
 	}
 
+	if(Engine::GetInput().KeyDown(CS230::Input::Keys::A))
+	{
+		UpdateRotation(ROTATIONSPEED * dt);
+	}
+	if(Engine::GetInput().KeyDown(CS230::Input::Keys::D))
+	{
+		UpdateRotation(-ROTATIONSPEED * dt);
+	}
 }
 
 void Samurai::Draw(Math::TransformationMatrix camera_matrix, unsigned int color, float depth)

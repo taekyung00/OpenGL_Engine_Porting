@@ -172,7 +172,8 @@ void MainMenu::Update([[maybe_unused]] double dt)
 	CS230::Input& input		  = Engine::GetInput();
 	// Math::vec2	  mouse_pos	  = input.GetMousePos();
 	// auto		  window_size = Engine::GetWindow().GetSize();
-
+	
+	update_colors();
 	if (input.KeyJustReleased(CS230::Input::Keys::Up))
 	{
 		int current_index = static_cast<int>(current_option);
@@ -215,7 +216,6 @@ void MainMenu::Update([[maybe_unused]] double dt)
 	// 	SelecetOption();
 	// }
 
-	update_colors();
 }
 
 void MainMenu::Unload()

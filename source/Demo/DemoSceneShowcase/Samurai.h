@@ -35,4 +35,5 @@ public:
 
 private:
 	Math::vec2 velocity = { 100.0, 100.0 };
+	static constexpr double ROTATIONSPEED = 5;
 };

@@ -45,9 +45,45 @@ namespace Math
         return result;
     }
 
+	TransformationMatrix TransformationMatrix::Inverse() const
+	{
+        TransformationMatrix inv;
+
+        const double m00 = matrix[0][0]; const double m01 = matrix[0][1]; const double m02 = matrix[0][2];
+        const double m10 = matrix[1][0]; const double m11 = matrix[1][1]; const double m12 = matrix[1][2];
+        const double m20 = matrix[2][0]; const double m21 = matrix[2][1]; const double m22 = matrix[2][2];
+
+        double det = m00 * (m11 * m22 - m12 * m21) 
+                   - m01 * (m10 * m22 - m12 * m20) 
+                   + m02 * (m10 * m21 - m11 * m20);
+
+        if (std::abs(det) < 1e-5) 
+        {
+            inv.Reset(); 
+            return inv;
+        }
+
+        double invDet = 1.0 / det;
+		// Row 0
+        inv[0][0] =  (m11 * m22 - m12 * m21) * invDet;
+        inv[0][1] = -(m01 * m22 - m02 * m21) * invDet; // Transposed indices (0,1 -> cofactor of 1,0)
+        inv[0][2] =  (m01 * m12 - m02 * m11) * invDet; 
+
+        // Row 1
+        inv[1][0] = -(m10 * m22 - m12 * m20) * invDet;
+        inv[1][1] =  (m00 * m22 - m02 * m20) * invDet;
+        inv[1][2] = -(m00 * m12 - m02 * m10) * invDet;
+
+        // Row 2
+        inv[2][0] =  (m10 * m21 - m11 * m20) * invDet;
+        inv[2][1] = -(m00 * m21 - m01 * m20) * invDet;
+        inv[2][2] =  (m00 * m11 - m01 * m10) * invDet;
+
+        return inv;
+	}
 
 
-    TransformationMatrix& TransformationMatrix::operator*=(TransformationMatrix m)
+	TransformationMatrix& TransformationMatrix::operator*=(TransformationMatrix m)
     {
         (*this) = (*this) * m;
         return (*this);

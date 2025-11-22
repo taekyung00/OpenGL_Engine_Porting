@@ -12,6 +12,7 @@
 #include "Engine/ShowCollision.h"
 #include "Engine/TextureManager.hpp"
 #include "Engine/Window.hpp"
+#include "Engine/Camera.h"
 
 #include "Engine/Particle.h"
 #include <imgui.h>
@@ -29,9 +30,7 @@
 
 #include <numbers>
 
-RenderingTest::RenderingTest()
-{
-}
+
 
 void RenderingTest::Load()
 {
@@ -48,11 +47,22 @@ void RenderingTest::Load()
 	AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
 	AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
 	AddGSComponent(new CS230::ParticleManager<Particles::Flame>());
+	AddGSComponent(new CS230::Camera(Math::rect{ static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.3, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.7 }));
+	GetGSComponent<CS230::Camera>()->SetLimit({ {0,0},{3000,3000} });
+	GetGSComponent<CS230::Camera>()->SetAnchoring() = true;
+	GetGSComponent<CS230::Camera>()->SetPosition(samurai->GetPosition());
+	GetGSComponent<CS230::Camera>()->SetFirstPersonView() = first_person_view;
+	GetGSComponent<CS230::Camera>()->SetScale(camera_scale);
+	GetGSComponent<CS230::Camera>()->SetRotation(camera_rotation);
+
+	CS200::RenderingAPI::SetClearColor(CS200::WHITE);
 }
 
 void RenderingTest::Update([[maybe_unused]] double dt)
 {
 	UpdateGSComponents(dt);
+
+	GetGSComponent<CS230::Camera>()->Update(samurai->GetPosition());
 
 	GetGSComponent<CS230::GameObjectManager>()->UpdateAll(dt);
 	if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape)) // very bottom!!
@@ -67,7 +77,7 @@ void RenderingTest::Draw()
 {
 	CS200::RenderingAPI::Clear();
 	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
-	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize(),true) * GetGSComponent<CS230::Camera>()->GetMatrix());
 	GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
 
 #ifdef DEVELOPER_VERSION
@@ -77,7 +87,6 @@ void RenderingTest::Draw()
 
 	testTexture->Draw(
 		Math::TranslationMatrix(Math::to_vec2(translate)) * Math::RotationMatrix(static_cast<double>(rotate / 180 * std::numbers::pi_v<float>)) * Math::ScaleMatrix(Math::to_vec2(scale)));
-
 	renderer_2d->EndScene();
 }
 
@@ -161,6 +170,36 @@ void RenderingTest::DrawImGui()
 	}
 	ImGui::Separator();
 
+	ImGui::End();
+
+	ImGui::Begin("Camera Controls");
+	float fcamera_rotation = static_cast<float>(camera_rotation);
+	if (ImGui::SliderFloat("Camera Rotation", &fcamera_rotation, -180.f, 180.f))
+	{
+		camera_rotation = static_cast<double>(fcamera_rotation);
+		GetGSComponent<CS230::Camera>()->SetRotation(static_cast<double>(camera_rotation / 180.f * std::numbers::pi_v<float>));
+	}
+	Math::fvec2 fcamera_scale = Math::to_fvec2(camera_scale);
+	bool scale_changed = false;
+	if (ImGui::SliderFloat("Camera ScaleX", &fcamera_scale.x, 0.1f, 10.f))
+	{
+		camera_scale.x = static_cast<double>(fcamera_scale.x);
+		scale_changed = true;
+	}
+	if (ImGui::SliderFloat("Camera ScaleY", &fcamera_scale.y, 0.1f, 10.f))
+	{
+		camera_scale.y = static_cast<double>(fcamera_scale.y);
+		scale_changed = true;
+	}
+	if (scale_changed)
+	{
+		GetGSComponent<CS230::Camera>()->SetScale(camera_scale);
+	}
+
+	if (ImGui::Checkbox("First Person View", &first_person_view))
+	{
+		GetGSComponent<CS230::Camera>()->SetFirstPersonView() = first_person_view;
+	}
 	ImGui::End();
 }
 
