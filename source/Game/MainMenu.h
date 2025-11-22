@@ -34,8 +34,6 @@ public:
 private:
 enum class Option
     {
-        CS200HW6Demo1,
-        CS200HW6Demo2,
         CS230Final,
         ConsoleTest,
         RenderingTest,

@@ -50,7 +50,7 @@ namespace
 	const double MENU_START_Y_RATIO		 = 0.4;
 }
 
-MainMenu::MainMenu() : current_option(Option::CS200HW6Demo1)
+MainMenu::MainMenu() : current_option(Option::CS230Final)
 {
 }
 
@@ -93,6 +93,16 @@ void MainMenu::DrawImGui()
 			Engine::GetGameStateManager().PopState();
 			Engine::GetGameStateManager().PushState<DemoVAO>();
 		}
+		if (ImGui::Button("Switch to Demo HW6Demo1"))
+		{
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<DemoBatchInstance>();
+		}
+		if (ImGui::Button("Switch to Demo HW6Demo2"))
+		{
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<SceneState>();
+		}
 	}
 	ImGui::End();
 }
@@ -101,15 +111,6 @@ void MainMenu::SelecetOption()
 {
 	switch (current_option)
 	{
-		case MainMenu::Option::CS200HW6Demo1:
-			Engine::GetGameStateManager().PopState();
-			Engine::GetGameStateManager().PushState<DemoBatchInstance>();
-			break;
-
-		case MainMenu::Option::CS200HW6Demo2:
-			Engine::GetGameStateManager().PopState();
-			Engine::GetGameStateManager().PushState<SceneState>();
-			break;
 
 		case MainMenu::Option::CS230Final:
 			Engine::GetGameStateManager().PopState();
@@ -229,20 +230,10 @@ void MainMenu::Draw()
 
 	auto& text_manager = Engine::GetTextManager();
 
-	text_manager.DrawText("CS200 HW6", title_pos, Fonts::Outlined, title_scale, title_color);
+	text_manager.DrawText("Engine Porting", title_pos, Fonts::Outlined, title_scale, title_color);
 
 	double current_item_y = 0;
 	int	   i			  = 0;
-
-	// Option: CS200 hw6 demo1
-	i			   = static_cast<int>(Option::CS200HW6Demo1);
-	current_item_y = menu_start_pos_bl.y - (i * menu_item_total_height);
-	text_manager.DrawText("CS200 HW6 DEMO1", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, colors[Option::CS200HW6Demo1]);
-
-	// Option: CS200 hw6 demo2
-	i			   = static_cast<int>(Option::CS200HW6Demo2);
-	current_item_y = menu_start_pos_bl.y - (i * menu_item_total_height);
-	text_manager.DrawText("CS200 HW6 DEMO2", Math::vec2{ menu_start_pos_bl.x, current_item_y }, Fonts::Outlined, { 1.0, 1.0 }, colors[Option::CS200HW6Demo2]);
 
 	// Option: cs230 final
 	i			   = static_cast<int>(Option::CS230Final);

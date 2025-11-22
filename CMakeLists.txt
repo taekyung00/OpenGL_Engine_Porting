@@ -14,7 +14,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #     message(STATUS "${_variableName}=${${_variableName}}")
 # endforeach()
 
-project(OpenGL_Engine_Porting)
+project(engine_porting)
 
 include(cmake/StandardProjectSettings.cmake)
 

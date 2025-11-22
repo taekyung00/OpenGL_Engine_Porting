@@ -106,16 +106,16 @@ set(SOURCE_CODE
     main.cpp
 )
 
-add_executable(cs200_hw6 ${SOURCE_CODE})
+add_executable(engine_porting ${SOURCE_CODE})
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_CODE})
 
-target_link_libraries(cs200_hw6 PRIVATE project_options dependencies)
-target_include_directories(cs200_hw6 PRIVATE .)
+target_link_libraries(engine_porting PRIVATE project_options dependencies)
+target_include_directories(engine_porting PRIVATE .)
 
 # Check the IS_DEVELOPER_VERSION cache variable
 # This is set by the cmake configure preset
 if (IS_DEVELOPER_VERSION)
-    target_compile_definitions(cs200_hw6 PRIVATE DEVELOPER_VERSION)
+    target_compile_definitions(engine_porting PRIVATE DEVELOPER_VERSION)
 endif()
 
 if(EMSCRIPTEN)
@@ -131,7 +131,7 @@ if(EMSCRIPTEN)
     # --use-preload-cache           - help with faster reloads : https://emscripten.org/docs/compiling/Deploying-Pages.html#providing-a-quick-second-time-load
     # -lembind                      - to call c++ from javascript https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html
     # --shell-file                  - to customize the webpage https://emscripten.org/docs/compiling/Deploying-Pages.html#build-files-and-custom-shell
-    target_link_options(cs200_hw6 PRIVATE 
+    target_link_options(engine_porting PRIVATE 
     -sASSERTIONS=$<$<BOOL:${IS_DEVELOPER_VERSION}>:1>$<$<NOT:$<BOOL:${IS_DEVELOPER_VERSION}>>:0>
     -sWASM=1 
     -sDISABLE_EXCEPTION_CATCHING=0 
@@ -144,10 +144,10 @@ if(EMSCRIPTEN)
     --shell-file ${CMAKE_SOURCE_DIR}/app_resources/web/index_shell.html
     )
 
-    set_target_properties(cs200_hw6 PROPERTIES SUFFIX ".html")
+    set_target_properties(engine_porting PROPERTIES SUFFIX ".html")
 elseif(WIN32)
 
-    target_link_options(cs200_hw6 PRIVATE 
+    target_link_options(engine_porting PRIVATE 
         $<IF:$<BOOL:${IS_DEVELOPER_VERSION}>,/SUBSYSTEM:CONSOLE,/SUBSYSTEM:WINDOWS>
         /ENTRY:mainCRTStartup)
 
@@ -157,6 +157,6 @@ elseif(WIN32)
         file(WRITE ${ICON_RC} "IDR_MAINFRAME ICON \"${ICON_FILE}\"\nIDI_ICON1 ICON DISCARDABLE \"${ICON_FILE}\"")
     endif()
 
-    target_sources(cs200_hw6 PRIVATE ${ICON_RC})
+    target_sources(engine_porting PRIVATE ${ICON_RC})
 
 endif()

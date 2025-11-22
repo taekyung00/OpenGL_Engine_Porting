@@ -13,9 +13,9 @@
 #include "CS200/IRenderer2D.hpp"
 #include "CS200/Image.hpp"
 #include "Engine.hpp"
-#include "TextureManager.hpp"
 #include "Matrix.hpp"
 #include "OpenGL/GL.hpp"
+#include "TextureManager.hpp"
 #include "Window.hpp"
 
 namespace CS230
@@ -23,49 +23,31 @@ namespace CS230
 
 	void Texture::Draw([[maybe_unused]] const Math::TransformationMatrix& display_matrix, unsigned int color, float depth)
 	{
-		const auto		  window_size = Engine::GetWindow().GetSize();
-		const Math::ivec2 draw_size	  = { std::min(window_size.x, image_size.x), std::min(window_size.y, image_size.y) };
-
-		Draw(display_matrix, { 0, 0 }, draw_size, color,depth);
+		Draw(display_matrix, { 0, 0 }, image_size, color, depth);
 	}
 
 	void Texture::Draw(const Math::TransformationMatrix& display_matrix, Math::ivec2 texel_position, Math::ivec2 frame_size, unsigned int color, float depth)
 	{
 		CS200::IRenderer2D* renderer = Engine::GetTextureManager().GetRenderer2D();
 
-		const Math::ivec2 slice_amount = { image_size.x / frame_size.x, image_size.y / frame_size.y };
 
-		// make texture slice matrix
-		const Math::vec2 frame_size_scale = { static_cast<double>(frame_size.x) / image_size.x, static_cast<double>(frame_size.y) / image_size.y };
+		// OpenGL Texture: (0,0) Bottom-Left
+		// Image Pixel: (0,0) Top-Left
+		const double u_left	 = static_cast<double>(texel_position.x) / image_size.x;
+		const double u_right = static_cast<double>(texel_position.x + frame_size.x) / image_size.x;
+		// V_top  = 1.0 - (y / height)
+		// V_bottom  = 1.0 - ((y + h) / height)
+		const double v_top	  = 1.0 - (static_cast<double>(texel_position.y) / image_size.y);
+		const double v_bottom = 1.0 - (static_cast<double>(texel_position.y + frame_size.y) / image_size.y);
 
-		const Math::vec2 translation_before_frame_size_scale = { static_cast<double>(texel_position.x) / frame_size.x, static_cast<double>(slice_amount.y - (texel_position.y / frame_size.y) - 1) };
-		Math::TransformationMatrix texcoord_transform		 = Math::ScaleMatrix(frame_size_scale) * Math::TranslationMatrix(translation_before_frame_size_scale);
-		Math::vec2				   texel_coord_bl			 = texcoord_transform * Math::vec2{ 0.0, 0.0 };
-		Math::vec2				   texel_coord_tr			 = texcoord_transform * Math::vec2{ 1.0, 1.0 };
+		const Math::vec2 texel_coord_bl = { u_left, v_bottom };
+		const Math::vec2 texel_coord_tr = { u_right, v_top };
 
+		Math::vec2 set_bottom_left{ frame_size.x * 0.5, frame_size.y * 0.5 };
 
-		if (Math::IsIdentityMatrix(display_matrix) || slice_amount == Math::ivec2{ 1, 1 }) // background or just draw without slicing
-		{
-			// make bottomleft always one, slice reallign
-			const auto bl_y_left = texel_coord_bl.y;
-			texel_coord_bl.y -= bl_y_left;
-			texel_coord_tr.y -= bl_y_left;
+		const auto world_transformation = Math::TranslationMatrix(set_bottom_left) * display_matrix * Math::ScaleMatrix(frame_size);
 
-			const auto bl_x_left = texel_coord_bl.x;
-			texel_coord_bl.x -= bl_x_left;
-			texel_coord_tr.x -= bl_x_left;
-		}
-		else
-		{
-			texcoord_transform =
-				Math::ScaleMatrix(Math::vec2{ static_cast<double>(frame_size.x) / image_size.x, static_cast<double>(frame_size.y) / image_size.y }) *
-				Math::TranslationMatrix(Math::vec2{ static_cast<double>(texel_position.x) / frame_size.x, static_cast<double>(image_size.y - (texel_position.y + frame_size.y)) / frame_size.y });
-		}
-		// world transformation
-		Math::vec2		 set_bottom_left{ frame_size.x * 0.5, frame_size.y * 0.5 };
-		const auto world_transfromation =  Math::TranslationMatrix(set_bottom_left) * Math::TransformationMatrix(display_matrix) * Math::ScaleMatrix(frame_size);
-
-		renderer->DrawQuad(world_transfromation, textureHandle, texel_coord_bl, texel_coord_tr, color, depth);
+		renderer->DrawQuad(world_transformation, textureHandle, texel_coord_bl, texel_coord_tr, color, depth);
 	}
 
 	Math::ivec2 Texture::GetSize() const
@@ -80,6 +62,8 @@ namespace CS230
 
 	Texture::Texture(Texture&& temporary) noexcept : image_size{ std::move(temporary.image_size) }, textureHandle{ std::move(temporary.textureHandle) }
 	{
+		temporary.textureHandle = 0;
+		temporary.image_size	= { 0, 0 };
 	}
 
 	Texture& Texture::operator=(Texture&& temporary) noexcept
