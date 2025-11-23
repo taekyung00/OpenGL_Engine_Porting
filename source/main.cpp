@@ -48,8 +48,8 @@ EMSCRIPTEN_BINDINGS(main_window)
         "setWindowSize", emscripten::optional_override(
                              [](int sizeX, int sizeY)
                              {
-                                 sizeX                  = (sizeX < 400) ? 400 : sizeX;
-                                 sizeY                  = (sizeY < 400) ? 400 : sizeY;
+                                 sizeX                  = (sizeX < 400) ? 400 : sizeX; // Minimum size enforcement
+                                 sizeY                  = (sizeY < 400) ? 400 : sizeY; // Minimum size enforcement  
                                  const auto window_size = Engine::GetWindow().GetSize();
                                  if (sizeX != window_size.x || sizeY != window_size.y)
                                  {
@@ -64,15 +64,8 @@ EMSCRIPTEN_BINDINGS(main_window)
 int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[])
 {
     Engine& engine = Engine::Instance();
-    engine.Start("Taekyung Ho CS200 HW6");
+    engine.Start("Taekyung Ho Engine Porting");
     engine.GetGameStateManager().PushState<Splash>();
-
-    //std::ifstream in_file("Assets/sprites/CS230_Final/Bomb.spt ");
-
-    //if (in_file.is_open() == false)
-    //{
-    //    throw std::runtime_error("Failed to load ");
-    //}
 
 #if !defined(__EMSCRIPTEN__)
     while (engine.HasGameEnded() == false)

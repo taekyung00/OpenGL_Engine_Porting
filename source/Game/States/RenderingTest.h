@@ -31,14 +31,14 @@ public:
 
 private:
 	Samurai*						samurai = nullptr;
-	//std::shared_ptr<CS230::Texture> testTexture = nullptr;
-	//Math::fvec2 scale = {1.f,1.f};
-	//float rotate = 0.f;
-	//Math::fvec2 translate = {0.f,0.f};
+	std::shared_ptr<CS230::Texture> testTexture = nullptr;
+	Math::fvec2 scale = {1.f,1.f};
+	float rotate = 0.f;
+	Math::fvec2 translate = {0.f,0.f};
 	Math::ivec2 window_size;
 
-	//double camera_rotation = 0.0;
-	//Math::vec2 camera_scale = { 1.0, 1.0 };
+	double camera_rotation = 0.0;
+	Math::vec2 camera_scale = { 1.0, 1.0 };
 
-	//bool first_person_view = true;
+	bool first_person_view = true;
 };

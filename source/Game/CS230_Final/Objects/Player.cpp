@@ -21,7 +21,7 @@ Player::Player() :
     //score_texture = (Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture("Score", 0xFFFFFFFF));
     //score_amount_texture = Engine::GetFont(static_cast<int>(Fonts::Outlined)).PrintToTexture(std::to_string(score), 0xFFFFFFFF);
     window_height = Engine::GetWindow().GetSize().y;
-    SetVelocity({ 0,0 });
+	SetVelocity({ 0, VELOCITY });
 }
 
 void Player::Update([[maybe_unused]] double dt) {

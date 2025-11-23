@@ -11,7 +11,7 @@ Created:    March 8, 2023
 #include "Engine.hpp"
 #include "Matrix.hpp"
 
-CS230::Camera::Camera(Math::rect _player_zone) :  position(Math::vec2{0.0,0.0}),rotation(0.0), scale(Math::vec2{1.0,1.0}), player_zone(_player_zone)  {}
+CS230::Camera::Camera(Math::rect _player_zone) :  position(Math::vec2{0.0,0.0}), offset(0.0,0.0), rotation(0.0), scale(Math::vec2{1.0,1.0}), player_zone(_player_zone)  {}
 
 bool& CS230::Camera::SetFirstPersonView()
 {
@@ -44,6 +44,12 @@ void CS230::Camera::SetScale(Math::vec2 new_scale)
         scale = new_scale;
         is_scale_outdated = true;
     }
+}
+
+void CS230::Camera::SetPositionOffset(Math::vec2 new_offset)
+{
+	offset = new_offset;
+	is_position_outdated = true;
 }
 
 const Math::vec2& CS230::Camera::GetPosition() const { return position; }
@@ -99,7 +105,7 @@ void CS230::Camera::Update(const Math::vec2& player_position){
 Math::TransformationMatrix CS230::Camera::GetMatrix() {
     if(first_person_view){
         if(is_position_outdated || is_rotation_outdated || is_scale_outdated){
-            camera_matrix = Math::TranslationMatrix(position) * Math::RotationMatrix(rotation) * Math::ScaleMatrix(scale);
+            camera_matrix = Math::TranslationMatrix(position - offset) * Math::RotationMatrix(rotation) * Math::ScaleMatrix(scale);
             view_matrix = camera_matrix;
             std::swap(view_matrix[0][1], view_matrix[1][0]);
             view_matrix[0][2] = -(camera_matrix[0][0] * camera_matrix[0][2] + camera_matrix[1][0] * camera_matrix[1][2]);
@@ -113,7 +119,7 @@ Math::TransformationMatrix CS230::Camera::GetMatrix() {
     else
     {
         if(is_position_outdated){
-            camera_matrix = Math::TranslationMatrix(position) ;
+            camera_matrix = Math::TranslationMatrix(position - offset) ;
             view_matrix = camera_matrix;
             view_matrix[0][2] = -(camera_matrix[0][0] * camera_matrix[0][2] + camera_matrix[1][0] * camera_matrix[1][2]);
             view_matrix[1][2] = -(camera_matrix[0][1] * camera_matrix[0][2] + camera_matrix[1][1] * camera_matrix[1][2]);

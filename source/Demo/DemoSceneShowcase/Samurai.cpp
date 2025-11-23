@@ -15,37 +15,10 @@ Samurai::Samurai() :
 	AddGOComponent(new CS230::Sprite("Assets/sprites/DemoSceneShowcase/Samurai.spt", this));
 	AddGOComponent(new CS230::ShowCollision());
 	GetGOComponent<CS230::Sprite>()->PlayAnimation(0);
-	SetRotation(30.0);
 }
 
 void Samurai::Update([[maybe_unused]] double dt)
 {
-	GameObject::Update(dt);
-	if (Engine::GetInput().KeyDown(CS230::Input::Keys::Right))
-	{
-		SetVelocity({ velocity.x, GetVelocity().y });
-	}
-	else if (Engine::GetInput().KeyDown(CS230::Input::Keys::Left))
-	{
-		SetVelocity({ -velocity.x, GetVelocity().y });
-	}
-	else
-	{
-		SetVelocity({ 0, GetVelocity().y });
-	}
-
-	if (Engine::GetInput().KeyDown(CS230::Input::Keys::Up))
-	{
-		SetVelocity({ GetVelocity().x, velocity.y });
-	}
-	else if (Engine::GetInput().KeyDown(CS230::Input::Keys::Down))
-	{
-		SetVelocity({ GetVelocity().x, -velocity.y });
-	}
-	else
-	{
-		SetVelocity({ GetVelocity().x, 0 });
-	}
 
 	if(Engine::GetInput().KeyDown(CS230::Input::Keys::A))
 	{
@@ -55,6 +28,17 @@ void Samurai::Update([[maybe_unused]] double dt)
 	{
 		UpdateRotation(-ROTATIONSPEED * dt);
 	}
+
+	if (Engine::GetInput().KeyDown(CS230::Input::Keys::W))
+	{
+		UpdateVelocity(Math::RotationMatrix(GetRotation()) * Math::vec2{ 0, SPEED * dt });
+	}
+	if (Engine::GetInput().KeyDown(CS230::Input::Keys::S))
+	{
+		UpdateVelocity(Math::RotationMatrix(GetRotation()) * Math::vec2{ 0, -SPEED * dt });
+	}
+	UpdateVelocity({ -DRAG * dt * GetVelocity() });
+	GameObject::Update(dt);
 }
 
 void Samurai::Draw(Math::TransformationMatrix camera_matrix, unsigned int color, float depth)

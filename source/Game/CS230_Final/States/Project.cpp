@@ -30,18 +30,18 @@ Project::Project() : player_ptr(nullptr)
 void Project::Load()
 {
 	Engine::GetLogger().LogDebug("CS230 Final start loading");
-	Engine::GetTextureManager().SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+	Engine::GetTextureManager().SwitchRenderer(CS230::TextureManager::RendererType::Batch);
 	// srand(static_cast<unsigned int>(time(NULL)));
 	// Engine::GetWindow().SetSize({ default_width, default_height });
 	/*camera = new CS230::Camera({ Math::vec2{ 0,0 }, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) });
 	camera->SetLimit({ {0,0},Engine::GetWindow().GetSize() });
 	AddGSComponent(camera);*/
 	// GetGSComponent<CS230::Camera>()->SetPosition({ 0.0, 0.0 });
-	if (!OpenGL::IsWebGL)
-	{
+	// if (!OpenGL::IsWebGL)
+	// {
 		Engine::GetWindow().ForceResize(600, 800);
 		Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
-	}
+	// }
 
 
 #ifdef DEVELOPER_VERSION

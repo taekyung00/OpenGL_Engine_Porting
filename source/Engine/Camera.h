@@ -26,6 +26,7 @@ namespace CS230
 		void			  SetPosition(Math::vec2 new_position);
 		void			  SetRotation(double new_rotation);
 		void			  SetScale(Math::vec2 new_scale);
+		void			  SetPositionOffset(Math::vec2 new_offset);
 		const Math::vec2& GetPosition() const;
 		void			  SetLimit(Math::irect new_limit);
 		using Component::Update; // say i'll use this version too, so don't hide anymore
@@ -37,6 +38,7 @@ namespace CS230
 		bool					   first_person_view{ true };
 		bool					   anchoring{ true };
 		Math::vec2				   position;
+		Math::vec2				   offset;
 		bool					   is_position_outdated{ true };
 		double					   rotation;
 		bool					   is_rotation_outdated{ true };
