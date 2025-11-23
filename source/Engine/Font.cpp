@@ -221,8 +221,9 @@ namespace CS230
 		if (c != ' ')
 		{
 			const auto flip = Math::ScaleMatrix(Math::vec2{ 1, -1 });
-
+			/*===================================added=====================================*/
 			const auto offset_up = Math::TranslationMatrix(Math::vec2{ 0.0, static_cast<double>(display_rect.Size().y) });
+			/*===================================added=====================================*/
 
 			texture.Draw(matrix * offset_up * flip, top_left_texel, display_rect.Size(), color);
 		}
