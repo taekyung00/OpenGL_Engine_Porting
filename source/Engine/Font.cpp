@@ -214,20 +214,20 @@ namespace CS230
     }
 
     void Font::DrawChar(Math::TransformationMatrix& matrix, char c, CS200::RGBA color)
-    {
-        const Math::irect& display_rect   = GetCharRect(c);
-        
-        const Math::ivec2 top_left_texel = { display_rect.Left(), display_rect.Bottom() }; //top_left is 0,0!!
-        if (c != ' ')
-        {
-            //const auto to_center     = Math::TranslationMatrix(Math::vec2(display_rect.Size().x / 2.0, display_rect.Size().y / 2.0));
-            const auto flip          = Math::ScaleMatrix(Math::vec2{ 1, -1 });
-            //const auto to_bottomleft = Math::TranslationMatrix(Math::vec2(display_rect.Size().x / 2.0, -display_rect.Size().y / 2.0));
-            const auto flip_quad     = flip;
-            texture.Draw(matrix * flip_quad, top_left_texel, display_rect.Size(), color);
-        }
-        matrix *= Math::TranslationMatrix(Math::ivec2{ display_rect.Size().x, 0 });
-    }
+	{
+		const Math::irect& display_rect	  = GetCharRect(c);
+		const Math::ivec2  top_left_texel = { display_rect.Left(), display_rect.Bottom() };
+
+		if (c != ' ')
+		{
+			const auto flip = Math::ScaleMatrix(Math::vec2{ 1, -1 });
+
+			const auto offset_up = Math::TranslationMatrix(Math::vec2{ 0.0, static_cast<double>(display_rect.Size().y) });
+
+			texture.Draw(matrix * offset_up * flip, top_left_texel, display_rect.Size(), color);
+		}
+		matrix *= Math::TranslationMatrix(Math::ivec2{ display_rect.Size().x, 0 });
+	}
 
     CS200::RGBA Font::GetPixel(Math::ivec2 texel) // tl is (0,0) !!
     {
