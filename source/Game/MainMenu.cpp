@@ -107,7 +107,7 @@ void MainMenu::DrawImGui()
 	ImGui::End();
 }
 
-void MainMenu::SelecetOption()
+void MainMenu::select_option()
 {
 	switch (current_option)
 	{
@@ -190,7 +190,7 @@ void MainMenu::Update([[maybe_unused]] double dt)
 	}
 	else if (input.KeyJustReleased(CS230::Input::Keys::Enter))
 	{
-		SelecetOption();
+		select_option();
 	}
 
 
@@ -213,7 +213,7 @@ void MainMenu::Update([[maybe_unused]] double dt)
 
 	// if (input.MouseJustPressed(0) && mouse_is_hovering)
 	// {
-	// 	SelecetOption();
+	// 	select_option();
 	// }
 
 }

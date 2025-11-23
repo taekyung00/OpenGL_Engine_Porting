@@ -26,7 +26,7 @@ void Splash::Load() {
 
 void Splash::Update([[maybe_unused]] double dt) {
     Engine::GetLogger().LogDebug(std::to_string(counter));
-    if (counter >= 0.3) {
+    if (counter >= 0.7) {
         Engine::GetGameStateManager().PopState();
         Engine::GetGameStateManager().PushState<MainMenu>();
     }

@@ -34,26 +34,26 @@
 
 void RenderingTest::Load()
 {
-	Engine::GetTextureManager().SwitchRenderer(CS230::TextureManager::RendererType::Batch);
+	Engine::GetTextureManager().SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
 #ifdef DEVELOPER_VERSION
 	AddGSComponent(new CS230::ShowCollision());
-	AddGSComponent(new Grid());
+	//AddGSComponent(new Grid());
 #endif
 	AddGSComponent(new CS230::GameObjectManager);
-	testTexture = Engine::GetTextureManager().Load("Assets/images/Test/mario.png");
+	//testTexture = Engine::GetTextureManager().Load("Assets/images/Test/mario.png");
 
 	samurai = new Samurai();
 	GetGSComponent<CS230::GameObjectManager>()->Add(samurai);
-	AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
-	AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
-	AddGSComponent(new CS230::ParticleManager<Particles::Flame>());
-	AddGSComponent(new CS230::Camera(Math::rect{ static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.3, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.7 }));
-	GetGSComponent<CS230::Camera>()->SetLimit({ {0,0},{3000,3000} });
-	GetGSComponent<CS230::Camera>()->SetAnchoring() = true;
-	GetGSComponent<CS230::Camera>()->SetPosition(samurai->GetPosition());
-	GetGSComponent<CS230::Camera>()->SetFirstPersonView() = first_person_view;
-	GetGSComponent<CS230::Camera>()->SetScale(camera_scale);
-	GetGSComponent<CS230::Camera>()->SetRotation(camera_rotation);
+	//AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
+	//AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
+	//AddGSComponent(new CS230::ParticleManager<Particles::Flame>());
+	//AddGSComponent(new CS230::Camera(Math::rect{ static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.3, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.7 }));
+	//GetGSComponent<CS230::Camera>()->SetLimit({ {0,0},{3000,3000} });
+	//GetGSComponent<CS230::Camera>()->SetAnchoring() = true;
+	//GetGSComponent<CS230::Camera>()->SetPosition(samurai->GetPosition());
+	//GetGSComponent<CS230::Camera>()->SetFirstPersonView() = first_person_view;
+	//GetGSComponent<CS230::Camera>()->SetScale(camera_scale);
+	//GetGSComponent<CS230::Camera>()->SetRotation(camera_rotation);
 
 	CS200::RenderingAPI::SetClearColor(CS200::WHITE);
 }
@@ -62,7 +62,7 @@ void RenderingTest::Update([[maybe_unused]] double dt)
 {
 	UpdateGSComponents(dt);
 
-	GetGSComponent<CS230::Camera>()->Update(samurai->GetPosition());
+	//GetGSComponent<CS230::Camera>()->Update(samurai->GetPosition());
 
 	GetGSComponent<CS230::GameObjectManager>()->UpdateAll(dt);
 	if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape)) // very bottom!!
@@ -77,16 +77,16 @@ void RenderingTest::Draw()
 {
 	CS200::RenderingAPI::Clear();
 	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
-	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize(),true) * GetGSComponent<CS230::Camera>()->GetMatrix());
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize(),false) /** GetGSComponent<CS230::Camera>()->GetMatrix()*/);
 	GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
 
 #ifdef DEVELOPER_VERSION
-	GetGSComponent<Grid>()->Draw(Grid::DotColor::white, 0.2f);
+	//GetGSComponent<Grid>()->Draw(Grid::DotColor::white, 0.2f);
 #endif
 
 
-	testTexture->Draw(
-		Math::TranslationMatrix(Math::to_vec2(translate)) * Math::RotationMatrix(static_cast<double>(rotate / 180 * std::numbers::pi_v<float>)) * Math::ScaleMatrix(Math::to_vec2(scale)));
+	//testTexture->Draw(
+	//	Math::TranslationMatrix(Math::to_vec2(translate)) * Math::RotationMatrix(static_cast<double>(rotate / 180 * std::numbers::pi_v<float>)) * Math::ScaleMatrix(Math::to_vec2(scale)));
 	renderer_2d->EndScene();
 }
 
@@ -97,17 +97,17 @@ void RenderingTest::DrawImGui()
 		window_size = Engine::GetWindow().GetSize();
 	}
 
-	if (ImGui::Begin("Texture Controls"))
-	{
-		ImGui::SliderFloat("Scale X", &(scale.x), -20.f, 20.0f, "%.1f px/s");
-		ImGui::SliderFloat("Scale Y", &(scale.y), -20.f, 20.0f, "%.1f px/s");
-		ImGui::SliderFloat("Rotate", &rotate, 0.f, 360.0f, "%.1f px/s");
-		ImGui::SliderFloat("Translate X", &(translate.x), 0.0f, static_cast<float>(window_size.x) - 100.f, "%.1f px/s");
-		ImGui::SliderFloat("Translate Y", &(translate.y), 0.0f, static_cast<float>(window_size.y) - 100.f, "%.1f px/s");
-	}
-	ImGui::End();
+	//if (ImGui::Begin("Texture Controls"))
+	//{
+	//	ImGui::SliderFloat("Scale X", &(scale.x), -20.f, 20.0f, "%.1f px/s");
+	//	ImGui::SliderFloat("Scale Y", &(scale.y), -20.f, 20.0f, "%.1f px/s");
+	//	ImGui::SliderFloat("Rotate", &rotate, 0.f, 360.0f, "%.1f px/s");
+	//	ImGui::SliderFloat("Translate X", &(translate.x), 0.0f, static_cast<float>(window_size.x) - 100.f, "%.1f px/s");
+	//	ImGui::SliderFloat("Translate Y", &(translate.y), 0.0f, static_cast<float>(window_size.y) - 100.f, "%.1f px/s");
+	//}
+	//ImGui::End();
 
-	if (ImGui::Begin("Particle Controls"))
+	/*if (ImGui::Begin("Particle Controls"))
 	{
 		if (ImGui::Button("Shine"))
 		{
@@ -140,7 +140,7 @@ void RenderingTest::DrawImGui()
 			}
 		}
 	}
-	ImGui::End();
+	ImGui::End();*/
 
 	ImGui::Begin("Renderer Settings");
 	ImGui::Separator();
@@ -172,7 +172,7 @@ void RenderingTest::DrawImGui()
 
 	ImGui::End();
 
-	ImGui::Begin("Camera Controls");
+	/*ImGui::Begin("Camera Controls");
 	float fcamera_rotation = static_cast<float>(camera_rotation);
 	if (ImGui::SliderFloat("Camera Rotation", &fcamera_rotation, -180.f, 180.f))
 	{
@@ -200,7 +200,7 @@ void RenderingTest::DrawImGui()
 	{
 		GetGSComponent<CS230::Camera>()->SetFirstPersonView() = first_person_view;
 	}
-	ImGui::End();
+	ImGui::End();*/
 }
 
 void RenderingTest::Unload()

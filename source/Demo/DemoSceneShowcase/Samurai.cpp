@@ -15,6 +15,7 @@ Samurai::Samurai() :
 	AddGOComponent(new CS230::Sprite("Assets/sprites/DemoSceneShowcase/Samurai.spt", this));
 	AddGOComponent(new CS230::ShowCollision());
 	GetGOComponent<CS230::Sprite>()->PlayAnimation(0);
+	SetRotation(30.0);
 }
 
 void Samurai::Update([[maybe_unused]] double dt)

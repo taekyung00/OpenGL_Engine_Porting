@@ -33,8 +33,8 @@ namespace CS230
 
 		// OpenGL Texture: (0,0) Bottom-Left
 		// Image Pixel: (0,0) Top-Left
-		const double u_left	 = static_cast<double>(texel_position.x) / image_size.x;
-		const double u_right = static_cast<double>(texel_position.x + frame_size.x) / image_size.x;
+		const double u_left	  = static_cast<double>(texel_position.x) / image_size.x;
+		const double u_right  = static_cast<double>(texel_position.x + frame_size.x) / image_size.x;
 		// V_top  = 1.0 - (y / height)
 		// V_bottom  = 1.0 - ((y + h) / height)
 		const double v_top	  = 1.0 - (static_cast<double>(texel_position.y) / image_size.y);
@@ -44,8 +44,7 @@ namespace CS230
 		const Math::vec2 texel_coord_tr = { u_right, v_top };
 
 		Math::vec2 set_bottom_left{ frame_size.x * 0.5, frame_size.y * 0.5 };
-
-		const auto world_transformation = Math::TranslationMatrix(set_bottom_left) * display_matrix * Math::ScaleMatrix(frame_size);
+		const auto world_transformation = display_matrix * Math::TranslationMatrix(set_bottom_left) * Math::ScaleMatrix(frame_size);
 
 		renderer->DrawQuad(world_transformation, textureHandle, texel_coord_bl, texel_coord_tr, color, depth);
 	}
