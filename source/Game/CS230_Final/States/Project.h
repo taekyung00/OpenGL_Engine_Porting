@@ -33,6 +33,6 @@ private:
     Player* player_ptr;
     Bus* bus_ptr;
     //CS230::Camera* camera;
-    //static constexpr int default_width = 600;
-    //static constexpr int default_height = 800;
+    static constexpr int default_width = 600;
+    static constexpr int default_height = 800;
 };

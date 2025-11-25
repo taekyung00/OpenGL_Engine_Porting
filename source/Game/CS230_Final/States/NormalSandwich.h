@@ -30,4 +30,6 @@ public:
 
 private:
     std::shared_ptr<CS230::Texture> texture;
+	static constexpr int			default_width  = 600;
+	static constexpr int			default_height = 800;
 };

@@ -64,7 +64,7 @@ void CS230::Camera::Update(const Math::vec2& player_position){
         SetPosition(player_position);
         return;
     }
-    // SetPosition(player_position); // always center on player
+
     if (player_position.x > player_zone.Right() + position.x) {
         position.x = player_position.x - player_zone.Right();
         is_position_outdated = true;

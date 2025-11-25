@@ -57,6 +57,9 @@ void RenderingTest::Load()
 	GetGSComponent<CS230::Camera>()->SetScale(camera_scale);
 	GetGSComponent<CS230::Camera>()->SetRotation(camera_rotation);
 
+	// Initialize FPS tracking
+	LastTicks = SDL_GetTicks();
+
 	CS200::RenderingAPI::SetClearColor(CS200::WHITE);
 }
 
@@ -68,6 +71,13 @@ void RenderingTest::Update([[maybe_unused]] double dt)
 
 	camera->Update(samurai->GetPosition());
 	camera->SetRotation(samurai->GetRotation());
+
+	// Update FPS tracker
+	const Uint32 currentTicks = SDL_GetTicks();
+	const Uint32 deltaTicks	  = currentTicks - LastTicks;
+	const double deltaSeconds = deltaTicks / 1000.0;
+	LastTicks				  = currentTicks;
+	FPSTracker.Update(deltaSeconds);
 
 
 	GetGSComponent<CS230::GameObjectManager>()->UpdateAll(dt);
@@ -81,18 +91,20 @@ void RenderingTest::Update([[maybe_unused]] double dt)
 
 void RenderingTest::Draw()
 {
-	window_size = Engine::GetWindow().GetSize();
+	if (Engine::GetWindow().GetSize() != window_size)
+	{
+		window_size = Engine::GetWindow().GetSize();
+	}
 	CS200::RenderingAPI::Clear();
 	auto		  renderer_2d		  = Engine::GetTextureManager().GetRenderer2D();
-	constexpr int num_subwindows_wide = 2;
-	constexpr int num_subwindows_high = 2;
+	
 	Math::ivec2	  subwindow_size	  = { window_size.x / num_subwindows_wide, window_size.y / num_subwindows_high };
 
 	for (int i = 0; i < num_subwindows_high; ++i)
 	{
 		for (int j = 0; j < num_subwindows_wide; ++j)
 		{
-			GL::Viewport(static_cast<GLint>(subwindow_size.x * j), static_cast<GLint>(subwindow_size.x * i), static_cast<GLint>(subwindow_size.x), static_cast<GLint>(subwindow_size.y));
+			GL::Viewport(static_cast<GLint>(subwindow_size.x * j), static_cast<GLint>(subwindow_size.y * i), static_cast<GLint>(subwindow_size.x), static_cast<GLint>(subwindow_size.y));
 
 			renderer_2d->BeginScene(CS200::build_ndc_matrix(subwindow_size, true) * GetGSComponent<CS230::Camera>()->GetMatrix());
 			GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
@@ -109,13 +121,19 @@ void RenderingTest::Draw()
 	GL::Viewport(0, 0, static_cast<GLint>(window_size.x), static_cast<GLint>(window_size.y));
 	renderer_2d->BeginScene(CS200::build_ndc_matrix(window_size));
 	renderer_2d->DrawRectangle(Math::TranslationMatrix((window_size / 2)) * Math::ScaleMatrix(window_size), CS200::CLEAR, CS200::BLUE, 5.0, 0.0f);
-	renderer_2d->DrawLine(
-		Math::vec2{ 0.0, static_cast<double>(window_size.y) / num_subwindows_high }, Math::vec2{ static_cast<double>(window_size.x), static_cast<double>(window_size.y) / num_subwindows_high },
-		CS200::RED, 2.5, 0.0f);
-	renderer_2d->DrawLine(
-		Math::vec2{ static_cast<double>(window_size.x) / num_subwindows_wide, 0 }, Math::vec2{ static_cast<double>(window_size.x) / num_subwindows_wide, static_cast<double>(window_size.y) },
-		CS200::RED, 2.5, 0.0f);
-	renderer_2d->EndScene(); 
+	for (int i = 1; i < num_subwindows_high; ++i)
+	{
+		for (int j = 1; j < num_subwindows_wide; ++j)
+		{
+			renderer_2d->DrawLine( // Horizontal lines
+				Math::vec2{ 0.0, static_cast<double>(window_size.y) * j / num_subwindows_high }, Math::vec2{ static_cast<double>(window_size.x), static_cast<double>(window_size.y) * j / num_subwindows_high },
+				CS200::RED, 2.5, 0.0f);
+			renderer_2d->DrawLine( // Vertical lines
+				Math::vec2{ static_cast<double>(window_size.x) * i / num_subwindows_wide, 0 }, Math::vec2{ static_cast<double>(window_size.x) * i / num_subwindows_wide, static_cast<double>(window_size.y) },
+				CS200::RED, 2.5, 0.0f);
+		}
+	}
+	renderer_2d->EndScene();
 }
 
 void RenderingTest::DrawImGui()
@@ -125,7 +143,7 @@ void RenderingTest::DrawImGui()
 		window_size = Engine::GetWindow().GetSize();
 	}
 
-	if (ImGui::Begin("Texture Controls"))
+	/*if (ImGui::Begin("Texture Controls"))
 	{
 		ImGui::SliderFloat("Scale X", &(scale.x), -20.f, 20.0f, "%.1f px/s");
 		ImGui::SliderFloat("Scale Y", &(scale.y), -20.f, 20.0f, "%.1f px/s");
@@ -133,9 +151,9 @@ void RenderingTest::DrawImGui()
 		ImGui::SliderFloat("Translate X", &(translate.x), 0.0f, static_cast<float>(window_size.x) - 100.f, "%.1f px/s");
 		ImGui::SliderFloat("Translate Y", &(translate.y), 0.0f, static_cast<float>(window_size.y) - 100.f, "%.1f px/s");
 	}
-	ImGui::End();
+	ImGui::End();*/
 
-	if (ImGui::Begin("Particle Controls"))
+	/*if (ImGui::Begin("Particle Controls"))
 	{
 		if (ImGui::Button("Shine"))
 		{
@@ -168,7 +186,7 @@ void RenderingTest::DrawImGui()
 			}
 		}
 	}
-	ImGui::End();
+	ImGui::End();*/
 
 	ImGui::Begin("Renderer Settings");
 	ImGui::Separator();
@@ -228,6 +246,11 @@ void RenderingTest::DrawImGui()
 	{
 		GetGSComponent<CS230::Camera>()->SetFirstPersonView() = first_person_view;
 	}
+	const Math::ivec2 samurai_pos = samurai->GetPosition();
+	ImGui::Text("Object's position: (%d, %d)", samurai_pos.x, samurai_pos.y);
+
+	ImGui::Text("FPS: %d", static_cast<int>(FPSTracker));
+	ImGui::Separator();
 	ImGui::End();
 }
 

@@ -37,11 +37,22 @@ void Project::Load()
 	camera->SetLimit({ {0,0},Engine::GetWindow().GetSize() });
 	AddGSComponent(camera);*/
 	// GetGSComponent<CS230::Camera>()->SetPosition({ 0.0, 0.0 });
-	// if (!OpenGL::IsWebGL)
-	// {
-		Engine::GetWindow().ForceResize(600, 800);
-		Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
-	// }
+#if defined(__EMSCRIPTEN__)
+
+	AddGSComponent(new CS230::Camera(Math::rect{
+		Math::vec2{								  0,								   0 },
+		Math::vec2{ static_cast<double>(default_width), static_cast<double>(default_height) }
+	  }));
+	GetGSComponent<CS230::Camera>()->SetPosition(Math::vec2{ static_cast<double>(default_width) / 2, static_cast<double>(default_height) / 2 });
+	GetGSComponent<CS230::Camera>()->SetFirstPersonView() = true;
+	GetGSComponent<CS230::Camera>()->SetAnchoring()		  = true;
+	GetGSComponent<CS230::Camera>()->SetScale({ 0.75, 0.75 });
+
+#else
+	Engine::GetWindow().ForceResize(default_width, default_height);
+	Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+
+#endif
 
 
 #ifdef DEVELOPER_VERSION
@@ -127,7 +138,11 @@ void Project::Draw()
 {
 	CS200::RenderingAPI::Clear();
 	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+#if defined(__EMSCRIPTEN__)
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize(),true) * GetGSComponent<CS230::Camera>()->GetMatrix());
+#else
 	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+#endif
 	// Math::TransformationMatrix camera_matrix = camera->GetMatrix();
 #ifdef DEVELOPER_VERSION
 	GetGSComponent<Grid>()->Draw(Grid::DotColor::black, 0.2f);

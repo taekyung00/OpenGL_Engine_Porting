@@ -7,9 +7,11 @@
  */
 #pragma once
 #include <memory>
+#include <SDL.h>
 
 #include "./Engine/GameState.hpp"
 #include "./Engine/Texture.hpp"
+#include "Engine/FPS.hpp"
 
 #include "Demo/DemoSceneShowcase/Samurai.h"
 
@@ -41,4 +43,10 @@ private:
 	Math::vec2 camera_scale = { 1.0, 1.0 };
 
 	bool first_person_view = true;
+
+	util::FPS FPSTracker;
+	Uint32	  LastTicks = 0;
+
+	static constexpr int num_subwindows_wide = 2;
+	static constexpr int num_subwindows_high = 2;
 };
