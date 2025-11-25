@@ -41,6 +41,11 @@ namespace CS230
             return { window_size.x, window_size.y };
         }
 
+        double GetAspectRatio() const noexcept
+        {
+            return static_cast<double>(window_size.x) / static_cast<double>(window_size.y);
+		}
+
         void          Clear(CS200::RGBA color);
         void          ForceResize(int w, int h);
         void          SetWindowPosition(int x, int y);
