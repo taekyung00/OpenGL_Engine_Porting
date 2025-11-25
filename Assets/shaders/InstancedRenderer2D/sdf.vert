@@ -46,7 +46,9 @@ void main()
 
 
     // vTestPoint = aTestPoint;
-    vTestPoint = aModelPosition * aWorldSize;
+    // vTestPoint = aModelPosition * aWorldSize;
+    vec2 quadSize = aWorldSize + vec2(aLineWidth);
+    vTestPoint = aModelPosition * quadSize;
     vFillColor = aFillColor;
     vLineColor = aLineColor;
     vWorldSize = aWorldSize;

@@ -399,13 +399,13 @@ namespace CS200
 
 		SDFInstance sdf_instance;
 
-		sdf_instance.transformrow0[0] = static_cast<float>(transform[0][0]);
-		sdf_instance.transformrow0[1] = static_cast<float>(transform[0][1]);
-		sdf_instance.transformrow0[2] = static_cast<float>(transform[0][2]);
+		sdf_instance.transformrow0[0] = sdf_transform.QuadTransform[0];
+		sdf_instance.transformrow0[1] = sdf_transform.QuadTransform[3];
+		sdf_instance.transformrow0[2] = sdf_transform.QuadTransform[6];
 
-		sdf_instance.transformrow1[0] = static_cast<float>(transform[1][0]);
-		sdf_instance.transformrow1[1] = static_cast<float>(transform[1][1]);
-		sdf_instance.transformrow1[2] = static_cast<float>(transform[1][2]);
+		sdf_instance.transformrow1[0] = sdf_transform.QuadTransform[1];
+		sdf_instance.transformrow1[1] = sdf_transform.QuadTransform[4];
+		sdf_instance.transformrow1[2] = sdf_transform.QuadTransform[7];
 
 		sdf_instance.fillColor	 = fill_bytes;
 		sdf_instance.lineColor	 = line_bytes;
@@ -439,13 +439,13 @@ namespace CS200
 
 		SDFInstance sdf_instance;
 
-		sdf_instance.transformrow0[0] = static_cast<float>(transform[0][0]);
-		sdf_instance.transformrow0[1] = static_cast<float>(transform[0][1]);
-		sdf_instance.transformrow0[2] = static_cast<float>(transform[0][2]);
+		sdf_instance.transformrow0[0] = sdf_transform.QuadTransform[0];
+		sdf_instance.transformrow0[1] = sdf_transform.QuadTransform[3];
+		sdf_instance.transformrow0[2] = sdf_transform.QuadTransform[6];
 
-		sdf_instance.transformrow1[0] = static_cast<float>(transform[1][0]);
-		sdf_instance.transformrow1[1] = static_cast<float>(transform[1][1]);
-		sdf_instance.transformrow1[2] = static_cast<float>(transform[1][2]);
+		sdf_instance.transformrow1[0] = sdf_transform.QuadTransform[1];
+		sdf_instance.transformrow1[1] = sdf_transform.QuadTransform[4];
+		sdf_instance.transformrow1[2] = sdf_transform.QuadTransform[7];
 
 		sdf_instance.fillColor	 = fill_bytes;
 		sdf_instance.lineColor	 = line_bytes;

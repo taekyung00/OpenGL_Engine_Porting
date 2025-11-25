@@ -1,6 +1,6 @@
-### 11/23
+# 11/23
 
-# # OpenGL 포팅 이슈 리포트: 렌더링 파이프라인 및 텍스트 시스템 수정
+# OpenGL 포팅 이슈 리포트: 렌더링 파이프라인 및 텍스트 시스템 수정
 
 ## 1. Texture::Draw 수정: Pivot Point 및 행렬 순서
 
@@ -112,3 +112,101 @@ void Font::DrawChar(Math::TransformationMatrix& matrix, char c, CS200::RGBA colo
 - `Texture::Draw`는 Raylib과 동일한 Pivot(Corner) 기준 변환을 수행합니다.
 
 - `TextManager`는 추가된 Offset 행렬 덕분에 올바른 위치에 텍스트를 렌더링합니다.
+
+
+
+
+
+# 11/25
+
+# Instanced Rendering 모드 SDF 렌더링 수정 리포트
+
+## 1. 문제 상황 (Issue)
+
+- **증상:** `InstancedRenderer2D` 모드에서 Circle, Rectangle, Line 등의 SDF 기반 도형 렌더링 시 외곽선(Stroke)이 잘리거나 제대로 표현되지 않음.
+
+- **비교:** `ImmediateRenderer2D` 및 `BatchRenderer2D` 모드에서는 정상적으로 렌더링됨.
+
+- **원인:** SDF 렌더링은 외곽선 두께(`LineWidth`)만큼 쿼드(Quad)의 크기를 물리적으로 키워야 하는데, 인스턴싱 모드에서는 이 '확장된 변환(Expanded Transform)'이 적용되지 않고 원본 크기로만 그려지고 있었음.
+
+## 2. 원인 분석 (Root Cause Analysis)
+
+### 2.1. 렌더링 모드별 차이점
+
+- **Batch Rendering:** CPU에서 모든 변환을 미리 계산합니다. `CalculateSDFTransform` 함수가 반환한 **확장된 크기의 행렬**을 사용하여 정점 위치(`x`, `y`)와 텍스처 좌표(`s`, `t`)를 CPU가 직접 계산하여 GPU로 넘깁니다. 따라서 셰이더 수정 없이도 정상 작동했습니다.
+
+- **Instanced Rendering:** CPU는 기본 쿼드 정보와 변환 행렬만 넘기고, **GPU(Vertex Shader)가 정점 변환을 수행**합니다. 기존 코드에서는 **확장되지 않은 원본 행렬**을 GPU로 넘겼기 때문에, 셰이더가 외곽선이 포함될 공간을 확보하지 못해 짤림 현상이 발생했습니다.
+
+### 2.2. 매트릭스 매핑 오류
+
+- `Renderer2DUtils::CalculateSDFTransform`이 반환하는 `QuadTransform`은 **Column-Major (열 우선)** 순서의 1차원 배열입니다.
+
+- 이를 `InstancedRenderer2D`의 인스턴스 데이터(`transformrow0`, `transformrow1`)인 **Row-Major (행 우선)** 데이터로 옮길 때 인덱스 매핑이 올바르지 않아 변환이 뒤틀리는 문제가 있었습니다.
+
+## 3. 해결 방안 (Solution)
+
+### 3.1. C++ 코드 수정 (`source/CS200/InstancedRenderer2D.cpp`)
+
+도형을 그릴 때 `CalculateSDFTransform`을 사용하여 외곽선 두께만큼 확장된 변환 행렬을 구하고, 이를 올바른 인덱스로 매핑하여 인스턴스 데이터에 주입했습니다.
+
+- **주요 변경 사항:**
+  
+  - `DrawCircle`, `DrawRectangle` 함수 내에서 `sdf_transform.QuadTransform` 사용.
+  
+  - Column-Major 배열을 Row-Major 인스턴스 변수에 매핑:
+    
+    - `Row0 (X축)`: 인덱스 `0(m00)`, `3(m01)`, `6(m02)` 사용
+    
+    - `Row1 (Y축)`: 인덱스 `1(m10)`, `4(m11)`, `7(m12)` 사용
+
+C++
+
+```
+// 예시: DrawCircle/DrawRectangle 내부
+const auto sdf_transform = Renderer2DUtils::CalculateSDFTransform(transform, line_width);
+
+// Column-Major -> Row-Major 매핑
+sdf_instance.transformrow0[0] = sdf_transform.QuadTransform[0]; 
+sdf_instance.transformrow0[1] = sdf_transform.QuadTransform[3]; 
+sdf_instance.transformrow0[2] = sdf_transform.QuadTransform[6]; 
+
+sdf_instance.transformrow1[0] = sdf_transform.QuadTransform[1]; 
+sdf_instance.transformrow1[1] = sdf_transform.QuadTransform[4]; 
+sdf_instance.transformrow1[2] = sdf_transform.QuadTransform[7]; 
+
+// 셰이더에는 원본 크기(WorldSize) 전달 (SDF 계산 기준)
+sdf_instance.worldSize_x = static_cast<float>(sdf_transform.WorldSize[0]);
+sdf_instance.worldSize_y = static_cast<float>(sdf_transform.WorldSize[1]);
+```
+
+### 3.2. 셰이더 코드 수정 (`Assets/shaders/InstancedRenderer2D/sdf.vert`)
+
+확장된 쿼드 크기에 맞춰 SDF 계산을 위한 테스트 포인트(`vTestPoint`) 좌표를 보정했습니다.
+
+- **주요 변경 사항:**
+  
+  - 기존: `vTestPoint = aModelPosition * aWorldSize;` (외곽선 고려 안 함)
+  
+  - 수정: `vTestPoint = aModelPosition * (aWorldSize + vec2(aLineWidth));` (외곽선 두께 포함)
+
+OpenGL Shading Language
+
+```
+// sdf.vert
+void main()
+{
+    // ... (위치 계산) ...
+
+    // [수정] 외곽선 두께만큼 좌표 공간 확장
+    vec2 quadSize = aWorldSize + vec2(aLineWidth);
+    vTestPoint = aModelPosition * quadSize; 
+
+    // ... (나머지 출력) ...
+}
+```
+
+## 4. 결과 (Result)
+
+- `InstancedRenderer2D`에서도 외곽선(Stroke)이 잘리지 않고 정확한 두께로 렌더링됩니다.
+
+- Immediate, Batch, Instanced 세 가지 모드 모두 동일한 시각적 결과를 보장합니다.
