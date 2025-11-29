@@ -58,6 +58,7 @@ set(SOURCE_CODE
     CS200/Renderer2DUtils.hpp CS200/Renderer2DUtils.cpp
     CS200/RenderingAPI.hpp CS200/RenderingAPI.cpp
     CS200/RGBA.hpp
+    CS200/Shape.hpp CS200/Shape.cpp
 
     Demo/DemoShapes.hpp Demo/DemoShapes.cpp
     Demo/DemoFramebuffer.hpp Demo/DemoFramebuffer.cpp
@@ -72,6 +73,12 @@ set(SOURCE_CODE
     Demo/DemoSceneShowcase/Samurai.h Demo/DemoSceneShowcase/Samurai.cpp
     Demo/DemoSceneShowcase/Map.h Demo/DemoSceneShowcase/Map.cpp
 
+    Demo/Demo7/Triangle.h Demo/Demo7/Triangle.cpp
+    Demo/Demo7/Stars.h Demo/Demo7/Stars.cpp
+    Demo/Demo7/Moon.h Demo/Demo7/Moon.cpp
+    Demo/Demo7/Road.h Demo/Demo7/Road.cpp
+    Demo/Demo7/WorldSize.h
+    
     Game/Background.h Game/Background.cpp
     Game/GameObjectTypes.h
     Game/MainMenu.h Game/MainMenu.cpp

@@ -13,7 +13,12 @@
 #include "./Engine/Texture.hpp"
 #include "Engine/FPS.hpp"
 
+#include "Demo/Demo7/Triangle.h"
+#include "Demo/Demo7/Stars.h"
+#include "Demo/Demo7/Moon.h"
+#include "Demo/Demo7/Road.h"
 #include "Demo/DemoSceneShowcase/Samurai.h"
+
 
 
 class RenderingTest : public CS230::GameState
@@ -33,6 +38,10 @@ public:
 
 private:
 	Samurai*						samurai = nullptr;
+	Triangle*						triangle = nullptr;
+	Stars*							stars = nullptr;
+	Moon*							moon = nullptr;
+	Road* 							road = nullptr;
 	std::shared_ptr<CS230::Texture> testTexture = nullptr;
 	Math::fvec2 scale = {1.f,1.f};
 	float rotate = 0.f;
@@ -47,6 +56,6 @@ private:
 	util::FPS FPSTracker;
 	Uint32	  LastTicks = 0;
 
-	static constexpr int num_subwindows_wide = 2;
-	static constexpr int num_subwindows_high = 2;
+	static constexpr int num_subwindows_wide = 1;
+	static constexpr int num_subwindows_high = 1;
 };

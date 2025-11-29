@@ -18,5 +18,9 @@ enum class GameObjectTypes {
     Particle,
     Character,
     Samurai,
+    Triangle,
+    Stars,
+    Moon,
+    Road,
     Count
 };

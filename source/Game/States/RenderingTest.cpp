@@ -41,11 +41,19 @@ void RenderingTest::Load()
 	testTexture = Engine::GetTextureManager().Load("Assets/images/Test/mario.png");
 
 	samurai = new Samurai();
+	triangle = new Triangle();
+	stars = new Stars();
+	moon = new Moon();
+	road = new Road();
 	GetGSComponent<CS230::GameObjectManager>()->Add(samurai);
+	GetGSComponent<CS230::GameObjectManager>()->Add(triangle);
+	GetGSComponent<CS230::GameObjectManager>()->Add(stars);
+	GetGSComponent<CS230::GameObjectManager>()->Add(moon);
+	GetGSComponent<CS230::GameObjectManager>()->Add(road);
 	AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
 	AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
 	AddGSComponent(new CS230::ParticleManager<Particles::Flame>());
-	AddGSComponent(new CS230::Camera(Math::rect{ static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.3, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.7 }));
+	AddGSComponent(new CS230::Camera(Math::rect{ static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.3, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.7 }, 2));
 	// GetGSComponent<CS230::Camera>()->SetPositionOffset({300.0,300.0});
 	GetGSComponent<CS230::Camera>()->SetLimit({
 		{	  0,	 0 },
@@ -60,7 +68,7 @@ void RenderingTest::Load()
 	// Initialize FPS tracking
 	LastTicks = SDL_GetTicks();
 
-	CS200::RenderingAPI::SetClearColor(CS200::WHITE);
+	CS200::RenderingAPI::SetClearColor(CS200::BLACK);
 }
 
 void RenderingTest::Update([[maybe_unused]] double dt)
@@ -110,7 +118,7 @@ void RenderingTest::Draw()
 			GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
 
 #ifdef DEVELOPER_VERSION
-			GetGSComponent<Grid>()->Draw(Grid::DotColor::black, 0.2f);
+			GetGSComponent<Grid>()->Draw(Grid::DotColor::white, 0.2f);
 #endif
 			testTexture->Draw(
 				Math::TranslationMatrix(Math::to_vec2(translate)) * Math::RotationMatrix(static_cast<double>(rotate / 180 * std::numbers::pi_v<float>)) * Math::ScaleMatrix(Math::to_vec2(scale)));
@@ -219,12 +227,7 @@ void RenderingTest::DrawImGui()
 	ImGui::End();
 
 	ImGui::Begin("Camera Controls");
-	// float fcamera_rotation = static_cast<float>(camera_rotation);
-	// if (ImGui::SliderFloat("Camera Rotation", &fcamera_rotation, -180.f, 180.f))
-	//{
-	//	camera_rotation = static_cast<double>(fcamera_rotation);
-	//	GetGSComponent<CS230::Camera>()->SetRotation(static_cast<double>(camera_rotation / 180.f * std::numbers::pi_v<float>));
-	// }
+
 	Math::fvec2 fcamera_scale = Math::to_fvec2(camera_scale);
 	bool		scale_changed = false;
 	if (ImGui::SliderFloat("Camera ScaleX", &fcamera_scale.x, 0.1f, 10.f))

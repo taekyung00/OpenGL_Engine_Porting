@@ -99,6 +99,7 @@ namespace CS200
         GL::DeleteBuffers(1, &quad.texCoordBufferHandle), quad.texCoordBufferHandle = 0;
         GL::DeleteBuffers(1, &quad.indexBufferHandle), quad.indexBufferHandle       = 0;
         GL::DeleteBuffers(1, &sdfBufferHandle), sdfBufferHandle                     = 0;
+        GL::DeleteBuffers(1, &camera_uniform_buffer), camera_uniform_buffer         = 0;
 
         GL::DeleteVertexArrays(1, &quad.modelHandle), quad.modelHandle           = 0;
         GL::DeleteVertexArrays(1, &sdfVeretexArrayHandle), sdfVeretexArrayHandle = 0;
