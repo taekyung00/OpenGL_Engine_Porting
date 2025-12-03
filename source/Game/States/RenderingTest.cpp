@@ -77,7 +77,7 @@ void RenderingTest::Update([[maybe_unused]] double dt)
 
 	CS230::Camera* camera = GetGSComponent<CS230::Camera>();
 
-	camera->Update(samurai->GetPosition());
+	camera->Update(samurai->GetPosition(),dt);
 	camera->SetRotation(samurai->GetRotation());
 
 	// Update FPS tracker
