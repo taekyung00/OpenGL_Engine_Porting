@@ -9,11 +9,11 @@ Created:    May 17, 2025
 */
 
 #include "Collision.h"
-#include "../CS200/IRenderer2D.hpp"
-#include "../CS200/RGBA.hpp"
-#include "Engine.hpp"
-#include "Logger.hpp"
-#include "TextureManager.hpp"
+#include "../CS200/IRenderer2D.h"
+#include "../CS200/RGBA.h"
+#include "Engine.h"
+#include "Logger.h"
+#include "TextureManager.h"
 
 namespace CS230
 {

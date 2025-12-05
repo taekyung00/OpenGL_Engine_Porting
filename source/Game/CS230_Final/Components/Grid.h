@@ -8,10 +8,10 @@
 #pragma once
 #include "../../../Engine/Camera.h"
 #include "../../../Engine/Component.h"
-#include "../../../Engine/Engine.hpp"
+#include "../../../Engine/Engine.h"
 #include "../../../Engine/Fonts.h"
-#include "../../../Engine/Texture.hpp"
-#include "../../../Engine/Vec2.hpp"
+#include "../../../Engine/Texture.h"
+#include "../../../Engine/Vec2.h"
 #include <filesystem>
 #include <memory>
 

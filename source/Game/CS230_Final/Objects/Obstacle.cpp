@@ -7,7 +7,7 @@
  */
 #include "Obstacle.h"
 #include "Player.h"
-#include "../../../Engine/GameStateManager.hpp"
+#include "../../../Engine/GameStateManager.h"
 Obstacle::Obstacle(Player* _player, Math::vec2 pos) :
 	GameObject(pos),
 	player(_player)

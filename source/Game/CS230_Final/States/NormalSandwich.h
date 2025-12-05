@@ -6,9 +6,9 @@
  * \copyright DigiPen Institute of Technology
  */
 #pragma once
-#include "../../../Engine/GameState.hpp"
-#include "../../../Engine/Engine.hpp"
-#include "../../../Engine/Texture.hpp"
+#include "../../../Engine/GameState.h"
+#include "../../../Engine/Engine.h"
+#include "../../../Engine/Texture.h"
 
 class NormalSandwich : public CS230::GameState
 {

@@ -6,9 +6,9 @@
  * \copyright DigiPen Institute of Technology
  */
 #include "Grid.h"
-#include "../../../Engine/Input.hpp"
-#include "../../../Engine/TextureManager.hpp"
-#include "../../../Engine/Window.hpp"
+#include "../../../Engine/Input.h"
+#include "../../../Engine/TextureManager.h"
+#include "../../../Engine/Window.h"
 
 Grid::Grid()
 {

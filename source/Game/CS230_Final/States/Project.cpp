@@ -8,18 +8,18 @@
 #include "Project.h"
 #include "../../MainMenu.h"
 #include "BadSandwich.h"
-#include "Engine/Input.hpp"
-#include "Engine/TextureManager.hpp"
-#include "Engine/Window.hpp"
+#include "Engine/Input.h"
+#include "Engine/TextureManager.h"
+#include "Engine/Window.h"
 #include "GoodSandwich.h"
 #include "NormalSandwich.h"
-#include "OpenGL/Environment.hpp"
+#include "OpenGL/Environment.h"
 #include <SDL.h>
 #include <imgui.h>
 
-#include "CS200/IRenderer2D.hpp"
-#include "CS200/NDC.hpp"
-#include "CS200/RenderingAPI.hpp"
+#include "CS200/IRenderer2D.h"
+#include "CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
 
 
 Project::Project() : player_ptr(nullptr)

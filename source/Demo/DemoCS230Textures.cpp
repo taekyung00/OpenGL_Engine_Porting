@@ -7,17 +7,17 @@
  * \copyright DigiPen Institute of Technology
  */
 
-#include "DemoCS230Textures.hpp"
+#include "DemoCS230Textures.h"
 
-#include "CS200/IRenderer2D.hpp"
-#include "CS200/RenderingAPI.hpp"
-#include "DemoTexturing.hpp"
-#include "Engine/Engine.hpp"
-#include "Engine/GameStateManager.hpp"
-#include "Engine/Matrix.hpp"
-#include "Engine/Texture.hpp"
-#include "Engine/TextureManager.hpp"
-#include "Engine/Window.hpp"
+#include "CS200/IRenderer2D.h"
+#include "CS200/RenderingAPI.h"
+#include "DemoTexturing.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Matrix.h"
+#include "Engine/Texture.h"
+#include "Engine/TextureManager.h"
+#include "Engine/Window.h"
 #include "../Game/MainMenu.h"
 
 #include <cmath>

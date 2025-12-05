@@ -5,10 +5,10 @@
  * \copyright DigiPen Institute of Technology
  */
 
-#include "Demo/DemoShapes.hpp"
-#include "Engine/Engine.hpp"
-#include "Engine/GameStateManager.hpp"
-#include "Engine/Window.hpp"
+#include "Demo/DemoShapes.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Window.h"
 #include "Game/Splash.h"
 
 namespace

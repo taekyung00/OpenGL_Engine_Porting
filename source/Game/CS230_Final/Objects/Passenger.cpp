@@ -7,7 +7,7 @@
  */
 #include "Passenger.h"
 #include "../../../Engine/ShowCollision.h"
-#include "../../../Engine/Timer.hpp"
+#include "../../../Engine/Timer.h"
 #include "../../Score.h"
 
 Passenger::Passenger(BusLine _busline, Player* _player, int is_right)

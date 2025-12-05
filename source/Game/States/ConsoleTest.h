@@ -6,7 +6,7 @@
  * \copyright DigiPen Institute of Technology
  */
 #pragma once
-#include "./Engine/GameState.hpp"
+#include "./Engine/GameState.h"
 class ConsoleTest : public CS230::GameState
 {
 public:

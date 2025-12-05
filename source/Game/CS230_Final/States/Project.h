@@ -6,8 +6,8 @@
  * \copyright DigiPen Institute of Technology
  */
 #pragma once
-#include "Engine/GameState.hpp"
-#include "Engine/Texture.hpp"
+#include "Engine/GameState.h"
+#include "Engine/Texture.h"
 #include "Engine/Camera.h"
 #include "Engine/GameObjectManager.h"
 

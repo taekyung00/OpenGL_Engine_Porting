@@ -5,20 +5,20 @@
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
  */
-#include "SceneState.hpp"
+#include "SceneState.h"
 #include <imgui.h>
 #include "Engine/Collision.h"
-#include "Engine/Input.hpp"
-#include "Engine/TextureManager.hpp"
-#include "Engine/Window.hpp"
-#include "Engine/Timer.hpp"
+#include "Engine/Input.h"
+#include "Engine/TextureManager.h"
+#include "Engine/Window.h"
+#include "Engine/Timer.h"
 
-#include "CS200/IRenderer2D.hpp"
-#include "CS200/NDC.hpp"
-#include "CS200/RenderingAPI.hpp"
-#include "CS200/ImguiHelper.hpp"
+#include "CS200/IRenderer2D.h"
+#include "CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
+#include "CS200/ImGuiHelper.h"
 
-#include "OpenGL/Environment.hpp"
+#include "OpenGL/Environment.h"
 
 #include "Game/CS230_Final/Components/Grid.h"
 #include "Game/MainMenu.h"

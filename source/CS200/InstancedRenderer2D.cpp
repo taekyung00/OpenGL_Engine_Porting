@@ -5,14 +5,14 @@
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
  */
-#include "InstancedRenderer2D.hpp"
+#include "InstancedRenderer2D.h"
 
-#include "Engine/Path.hpp"
+#include "Engine/Path.h"
 
-#include "OpenGL/Buffer.hpp"
-#include "OpenGL/GL.hpp"
-#include "OpenGL/VertexArray.hpp"
-#include "Renderer2DUtils.hpp"
+#include "OpenGL/Buffer.h"
+#include "OpenGL/GL.h"
+#include "OpenGL/VertexArray.h"
+#include "Renderer2DUtils.h"
 
 #include <fstream>
 #include <numeric>

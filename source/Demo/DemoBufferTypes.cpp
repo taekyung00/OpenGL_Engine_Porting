@@ -6,17 +6,17 @@
  * \copyright DigiPen Institute of Technology
  */
 
-#include "DemoBufferTypes.hpp"
+#include "DemoBufferTypes.h"
 
-#include "CS200/NDC.hpp"
-#include "CS200/Renderer2DUtils.hpp"
-#include "CS200/RenderingAPI.hpp"
-#include "Engine/Engine.hpp"
-#include "Engine/GameStateManager.hpp"
-#include "Engine/Random.hpp"
-#include "Engine/Window.hpp"
-#include "OpenGL/Buffer.hpp"
-#include "OpenGL/GL.hpp"
+#include "CS200/NDC.h"
+#include "CS200/Renderer2DUtils.h"
+#include "CS200/RenderingAPI.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Random.h"
+#include "Engine/Window.h"
+#include "OpenGL/Buffer.h"
+#include "OpenGL/GL.h"
 #include "../Game/MainMenu.h"
 #include <cmath>
 #include <imgui.h>

@@ -8,9 +8,9 @@
 // Include GLEW first to define OpenGL functions and constants
 #include <GL/glew.h>
 
-#include "Engine/Engine.hpp"
-#include "Engine/Logger.hpp"
-#include "GL.hpp"
+#include "Engine/Engine.h"
+#include "Engine/Logger.h"
+#include "GL.h"
 
 #include <cassert>
 #include <iostream>

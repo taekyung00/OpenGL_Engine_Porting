@@ -1,8 +1,8 @@
-#include "Shape.hpp"
-#include "CS200/RGBA.hpp"
-#include "CS200/Renderer2DUtils.hpp"
-#include "Engine/Path.hpp"
-#include "OpenGL/GL.hpp"
+#include "Shape.h"
+#include "CS200/RGBA.h"
+#include "CS200/Renderer2DUtils.h"
+#include "Engine/Path.h"
+#include "OpenGL/GL.h"
 #include <span>
 
 namespace CS230

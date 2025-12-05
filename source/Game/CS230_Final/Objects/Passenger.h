@@ -10,7 +10,7 @@
 
 #include "../../../Engine/GameObject.h"
 #include "../../../Engine/Particle.h"
-#include "../../../Engine/Timer.hpp"
+#include "../../../Engine/Timer.h"
 
 #include "BusLine.h"
 #include "Player.h"

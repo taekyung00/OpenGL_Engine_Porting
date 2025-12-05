@@ -9,15 +9,15 @@
  */
 
 
-#include "TextureManager.hpp"
-#include "CS200/IRenderer2D.hpp"
-#include "CS200/NDC.hpp"
-#include "Engine.hpp"
-#include "Logger.hpp"
-#include "OpenGL/GL.hpp"
-#include "Path.hpp"
-#include "Texture.hpp"
-#include "Window.hpp"
+#include "TextureManager.h"
+#include "CS200/IRenderer2D.h"
+#include "CS200/NDC.h"
+#include "Engine.h"
+#include "Logger.h"
+#include "OpenGL/GL.h"
+#include "Path.h"
+#include "Texture.h"
+#include "Window.h"
 
 namespace CS230
 {

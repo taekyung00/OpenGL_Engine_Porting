@@ -6,7 +6,7 @@
  * \copyright DigiPen Institute of Technology
  */
 #include "Food.h"
-#include "../../../Engine/GameStateManager.hpp"
+#include "../../../Engine/GameStateManager.h"
 #include "../../../Engine/Particle.h"
 #include "../../Particles.h"
 #include "Passenger.h"

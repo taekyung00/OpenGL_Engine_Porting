@@ -5,27 +5,27 @@
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-set(SOURCE_CODE 
+set(SOURCE_CODE
 
-    Engine/Engine.hpp Engine/Engine.cpp
-    Engine/Error.hpp
-    Engine/Font.hpp Engine/Font.cpp
+    Engine/Engine.h Engine/Engine.cpp
+    Engine/Error.h
+    Engine/Font.h Engine/Font.cpp
     Engine/Fonts.h
-    Engine/FPS.hpp
-    Engine/GameState.hpp
-    Engine/GameStateManager.hpp Engine/GameStateManager.cpp
-    Engine/Input.hpp Engine/Input.cpp
-    Engine/Logger.hpp Engine/Logger.cpp
-    Engine/Matrix.hpp Engine/Matrix.cpp
-    Engine/Path.hpp Engine/Path.cpp
-    Engine/Random.hpp Engine/Random.cpp
-    Engine/Rect.hpp
-    Engine/Texture.hpp Engine/Texture.cpp
-    Engine/TextureManager.hpp Engine/TextureManager.cpp
-    Engine/TextManager.hpp Engine/TextManager.cpp
-    Engine/Timer.hpp
-    Engine/Vec2.hpp Engine/Vec2.cpp
-    Engine/Window.hpp Engine/Window.cpp
+    Engine/FPS.h
+    Engine/GameState.h
+    Engine/GameStateManager.h Engine/GameStateManager.cpp
+    Engine/Input.h Engine/Input.cpp
+    Engine/Logger.h Engine/Logger.cpp
+    Engine/Matrix.h Engine/Matrix.cpp
+    Engine/Path.h Engine/Path.cpp
+    Engine/Random.h Engine/Random.cpp
+    Engine/Rect.h
+    Engine/Texture.h Engine/Texture.cpp
+    Engine/TextureManager.h Engine/TextureManager.cpp
+    Engine/TextManager.h Engine/TextManager.cpp
+    Engine/Timer.h
+    Engine/Vec2.h Engine/Vec2.cpp
+    Engine/Window.h Engine/Window.cpp
     Engine/Animation.cpp Engine/Animation.h
     Engine/Camera.cpp Engine/Camera.h
     Engine/Collision.cpp Engine/Collision.h
@@ -37,39 +37,39 @@ set(SOURCE_CODE
     Engine/ShowCollision.cpp Engine/ShowCollision.h
     Engine/Sprite.cpp Engine/Sprite.h
 
-    OpenGL/Buffer.hpp OpenGL/Buffer.cpp
-    OpenGL/Environment.hpp
-    OpenGL/Framebuffer.hpp OpenGL/Framebuffer.cpp
-    OpenGL/GL.cpp OpenGL/GL.hpp
-    OpenGL/GLConstants.hpp
-    OpenGL/GLTypes.hpp
-    OpenGL/Handle.hpp
-    OpenGL/Shader.cpp OpenGL/Shader.hpp
-    OpenGL/Texture.hpp OpenGL/Texture.cpp
-    OpenGL/VertexArray.cpp OpenGL/VertexArray.hpp
+    OpenGL/Buffer.h OpenGL/Buffer.cpp
+    OpenGL/Environment.h
+    OpenGL/Framebuffer.h OpenGL/Framebuffer.cpp
+    OpenGL/GL.cpp OpenGL/GL.h
+    OpenGL/GLConstants.h
+    OpenGL/GLTypes.h
+    OpenGL/Handle.h
+    OpenGL/Shader.cpp OpenGL/Shader.h
+    OpenGL/Texture.h OpenGL/Texture.cpp
+    OpenGL/VertexArray.cpp OpenGL/VertexArray.h
 
-    CS200/Image.hpp CS200/Image.cpp
-    CS200/ImGuiHelper.hpp CS200/ImGuiHelper.cpp
-    CS200/ImmediateRenderer2D.hpp CS200/ImmediateRenderer2D.cpp
-    CS200/BatchRenderer2D.hpp CS200/BatchRenderer2D.cpp
-    CS200/InstancedRenderer2D.hpp CS200/InstancedRenderer2D.cpp
-    CS200/IRenderer2D.hpp
-    CS200/NDC.hpp
-    CS200/Renderer2DUtils.hpp CS200/Renderer2DUtils.cpp
-    CS200/RenderingAPI.hpp CS200/RenderingAPI.cpp
-    CS200/RGBA.hpp
-    CS200/Shape.hpp CS200/Shape.cpp
+    CS200/Image.h CS200/Image.cpp
+    CS200/ImGuiHelper.h CS200/ImGuiHelper.cpp
+    CS200/ImmediateRenderer2D.h CS200/ImmediateRenderer2D.cpp
+    CS200/BatchRenderer2D.h CS200/BatchRenderer2D.cpp
+    CS200/InstancedRenderer2D.h CS200/InstancedRenderer2D.cpp
+    CS200/IRenderer2D.h
+    CS200/NDC.h
+    CS200/Renderer2DUtils.h CS200/Renderer2DUtils.cpp
+    CS200/RenderingAPI.h CS200/RenderingAPI.cpp
+    CS200/RGBA.h
+    CS200/Shape.h CS200/Shape.cpp
 
-    Demo/DemoShapes.hpp Demo/DemoShapes.cpp
-    Demo/DemoFramebuffer.hpp Demo/DemoFramebuffer.cpp
-    Demo/DemoText.hpp Demo/DemoText.cpp
-    Demo/DemoVAO.hpp Demo/DemoVAO.cpp
-    Demo/DemoBufferTypes.hpp Demo/DemoBufferTypes.cpp
-    Demo/DemoTexturing.hpp Demo/DemoTexturing.cpp
-    Demo/DemoCS230Textures.hpp Demo/DemoCS230Textures.cpp
-    Demo/DemoBatchInstance.hpp Demo/DemoBatchInstance.cpp
+    Demo/DemoShapes.h Demo/DemoShapes.cpp
+    Demo/DemoFramebuffer.h Demo/DemoFramebuffer.cpp
+    Demo/DemoText.h Demo/DemoText.cpp
+    Demo/DemoVAO.h Demo/DemoVAO.cpp
+    Demo/DemoBufferTypes.h Demo/DemoBufferTypes.cpp
+    Demo/DemoTexturing.h Demo/DemoTexturing.cpp
+    Demo/DemoCS230Textures.h Demo/DemoCS230Textures.cpp
+    Demo/DemoBatchInstance.h Demo/DemoBatchInstance.cpp
 
-    Demo/DemoSceneShowcase/SceneState.hpp Demo/DemoSceneShowcase/SceneState.cpp
+    Demo/DemoSceneShowcase/SceneState.h Demo/DemoSceneShowcase/SceneState.cpp
     Demo/DemoSceneShowcase/Samurai.h Demo/DemoSceneShowcase/Samurai.cpp
     Demo/DemoSceneShowcase/Map.h Demo/DemoSceneShowcase/Map.cpp
 
@@ -78,7 +78,7 @@ set(SOURCE_CODE
     Demo/Demo7/Moon.h Demo/Demo7/Moon.cpp
     Demo/Demo7/Road.h Demo/Demo7/Road.cpp
     Demo/Demo7/WorldSize.h
-    
+
     Game/Background.h Game/Background.cpp
     Game/GameObjectTypes.h
     Game/MainMenu.h Game/MainMenu.cpp

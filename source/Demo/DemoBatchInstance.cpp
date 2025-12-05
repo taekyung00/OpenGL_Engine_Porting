@@ -5,16 +5,16 @@
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
  */
-#include "CS200/BatchRenderer2D.hpp"
-#include "Engine/GameStateManager.hpp"
-#include "Engine/Input.hpp"
-#include "Engine/Path.hpp"
-#include "Engine/Random.hpp"
-#include "Engine/TextureManager.hpp"
+#include "CS200/BatchRenderer2D.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Input.h"
+#include "Engine/Path.h"
+#include "Engine/Random.h"
+#include "Engine/TextureManager.h"
 #include "Game/MainMenu.h"
 
 #include <imgui.h>
-#include "DemoBatchInstance.hpp"
+#include "DemoBatchInstance.h"
 
 // Request high-performance GPU on systems with multiple GPUs (laptops with integrated + discrete)
 // https://docs.nvidia.com/gameworks/content/technologies/desktop/optimus.htm

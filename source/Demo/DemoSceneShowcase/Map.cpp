@@ -8,8 +8,8 @@
 #include "Map.h"
 #include <numbers>
 
-#include "Engine/GameStateManager.hpp"
-#include "Engine/TextureManager.hpp"
+#include "Engine/GameStateManager.h"
+#include "Engine/TextureManager.h"
 
 #include "Game/Particles.h"
 

@@ -1,7 +1,7 @@
 #include "Moon.h"
 #include <numbers>
-#include "CS200/Shape.hpp"
-#include "Engine/Window.hpp"
+#include "CS200/Shape.h"
+#include "Engine/Window.h"
 
 Moon::Moon() : GameObject(Math::vec2(Engine::GetWindow().GetSize())-Math::vec2{radius * 2,radius * 2})
 {

@@ -6,11 +6,11 @@
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
  */
-#include "Framebuffer.hpp"
-#include "Engine/Engine.hpp"
-#include "Engine/Logger.hpp"
-#include "GL.hpp"
-#include "Texture.hpp"
+#include "Framebuffer.h"
+#include "Engine/Engine.h"
+#include "Engine/Logger.h"
+#include "GL.h"
+#include "Texture.h"
 
 namespace
 {

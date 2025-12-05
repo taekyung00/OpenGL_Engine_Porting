@@ -8,8 +8,8 @@ Author:     Jonathan Holmes
 Created:    March 8, 2023
 */
 #include "Camera.h"
-#include "Engine.hpp"
-#include "Matrix.hpp"
+#include "Engine.h"
+#include "Matrix.h"
 
 namespace
 {

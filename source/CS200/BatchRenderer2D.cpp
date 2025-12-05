@@ -5,13 +5,13 @@
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
  */
-#include "BatchRenderer2D.hpp"
+#include "BatchRenderer2D.h"
 
-#include "Engine/Path.hpp"
-#include "OpenGL/Buffer.hpp"
-#include "OpenGL/GL.hpp"
-#include "OpenGL/VertexArray.hpp"
-#include "Renderer2DUtils.hpp"
+#include "Engine/Path.h"
+#include "OpenGL/Buffer.h"
+#include "OpenGL/GL.h"
+#include "OpenGL/VertexArray.h"
+#include "Renderer2DUtils.h"
 #include <fstream>
 #include <numeric>
 #include <sstream>

@@ -1,4 +1,4 @@
-#include "TextManager.hpp"
+#include "TextManager.h"
 
 
 void TextManager::DrawText(const std::string& text, const Math::vec2& position, Fonts font, const Math::vec2& scale, CS200::RGBA color) const

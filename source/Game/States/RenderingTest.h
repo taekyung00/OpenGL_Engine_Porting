@@ -9,9 +9,9 @@
 #include <memory>
 #include <SDL.h>
 
-#include "./Engine/GameState.hpp"
-#include "./Engine/Texture.hpp"
-#include "Engine/FPS.hpp"
+#include "./Engine/GameState.h"
+#include "./Engine/Texture.h"
+#include "Engine/FPS.h"
 
 #include "Demo/Demo7/Triangle.h"
 #include "Demo/Demo7/Stars.h"

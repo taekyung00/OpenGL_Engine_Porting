@@ -5,7 +5,7 @@
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
  */
-#include "Path.hpp"
+#include "Path.h"
 
 #include <SDL.h>
 #include <optional>

@@ -8,7 +8,7 @@
  * \copyright DigiPen Institute of Technology
  */
 
-#include "Matrix.hpp"
+#include "Matrix.h"
 #include <cmath>
 
 namespace Math

@@ -6,17 +6,17 @@
  * \copyright DigiPen Institute of Technology
  */
 
-#include "DemoText.hpp"
-#include "CS200/IRenderer2D.hpp"
-#include "CS200/NDC.hpp"
-#include "CS200/RenderingAPI.hpp"
-#include "DemoFramebuffer.hpp"
-#include "DemoShapes.hpp"
-#include "Engine/Engine.hpp"
-#include "Engine/GameStateManager.hpp"
-#include "Engine/Texture.hpp"
-#include "Engine/Window.hpp"
-#include "Engine/TextureManager.hpp"
+#include "DemoText.h"
+#include "CS200/IRenderer2D.h"
+#include "CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
+#include "DemoFramebuffer.h"
+#include "DemoShapes.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Texture.h"
+#include "Engine/Window.h"
+#include "Engine/TextureManager.h"
 #include "../Game/MainMenu.h"
 #include <imgui.h>
 #include <sstream>

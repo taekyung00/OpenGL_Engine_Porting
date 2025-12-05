@@ -6,16 +6,16 @@
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
  */
-#include "RenderingAPI.hpp"
+#include "RenderingAPI.h"
 
-#include "Engine/Engine.hpp"
-#include "Engine/Error.hpp"
-#include "Engine/Logger.hpp"
-#include "OpenGL/Environment.hpp"
+#include "Engine/Engine.h"
+#include "Engine/Error.h"
+#include "Engine/Logger.h"
+#include "OpenGL/Environment.h"
 #include <GL/glew.h>
 #include <cassert>
 
-#include "OpenGL/GL.hpp"
+#include "OpenGL/GL.h"
 
 namespace
 {

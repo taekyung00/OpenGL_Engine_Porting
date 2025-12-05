@@ -9,7 +9,7 @@
 #include <random>
 #include <vector>
 
-#include "../../../Engine/Engine.hpp"
+#include "../../../Engine/Engine.h"
 #include "../../../Engine/Component.h"
 
 class Random : public CS230::Component {

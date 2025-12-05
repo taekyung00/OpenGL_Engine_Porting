@@ -7,20 +7,20 @@
  */
 #include "RenderingTest.h"
 #include "Engine/Camera.h"
-#include "Engine/Engine.hpp"
-#include "Engine/GameStateManager.hpp"
-#include "Engine/Input.hpp"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Input.h"
 #include "Engine/ShowCollision.h"
-#include "Engine/TextureManager.hpp"
-#include "Engine/Window.hpp"
+#include "Engine/TextureManager.h"
+#include "Engine/Window.h"
 
 #include "Engine/Particle.h"
 #include <imgui.h>
 #include <numbers>
 
-#include "./CS200/IRenderer2D.hpp"
-#include "./CS200/NDC.hpp"
-#include "CS200/RenderingAPI.hpp"
+#include "./CS200/IRenderer2D.h"
+#include "./CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
 
 #include "Game/CS230_Final/Components/Grid.h"
 #include "Game/MainMenu.h"
@@ -28,7 +28,7 @@
 
 #include "Demo/DemoSceneShowcase/Samurai.h"
 
-#include <OpenGL/GL.hpp>
+#include <OpenGL/GL.h>
 
 void RenderingTest::Load()
 {

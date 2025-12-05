@@ -5,7 +5,7 @@
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
  */
-#include "Renderer2DUtils.hpp"
+#include "Renderer2DUtils.h"
 
 #include <algorithm>
 #include <cmath>

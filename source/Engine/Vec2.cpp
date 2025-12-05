@@ -7,7 +7,7 @@
  * \copyright DigiPen Institute of Technology
  */
 
-#include "Vec2.hpp"
+#include "Vec2.h"
 #include <cmath>
 
 namespace Math

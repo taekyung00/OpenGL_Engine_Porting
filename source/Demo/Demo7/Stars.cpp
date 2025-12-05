@@ -1,7 +1,7 @@
 #include "Stars.h"
-#include "CS200/Shape.hpp"
-#include "Engine/Random.hpp"
-#include "Engine/Window.hpp"
+#include "CS200/Shape.h"
+#include "Engine/Random.h"
+#include "Engine/Window.h"
 
 Stars::Stars() : GameObject({ 0, Engine::GetWindow().GetSize().y * 3.0/4})
 {

@@ -8,8 +8,8 @@ Author:     Taekyung Ho
 Created:    April 25, 2025
 */
 #include "GameObject.h"
-#include "GameState.hpp"
-#include "GameStateManager.hpp"
+#include "GameState.h"
+#include "GameStateManager.h"
 #include "ShowCollision.h"
 
 #include <numbers>

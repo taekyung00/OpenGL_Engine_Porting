@@ -6,7 +6,7 @@
  * \copyright DigiPen Institute of Technology
  */
 #include "Bus.h"
-#include "../../../Engine/GameStateManager.hpp"
+#include "../../../Engine/GameStateManager.h"
 #include "../../Score.h"
 #include "Player.h"
 

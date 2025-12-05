@@ -5,13 +5,13 @@
  * \par CS200 Computer Graphics I
  * \copyright DigiPen Institute of Technology
  */
-#include "DemoVAO.hpp"
-#include "CS200/RenderingAPI.hpp"
-#include "Engine/Engine.hpp"
-#include "Engine/GameStateManager.hpp"
-#include "OpenGL/GL.hpp"
-#include "OpenGL/Shader.hpp"
-#include "OpenGL/VertexArray.hpp"
+#include "DemoVAO.h"
+#include "CS200/RenderingAPI.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "OpenGL/GL.h"
+#include "OpenGL/Shader.h"
+#include "OpenGL/VertexArray.h"
 #include "../Game/MainMenu.h"
 #include <algorithm>
 #include <imgui.h>

@@ -6,20 +6,20 @@
  * \copyright DigiPen Institute of Technology
  */
 
-#include "DemoTexturing.hpp"
+#include "DemoTexturing.h"
 
-#include "CS200/Image.hpp"
-#include "CS200/NDC.hpp"
-#include "CS200/Renderer2DUtils.hpp"
-#include "CS200/RenderingAPI.hpp"
-#include "DemoCS230Textures.hpp"
-#include "Engine/Engine.hpp"
-#include "Engine/GameStateManager.hpp"
-#include "Engine/Logger.hpp"
-#include "Engine/Random.hpp"
-#include "Engine/Window.hpp"
-#include "OpenGL/Buffer.hpp"
-#include "OpenGL/GL.hpp"
+#include "CS200/Image.h"
+#include "CS200/NDC.h"
+#include "CS200/Renderer2DUtils.h"
+#include "CS200/RenderingAPI.h"
+#include "DemoCS230Textures.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Logger.h"
+#include "Engine/Random.h"
+#include "Engine/Window.h"
+#include "OpenGL/Buffer.h"
+#include "OpenGL/GL.h"
 #include "../Game/MainMenu.h"
 #include <cmath>
 #include <imgui.h>

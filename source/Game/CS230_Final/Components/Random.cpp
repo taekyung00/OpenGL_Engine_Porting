@@ -6,7 +6,7 @@
  * \copyright DigiPen Institute of Technology
  */
 #include "Random.h"
-#include "../../../Engine/Logger.hpp"
+#include "../../../Engine/Logger.h"
 int Random::PickRandomIndex(size_t amount, bool same_probability, const std::vector<double>& probability_array)
 {
 	if (same_probability == true) {

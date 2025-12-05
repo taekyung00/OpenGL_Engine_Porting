@@ -8,8 +8,8 @@
 #pragma once
 #include <map>
 #include "Engine/Component.h"
-#include "Engine/Vec2.hpp"
-#include "Engine/Timer.hpp"
+#include "Engine/Vec2.h"
+#include "Engine/Timer.h"
 
 #include "Demo/DemoSceneShowcase/Samurai.h"
 

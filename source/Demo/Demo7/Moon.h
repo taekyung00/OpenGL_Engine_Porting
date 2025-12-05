@@ -7,7 +7,7 @@
  */
 #pragma once
 #include "Engine/GameObject.h"
-#include "Engine/Matrix.hpp"
+#include "Engine/Matrix.h"
 
 class Moon : public CS230::GameObject
 {

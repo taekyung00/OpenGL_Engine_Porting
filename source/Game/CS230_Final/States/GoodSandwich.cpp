@@ -8,12 +8,12 @@
 #include "GoodSandwich.h"
 #include "Project.h"
 #include "../../MainMenu.h"
-#include "../../../Engine/TextureManager.hpp"
-#include "../../../Engine/GameStateManager.hpp"
-#include "../../../Engine/Input.hpp"
-#include "../../../Engine/Window.hpp"
+#include "../../../Engine/TextureManager.h"
+#include "../../../Engine/GameStateManager.h"
+#include "../../../Engine/Input.h"
+#include "../../../Engine/Window.h"
 
-#include "CS200/NDC.hpp"
+#include "CS200/NDC.h"
 void GoodSandwich::Load() {
     texture = Engine::GetTextureManager().Load("Assets/images/CS230_Final/GoodSandwich.png");
 #if defined(__EMSCRIPTEN__)

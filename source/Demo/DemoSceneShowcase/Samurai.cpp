@@ -7,7 +7,7 @@
  */
 
 #include "Samurai.h"
-#include "Engine/Input.hpp"
+#include "Engine/Input.h"
 
 Samurai::Samurai() : 
 	GameObject({100,100})

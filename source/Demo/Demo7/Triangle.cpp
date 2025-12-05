@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-#include "CS200/Shape.hpp"
+#include "CS200/Shape.h"
 
 Triangle::Triangle() : GameObject({ 0.0, 0.0 })
 {

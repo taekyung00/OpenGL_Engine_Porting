@@ -11,9 +11,9 @@ Created:    March 8, 2023
 #pragma once
 
 #include "Component.h"
-#include "Matrix.hpp"
-#include "Rect.hpp"
-#include "Vec2.hpp"
+#include "Matrix.h"
+#include "Rect.h"
+#include "Vec2.h"
 #include <vector>
 namespace CS230
 {

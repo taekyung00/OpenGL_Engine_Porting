@@ -6,9 +6,9 @@
  * \copyright DigiPen Institute of Technology
  */
 #include "Player.h"
-#include "../../../Engine/Window.hpp"
-#include "../../../Engine/Input.hpp"
-#include "../../../Engine/TextManager.hpp"
+#include "../../../Engine/Window.h"
+#include "../../../Engine/Input.h"
+#include "../../../Engine/TextManager.h"
 
 Player::Player() : 
 	GameObject({ BusStartPosition+SeatWidthHeight + SeatWidthHeight/2 - PlayerWidthHeight/2,0 })
