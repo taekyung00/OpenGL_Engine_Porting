@@ -41,6 +41,11 @@ namespace GL
     void           BindTexture(GLenum target, GLuint texture SOURCE_LOCATION);
     void           BlendEquation(GLenum mode SOURCE_LOCATION);
     void           BlendFunc(GLenum sfactor, GLenum dfactor SOURCE_LOCATION);
+    //added
+    void BlitFramebuffer(
+        GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1,
+        GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1,
+        GLbitfield mask, GLenum filter SOURCE_LOCATION);
     void           BufferData(GLenum target, GLsizeiptr size, const GLvoid* data, GLenum usage SOURCE_LOCATION);
     void           BufferSubData(GLenum target, GLintptr offset, GLsizeiptr size, const GLvoid* data SOURCE_LOCATION);
     void           Clear(GLbitfield mask SOURCE_LOCATION);

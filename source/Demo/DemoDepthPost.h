@@ -14,6 +14,10 @@
 #include "Engine/Particle.h"
 #include "Engine/Vec2.h"
 
+#include "CS200/OffscreenFramebuffer.h"
+#include "CS200/PostProcessingPipeline.h"
+#include "OpenGL/VertexArray.h"
+
 class DemoDepthPost : public CS230::GameState
 {
 public:
@@ -42,16 +46,30 @@ private:
 
 	struct Duck
 	{
-		Math::vec2						position;
-		CS200::RGBA						color;
-		float							depth;
+		Math::vec2	position;
+		CS200::RGBA color;
+		float		depth;
 	};
-    std::shared_ptr<CS230::Texture> duck_texture;
+
+	std::shared_ptr<CS230::Texture> duck_texture;
 
 	static constexpr int		NUM_DUCKS = 10;
 	std::array<Duck, NUM_DUCKS> ducks{};
 
 	util::FPS FPSTracker;
-	Uint32	  LastTicks	   = 0;
-	bool	  VSyncEnabled = true;
+	Uint32	  LastTicks = 0;
+
+	// msaa, post-processing
+	bool				 useMSAA = true;
+	OffscreenFramebuffer offscreenBuffer{};
+	int					 MSAASamples = 4;
+
+	OpenGL::CompiledShader	  screenShader{};
+	OpenGL::BufferHandle	  screenVBO{};
+	OpenGL::VertexArrayHandle screenVAO{};
+	GLsizei					  screenVertexCount = 0;
+
+	void setupScreenTriangle();
+
+	PostProcessingPipeline postProcessing{};
 };

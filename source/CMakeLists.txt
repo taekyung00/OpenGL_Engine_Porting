@@ -59,6 +59,8 @@ set(SOURCE_CODE
     CS200/RenderingAPI.h CS200/RenderingAPI.cpp
     CS200/RGBA.h
     CS200/Shape.h CS200/Shape.cpp
+    CS200/PostProcessingPipeline.h CS200/PostProcessingPipeline.cpp
+    CS200/OffscreenFramebuffer.h CS200/OffscreenFramebuffer.cpp
 
     Demo/DemoShapes.h Demo/DemoShapes.cpp
     Demo/DemoFramebuffer.h Demo/DemoFramebuffer.cpp
