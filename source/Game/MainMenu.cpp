@@ -20,6 +20,7 @@ Created:    May 6, 2025
 #include "Demo/DemoText.h"
 #include "Demo/DemoTexturing.h"
 #include "Demo/DemoVAO.h"
+#include "Demo/DemoDepthPost.h"
 #include "Engine/Engine.h"
 #include "Engine/GameStateManager.h"
 #include "Engine/Input.h"
@@ -39,7 +40,7 @@ Created:    May 6, 2025
 namespace
 {
 	// --- Menu UI Ratio ---
-	const double TITLE_X_RATIO			   = 0.25;
+	const double TITLE_X_RATIO			   = 0.15;
 	const double TITLE_Y_RATIO_FROM_BOTTOM = 0.8;
 	const double TITLE_SCALE_VAL		   = 1.5;
 
@@ -102,6 +103,12 @@ void MainMenu::DrawImGui()
 		{
 			Engine::GetGameStateManager().PopState();
 			Engine::GetGameStateManager().PushState<SceneState>();
+		}
+
+		if (ImGui::Button("Switch to Demo DemoDepthPost"))
+		{
+			Engine::GetGameStateManager().PopState();
+			Engine::GetGameStateManager().PushState<DemoDepthPost>();
 		}
 	}
 	ImGui::End();

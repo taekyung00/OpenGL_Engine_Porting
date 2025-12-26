@@ -68,6 +68,7 @@ set(SOURCE_CODE
     Demo/DemoTexturing.h Demo/DemoTexturing.cpp
     Demo/DemoCS230Textures.h Demo/DemoCS230Textures.cpp
     Demo/DemoBatchInstance.h Demo/DemoBatchInstance.cpp
+    Demo/DemoDepthPost.h Demo/DemoDepthPost.cpp
 
     Demo/DemoSceneShowcase/SceneState.h Demo/DemoSceneShowcase/SceneState.cpp
     Demo/DemoSceneShowcase/Samurai.h Demo/DemoSceneShowcase/Samurai.cpp

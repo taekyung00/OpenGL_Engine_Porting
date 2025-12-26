@@ -981,7 +981,12 @@ namespace GL
         glCheck(glDepthRangef(n, f));
     }
 
-    void DrawArraysInstanced(GLenum mode, GLint first, GLsizei count, GLsizei primcount SOURCE_LOCATION)
+	void DepthFunc(GLenum func SOURCE_LOCATION)
+	{
+        glCheck(glDepthFunc(func));
+	}
+
+	void DrawArraysInstanced(GLenum mode, GLint first, GLsizei count, GLsizei primcount SOURCE_LOCATION)
     {
         glCheck(glDrawArraysInstanced(mode, first, count, primcount));
     }

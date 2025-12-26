@@ -442,7 +442,7 @@ void DemoFramebuffer::drawWindParticles() const
             const auto        transform  = translate * scale;
             // Set color with alpha using configurable color
             const float       alpha      = static_cast<float>(particle.alpha);
-            const CS200::RGBA dust_color = CS200::pack_color({ particleColor[0], particleColor[1], particleColor[2], alpha });
+            const CS200::RGBA dust_color = CS200::pack_color(std::array<float, 4>{ particleColor[0], particleColor[1], particleColor[2], alpha });
             // Draw particle as a small circle
             renderer_2d->DrawCircle(transform, dust_color, CS200::CLEAR);
         }

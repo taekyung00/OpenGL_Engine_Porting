@@ -183,7 +183,10 @@ namespace CS200
         const uint8_t   A = static_cast<uint8_t>(a <= 255.0f ? (a >= 0.0f ? a : 0.0f) : 255.0f);
         return (static_cast<RGBA>(R) << 24) | (static_cast<RGBA>(G) << 16) | (static_cast<RGBA>(B) << 8) | (static_cast<RGBA>(A) << 0);
     }
-
+    constexpr RGBA pack_color(const std::array<uint8_t, 4>& color) noexcept
+    {
+        return (static_cast<RGBA>(color[0]) << 24) | (static_cast<RGBA>(color[1]) << 16) | (static_cast<RGBA>(color[2]) << 8) | (static_cast<RGBA>(color[3]) << 0);
+    }
     /**
      * \brief Convert RGBA format to ABGR format by reversing byte order
      * \param rgba Color in RGBA format (0xRRGGBBAA)

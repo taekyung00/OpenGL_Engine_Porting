@@ -192,6 +192,9 @@ namespace GL
     void DeleteTransformFeedbacks(GLsizei n, const GLuint* ids SOURCE_LOCATION);
     void DeleteVertexArrays(GLsizei n, const GLuint* arrays SOURCE_LOCATION);
     void DepthRangef(GLfloat n, GLfloat f SOURCE_LOCATION);
+    //added
+    void DepthFunc(GLenum func SOURCE_LOCATION);
+    //end added
     void DrawArraysInstanced(GLenum mode, GLint first, GLsizei count, GLsizei primcount SOURCE_LOCATION);
     void DrawElementsInstanced(GLenum mode, GLsizei count, GLenum type, const void* indices, GLsizei primcount SOURCE_LOCATION);
     void EndQuery(GLenum target SOURCE_LOCATION);

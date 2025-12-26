@@ -38,47 +38,25 @@ void RenderingTest::Load()
 	AddGSComponent(new Grid());
 #endif
 	AddGSComponent(new CS230::GameObjectManager);
-	testTexture = Engine::GetTextureManager().Load("Assets/images/Test/mario.png");
+	testTexture = Engine::GetTextureManager().Load("Assets/images/DemoDepthPost/background_0.png");
 
-	samurai = new Samurai();
-	triangle = new Triangle();
-	stars = new Stars();
-	moon = new Moon();
-	road = new Road();
-	GetGSComponent<CS230::GameObjectManager>()->Add(samurai);
-	GetGSComponent<CS230::GameObjectManager>()->Add(triangle);
-	GetGSComponent<CS230::GameObjectManager>()->Add(stars);
-	GetGSComponent<CS230::GameObjectManager>()->Add(moon);
-	GetGSComponent<CS230::GameObjectManager>()->Add(road);
 	AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
 	AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
 	AddGSComponent(new CS230::ParticleManager<Particles::Flame>());
-	AddGSComponent(new CS230::Camera(Math::rect{ static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.3, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) * 0.7 }, 2));
-	// GetGSComponent<CS230::Camera>()->SetPositionOffset({300.0,300.0});
-	GetGSComponent<CS230::Camera>()->SetLimit({
-		{	  0,	 0 },
-		  { 3000, 3000 }
-	 });
-	GetGSComponent<CS230::Camera>()->SetAnchoring() = true;
-	GetGSComponent<CS230::Camera>()->SetPosition(samurai->GetPosition());
-	GetGSComponent<CS230::Camera>()->SetFirstPersonView() = first_person_view;
-	GetGSComponent<CS230::Camera>()->SetScale(camera_scale);
-	GetGSComponent<CS230::Camera>()->SetRotation(camera_rotation);
+
 
 	// Initialize FPS tracking
 	LastTicks = SDL_GetTicks();
 
 	CS200::RenderingAPI::SetClearColor(CS200::BLACK);
+	Engine::GetWindow().ForceResize(1920, 1080);
+	Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 }
 
 void RenderingTest::Update([[maybe_unused]] double dt)
 {
 	UpdateGSComponents(dt);
 
-	CS230::Camera* camera = GetGSComponent<CS230::Camera>();
-
-	camera->Update(samurai->GetPosition(),dt);
-	camera->SetRotation(samurai->GetRotation());
 
 	// Update FPS tracker
 	const Uint32 currentTicks = SDL_GetTicks();
@@ -104,43 +82,15 @@ void RenderingTest::Draw()
 		window_size = Engine::GetWindow().GetSize();
 	}
 	CS200::RenderingAPI::Clear();
-	auto		  renderer_2d		  = Engine::GetTextureManager().GetRenderer2D();
-	
-	Math::ivec2	  subwindow_size	  = { window_size.x / num_subwindows_wide, window_size.y / num_subwindows_high };
+	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+	GL::Viewport(0, 0, window_size.x, window_size.y);
 
-	for (int i = 0; i < num_subwindows_high; ++i)
-	{
-		for (int j = 0; j < num_subwindows_wide; ++j)
-		{
-			GL::Viewport(static_cast<GLint>(subwindow_size.x * j), static_cast<GLint>(subwindow_size.y * i), static_cast<GLint>(subwindow_size.x), static_cast<GLint>(subwindow_size.y));
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(window_size) );
+	GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
 
-			renderer_2d->BeginScene(CS200::build_ndc_matrix(subwindow_size, true) * GetGSComponent<CS230::Camera>()->GetMatrix());
-			GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
 
-#ifdef DEVELOPER_VERSION
-			GetGSComponent<Grid>()->Draw(Grid::DotColor::white, 0.2f);
-#endif
-			testTexture->Draw(
-				Math::TranslationMatrix(Math::to_vec2(translate)) * Math::RotationMatrix(static_cast<double>(rotate / 180 * std::numbers::pi_v<float>)) * Math::ScaleMatrix(Math::to_vec2(scale)));
-			renderer_2d->EndScene();
-		}
-	}
-
-	GL::Viewport(0, 0, static_cast<GLint>(window_size.x), static_cast<GLint>(window_size.y));
-	renderer_2d->BeginScene(CS200::build_ndc_matrix(window_size));
-	renderer_2d->DrawRectangle(Math::TranslationMatrix((window_size / 2)) * Math::ScaleMatrix(window_size), CS200::CLEAR, CS200::BLUE, 5.0, 0.0f);
-	for (int i = 1; i < num_subwindows_high; ++i)
-	{
-		for (int j = 1; j < num_subwindows_wide; ++j)
-		{
-			renderer_2d->DrawLine( // Horizontal lines
-				Math::vec2{ 0.0, static_cast<double>(window_size.y) * j / num_subwindows_high }, Math::vec2{ static_cast<double>(window_size.x), static_cast<double>(window_size.y) * j / num_subwindows_high },
-				CS200::RED, 2.5, 0.0f);
-			renderer_2d->DrawLine( // Vertical lines
-				Math::vec2{ static_cast<double>(window_size.x) * i / num_subwindows_wide, 0 }, Math::vec2{ static_cast<double>(window_size.x) * i / num_subwindows_wide, static_cast<double>(window_size.y) },
-				CS200::RED, 2.5, 0.0f);
-		}
-	}
+	testTexture->Draw(
+		Math::TranslationMatrix(Math::to_vec2(translate)) * Math::RotationMatrix(static_cast<double>(rotate / 180 * std::numbers::pi_v<float>)) * Math::ScaleMatrix(Math::to_vec2(scale)));
 	renderer_2d->EndScene();
 }
 
@@ -151,15 +101,15 @@ void RenderingTest::DrawImGui()
 		window_size = Engine::GetWindow().GetSize();
 	}
 
-	/*if (ImGui::Begin("Texture Controls"))
+	if (ImGui::Begin("Texture Controls"))
 	{
 		ImGui::SliderFloat("Scale X", &(scale.x), -20.f, 20.0f, "%.1f px/s");
 		ImGui::SliderFloat("Scale Y", &(scale.y), -20.f, 20.0f, "%.1f px/s");
 		ImGui::SliderFloat("Rotate", &rotate, 0.f, 360.0f, "%.1f px/s");
-		ImGui::SliderFloat("Translate X", &(translate.x), 0.0f, static_cast<float>(window_size.x) - 100.f, "%.1f px/s");
-		ImGui::SliderFloat("Translate Y", &(translate.y), 0.0f, static_cast<float>(window_size.y) - 100.f, "%.1f px/s");
+		ImGui::SliderFloat("Translate X", &(translate.x), -(static_cast<float>(window_size.x) - 100.f), static_cast<float>(window_size.x) - 100.f, "%.1f px/s");
+		ImGui::SliderFloat("Translate Y", &(translate.y), -(static_cast<float>(window_size.y) - 100.f), static_cast<float>(window_size.y) - 100.f, "%.1f px/s");
 	}
-	ImGui::End();*/
+	ImGui::End();
 
 	/*if (ImGui::Begin("Particle Controls"))
 	{
@@ -226,35 +176,7 @@ void RenderingTest::DrawImGui()
 
 	ImGui::End();
 
-	ImGui::Begin("Camera Controls");
-
-	Math::fvec2 fcamera_scale = Math::to_fvec2(camera_scale);
-	bool		scale_changed = false;
-	if (ImGui::SliderFloat("Camera ScaleX", &fcamera_scale.x, 0.1f, 10.f))
-	{
-		camera_scale.x = static_cast<double>(fcamera_scale.x);
-		scale_changed  = true;
-	}
-	if (ImGui::SliderFloat("Camera ScaleY", &fcamera_scale.y, 0.1f, 10.f))
-	{
-		camera_scale.y = static_cast<double>(fcamera_scale.y);
-		scale_changed  = true;
-	}
-	if (scale_changed)
-	{
-		GetGSComponent<CS230::Camera>()->SetScale(camera_scale);
-	}
-
-	if (ImGui::Checkbox("First Person View", &first_person_view))
-	{
-		GetGSComponent<CS230::Camera>()->SetFirstPersonView() = first_person_view;
-	}
-	const Math::ivec2 samurai_pos = samurai->GetPosition();
-	ImGui::Text("Object's position: (%d, %d)", samurai_pos.x, samurai_pos.y);
-
-	ImGui::Text("FPS: %d", static_cast<int>(FPSTracker));
-	ImGui::Separator();
-	ImGui::End();
+	
 }
 
 void RenderingTest::Unload()
