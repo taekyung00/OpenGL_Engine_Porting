@@ -97,8 +97,8 @@ void DemoDepthPost::Load()
 	const auto use_msaa = useMSAA ? OffscreenFramebuffer::MSAA::True : OffscreenFramebuffer::MSAA::False;
 	offscreenBuffer.Initialize(default_window_size.x, default_window_size.y, use_msaa, MSAASamples);
 
-	const std::filesystem::path screen_vert = assets::locate_asset("Assets/shaders/simple.vert");
-	const std::filesystem::path screen_frag = assets::locate_asset("Assets/shaders/simple-texture.frag");
+	const std::filesystem::path screen_vert = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
+	const std::filesystem::path screen_frag = assets::locate_asset("Assets/shaders/PostProcess/simple-texture.frag");
 	screenShader							= OpenGL::CreateShader(screen_vert, screen_frag);
 
 	setupScreenTriangle();
@@ -149,16 +149,18 @@ void DemoDepthPost::Unload()
 
 void DemoDepthPost::Draw()
 {
+	CS200::IRenderer2D* renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+	offscreenBuffer.BindForRendering();
 	CS200::RenderingAPI::Clear();
 	
 	// opaque background layers
 	GL::DepthMask(GL_TRUE); // enable depth write
 	GL::DepthFunc(GL_LESS); // set depth function to less
-	auto			  renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+
 	const Math::ivec2 window_size = Engine::GetWindow().GetSize();
 	CS200::RenderingAPI::SetViewport(window_size, { 0, 0 });
 
-	renderer_2d->BeginScene(CS200::build_ndc_matrix(window_size));
 	for (const auto& layer : background_layers)
 	{
 		layer.texture->Draw(Math::TransformationMatrix(), 0xFFFFFFFF, layer.depth);
@@ -170,6 +172,31 @@ void DemoDepthPost::Draw()
 		duck_texture->Draw(Math::TranslationMatrix(duck.position), duck.color, duck.depth);
 	}
 	GL::DepthMask(GL_TRUE); // enable depth write
+
+	OpenGL::TextureHandle scene_texture = offscreenBuffer.GetTexture();
+	OpenGL::TextureHandle final_texture = scene_texture;
+
+	if (enablePostFX)
+    {
+        final_texture = postProcessing.Apply(scene_texture);
+    }
+	GL::BindFramebuffer(GL_FRAMEBUFFER, 0);
+    GL::ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    GL::Clear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    GL::Viewport(0, 0, default_window_size.x, default_window_size.y);
+
+    GL::UseProgram(screenShader.Shader);
+
+    GL::ActiveTexture(GL_TEXTURE0);
+    GL::BindTexture(GL_TEXTURE_2D, final_texture);
+    GL::Uniform1i(screenShader.UniformLocations.at("uColorTexture"), 0);
+    GL::BindVertexArray(screenVAO);
+    GL::DrawArrays(GL_TRIANGLES, 0, screenVertexCount);
+
+    GL::BindVertexArray(0);
+    GL::BindTexture(GL_TEXTURE_2D, 0);
+    GL::UseProgram(0);
+
 	renderer_2d->EndScene();
 }
 

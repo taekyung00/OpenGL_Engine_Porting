@@ -72,4 +72,6 @@ private:
 	void setupScreenTriangle();
 
 	PostProcessingPipeline postProcessing{};
+
+	bool  enablePostFX              = true;
 };

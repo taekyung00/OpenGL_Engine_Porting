@@ -11,6 +11,7 @@
 
 #include "OffscreenFramebuffer.h"
 #include "OpenGL/Shader.h"
+#include "OpenGL/Texture.h"
 #include <GL/glew.h>
 #include <functional>
 #include <memory>
@@ -50,7 +51,7 @@ public:
 
     void                  Initialize(int width, int height);
     void                  AddEffect(PostProcessingEffect&& effect);
-    GLuint                Apply(GLuint input_texture);
+    OpenGL::TextureHandle Apply(OpenGL::TextureHandle input_texture);
     void                  Resize(int width, int height);
     void                  Shutdown();
     PostProcessingEffect* GetEffect(const std::string& name);

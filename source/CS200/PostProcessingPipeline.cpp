@@ -41,9 +41,9 @@ void PostProcessingPipeline::AddEffect(PostProcessingEffect&& effect)
     }
 }
 
-GLuint PostProcessingPipeline::Apply(GLuint input_texture)
+OpenGL::TextureHandle PostProcessingPipeline::Apply(OpenGL::TextureHandle input_texture)
 {
-    GLuint current_texture = input_texture;
+    OpenGL::TextureHandle current_texture = input_texture;
 
     for (const auto& effect : effects)
     {
