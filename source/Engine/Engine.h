@@ -245,10 +245,6 @@ public:
 
     static TextManager& GetTextManager();
 
-    static EventBus& GetEventBus();
-
-    static CombatSystem& GetCombatSystem();
-
 
 public:
     /**

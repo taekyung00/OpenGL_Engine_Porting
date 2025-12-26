@@ -23,6 +23,7 @@ cmake --build --preset web-debug-on-windows
 ```
 
 **Linux**
+
 ```sh
 # configure / generate build files
 cmake --preset linux-debug
@@ -50,6 +51,7 @@ python3 scripts/scan_build_project.py
 ```
 
 See the script help for filtering options:
+
 ```sh
 python3 scripts/scan_build_project.py --help
 ```
@@ -59,6 +61,7 @@ python3 scripts/scan_build_project.py --help
 This project supports three distinct build configurations, each designed for different stages of development and deployment:
 
 ### **Debug Configuration**
+
 - **Purpose**: Active development and debugging
 - **Features**: 
   - Allows setting breakpoints to step through code line-by-line
@@ -68,7 +71,8 @@ This project supports three distinct build configurations, each designed for dif
 - **Performance**: Slower execution, larger executable size
 - **When to use**: When you need to debug issues or understand code flow
 
-### **Developer-Release Configuration**  
+### **Developer-Release Configuration**
+
 - **Purpose**: Testing with optimized performance while keeping developer tools
 - **Features**:
   - Compiler optimizations enabled (faster execution)
@@ -80,6 +84,7 @@ This project supports three distinct build configurations, each designed for dif
 - **When to use**: Performance testing while retaining diagnostic capabilities
 
 ### **Release Configuration**
+
 - **Purpose**: Final builds for end users
 - **Features**:
   - Full compiler optimizations

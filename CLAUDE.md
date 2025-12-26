@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build Commands
 
 ### Windows
+
 ```sh
 # Configure
 cmake --preset windows-debug
@@ -18,6 +19,7 @@ cmake --build --preset windows-release
 ```
 
 ### Linux
+
 ```sh
 # Configure
 cmake --preset linux-debug
@@ -31,6 +33,7 @@ cmake --build --preset linux-release
 ```
 
 ### Web (Emscripten)
+
 ```sh
 # Windows
 cmake --preset web-debug-on-windows
@@ -42,7 +45,9 @@ cmake --build --preset web-debug
 ```
 
 ### Automated Build Script
+
 For scanning and building all configurations:
+
 ```sh
 python3 scripts/scan_build_project.py
 python3 scripts/scan_build_project.py --help  # See filtering options
@@ -83,6 +88,7 @@ For web builds, use `emscripten_set_main_loop()` instead of a while loop (see [m
 ### Game State System
 
 States inherit from [CS230::GameState](source/Engine/GameState.h) and implement:
+
 - `Load()` - Initialize state resources
 - `Update(double dt)` - Frame logic
 - `Draw()` - Render calls
@@ -91,6 +97,7 @@ States inherit from [CS230::GameState](source/Engine/GameState.h) and implement:
 - `GetName()` - State identifier
 
 States use a component system via `ComponentManager`:
+
 - `AddGSComponent(Component*)` - Attach state-level components
 - `GetGSComponent<T>()` - Retrieve components
 - `UpdateGSComponents(dt)` - Update all components
@@ -117,6 +124,7 @@ The rendering system has three implementations of [IRenderer2D](source/CS200/IRe
 3. **InstancedRenderer2D** - Instanced rendering for many identical objects
 
 All renderers follow the pattern:
+
 ```cpp
 renderer.BeginScene(camera_matrix);
 renderer.DrawQuad(transform, texture, uv_bl, uv_tr, tint, depth);
@@ -139,11 +147,13 @@ Coordinate system transformations handled by camera matrices passed to `BeginSce
 ### OpenGL Wrapper
 
 The [GL](source/OpenGL/GL.h) namespace wraps raw OpenGL calls with:
+
 - **Source Location Tracking**: In developer builds, all GL calls record file/line for debugging
 - **Error Checking**: Automatic error reporting in developer builds
 - **Type Safety**: Wrapped handles (TextureHandle, ShaderHandle, etc.) via [Handle.h](source/OpenGL/Handle.h)
 
 Core OpenGL wrappers:
+
 - [Buffer.h](source/OpenGL/Buffer.h) - VBO/IBO management
 - [VertexArray.h](source/OpenGL/VertexArray.h) - VAO management
 - [Shader.h](source/OpenGL/Shader.h) - Shader compilation and linking
@@ -218,6 +228,7 @@ Managed via CMake FetchContent in [cmake/Dependencies.cmake](cmake/Dependencies.
 ### DEVELOPER_VERSION Preprocessor Flag
 
 When defined (Debug and Developer-Release builds):
+
 - OpenGL calls track source location for debugging
 - Verbose logging enabled
 - Console window visible
@@ -229,6 +240,7 @@ Check with `#if defined(DEVELOPER_VERSION)` when adding developer-only features.
 ## Code Style
 
 The project follows C++20 standards with:
+
 - Classes in PascalCase
 - Functions/methods in camelCase
 - Member variables in snake_case

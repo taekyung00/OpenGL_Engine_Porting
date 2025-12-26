@@ -113,10 +113,6 @@ void Font::DrawChar(Math::TransformationMatrix& matrix, char c, CS200::RGBA colo
 
 - `TextManager`는 추가된 Offset 행렬 덕분에 올바른 위치에 텍스트를 렌더링합니다.
 
-
-
-
-
 # 11/25
 
 # Instanced Rendering 모드 SDF 렌더링 수정 리포트
