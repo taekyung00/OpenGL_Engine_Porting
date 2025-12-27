@@ -10,6 +10,8 @@
 #include "PostProcessingPipeline.h"
 
 #include "OpenGL/GL.h"
+#include "OpenGL/Buffer.h"
+#include "OpenGL/VertexArray.h"
 #include <array>
 #include <iostream>
 
@@ -161,21 +163,17 @@ void PostProcessingPipeline::setupFullscreenTriangle()
 
     fullscreenVertexCount = static_cast<GLsizei>(std::ssize(vertices));
 
-    GL::GenBuffers(1, &fullscreenVBO);
-    GL::BindBuffer(GL_ARRAY_BUFFER, fullscreenVBO);
-    GL::BufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    GL::BindBuffer(GL_ARRAY_BUFFER, 0);
+    fullscreenVBO = OpenGL::CreateBuffer(OpenGL::BufferType::Vertices, std::as_bytes(std::span{ vertices }));
 
-    GL::GenVertexArrays(1, &fullscreenVAO);
-    GL::BindVertexArray(fullscreenVAO);
-    GL::BindBuffer(GL_ARRAY_BUFFER, fullscreenVBO);
-    GL::EnableVertexAttribArray(0);
-    GL::VertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(FullscreenVertex), nullptr);
-    GL::VertexAttribDivisor(0, 0);
+    const auto layout = {
+        OpenGL::VertexBuffer{ 
+            fullscreenVBO, 
+            { 
+                OpenGL::Attribute::Float2, // Position
+                OpenGL::Attribute::Float2  // UV
+            } 
+        }
+    };
 
-    GL::EnableVertexAttribArray(1);
-    GL::VertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(FullscreenVertex), reinterpret_cast<void*>(2 * sizeof(float)));
-    GL::VertexAttribDivisor(1, 0);
-    GL::BindVertexArray(0);
-    GL::BindBuffer(GL_ARRAY_BUFFER, 0);
+    fullscreenVAO = OpenGL::CreateVertexArrayObject(layout);
 }
