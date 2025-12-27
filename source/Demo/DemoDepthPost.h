@@ -43,6 +43,7 @@ private:
 	static constexpr int					NUM_LAYERS = 8;
 	std::array<BackGroundLayer, NUM_LAYERS> background_layers{};
 	static constexpr Math::ivec2			default_window_size{ 1920, 1080 };
+	double									scale = 1.0;
 
 	struct Duck
 	{
@@ -73,5 +74,15 @@ private:
 
 	PostProcessingPipeline postProcessing{};
 
-	bool  enablePostFX              = true;
+	bool enablePostFX = true;
+
+	inline static int last_width  = 0;
+	inline static int last_height = 0;
+
+	float boxBlurSize				= 2.0f;
+	float boxBlurSeparation			= 1.0f;
+	float gammaValue				= 2.2f;
+	float chromaticAberrationMouseX = 0.5f;
+	float chromaticAberrationMouseY = 0.5f;
+	int	  pixelSize					= 5;
 };
