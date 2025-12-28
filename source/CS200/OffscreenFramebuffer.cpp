@@ -17,7 +17,7 @@ namespace
     int ValidateMSAASamples(int samples)
     {
         GLint max_samples = 0;
-        glGetIntegerv(GL_MAX_SAMPLES, &max_samples);
+        GL::GetIntegerv(GL_MAX_SAMPLES, &max_samples);
 
         samples = std::max(2, std::min(samples, max_samples));
 

@@ -122,33 +122,36 @@ void DemoDepthPost::Load()
 			}));
 	}
 
-	{
-		const std::filesystem::path gamma_vert	 = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
-		const std::filesystem::path gamma_frag	 = assets::locate_asset("Assets/shaders/PostProcess/gamma-correct.frag");
-		auto						gamma_shader = OpenGL::CreateShader(gamma_vert, gamma_frag);
+	//{
+	//	const std::filesystem::path gamma_vert	 = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
+	//	const std::filesystem::path gamma_frag	 = assets::locate_asset("Assets/shaders/PostProcess/gamma-correct.frag");
+	//	auto						gamma_shader = OpenGL::CreateShader(gamma_vert, gamma_frag);
 
-		postProcessing.AddEffect(PostProcessingEffect(
-			"Gamma Correction", PostProcessingEffect::Enable::True, gamma_shader, [&](const OpenGL::CompiledShader& shader) { GL::Uniform1f(shader.UniformLocations.at("uGamma"), gammaValue); }));
-	}
+	//	postProcessing.AddEffect(PostProcessingEffect(
+	//		"Gamma Correction", PostProcessingEffect::Enable::True, gamma_shader, [&](const OpenGL::CompiledShader& shader) { GL::Uniform1f(shader.UniformLocations.at("uGamma"), gammaValue); }));
+	//}
 
-	{
-		const std::filesystem::path chroma_vert	  = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
-		const std::filesystem::path chroma_frag	  = assets::locate_asset("Assets/shaders/PostProcess/chromatic-aberration.frag");
-		auto						chroma_shader = OpenGL::CreateShader(chroma_vert, chroma_frag);
+	//{
+	//	const std::filesystem::path chroma_vert	  = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
+	//	const std::filesystem::path chroma_frag	  = assets::locate_asset("Assets/shaders/PostProcess/chromatic-aberration.frag");
+	//	auto						chroma_shader = OpenGL::CreateShader(chroma_vert, chroma_frag);
 
-		postProcessing.AddEffect(PostProcessingEffect(
-			"Chromatic Aberration", PostProcessingEffect::Enable::True, chroma_shader,
-			[&](const OpenGL::CompiledShader& shader) { GL::Uniform2f(shader.UniformLocations.at("uMouseFocusPoint"), chromaticAberrationMouseX, chromaticAberrationMouseY); }));
-	}
-	{
-		const std::filesystem::path pixel_vert	 = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
-		const std::filesystem::path pixel_frag	 = assets::locate_asset("Assets/shaders/PostProcess/pixelize.frag");
-		auto						pixel_shader = OpenGL::CreateShader(pixel_vert, pixel_frag);
+	//	postProcessing.AddEffect(PostProcessingEffect(
+	//		"Chromatic Aberration", PostProcessingEffect::Enable::True, chroma_shader,
+	//		[&](const OpenGL::CompiledShader& shader) { GL::Uniform2f(shader.UniformLocations.at("uMouseFocusPoint"), chromaticAberrationMouseX, chromaticAberrationMouseY); }));
+	//}
+	//{
+	//	const std::filesystem::path pixel_vert	 = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
+	//	const std::filesystem::path pixel_frag	 = assets::locate_asset("Assets/shaders/PostProcess/pixelize.frag");
+	//	auto						pixel_shader = OpenGL::CreateShader(pixel_vert, pixel_frag);
 
-		postProcessing.AddEffect(PostProcessingEffect(
-			"Pixelization", PostProcessingEffect::Enable::True, pixel_shader,
-			[&](const OpenGL::CompiledShader& shader) { GL::Uniform1i(shader.UniformLocations.at("pixelSize"), pixelSize); })); // must be odd
-	}
+	//	postProcessing.AddEffect(PostProcessingEffect(
+	//		"Pixelization", PostProcessingEffect::Enable::True, pixel_shader,
+	//		[&](const OpenGL::CompiledShader& shader) { GL::Uniform1i(shader.UniformLocations.at("pixelSize"), pixelSize); })); // must be odd
+	//}
+
+	GL::Enable(GL_BLEND);
+	GL::BlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	if (useMSAA)
 	{
@@ -208,6 +211,8 @@ void DemoDepthPost::Unload()
 
 void DemoDepthPost::Draw()
 {
+	static int last_width  = 0;
+	static int last_height = 0;
 	const Math::ivec2 window_size = Engine::GetWindow().GetSize();
 	if (window_size.x != last_width || window_size.y != last_height)
 	{
@@ -216,12 +221,12 @@ void DemoDepthPost::Draw()
 		last_width	= window_size.x;
 		last_height = window_size.y;
 	}
-
+	// 1. Render to Offscreen FBO
+	offscreenBuffer.BindForRendering();
 	CS200::IRenderer2D* renderer_2d = Engine::GetTextureManager().GetRenderer2D();
 	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize(), true) * GetGSComponent<CS230::Camera>()->GetMatrix());
 
-	// 1. Render to Offscreen FBO
-	offscreenBuffer.BindForRendering();
+	
 	CS200::RenderingAPI::Clear(); // Clear Color & Depth
 
 	// opaque background layers

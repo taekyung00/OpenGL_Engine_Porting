@@ -76,8 +76,6 @@ private:
 
 	bool enablePostFX = true;
 
-	inline static int last_width  = 0;
-	inline static int last_height = 0;
 
 	float boxBlurSize				= 2.0f;
 	float boxBlurSeparation			= 1.0f;
