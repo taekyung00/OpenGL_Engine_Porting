@@ -44,7 +44,7 @@ void DemoDepthPost::Load()
 	}
 	CS200::RenderingAPI::SetClearColor(CS200::WHITE);
 
-	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Batch);
+	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
 
     // Initialize FPS tracking
 	LastTicks = SDL_GetTicks();
