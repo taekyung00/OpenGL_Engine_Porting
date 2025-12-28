@@ -247,9 +247,9 @@ void DemoDepthPost::Draw()
 		duck_texture->Draw(Math::TranslationMatrix(duck.position), duck.color, duck.depth);
 	}
 	GL::DepthMask(GL_TRUE); // enable depth write
+	renderer_2d->EndScene();
 
 	// 2. Resolve (MSAA -> Texture) & PostProcess
-	// OffscreenFramebuffer::GetTexture() calls resolveMSAA() internally.
 	OpenGL::TextureHandle scene_texture = offscreenBuffer.GetTexture();
 	OpenGL::TextureHandle final_texture = scene_texture;
 
