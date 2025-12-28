@@ -97,6 +97,12 @@ void OffscreenFramebuffer::Shutdown()
     {
         GL::DeleteRenderbuffers(1, &msaaColorRenderbuffer);msaaColorRenderbuffer = 0;
     }
+
+    if (depthRenderbuffer != 0)
+    {
+        GL::DeleteRenderbuffers(1, &depthRenderbuffer);
+        depthRenderbuffer = 0;
+    }
 }
 
 void OffscreenFramebuffer::createResolveFramebuffer()
@@ -128,6 +134,16 @@ void OffscreenFramebuffer::createResolveFramebuffer()
     GL::BindFramebuffer(GL_FRAMEBUFFER, resolveFramebuffer);
     GL::FramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, resolveTexture, 0);
 
+    if (!useMSAA) 
+    {
+        if (depthRenderbuffer != 0) { GL::DeleteRenderbuffers(1, &depthRenderbuffer); depthRenderbuffer = 0; }
+        GL::GenRenderbuffers(1, &depthRenderbuffer);
+        GL::BindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);
+        GL::RenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, currentWidth, currentHeight);
+        GL::BindRenderbuffer(GL_RENDERBUFFER, 0);
+
+        GL::FramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, depthRenderbuffer);
+    }
     auto status = GL::CheckFramebufferStatus(GL_FRAMEBUFFER);
     if (status != GL_FRAMEBUFFER_COMPLETE)
     {
@@ -161,6 +177,15 @@ void OffscreenFramebuffer::createMSAAFramebuffer()
     GL::BindFramebuffer(GL_FRAMEBUFFER, msaaFramebuffer);
     GL::FramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, msaaColorRenderbuffer);
 
+    if (depthRenderbuffer != 0) { GL::DeleteRenderbuffers(1, &depthRenderbuffer); depthRenderbuffer = 0; }
+    GL::GenRenderbuffers(1, &depthRenderbuffer);
+    GL::BindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);
+    //use GL::RenderbufferStorageMultisample to create a multisampled depth-stencil renderbuffer
+    GL::RenderbufferStorageMultisample(GL_RENDERBUFFER, msaaSamples, GL_DEPTH24_STENCIL8, currentWidth, currentHeight);
+    GL::BindRenderbuffer(GL_RENDERBUFFER, 0);
+
+
+    GL::FramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, depthRenderbuffer);
     auto status = GL::CheckFramebufferStatus(GL_FRAMEBUFFER);
     if (status != GL_FRAMEBUFFER_COMPLETE)
     {
