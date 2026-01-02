@@ -45,8 +45,8 @@ void PerformanceMonitor::Update(double dt)
 		timeAccumulator -= 0.5;
 		frameCount = 0;
 
-		updateMemoryUsage();
 	}
+		updateMemoryUsage();
 
 	// 2. Record History for Graphs (Every frame)
 	frameTimeHistory[historyOffset] = static_cast<float>(frameTime);
@@ -81,7 +81,7 @@ void PerformanceMonitor::DrawImGui()
 	// Graph 1: Frame Time
 	PlotRingBuffer("Frame Time (ms)", frameTimeHistory, historyOffset, 40.0f);
 	// Graph 2: RAM Usage (Dynamic Scale)
-	float max_graph_ram = (maxRamUsageBytes / (1024.0f * 1024.0f)) * 1.2f;
+	float max_graph_ram = (maxRamUsageBytes / (1024.0f * 1024.0f)) * 2.f;
 	PlotRingBuffer("RAM (MB)", ramHistory, historyOffset, max_graph_ram);
 
 	if (!customMetrics.empty())
@@ -116,10 +116,10 @@ void PerformanceMonitor::updateMemoryUsage()
 {
 #if defined(_WIN32)
 	// [Windows] Use PSAPI to get Working Set Size
-	PROCESS_MEMORY_COUNTERS pmc;
+	PROCESS_MEMORY_COUNTERS_EX pmc;
 	if (GetProcessMemoryInfo(GetCurrentProcess(), (PROCESS_MEMORY_COUNTERS*)&pmc, sizeof(pmc)))
 	{
-		ramUsageBytes = static_cast<size_t>(pmc.WorkingSetSize);
+		ramUsageBytes = pmc.PrivateUsage;
 	}
 #elif defined(__EMSCRIPTEN__)
 	ramUsageBytes = (size_t)EM_ASM_INT({
@@ -142,4 +142,9 @@ void PerformanceMonitor::updateMemoryUsage()
 	}
 	ramUsageBytes = static_cast<size_t>(rss) * static_cast<size_t>(sysconf(_SC_PAGESIZE));
 #endif
+
+	if (ramUsageBytes > maxRamUsageBytes)
+	{
+		maxRamUsageBytes = ramUsageBytes;
+	}
 }

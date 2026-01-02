@@ -15,6 +15,7 @@
 
 #include <imgui.h>
 #include "DemoBatchInstance.h"
+#include "Tracy/tracy/Tracy.hpp"
 
 // Request high-performance GPU on systems with multiple GPUs (laptops with integrated + discrete)
 // https://docs.nvidia.com/gameworks/content/technologies/desktop/optimus.htm
@@ -76,9 +77,10 @@ void DemoBatchInstance::Load()
 void DemoBatchInstance::Unload()
 {
 }
-
+static std::vector<int> dummyMemory;
 void DemoBatchInstance::Update([[maybe_unused]] double dt)
 {
+	ZoneScoped;
 	auto						texture_manager		  = Engine::GetTextureManager();
 	[[maybe_unused]] const auto current_renderer_type = texture_manager.GetCurrentRendererType();
 	// Update FPS tracker
@@ -87,6 +89,24 @@ void DemoBatchInstance::Update([[maybe_unused]] double dt)
 	const double				deltaSeconds		  = deltaTicks / 1000.0;
 	LastTicks										  = currentTicks;
 	FPSTracker.Update(deltaSeconds);
+
+	// [테스트] 스페이스바를 누르면 1MB씩 메모리를 강제로 먹음
+    if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Space))
+    {
+        // int(4byte) * 250,00000 = 약 100MB
+        for(int i=0; i<25000000; ++i) 
+            dummyMemory.push_back(i);
+            
+        // 로그 찍기 (확인용)
+		Engine::GetLogger().LogDebug("Ate 100MB!"); 
+    }
+    
+    // [테스트] 엔터키를 누르면 메모리 해제
+    if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Enter))
+    {
+        dummyMemory.clear();
+        dummyMemory.shrink_to_fit(); // 실제로 OS에게 메모리 반납
+    }
 
 	if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape))
 	{

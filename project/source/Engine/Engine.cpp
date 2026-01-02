@@ -21,6 +21,7 @@
 #include "TextureManager.h"
 #include "Timer.h"
 #include "Window.h"
+#include "PerformanceMonitor.h"
 
 #include <chrono>
 
@@ -51,6 +52,7 @@ public:
 	// CS200::IRenderer2D*		renderer2D = nullptr;
 	CS230::TextureManager	textureManager{};
 	TextManager				textManager{};
+	PerformanceMonitor      performanceMonitor{};
 };
 
 Engine& Engine::Instance()
@@ -133,10 +135,12 @@ void Engine::Update()
 {
 	updateEnvironment();
 
+
 	// service update
 	auto& environment = impl->environment;
 	impl->window.Update();
 	impl->input.Update();
+	impl->performanceMonitor.Update(environment.DeltaTime);
 
 	auto& state_manager = impl->gameStateManager;
 	state_manager.Update(environment.DeltaTime);
@@ -146,6 +150,7 @@ void Engine::Update()
 	state_manager.Draw();
 	impl->viewport = ImGuiHelper::Begin();
 	state_manager.DrawImGui();
+	impl->performanceMonitor.DrawImGui();
 	ImGuiHelper::End();
 }
 

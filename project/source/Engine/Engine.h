@@ -34,6 +34,7 @@ namespace CS200
 class TextManager;
 class EventBus;
 class CombatSystem;
+class PerformanceMonitor;
 
 /**
  * \brief Runtime information about the window and application state
@@ -244,6 +245,8 @@ public:
     static CS230::TextureManager& GetTextureManager();
 
     static TextManager& GetTextManager();
+
+    static PerformanceMonitor& GetPerformanceMonitor();
 
 
 public:

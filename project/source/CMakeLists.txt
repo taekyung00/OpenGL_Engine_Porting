@@ -113,7 +113,7 @@ set(SOURCE_CODE
     Game/States/ConsoleTest.h Game/States/ConsoleTest.cpp
     Game/States/RenderingTest.h Game/States/RenderingTest.cpp
 
-
+    Tracy/TracyClient.cpp
     main.cpp
 )
 
@@ -122,11 +122,13 @@ source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_CODE})
 
 target_link_libraries(engine_porting PRIVATE project_options dependencies)
 target_include_directories(engine_porting PRIVATE .)
+target_include_directories(engine_porting PRIVATE . Tracy)
 
 # Check the IS_DEVELOPER_VERSION cache variable
 # This is set by the cmake configure preset
 if (IS_DEVELOPER_VERSION)
     target_compile_definitions(engine_porting PRIVATE DEVELOPER_VERSION)
+    target_compile_definitions(engine_porting PRIVATE TRACY_ENABLE)
 endif()
 
 if(EMSCRIPTEN)
