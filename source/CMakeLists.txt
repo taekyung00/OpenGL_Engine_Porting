@@ -36,6 +36,7 @@ set(SOURCE_CODE
     Engine/Particle.cpp Engine/Particle.h
     Engine/ShowCollision.cpp Engine/ShowCollision.h
     Engine/Sprite.cpp Engine/Sprite.h
+    Engine/PerformanceMonitor.cpp Engine/PerformanceMonitor.h
 
     OpenGL/Buffer.h OpenGL/Buffer.cpp
     OpenGL/Environment.h
