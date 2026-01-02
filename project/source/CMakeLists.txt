@@ -157,7 +157,7 @@ if(EMSCRIPTEN)
 
     set_target_properties(engine_porting PROPERTIES SUFFIX ".html")
 elseif(WIN32)
-
+    target_link_libraries(engine_porting PRIVATE psapi)
     target_link_options(engine_porting PRIVATE 
         $<IF:$<BOOL:${IS_DEVELOPER_VERSION}>,/SUBSYSTEM:CONSOLE,/SUBSYSTEM:WINDOWS>
         /ENTRY:mainCRTStartup)

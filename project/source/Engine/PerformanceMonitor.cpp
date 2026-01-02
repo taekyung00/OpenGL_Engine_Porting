@@ -8,8 +8,8 @@
 // -------------------------------------------------------------------------
 
 #if defined(_WIN32)
-#	include <psapi.h>
 #	include <windows.h>
+#	include <psapi.h>
 #	pragma comment(lib, "psapi.lib")
 #elif defined(__EMSCRIPTEN__)
 #	include <emscripten/emscripten.h>
@@ -83,6 +83,27 @@ void PerformanceMonitor::DrawImGui()
 	// Graph 2: RAM Usage (Dynamic Scale)
 	float max_graph_ram = (maxRamUsageBytes / (1024.0f * 1024.0f)) * 1.2f;
 	PlotRingBuffer("RAM (MB)", ramHistory, historyOffset, max_graph_ram);
+
+	if (!customMetrics.empty())
+    {
+        ImGui::Separator();
+        ImGui::Text("GBA Hardware Limits:");
+        
+        // 맵에 저장된 모든 항목을 순회하며 출력
+        for (const auto& [name, value] : customMetrics)
+        {
+            // 예: "Sprite Count: 128"
+            ImGui::Text("%s: %.0f", name.c_str(), value);
+
+            // [심화] 만약 특정 수치가 위험하면 빨간색으로 경고 (선택 사항)
+            // GBA 스프라이트 최대 개수(128)를 넘는지 시각적으로 경고
+            if (name.find("Sprite") != std::string::npos && value > 128.0f) 
+            {
+                ImGui::SameLine();
+                ImGui::TextColored(ImVec4(1, 0, 0, 1), "(OVER LIMIT!)");
+            }
+        }
+    }
 	ImGui::End();
 }
 
