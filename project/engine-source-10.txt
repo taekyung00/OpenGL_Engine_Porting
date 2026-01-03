@@ -1,0 +1,2976 @@
+Directory: project
+Files analyzed: 243
+
+Estimated tokens: 741.4k
+
+Directory structure:
+└── project/
+    └── source/
+        ├── main.cpp
+        ├── CS200/
+        │   ├── BatchRenderer2D.cpp
+        │   ├── BatchRenderer2D.h
+        │   ├── Image.cpp
+        │   ├── Image.h
+        │   ├── ImGuiHelper.cpp
+        │   ├── ImGuiHelper.h
+        │   ├── ImmediateRenderer2D.cpp
+        │   ├── ImmediateRenderer2D.h
+        │   ├── InstancedRenderer2D.cpp
+        │   ├── InstancedRenderer2D.h
+        │   ├── IRenderer2D.h
+        │   ├── NDC.h
+        │   ├── OffscreenFramebuffer.cpp
+        │   ├── OffscreenFramebuffer.h
+        │   ├── PostProcessingPipeline.cpp
+        │   ├── PostProcessingPipeline.h
+        │   ├── Renderer2DUtils.cpp
+        │   ├── Renderer2DUtils.h
+        │   ├── RenderingAPI.cpp
+        │   ├── RenderingAPI.h
+        │   ├── RGBA.h
+        │   ├── Shape.cpp
+        │   └── Shape.h
+        ├── Demo/
+        │   ├── DemoBatchInstance.cpp
+        │   ├── DemoBatchInstance.h
+        │   ├── DemoBufferTypes.cpp
+        │   ├── DemoBufferTypes.h
+        │   ├── DemoCS230Textures.cpp
+        │   ├── DemoCS230Textures.h
+        │   ├── DemoDepthPost.cpp
+        │   ├── DemoDepthPost.h
+        │   ├── DemoFramebuffer.cpp
+        │   ├── DemoFramebuffer.h
+        │   ├── DemoShapes.cpp
+        │   ├── DemoShapes.h
+        │   ├── DemoText.cpp
+        │   ├── DemoText.h
+        │   ├── DemoTexturing.cpp
+        │   ├── DemoTexturing.h
+        │   ├── DemoVAO.cpp
+        │   ├── DemoVAO.h
+        │   ├── Demo7/
+        │   │   ├── Moon.cpp
+        │   │   ├── Moon.h
+        │   │   ├── Road.cpp
+        │   │   ├── Road.h
+        │   │   ├── Stars.cpp
+        │   │   ├── Stars.h
+        │   │   ├── Triangle.cpp
+        │   │   ├── Triangle.h
+        │   │   └── WorldSize.h
+        │   └── DemoSceneShowcase/
+        │       ├── Map.cpp
+        │       ├── Map.h
+        │       ├── Samurai.cpp
+        │       ├── Samurai.h
+        │       ├── SceneState.cpp
+        │       └── SceneState.h
+        ├── Engine/
+        │   ├── Animation.cpp
+        │   ├── Animation.h
+        │   ├── Camera.cpp
+        │   ├── Camera.h
+        │   ├── Collision.cpp
+        │   ├── Collision.h
+        │   ├── Component.h
+        │   ├── ComponentManager.h
+        │   ├── Engine.cpp
+        │   ├── Engine.h
+        │   ├── Error.h
+        │   ├── Font.cpp
+        │   ├── Font.h
+        │   ├── Fonts.h
+        │   ├── FPS.h
+        │   ├── GameObject.cpp
+        │   ├── GameObject.h
+        │   ├── GameObjectManager.cpp
+        │   ├── GameObjectManager.h
+        │   ├── GameState.h
+        │   ├── GameStateManager.cpp
+        │   ├── GameStateManager.h
+        │   ├── Input.cpp
+        │   ├── Input.h
+        │   ├── Logger.cpp
+        │   ├── Logger.h
+        │   ├── Matrix.cpp
+        │   ├── Matrix.h
+        │   ├── Particle.cpp
+        │   ├── Particle.h
+        │   ├── Path.cpp
+        │   ├── Path.h
+        │   ├── PerformanceMonitor.cpp
+        │   ├── PerformanceMonitor.h
+        │   ├── Random.cpp
+        │   ├── Random.h
+        │   ├── Rect.h
+        │   ├── ShowCollision.cpp
+        │   ├── ShowCollision.h
+        │   ├── Sprite.cpp
+        │   ├── Sprite.h
+        │   ├── TextManager.cpp
+        │   ├── TextManager.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── TextureManager.cpp
+        │   ├── TextureManager.h
+        │   ├── Timer.h
+        │   ├── Vec2.cpp
+        │   ├── Vec2.h
+        │   ├── Window.cpp
+        │   └── Window.h
+        ├── Game/
+        │   ├── Background.cpp
+        │   ├── Background.h
+        │   ├── GameObjectTypes.h
+        │   ├── MainMenu.cpp
+        │   ├── MainMenu.h
+        │   ├── Particles.h
+        │   ├── Score.cpp
+        │   ├── Score.h
+        │   ├── Splash.cpp
+        │   ├── Splash.h
+        │   ├── States.h
+        │   ├── CS230_Final/
+        │   │   ├── Components/
+        │   │   │   ├── Bounce.cpp
+        │   │   │   ├── Bounce.h
+        │   │   │   ├── Grid.cpp
+        │   │   │   ├── Grid.h
+        │   │   │   ├── Random.cpp
+        │   │   │   ├── Random.h
+        │   │   │   ├── Ziggle.cpp
+        │   │   │   └── Ziggle.h
+        │   │   ├── Objects/
+        │   │   │   ├── Bus.cpp
+        │   │   │   ├── Bus.h
+        │   │   │   ├── BusLine.h
+        │   │   │   ├── Constants.h
+        │   │   │   ├── Food.cpp
+        │   │   │   ├── Food.h
+        │   │   │   ├── Obstacle.cpp
+        │   │   │   ├── Obstacle.h
+        │   │   │   ├── Passenger.cpp
+        │   │   │   ├── Passenger.h
+        │   │   │   ├── Player.cpp
+        │   │   │   └── Player.h
+        │   │   └── States/
+        │   │       ├── BadSandwich.cpp
+        │   │       ├── BadSandwich.h
+        │   │       ├── GoodSandwich.cpp
+        │   │       ├── GoodSandwich.h
+        │   │       ├── NormalSandwich.cpp
+        │   │       ├── NormalSandwich.h
+        │   │       ├── Project.cpp
+        │   │       └── Project.h
+        │   └── States/
+        │       ├── ConsoleTest.cpp
+        │       ├── ConsoleTest.h
+        │       ├── RenderingTest.cpp
+        │       └── RenderingTest.h
+        ├── OpenGL/
+        │   ├── Buffer.cpp
+        │   ├── Buffer.h
+        │   ├── Environment.h
+        │   ├── Framebuffer.cpp
+        │   ├── Framebuffer.h
+        │   ├── GL.cpp
+        │   ├── GL.h
+        │   ├── GLConstants.h
+        │   ├── GLTypes.h
+        │   ├── Handle.h
+        │   ├── Shader.cpp
+        │   ├── Shader.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── VertexArray.cpp
+        │   └── VertexArray.h
+        └── Tracy/
+            ├── TracyClient.cpp
+            ├── client/
+            │   ├── tracy_concurrentqueue.h
+            │   ├── tracy_rpmalloc.cpp
+            │   ├── tracy_rpmalloc.hpp
+            │   ├── tracy_SPSCQueue.h
+            │   ├── TracyAlloc.cpp
+            │   ├── TracyArmCpuTable.hpp
+            │   ├── TracyCallstack.cpp
+            │   ├── TracyCallstack.h
+            │   ├── TracyCallstack.hpp
+            │   ├── TracyCpuid.hpp
+            │   ├── TracyDebug.hpp
+            │   ├── TracyDxt1.cpp
+            │   ├── TracyDxt1.hpp
+            │   ├── TracyFastVector.hpp
+            │   ├── TracyKCore.cpp
+            │   ├── TracyKCore.hpp
+            │   ├── TracyLock.hpp
+            │   ├── TracyOverride.cpp
+            │   ├── TracyProfiler.cpp
+            │   ├── TracyProfiler.hpp
+            │   ├── TracyRingBuffer.hpp
+            │   ├── TracyRocprof.cpp
+            │   ├── TracyScoped.hpp
+            │   ├── TracyStringHelpers.hpp
+            │   ├── TracySysPower.cpp
+            │   ├── TracySysPower.hpp
+            │   ├── TracySysTime.cpp
+            │   ├── TracySysTime.hpp
+            │   ├── TracySysTrace.cpp
+            │   ├── TracySysTrace.hpp
+            │   └── TracyThread.hpp
+            ├── common/
+            │   ├── tracy_lz4.cpp
+            │   ├── tracy_lz4.hpp
+            │   ├── tracy_lz4hc.cpp
+            │   ├── tracy_lz4hc.hpp
+            │   ├── TracyAlign.hpp
+            │   ├── TracyAlloc.hpp
+            │   ├── TracyApi.h
+            │   ├── TracyColor.hpp
+            │   ├── TracyForceInline.hpp
+            │   ├── TracyMutex.hpp
+            │   ├── TracyProtocol.hpp
+            │   ├── TracyQueue.hpp
+            │   ├── TracySocket.cpp
+            │   ├── TracySocket.hpp
+            │   ├── TracyStackFrames.cpp
+            │   ├── TracyStackFrames.hpp
+            │   ├── TracySystem.cpp
+            │   ├── TracySystem.hpp
+            │   ├── TracyVersion.hpp
+            │   ├── TracyWinFamily.hpp
+            │   └── TracyYield.hpp
+            ├── libbacktrace/
+            │   ├── alloc.cpp
+            │   ├── backtrace.hpp
+            │   ├── config.h
+            │   ├── dwarf.cpp
+            │   ├── elf.cpp
+            │   ├── fileline.cpp
+            │   ├── filenames.hpp
+            │   ├── internal.hpp
+            │   ├── macho.cpp
+            │   ├── mmapio.cpp
+            │   ├── posix.cpp
+            │   ├── sort.cpp
+            │   └── state.cpp
+            └── tracy/
+                ├── Tracy.hpp
+                ├── TracyC.h
+                ├── TracyCUDA.hpp
+                ├── TracyD3D11.hpp
+                ├── TracyD3D12.hpp
+                ├── TracyLua.hpp
+                ├── TracyOpenCL.hpp
+                ├── TracyOpenGL.hpp
+                └── TracyVulkan.hpp
+
+
+================================================
+FILE: source/Game/CS230_Final/Objects/Player.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include "../../../Engine/GameObject.h"
+
+#include "../../Score.h"
+#include "../Components/Ziggle.h"
+#include "Bus.h"
+#include "Constants.h"
+#include "Passenger.h"
+
+class Player : public CS230::GameObject
+{
+public:
+	Player();
+	void Update(double dt) override;
+	void Draw(Math::TransformationMatrix camera_matrix, unsigned int color = 0xFFFFFFFF, float depth = 0.5f) override;
+
+	GameObjectTypes Type() override
+	{
+		return GameObjectTypes::Player;
+	}
+
+	std::string TypeName() override
+	{
+		return "Player";
+	}
+
+	bool CanCollideWith(GameObjectTypes other_object_type) override;
+	void ResolveCollision(GameObject* other_object) override;
+
+	int DrawPriority() const override
+	{
+		return 31;
+	}
+
+	int UpdatePriority() const override
+	{
+		return CS230::GameObject::UPDATEPRIORITY + 2;
+	}
+
+	const Math::vec2& GetPosition() const
+	{
+		return GameObject::GetPosition();
+	}
+
+	std::vector<bool>& SetCanSteel()
+	{
+		return can_steel;
+	}
+
+	const std::vector<bool>& GetCanSteel() const
+	{
+		return can_steel;
+	}
+
+	// int							GetScore() { return score; }
+
+private:
+	const Math::vec2 player_velocity = { 96.0, 96.0 };
+
+	int	 score = 0;
+	// CS230::Texture*		score_texture = nullptr;
+	// CS230::Texture*		score_amount_texture = nullptr;
+	void update_score_text();
+
+	std::vector<bool> can_steel = { false, false, false, false, false };
+
+	double window_height;
+
+	static constexpr double VELOCITY = 80.0;
+};
+
+
+================================================
+FILE: source/Game/CS230_Final/States/BadSandwich.cpp
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
+#include "BadSandwich.h"
+#include "Project.h"
+#include "../../MainMenu.h"
+#include "../../../Engine/TextureManager.h"
+#include "../../../Engine/GameStateManager.h"
+#include "../../../Engine/Input.h"
+#include "../../../Engine/Window.h"
+
+#include "CS200/NDC.h"
+void BadSandwich::Load() {
+    texture = Engine::GetTextureManager().Load("Assets/images/CS230_Final/BadSandwich.png");
+#if defined(__EMSCRIPTEN__)
+
+	AddGSComponent(new CS230::Camera(Math::rect{
+		Math::vec2{								  0,								   0 },
+		Math::vec2{ static_cast<double>(default_width), static_cast<double>(default_height) }
+	  }));
+	GetGSComponent<CS230::Camera>()->SetPosition(Math::vec2{ static_cast<double>(default_width) / 2, static_cast<double>(default_height) / 2 });
+	GetGSComponent<CS230::Camera>()->SetFirstPersonView() = true;
+	GetGSComponent<CS230::Camera>()->SetAnchoring()		  = true;
+	GetGSComponent<CS230::Camera>()->SetScale({ 0.75, 0.75 });
+
+#endif
+}
+
+void BadSandwich::Update([[maybe_unused]] double dt) {
+    if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape))
+    {
+        Engine::GetGameStateManager().PopState();
+        Engine::GetGameStateManager().PushState<MainMenu>();
+    }
+
+    if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::R))
+    {
+        Engine::GetGameStateManager().PopState();
+        Engine::GetGameStateManager().PushState<Project>();
+    }
+}
+
+void BadSandwich::Unload() {
+
+}
+
+void BadSandwich::Draw() {
+    Engine::GetWindow().Clear(UINT_MAX);
+	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+#if defined(__EMSCRIPTEN__)
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize(), true) * GetGSComponent<CS230::Camera>()->GetMatrix());
+#else
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+#endif
+	texture->Draw(Math::TransformationMatrix());
+
+	renderer_2d->EndScene();
+}
+
+
+================================================
+FILE: source/Game/CS230_Final/States/BadSandwich.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "../../../Engine/GameState.h"
+#include "../../../Engine/Engine.h"
+#include "../../../Engine/Texture.h"
+
+class BadSandwich : public CS230::GameState {
+public:
+    BadSandwich(){}
+
+    void Load() override;
+    void Update(double dt) override;
+    void Unload() override;
+    void Draw() override;
+    void DrawImGui() override { };
+
+    gsl::czstring GetName() const override
+    {
+        return "Bad Sandwich";
+    }
+
+private:
+	static constexpr int			default_width  = 600;
+	static constexpr int			default_height = 800;
+    std::shared_ptr<CS230::Texture> texture;
+};
+
+
+================================================
+FILE: source/Game/CS230_Final/States/GoodSandwich.cpp
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
+#include "GoodSandwich.h"
+#include "Project.h"
+#include "../../MainMenu.h"
+#include "../../../Engine/TextureManager.h"
+#include "../../../Engine/GameStateManager.h"
+#include "../../../Engine/Input.h"
+#include "../../../Engine/Window.h"
+
+#include "CS200/NDC.h"
+void GoodSandwich::Load() {
+    texture = Engine::GetTextureManager().Load("Assets/images/CS230_Final/GoodSandwich.png");
+#if defined(__EMSCRIPTEN__)
+
+	AddGSComponent(new CS230::Camera(Math::rect{
+		Math::vec2{								  0,								   0 },
+		Math::vec2{ static_cast<double>(default_width), static_cast<double>(default_height) }
+	  }));
+	GetGSComponent<CS230::Camera>()->SetPosition(Math::vec2{ static_cast<double>(default_width) / 2, static_cast<double>(default_height) / 2 });
+	GetGSComponent<CS230::Camera>()->SetFirstPersonView() = true;
+	GetGSComponent<CS230::Camera>()->SetAnchoring()		  = true;
+	GetGSComponent<CS230::Camera>()->SetScale({ 0.75, 0.75 });
+
+#endif
+}
+
+void GoodSandwich::Update([[maybe_unused]] double dt) {
+    if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape))
+    {
+        Engine::GetGameStateManager().PopState();
+        Engine::GetGameStateManager().PushState<MainMenu>();
+    }
+
+    if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::R))
+    {
+        Engine::GetGameStateManager().PopState();
+        Engine::GetGameStateManager().PushState<Project>();
+    }
+}
+
+void GoodSandwich::Unload() {
+    
+}
+
+void GoodSandwich::Draw() {
+    Engine::GetWindow().Clear(UINT_MAX);
+	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+#if defined(__EMSCRIPTEN__)
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize(), true) * GetGSComponent<CS230::Camera>()->GetMatrix());
+#else
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+#endif
+	texture->Draw(Math::TransformationMatrix());
+
+	renderer_2d->EndScene();
+}
+
+
+================================================
+FILE: source/Game/CS230_Final/States/GoodSandwich.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "../../../Engine/Engine.h"
+#include "../../../Engine/Texture.h"
+#include "../../../Engine/GameState.h"
+
+class GoodSandwich : public CS230::GameState {
+public:
+    GoodSandwich(){}
+
+    void Load() override;
+    void Update(double dt) override;
+    void Unload() override;
+    void Draw() override;
+    void DrawImGui() override { };
+
+    gsl::czstring GetName() const override
+    {
+        return "Good Sandwich";
+    }
+
+private:
+    std::shared_ptr<CS230::Texture> texture;
+	static constexpr int			default_width  = 600;
+	static constexpr int			default_height = 800;
+};
+
+
+================================================
+FILE: source/Game/CS230_Final/States/NormalSandwich.cpp
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
+#include "NormalSandwich.h"
+#include "Project.h"
+#include "../../MainMenu.h"
+#include "../../../Engine/TextureManager.h"
+#include "../../../Engine/GameStateManager.h"
+#include "../../../Engine/Input.h"
+#include "../../../Engine/Window.h"
+
+#include "CS200/NDC.h"
+void NormalSandwich::Load() {
+    texture = Engine::GetTextureManager().Load("Assets/images/CS230_Final/NormalSandwich.png");
+#if defined(__EMSCRIPTEN__)
+
+	AddGSComponent(new CS230::Camera(Math::rect{
+		Math::vec2{								  0,								   0 },
+		Math::vec2{ static_cast<double>(default_width), static_cast<double>(default_height) }
+	  }));
+	GetGSComponent<CS230::Camera>()->SetPosition(Math::vec2{ static_cast<double>(default_width) / 2, static_cast<double>(default_height) / 2 });
+	GetGSComponent<CS230::Camera>()->SetFirstPersonView() = true;
+	GetGSComponent<CS230::Camera>()->SetAnchoring()		  = true;
+	GetGSComponent<CS230::Camera>()->SetScale({ 0.75, 0.75 });
+
+#endif
+}
+
+void NormalSandwich::Update([[maybe_unused]] double dt) {
+    if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape)) {
+        Engine::GetGameStateManager().PopState();
+        Engine::GetGameStateManager().PushState<MainMenu>();
+    }
+
+    if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::R)) {
+        Engine::GetGameStateManager().PopState();
+        Engine::GetGameStateManager().PushState<Project>();
+    }
+}
+
+void NormalSandwich::Unload() {
+
+}
+
+void NormalSandwich::Draw() {
+    Engine::GetWindow().Clear(UINT_MAX);
+	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+#if defined(__EMSCRIPTEN__)
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize(), true) * GetGSComponent<CS230::Camera>()->GetMatrix());
+#else
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+#endif
+    texture->Draw(Math::TransformationMatrix());
+
+    renderer_2d->EndScene();
+}
+
+
+================================================
+FILE: source/Game/CS230_Final/States/NormalSandwich.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "../../../Engine/GameState.h"
+#include "../../../Engine/Engine.h"
+#include "../../../Engine/Texture.h"
+
+class NormalSandwich : public CS230::GameState
+{
+public:
+    NormalSandwich()
+    {
+    }
+
+    void          Load() override;
+    void          Update(double dt) override;
+    void          Unload() override;
+    void          Draw() override;
+    void          DrawImGui() override { };
+
+    gsl::czstring GetName() const override
+    {
+        return "NormalSandwich";
+    }
+
+private:
+    std::shared_ptr<CS230::Texture> texture;
+	static constexpr int			default_width  = 600;
+	static constexpr int			default_height = 800;
+};
+
+
+================================================
+FILE: source/Game/CS230_Final/States/Project.cpp
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
+#include "Project.h"
+#include "../../MainMenu.h"
+#include "BadSandwich.h"
+#include "Engine/Input.h"
+#include "Engine/TextureManager.h"
+#include "Engine/Window.h"
+#include "GoodSandwich.h"
+#include "NormalSandwich.h"
+#include "OpenGL/Environment.h"
+#include <SDL.h>
+#include <imgui.h>
+
+#include "CS200/IRenderer2D.h"
+#include "CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
+
+
+Project::Project() : player_ptr(nullptr)
+// camera(nullptr)
+{
+}
+
+void Project::Load()
+{
+	Engine::GetLogger().LogDebug("CS230 Final start loading");
+	Engine::GetTextureManager().SwitchRenderer(CS230::TextureManager::RendererType::Batch);
+	// srand(static_cast<unsigned int>(time(NULL)));
+	// Engine::GetWindow().SetSize({ default_width, default_height });
+	/*camera = new CS230::Camera({ Math::vec2{ 0,0 }, static_cast<Math::vec2>(Engine::GetWindow().GetSize()) });
+	camera->SetLimit({ {0,0},Engine::GetWindow().GetSize() });
+	AddGSComponent(camera);*/
+	// GetGSComponent<CS230::Camera>()->SetPosition({ 0.0, 0.0 });
+#if defined(__EMSCRIPTEN__)
+
+	AddGSComponent(new CS230::Camera(Math::rect{
+		Math::vec2{								  0,								   0 },
+		Math::vec2{ static_cast<double>(default_width), static_cast<double>(default_height) }
+	  }));
+	GetGSComponent<CS230::Camera>()->SetPosition(Math::vec2{ static_cast<double>(default_width) / 2, static_cast<double>(default_height) / 2 });
+	GetGSComponent<CS230::Camera>()->SetFirstPersonView() = true;
+	GetGSComponent<CS230::Camera>()->SetAnchoring()		  = true;
+	GetGSComponent<CS230::Camera>()->SetScale({ 0.75, 0.75 });
+
+#else
+	Engine::GetWindow().ForceResize(default_width, default_height);
+	Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+
+#endif
+
+
+#ifdef DEVELOPER_VERSION
+	AddGSComponent(new CS230::ShowCollision());
+	AddGSComponent(new Grid());
+#endif
+	AddGSComponent(new Random());
+	AddGSComponent(new CS230::GameObjectManager);
+	AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
+	AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
+
+	player_ptr = new Player();
+	GetGSComponent<CS230::GameObjectManager>()->Add(player_ptr);
+	bus_ptr = new Bus(player_ptr);
+	GetGSComponent<CS230::GameObjectManager>()->Add(bus_ptr);
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line1, player_ptr, 0));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line2, player_ptr, 0));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line3, player_ptr, 0));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line4, player_ptr, 0));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line5, player_ptr, 0));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line1, player_ptr, 1));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line2, player_ptr, 1));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line3, player_ptr, 1));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line4, player_ptr, 1));
+	GetGSComponent<CS230::GameObjectManager>()->Add(new Passenger(BusLine::line5, player_ptr, 1));
+	GetGSComponent<CS230::GameObjectManager>()->Add(
+		new Obstacle(player_ptr, { (BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (static_cast<double>(rand()) / RAND_MAX) * 2), SeatWidthHeight * 2 }));
+	GetGSComponent<CS230::GameObjectManager>()->Add(
+		new Obstacle(player_ptr, { (BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (static_cast<double>(rand()) / RAND_MAX) * 2), SeatWidthHeight * 3 }));
+	GetGSComponent<CS230::GameObjectManager>()->Add(
+		new Obstacle(player_ptr, { (BusStartPosition + SeatWidthHeight + PlayerWidthHeight * (static_cast<double>(rand()) / RAND_MAX) * 2), SeatWidthHeight * 5 }));
+
+	CS200::RenderingAPI::SetClearColor(0x000000FF);
+
+	Engine::GetLogger().LogDebug("CS230 Final finish loading");
+}
+
+void Project::Update([[maybe_unused]] double dt)
+{
+	UpdateGSComponents(dt);
+
+	GetGSComponent<CS230::GameObjectManager>()->UpdateAll(dt);
+
+	// Engine::GetGameStateManager().GetGSComponent<CS230::GameObjectManager>()->SortForDraw();
+	Engine::GetGameStateManager().GetGSComponent<CS230::GameObjectManager>()->SortForUpdate();
+	if (bus_ptr->IsEnd())
+	{
+		Bus::SandwichLevel level = bus_ptr->sandwich_level;
+		switch (level)
+		{
+			case Bus::SandwichLevel::GoodSandwich:
+				Engine::GetGameStateManager().PopState();
+				Engine::GetGameStateManager().PushState<GoodSandwich>();
+				break;
+			case Bus::SandwichLevel::NormalSandwich:
+				Engine::GetGameStateManager().PopState();
+				Engine::GetGameStateManager().PushState<NormalSandwich>();
+				break;
+			case Bus::SandwichLevel::BadSandwich:
+				Engine::GetGameStateManager().PopState();
+				Engine::GetGameStateManager().PushState<BadSandwich>();
+				break;
+			default: break;
+		}
+	}
+	if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape))
+	{
+		Engine::GetGameStateManager().PopState();
+		Engine::GetGameStateManager().PushState<MainMenu>();
+	}
+}
+
+void Project::Unload()
+{
+	GetGSComponent<CS230::GameObjectManager>()->Unload();
+	ClearGSComponents();
+	player_ptr = nullptr;
+	bus_ptr	   = nullptr;
+	// camera = nullptr;
+}
+
+void Project::Draw()
+{
+	CS200::RenderingAPI::Clear();
+	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+#if defined(__EMSCRIPTEN__)
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize(),true) * GetGSComponent<CS230::Camera>()->GetMatrix());
+#else
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+#endif
+	// Math::TransformationMatrix camera_matrix = camera->GetMatrix();
+#ifdef DEVELOPER_VERSION
+	GetGSComponent<Grid>()->Draw(Grid::DotColor::black, 0.2f);
+#endif
+	GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
+
+	renderer_2d->EndScene();
+}
+
+void Project::DrawImGui()
+{
+	ImGui::Begin("Renderer Settings");
+	ImGui::Separator();
+
+	// Renderer selection
+	auto&	   texture_manager		 = Engine::GetTextureManager();
+	const auto current_renderer_type = texture_manager.GetCurrentRendererType();
+	// const auto renderer_2d = texture_manager.GetRenderer2D();
+	ImGui::Text("Renderer:");
+	if (ImGui::RadioButton("Immediate", current_renderer_type == CS230::TextureManager::RendererType::Immediate))
+	{
+		texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+	}
+	ImGui::SameLine();
+	if (ImGui::RadioButton("Batch", current_renderer_type == CS230::TextureManager::RendererType::Batch))
+	{
+		texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Batch);
+	}
+
+	ImGui::SameLine();
+	if (ImGui::RadioButton("Instanced", current_renderer_type == CS230::TextureManager::RendererType::Instanced))
+	{
+		texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Instanced);
+	}
+	ImGui::Separator();
+
+	ImGui::End();
+}
+
+gsl::czstring Project::GetName() const
+{
+	return "Final Project";
+}
+
+
+================================================
+FILE: source/Game/CS230_Final/States/Project.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Spring
+ * \par CS230
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "Engine/GameState.h"
+#include "Engine/Texture.h"
+#include "Engine/Camera.h"
+#include "Engine/GameObjectManager.h"
+
+#include "../Components/Grid.h"
+#include "../Objects/Player.h"
+#include "../Objects/Bus.h"
+#include "../Objects/BusLine.h"
+#include "../Objects/Passenger.h"
+#include "../../Particles.h"
+#include "../Objects/Obstacle.h"
+#include "../Components/Random.h"
+class Project : public CS230::GameState {
+public:
+    Project();
+    void          Load() override;
+    void          Update(double dt) override;
+    void          Unload() override;
+    void          Draw() override;
+    void          DrawImGui() override;
+    gsl::czstring GetName() const override;
+
+private:
+    Player* player_ptr;
+    Bus* bus_ptr;
+    //CS230::Camera* camera;
+    static constexpr int default_width = 600;
+    static constexpr int default_height = 800;
+};
+
+
+================================================
+FILE: source/Game/States/ConsoleTest.cpp
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "ConsoleTest.h"
+#include "Engine/Engine.h"
+#include "Engine/Input.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Window.h"
+#include "Engine/TextureManager.h"
+
+
+#include "CS200/IRenderer2D.h"
+#include "CS200/NDC.h"
+		
+#include "Game/MainMenu.h"
+
+#include <imgui.h>
+
+
+
+ConsoleTest::ConsoleTest()
+{
+}
+
+void ConsoleTest::Load()
+{
+	
+}
+
+void ConsoleTest::Update([[maybe_unused]] double dt)
+{
+	if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape))
+	{
+		Engine::GetGameStateManager().PopState();
+		Engine::GetGameStateManager().PushState<MainMenu>();
+	}
+
+
+}
+
+void ConsoleTest::Draw()
+{
+	Engine::GetWindow().Clear(0x1a1a1aff);
+	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+
+
+	renderer_2d->EndScene();
+}
+
+void ConsoleTest::DrawImGui()
+{
+	ImGui::Begin("Tests");
+
+	ImGui::End();
+}
+
+void ConsoleTest::Unload()
+{
+}
+
+
+
+================================================
+FILE: source/Game/States/ConsoleTest.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "./Engine/GameState.h"
+class ConsoleTest : public CS230::GameState
+{
+public:
+	ConsoleTest();
+	void		  Load() override;
+	void		  Update(double dt) override;
+	void		  Unload() override;
+	void		  Draw() override;
+	void		  DrawImGui() override;
+
+	gsl::czstring GetName() const override
+	{
+		return "Console Test";
+	}
+};
+
+
+================================================
+FILE: source/Game/States/RenderingTest.cpp
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "RenderingTest.h"
+#include "Engine/Camera.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Input.h"
+#include "Engine/ShowCollision.h"
+#include "Engine/TextureManager.h"
+#include "Engine/Window.h"
+
+#include "Engine/Particle.h"
+#include <imgui.h>
+#include <numbers>
+
+#include "./CS200/IRenderer2D.h"
+#include "./CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
+
+#include "Game/CS230_Final/Components/Grid.h"
+#include "Game/MainMenu.h"
+#include "Game/Particles.h"
+
+#include "Demo/DemoSceneShowcase/Samurai.h"
+
+#include <OpenGL/GL.h>
+
+void RenderingTest::Load()
+{
+	Engine::GetTextureManager().SwitchRenderer(CS230::TextureManager::RendererType::Batch);
+#ifdef DEVELOPER_VERSION
+	AddGSComponent(new CS230::ShowCollision());
+	AddGSComponent(new Grid());
+#endif
+	AddGSComponent(new CS230::GameObjectManager);
+	testTexture = Engine::GetTextureManager().Load("Assets/images/DemoDepthPost/background_0.png");
+
+	AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
+	AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
+	AddGSComponent(new CS230::ParticleManager<Particles::Flame>());
+
+
+	// Initialize FPS tracking
+	LastTicks = SDL_GetTicks();
+
+	CS200::RenderingAPI::SetClearColor(CS200::BLACK);
+	Engine::GetWindow().ForceResize(1920, 1080);
+	Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+}
+
+void RenderingTest::Update([[maybe_unused]] double dt)
+{
+	UpdateGSComponents(dt);
+
+
+	// Update FPS tracker
+	const Uint32 currentTicks = SDL_GetTicks();
+	const Uint32 deltaTicks	  = currentTicks - LastTicks;
+	const double deltaSeconds = deltaTicks / 1000.0;
+	LastTicks				  = currentTicks;
+	FPSTracker.Update(deltaSeconds);
+
+
+	GetGSComponent<CS230::GameObjectManager>()->UpdateAll(dt);
+	if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape)) // very bottom!!
+	{
+		Engine::GetGameStateManager().PopState();
+		Engine::GetGameStateManager().PushState<MainMenu>();
+		return;
+	}
+}
+
+void RenderingTest::Draw()
+{
+	if (Engine::GetWindow().GetSize() != window_size)
+	{
+		window_size = Engine::GetWindow().GetSize();
+	}
+	CS200::RenderingAPI::Clear();
+	auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+	GL::Viewport(0, 0, window_size.x, window_size.y);
+
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(window_size) );
+	GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
+
+
+	testTexture->Draw(
+		Math::TranslationMatrix(Math::to_vec2(translate)) * Math::RotationMatrix(static_cast<double>(rotate / 180 * std::numbers::pi_v<float>)) * Math::ScaleMatrix(Math::to_vec2(scale)));
+	renderer_2d->EndScene();
+}
+
+void RenderingTest::DrawImGui()
+{
+	if (Engine::GetWindow().GetSize() != window_size)
+	{
+		window_size = Engine::GetWindow().GetSize();
+	}
+
+	if (ImGui::Begin("Texture Controls"))
+	{
+		ImGui::SliderFloat("Scale X", &(scale.x), -20.f, 20.0f, "%.1f px/s");
+		ImGui::SliderFloat("Scale Y", &(scale.y), -20.f, 20.0f, "%.1f px/s");
+		ImGui::SliderFloat("Rotate", &rotate, 0.f, 360.0f, "%.1f px/s");
+		ImGui::SliderFloat("Translate X", &(translate.x), -(static_cast<float>(window_size.x) - 100.f), static_cast<float>(window_size.x) - 100.f, "%.1f px/s");
+		ImGui::SliderFloat("Translate Y", &(translate.y), -(static_cast<float>(window_size.y) - 100.f), static_cast<float>(window_size.y) - 100.f, "%.1f px/s");
+	}
+	ImGui::End();
+
+	/*if (ImGui::Begin("Particle Controls"))
+	{
+		if (ImGui::Button("Shine"))
+		{
+			const auto shining_particle = Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Shining>>();
+			if (!shining_particle)
+			{
+				throw std::logic_error("no shining particle");
+			}
+			shining_particle->Emit(10, Math::to_vec2(translate), { 0, 0 }, { 20, 20 }, std::numbers::pi * 2);
+		}
+		ImGui::SameLine();
+
+		if (ImGui::Button("Tears"))
+		{
+			const auto tears_particle = Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Tears>>();
+			if (tears_particle)
+			{
+				tears_particle->Emit(10, Math::to_vec2(translate), { 0, 0 }, { -20, -20 }, std::numbers::pi * 2);
+			}
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Flame"))
+		{
+			const auto tears_particle = Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Flame>>();
+			if (tears_particle)
+			{
+				tears_particle->Emit(1, Math::to_vec2(translate), { 0, 0 }, { 0, 20 }, std::numbers::pi * 2, 0xF36301FF);
+			}
+		}
+	}
+	ImGui::End();*/
+
+	ImGui::Begin("Renderer Settings");
+	ImGui::Separator();
+
+	// Renderer selection
+	auto&	   texture_manager		 = Engine::GetTextureManager();
+	const auto current_renderer_type = texture_manager.GetCurrentRendererType();
+	// const auto renderer_2d = texture_manager.GetRenderer2D();
+	ImGui::Text("Renderer:");
+
+	if (ImGui::RadioButton("Immediate", current_renderer_type == CS230::TextureManager::RendererType::Immediate))
+	{
+		texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+	}
+
+	ImGui::SameLine();
+
+	if (ImGui::RadioButton("Batch", current_renderer_type == CS230::TextureManager::RendererType::Batch))
+	{
+		texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Batch);
+	}
+
+	ImGui::SameLine();
+	if (ImGui::RadioButton("Instanced", current_renderer_type == CS230::TextureManager::RendererType::Instanced))
+	{
+		texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Instanced);
+	}
+	ImGui::Separator();
+
+	ImGui::End();
+
+	
+}
+
+void RenderingTest::Unload()
+{
+	GetGSComponent<CS230::GameObjectManager>()->Unload();
+	ClearGSComponents();
+}
+
+
+================================================
+FILE: source/Game/States/RenderingTest.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include <memory>
+#include <SDL.h>
+
+#include "./Engine/GameState.h"
+#include "./Engine/Texture.h"
+#include "Engine/FPS.h"
+
+#include "Demo/Demo7/Triangle.h"
+#include "Demo/Demo7/Stars.h"
+#include "Demo/Demo7/Moon.h"
+#include "Demo/Demo7/Road.h"
+#include "Demo/DemoSceneShowcase/Samurai.h"
+
+
+
+class RenderingTest : public CS230::GameState
+{
+public:
+	RenderingTest() = default;
+	void Load() override;
+	void Update(double dt) override;
+	void Unload() override;
+	void Draw() override;
+	void DrawImGui() override;
+
+	gsl::czstring GetName() const override
+	{
+		return "Rendering Test";
+	}
+
+private:
+	std::shared_ptr<CS230::Texture> testTexture = nullptr;
+	Math::fvec2 scale = {1.f,1.f};
+	float rotate = 0.f;
+	Math::fvec2 translate = {0.f,0.f};
+	Math::ivec2 window_size;
+
+
+	util::FPS FPSTracker;
+	Uint32	  LastTicks = 0;
+};
+
+
+================================================
+FILE: source/OpenGL/Buffer.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Taekyung ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "Buffer.h"
+
+#include "GL.h"
+
+namespace OpenGL
+{
+    BufferHandle CreateBuffer(BufferType type, GLsizeiptr size_in_bytes) noexcept
+    {
+        BufferHandle new_buffer{};
+        GL::GenBuffers(1, &new_buffer);
+        GL::BindBuffer(static_cast<GLenum>(type), new_buffer);
+        GL::BufferData(static_cast<GLenum>(type), size_in_bytes, nullptr, GL_DYNAMIC_DRAW);
+        GL::BindBuffer(static_cast<GLenum>(type), 0);
+        // https://docs.gl/es3/glGenBuffers
+        // https://docs.gl/es3/glBindBuffer
+        // https://docs.gl/es3/glBufferData
+        return new_buffer;
+    }
+
+    BufferHandle CreateBuffer(BufferType type, std::span<const std::byte> static_buffer_data) noexcept
+    {
+        BufferHandle new_buffer{};
+        GL::GenBuffers(1, &new_buffer);
+        GL::BindBuffer(static_cast<GLenum>(type), new_buffer);
+        GL::BufferData(static_cast<GLenum>(type), static_cast<GLsizeiptr>(static_buffer_data.size() * sizeof(static_buffer_data[0])), static_buffer_data.data(), GL_STATIC_DRAW);
+        GL::BindBuffer(static_cast<GLenum>(type), 0);
+        // https://docs.gl/es3/glGenBuffers
+        // https://docs.gl/es3/glBindBuffer
+        // https://docs.gl/es3/glBufferData
+        return new_buffer;
+    }
+
+    void UpdateBufferData(BufferType type, BufferHandle buffer, std::span<const std::byte> data_to_copy, GLsizei starting_offset) noexcept
+    {
+        // https://docs.gl/es3/glBindBuffer
+        // https://docs.gl/es3/glBufferSubData
+        GL::BindBuffer(static_cast<GLenum>(type), buffer);
+        GL::BufferSubData(static_cast<GLenum>(type), starting_offset, static_cast<GLsizeiptr>(data_to_copy.size() * sizeof(data_to_copy[0])), data_to_copy.data());
+        GL::BindBuffer(static_cast<GLenum>(type), 0);
+    }
+}
+
+
+
+================================================
+FILE: source/OpenGL/Buffer.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include "GLConstants.h"
+#include "Handle.h"
+#include <span>
+
+namespace OpenGL
+{
+    /**
+     * \brief Descriptive alias for OpenGL buffer object handles
+     *
+     * BufferHandle provides a more specific and readable name for the generic
+     * OpenGL handle type. While it doesn't add type safety (it's still the same
+     * underlying type as other OpenGL handles), it makes the code's intent clearer
+     * by indicating that this handle specifically refers to buffer objects.
+     *
+     * This alias helps with:
+     * - Code readability: immediately clear this refers to a buffer
+     * - Documentation: function signatures clearly indicate buffer parameters
+     * - Consistency: uniform naming convention across the OpenGL wrapper
+     *
+     * Note: This is purely a naming convenience - the compiler treats BufferHandle
+     * identically to the generic Handle type, so mixing them won't cause errors.
+     * The real type safety comes from the BufferType enum and API design.
+     */
+    using BufferHandle = Handle;
+
+    /**
+     * \brief Enumeration of OpenGL buffer types for different rendering purposes
+     *
+     * BufferType categorizes buffers based on their intended use in the graphics
+     * pipeline. Each type corresponds to a specific OpenGL buffer target that
+     * determines how the GPU will access and use the buffer data.
+     *
+     * The enum values map directly to OpenGL constants but provide a more
+     * type-safe and readable interface. This helps prevent binding buffers
+     * to incorrect targets and makes the code's intent clearer.
+     *
+     * Buffer Types:
+     * - Vertices: Stores vertex attribute data (positions, colors, texture coordinates)
+     * - Indices: Stores element indices for indexed drawing operations
+     * - UniformBlocks: Stores uniform data shared across multiple shader invocations
+     */
+    enum class BufferType : GLenum
+    {
+        Vertices      = GL_ARRAY_BUFFER,         ///< Vertex attribute data buffer
+        Indices       = GL_ELEMENT_ARRAY_BUFFER, ///< Element index buffer for indexed drawing
+        UniformBlocks = GL_UNIFORM_BUFFER        ///< Uniform block data buffer
+    };
+    /**
+     * \brief Create an empty buffer with specified size for dynamic data
+     * \param type The type of buffer to create (Vertices, Indices, or UniformBlocks)
+     * \param size_in_bytes Size of the buffer in bytes
+     * \return Handle to the newly created buffer object
+     *
+     * Creates an OpenGL buffer object with allocated storage but no initial data.
+     * This is optimal for buffers that will be updated frequently during runtime,
+     * such as dynamic vertex data, animated geometry, or per-frame uniform data.
+     *
+     * The buffer is configured for dynamic usage patterns, making it suitable for:
+     * - Vertex data that changes every frame (particle systems, UI elements)
+     * - Temporary geometry that gets rebuilt frequently
+     * - Buffers that will be updated with new data using UpdateBufferData()
+     *
+     * Memory allocation happens on the GPU, but no data transfer occurs during
+     * creation. The buffer contents are undefined until data is uploaded.
+     *
+     * The implementation uses GL_DYNAMIC_DRAW usage hint, indicating that the
+     * buffer contents will be modified repeatedly and used for drawing operations.
+     */
+    [[nodiscard]] BufferHandle CreateBuffer(BufferType type, GLsizeiptr size_in_bytes) noexcept;
+
+    /**
+     * \brief Create a buffer initialized with static data
+     * \param type The type of buffer to create (Vertices, Indices, or UniformBlocks)
+     * \param static_buffer_data Span containing the initial data to upload
+     * \return Handle to the newly created buffer object
+     *
+     * Creates an OpenGL buffer object and immediately uploads the provided data.
+     * This is optimal for buffers containing static data that won't change during
+     * the application's lifetime, such as fixed mesh geometry, constant lookup
+     * tables, or unchanging uniform block data.
+     *
+     * The buffer is configured for static usage patterns, making it suitable for:
+     * - Static mesh geometry (terrain, buildings, fixed models)
+     * - Constant index arrays for standard shapes (quads, cubes)
+     * - Lookup tables and constant uniform data
+     * - Any data that remains unchanged after initial upload
+     *
+     * Memory allocation and data transfer happen atomically during creation,
+     * ensuring the buffer is immediately ready for use in rendering operations.
+     *
+     * The implementation uses GL_STATIC_DRAW usage hint, indicating that the
+     * buffer contents will be set once and used repeatedly for drawing.
+     */
+    [[nodiscard]] BufferHandle CreateBuffer(BufferType type, std::span<const std::byte> static_buffer_data) noexcept;
+
+    /**
+     * \brief Update existing buffer with new data
+     * \param type The type of buffer being updated
+     * \param buffer Handle to the buffer object to update
+     * \param data_to_copy Span containing the new data to upload
+     * \param starting_offset Byte offset within the buffer where copying begins (default: 0)
+     *
+     * Uploads new data to an existing buffer object, either replacing all contents
+     * or updating a specific region. This is essential for dynamic buffers that
+     * need frequent updates, such as animated vertex data, changing uniform values,
+     * or streaming geometry data.
+     *
+     * The function provides flexibility for partial updates:
+     * - Full buffer replacement: starting_offset = 0, data spans entire buffer
+     * - Partial updates: starting_offset > 0, data spans subset of buffer
+     * - Streaming updates: sequential calls with different offsets
+     *
+     * Common usage patterns:
+     * - Updating vertex positions for animated objects
+     * - Streaming new geometry data for dynamic scenes
+     * - Modifying uniform block data for per-object parameters
+     * - Updating index buffers for dynamic mesh topology
+     *
+     * The buffer must have sufficient capacity to hold the new data starting
+     * from the specified offset. The function performs efficient GPU memory
+     * transfers using OpenGL's buffer sub-data operations.
+     */
+    void UpdateBufferData(BufferType type, BufferHandle buffer, std::span<const std::byte> data_to_copy, GLsizei starting_offset = 0) noexcept;
+}
+
+
+
+================================================
+FILE: source/OpenGL/Environment.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+namespace OpenGL
+{
+    inline int MajorVersion         = 0;
+    inline int MinorVersion         = 0;
+    inline int MaxTextureImageUnits = 2;
+    inline int MaxTextureSize       = 64;
+
+    constexpr int version(int major, int minor) noexcept
+    {
+        return major * 100 + minor * 10;
+    }
+
+    inline int current_version() noexcept
+    {
+        return version(MajorVersion, MinorVersion);
+    }
+
+#if defined(IS_WEBGL2)
+    constexpr bool IsWebGL                     = true;
+    // WEBGL2 is expressed as 3.0 ES
+    constexpr int  MinimumRequiredMajorVersion = 3;
+    constexpr int  MinimumRequiredMinorVersion = 0;
+#else
+    constexpr bool IsWebGL                     = false;
+    constexpr int  MinimumRequiredMajorVersion = 3;
+    constexpr int  MinimumRequiredMinorVersion = 3;
+#endif
+}
+
+
+
+================================================
+FILE: source/OpenGL/Framebuffer.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "Framebuffer.h"
+#include "Engine/Engine.h"
+#include "Engine/Logger.h"
+#include "GL.h"
+#include "Texture.h"
+
+namespace
+{
+    void verify_framebuffer_complete(OpenGL::FramebufferHandle framebuffer);
+}
+
+namespace OpenGL
+{
+    FramebufferWithColor CreateFramebufferWithColor(Math::ivec2 size)
+    {
+        FramebufferWithColor fb{};
+        //  * - A color texture attachment in RGBA format for storing rendered pixels
+        fb.ColorAttachment = CreateRGBATexture(size);
+        GL::GenFramebuffers(1,&(fb.Framebuffer));
+        GL::BindFramebuffer(GL_FRAMEBUFFER, fb.Framebuffer);
+        GL::FramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D,fb.ColorAttachment, 0);
+        //  * - Proper draw buffer configuration for color output
+        constexpr GLenum draw_buffers[] = { GL_COLOR_ATTACHMENT0 };
+        GL::DrawBuffers(1, draw_buffers);
+        //  * - Complete framebuffer validation to ensure it's ready for use
+        verify_framebuffer_complete(fb.Framebuffer);
+        return fb;
+    }
+
+    void DestroyFramebufferWithColor(FramebufferWithColor& framebuffer_with_color) noexcept
+    {
+        GL::DeleteTextures(1, &framebuffer_with_color.ColorAttachment), framebuffer_with_color.ColorAttachment = 0;
+		GL::DeleteFramebuffers(1, &framebuffer_with_color.Framebuffer), framebuffer_with_color.Framebuffer	   = 0;
+    }
+}
+
+namespace
+{
+    void verify_framebuffer_complete(OpenGL::FramebufferHandle framebuffer)
+    {
+        GL::BindFramebuffer(GL_FRAMEBUFFER,framebuffer);
+        const auto status_result = GL::CheckFramebufferStatus(GL_FRAMEBUFFER);
+        if (status_result == GL_FRAMEBUFFER_COMPLETE)
+        {
+            GL::BindFramebuffer(GL_FRAMEBUFFER, 0);
+            return; // Framebuffer is complete and ready to use
+        }
+
+        std::ostringstream message;
+        message << "Framebuffer creation failed: status = 0x" << std::hex << status_result << std::dec << "\n";
+
+        switch (status_result)
+        {
+            case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT:
+                message << "\t[Attachment Error] One or more framebuffer attachments (e.g. textures or renderbuffers) are incomplete or incompatible.\n"
+                        << "\t-> Double-check format consistency and ensure all attached resources are properly initialized.\n";
+                break;
+
+            case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:
+                message << "\t[Missing Attachment] No color, depth, or stencil attachment was provided.\n"
+                        << "\t-> Make sure at least one valid image is attached using glFramebufferTexture or glFramebufferRenderbuffer.\n";
+                break;
+
+            case GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER:
+                message << "\t[Draw Buffer Error] Draw buffers are referencing attachments that don't exist or are incomplete.\n"
+                        << "\t-> Confirm that GL_COLOR_ATTACHMENTx exists for each buffer in GL::DrawBuffers().\n";
+                break;
+
+            case GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER:
+                message << "\t[Read Buffer Error] Read buffer (glReadBuffer) is referencing an incomplete or missing attachment.\n"
+                        << "\t-> Check if glReadBuffer is targeting an attachment that's properly set up.\n";
+                break;
+
+            case GL_FRAMEBUFFER_UNSUPPORTED:
+                message << "\t[Unsupported Configuration] This framebuffer configuration is not supported by the OpenGL implementation.\n"
+                        << "\t-> Try simplifying formats, avoid non-standard combinations, and confirm hardware support.\n";
+                break;
+
+            default:
+                message << "\t[Unknown Error] Framebuffer status not recognized. Raw code: " << status_result << "\n"
+                        << "\t-> Investigate texture formats and attachment completeness. Enable OpenGL debug output for deeper insights.\n";
+                break;
+        }
+
+        Engine::GetLogger().LogError(message.str());
+        GL::BindFramebuffer(GL_FRAMEBUFFER, 0);
+        throw std::runtime_error{ message.str() };
+    }
+}
+
+
+
+================================================
+FILE: source/OpenGL/Framebuffer.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include "Engine/Vec2.h"
+#include "Handle.h"
+#include "Texture.h"
+
+namespace OpenGL
+{
+    /**
+     * \brief Descriptive alias for OpenGL framebuffer object handles
+     *
+     * FramebufferHandle provides a more specific and readable name for the generic
+     * OpenGL handle type when referring to framebuffer objects. Like other handle
+     * aliases, this improves code clarity without adding compile-time type safety.
+     */
+    using FramebufferHandle = Handle;
+
+    /**
+     * \brief Complete framebuffer setup with color attachment for render-to-texture operations
+     *
+     * FramebufferWithColor represents a fully configured OpenGL framebuffer that can
+     * be used as a render target. This struct bundles together the framebuffer object
+     * and its associated color texture, providing everything needed for off-screen
+     * rendering or render-to-texture effects.
+     *
+     * Purpose and Use Cases:
+     * - Render-to-texture operations (post-processing effects, shadows, reflections)
+     * - Off-screen rendering for UI elements or HUD components
+     * - Multi-pass rendering techniques (deferred rendering, G-buffers)
+     * - Creating texture atlases or procedural textures at runtime
+     * - Screen capture and screenshot functionality
+     *
+     * The framebuffer acts as a rendering target that redirects all drawing operations
+     * to the attached texture instead of the screen. This enables sophisticated
+     * graphics techniques where the rendered result becomes input for subsequent
+     * rendering passes or post-processing effects.
+     *
+     * Resource Management:
+     * Both the framebuffer and its color texture must be properly destroyed when
+     * no longer needed to prevent OpenGL resource leaks. The struct design makes
+     * it easy to manage these related resources as a single unit.
+     */
+    struct [[nodiscard]] FramebufferWithColor
+    {
+        /** \brief Handle to the OpenGL framebuffer object */
+        FramebufferHandle Framebuffer = 0;
+
+        /** \brief Handle to the color texture attached to this framebuffer */
+        TextureHandle ColorAttachment = 0;
+    };
+
+    /**
+     * \brief Create a complete framebuffer with color texture attachment
+     * \param size Dimensions of the framebuffer and its color texture in pixels
+     * \return Fully configured framebuffer ready for rendering operations
+     *
+     * Creates a complete framebuffer setup suitable for render-to-texture operations.
+     * This function handles all the complex OpenGL setup required for off-screen
+     * rendering, including texture creation, framebuffer configuration, and
+     * attachment binding.
+     *
+     * The created framebuffer includes:
+     * - A color texture attachment in RGBA format for storing rendered pixels
+     * - Proper draw buffer configuration for color output
+     * - Complete framebuffer validation to ensure it's ready for use
+     *
+     * Common usage patterns:
+     * - Post-processing pipelines: render scene to texture, then apply effects
+     * - Shadow mapping: render depth information from light's perspective
+     * - Reflection/refraction: capture environment from different viewpoints
+     * - UI rendering: create interface elements as textures
+     *
+     * The implementation creates an RGBA texture matching the specified dimensions
+     * and attaches it as GL_COLOR_ATTACHMENT0. The framebuffer is validated for
+     * completeness before being returned, throwing an exception if setup fails.
+     *
+     * Memory considerations:
+     * The texture size directly affects GPU memory usage (width 횞 height 횞 4 bytes
+     * for RGBA). Large framebuffers can impact performance and memory consumption.
+     */
+    FramebufferWithColor CreateFramebufferWithColor(Math::ivec2 size);
+
+    /**
+     * \brief Safely destroy framebuffer and release all associated resources
+     * \param framebuffer_with_color Framebuffer structure to destroy (will be reset to zero)
+     *
+     * Properly cleans up both the framebuffer object and its associated color texture,
+     * preventing OpenGL resource leaks. This function ensures that all GPU resources
+     * are returned to the system and the structure is reset to a safe state.
+     *
+     * Resource cleanup includes:
+     * - Deleting the OpenGL framebuffer object
+     * - Deleting the associated color texture
+     * - Resetting both handles to zero for safety
+     *
+     * The function is designed to be safe to call multiple times on the same
+     * structure, as it resets handles to zero after deletion. This prevents
+     * double-deletion errors that could occur with manual resource management.
+     *
+     * Usage patterns:
+     * - Call when framebuffer is no longer needed
+     * - Include in cleanup/shutdown code
+     * - Use in RAII wrapper destructors for automatic cleanup
+     * - Call before reassigning framebuffer variables
+     *
+     * After calling this function, the framebuffer structure should not be used
+     * for rendering operations until a new framebuffer is created.
+     */
+    void DestroyFramebufferWithColor(FramebufferWithColor& framebuffer_with_color) noexcept;
+}
+
+
+
+================================================
+FILE: source/OpenGL/GL.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+// Include GLEW first to define OpenGL functions and constants
+#include <GL/glew.h>
+
+#include "Engine/Engine.h"
+#include "Engine/Logger.h"
+#include "GL.h"
+
+#include <cassert>
+#include <iostream>
+#include <sstream>
+#include <string>
+
+
+#if defined(DEVELOPER_VERSION)
+#    include <source_location>
+#    define VOID_SOURCE_LOCATION const std::source_location caller_location
+#    define SOURCE_LOCATION      , VOID_SOURCE_LOCATION
+#    define glCheck(expression)                                                                                                                                                                        \
+        expression;                                                                                                                                                                                    \
+        glCheckError(caller_location.file_name(), caller_location.line(), caller_location.function_name(), #expression)
+
+namespace
+{
+    inline void glCheckError(const char* file, unsigned line, const char* function_name, const char* opengl_function)
+    {
+        GLenum errorCode = glGetError();
+
+        if (errorCode == GL_NO_ERROR)
+            return;
+
+        const std::string  fileString  = file;
+        std::string        error       = "Unknown error";
+        std::string        description = "No description";
+        std::ostringstream serr;
+
+        serr << "OpenGL call " << opengl_function << " failed in " << fileString.substr(fileString.find_last_of("\\/") + 1) << "(" << line << ")."
+             << "\nwithin Function:\n   " << function_name << "\nError description:\n   ";
+        int loop_limit = 0;
+        while (errorCode != GL_NO_ERROR && loop_limit < 3)
+        {
+            ++loop_limit;
+            switch (errorCode)
+            {
+                case GL_INVALID_ENUM:
+                    {
+                        error       = "GL_INVALID_ENUM";
+                        description = "An unacceptable value has been specified for an enumerated argument.";
+                        break;
+                    }
+
+                case GL_INVALID_VALUE:
+                    {
+                        error       = "GL_INVALID_VALUE";
+                        description = "A numeric argument is out of range.";
+                        break;
+                    }
+
+                case GL_INVALID_OPERATION:
+                    {
+                        error       = "GL_INVALID_OPERATION";
+                        description = "The specified operation is not allowed in the current state.";
+                        break;
+                    }
+
+                case GL_STACK_OVERFLOW:
+                    {
+                        error       = "GL_STACK_OVERFLOW";
+                        description = "This command would cause a stack overflow.";
+                        break;
+                    }
+
+                case GL_STACK_UNDERFLOW:
+                    {
+                        error       = "GL_STACK_UNDERFLOW";
+                        description = "This command would cause a stack underflow.";
+                        break;
+                    }
+
+                case GL_OUT_OF_MEMORY:
+                    {
+                        error       = "GL_OUT_OF_MEMORY";
+                        description = "There is not enough memory left to execute the command.";
+                        break;
+                    }
+
+                default:
+                    {
+                        error += " " + std::to_string(errorCode);
+                        break;
+                    }
+            }
+
+            serr << error << "\n   " << description << "\n\n";
+            errorCode = glGetError();
+        }
+        Engine::GetLogger().LogError(serr.str());
+        assert(false);
+    }
+}
+#else
+#    define SOURCE_LOCATION
+#    define VOID_SOURCE_LOCATION void
+#    define glCheck(expression)  expression
+#endif
+
+
+namespace GL
+{
+    const GLubyte* GetString(GLenum name SOURCE_LOCATION)
+    {
+        glCheck(const auto the_string = glGetString(name));
+        return the_string;
+    }
+
+    GLboolean IsBuffer(GLuint buffer SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsBuffer(buffer));
+        return result;
+    }
+
+    GLboolean IsEnabled(GLenum cap SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsEnabled(cap));
+        return result;
+    }
+
+    GLboolean IsProgram(GLuint program SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsProgram(program));
+        return result;
+    }
+
+    GLboolean IsShader(GLuint shader SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsShader(shader));
+        return result;
+    }
+
+    GLboolean IsTexture(GLuint texture SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsTexture(texture));
+        return result;
+    }
+
+    GLenum GetError(void)
+    {
+        // Note: We don't use glCheck here since this function IS the error checker
+        return glGetError();
+    }
+
+    GLint GetAttribLocation(GLuint program, const GLchar* name SOURCE_LOCATION)
+    {
+        glCheck(const auto location = glGetAttribLocation(program, name));
+        return location;
+    }
+
+    GLint GetUniformLocation(GLuint program, const GLchar* name SOURCE_LOCATION)
+    {
+        glCheck(const auto location = glGetUniformLocation(program, name));
+        return location;
+    }
+
+    GLuint CreateProgram(VOID_SOURCE_LOCATION)
+    {
+        glCheck(const auto program = glCreateProgram());
+        return program;
+    }
+
+    GLuint CreateShader(GLenum shaderType SOURCE_LOCATION)
+    {
+        glCheck(const auto shader = glCreateShader(shaderType));
+        return shader;
+    }
+
+    void ActiveTexture(GLenum texture SOURCE_LOCATION)
+    {
+        glCheck(glActiveTexture(texture));
+    }
+
+    void AttachShader(GLuint program, GLuint shader SOURCE_LOCATION)
+    {
+        glCheck(glAttachShader(program, shader));
+    }
+
+    void BindBuffer(GLenum target, GLuint buffer SOURCE_LOCATION)
+    {
+        glCheck(glBindBuffer(target, buffer));
+    }
+
+    void BindBufferBase(GLenum target, GLuint index, GLuint buffer SOURCE_LOCATION)
+    {
+        glCheck(glBindBufferBase(target, index, buffer));
+    }
+
+    void BindTexture(GLenum target, GLuint texture SOURCE_LOCATION)
+    {
+        glCheck(glBindTexture(target, texture));
+    }
+
+    void BlendEquation(GLenum mode SOURCE_LOCATION)
+    {
+        glCheck(glBlendEquation(mode));
+    }
+
+    void BlendFunc(GLenum sfactor, GLenum dfactor SOURCE_LOCATION)
+    {
+        glCheck(glBlendFunc(sfactor, dfactor));
+	}
+
+	void BlitFramebuffer(GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter SOURCE_LOCATION)
+	{
+        glCheck(glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter));
+	}
+
+	void BufferData(GLenum target, GLsizeiptr size, const GLvoid* data, GLenum usage SOURCE_LOCATION)
+	{
+        glCheck(glBufferData(target, size, data, usage));
+    }
+
+    void BufferSubData(GLenum target, GLintptr offset, GLsizeiptr size, const GLvoid* data SOURCE_LOCATION)
+    {
+        glCheck(glBufferSubData(target, offset, size, data));
+    }
+
+    void Clear(GLbitfield mask SOURCE_LOCATION)
+    {
+        glCheck(glClear(mask));
+    }
+
+    void ClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha SOURCE_LOCATION)
+    {
+        glCheck(glClearColor(red, green, blue, alpha));
+    }
+
+    void CompileShader(GLuint shader SOURCE_LOCATION)
+    {
+        glCheck(glCompileShader(shader));
+    }
+
+    void CullFace(GLenum mode SOURCE_LOCATION)
+    {
+        glCheck(glCullFace(mode));
+    }
+
+    void DeleteBuffers(GLsizei n, const GLuint* buffers SOURCE_LOCATION)
+    {
+        glCheck(glDeleteBuffers(n, buffers));
+    }
+
+    void DeleteProgram(GLuint program SOURCE_LOCATION)
+    {
+        glCheck(glDeleteProgram(program));
+    }
+
+    void DeleteShader(GLuint shader SOURCE_LOCATION)
+    {
+        glCheck(glDeleteShader(shader));
+    }
+
+    void DeleteTextures(GLsizei n, const GLuint* textures SOURCE_LOCATION)
+    {
+        glCheck(glDeleteTextures(n, textures));
+    }
+
+    void DepthMask(GLboolean flag SOURCE_LOCATION)
+    {
+        glCheck(glDepthMask(flag));
+    }
+
+    void Disable(GLenum cap SOURCE_LOCATION)
+    {
+        glCheck(glDisable(cap));
+    }
+
+    void DrawArrays(GLenum mode, GLint first, GLsizei count SOURCE_LOCATION)
+    {
+        glCheck(glDrawArrays(mode, first, count));
+    }
+
+    void DrawBuffers(GLsizei n, const GLenum* bufs SOURCE_LOCATION)
+    {
+        glCheck(glDrawBuffers(n, bufs));
+    }
+
+    void DrawElements(GLenum mode, GLsizei count, GLenum type, const GLvoid* indices SOURCE_LOCATION)
+    {
+        glCheck(glDrawElements(mode, count, type, indices));
+    }
+
+    void Enable(GLenum cap SOURCE_LOCATION)
+    {
+        glCheck(glEnable(cap));
+    }
+
+    void EnableVertexAttribArray(GLuint index SOURCE_LOCATION)
+    {
+        glCheck(glEnableVertexAttribArray(index));
+    }
+
+    void FrontFace(GLenum mode SOURCE_LOCATION)
+    {
+        glCheck(glFrontFace(mode));
+    }
+
+    void GenBuffers(GLsizei n, GLuint* buffers SOURCE_LOCATION)
+    {
+        glCheck(glGenBuffers(n, buffers));
+    }
+
+    void GenTextures(GLsizei n, GLuint* textures SOURCE_LOCATION)
+    {
+        glCheck(glGenTextures(n, textures));
+    }
+
+    void GetActiveAttrib(GLuint program, GLuint index, GLsizei bufSize, GLsizei* length, GLint* size, GLenum* type, GLchar* name SOURCE_LOCATION)
+    {
+        glCheck(glGetActiveAttrib(program, index, bufSize, length, size, type, name));
+    }
+
+    void GetActiveUniform(GLuint program, GLuint index, GLsizei bufSize, GLsizei* length, GLint* size, GLenum* type, GLchar* name SOURCE_LOCATION)
+    {
+        glCheck(glGetActiveUniform(program, index, bufSize, length, size, type, name));
+    }
+
+    void GetBooleanv(GLenum pname, GLboolean* data SOURCE_LOCATION)
+    {
+        glCheck(glGetBooleanv(pname, data));
+    }
+
+    void GetIntegerv(GLenum pname, GLint* data SOURCE_LOCATION)
+    {
+        glCheck(glGetIntegerv(pname, data));
+    }
+
+    void GetProgramInfoLog(GLuint program, GLsizei maxLength, GLsizei* length, GLchar* infoLog SOURCE_LOCATION)
+    {
+        glCheck(glGetProgramInfoLog(program, maxLength, length, infoLog));
+    }
+
+    void GetProgramiv(GLuint program, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetProgramiv(program, pname, params));
+    }
+
+    void GetShaderInfoLog(GLuint shader, GLsizei maxLength, GLsizei* length, GLchar* infoLog SOURCE_LOCATION)
+    {
+        glCheck(glGetShaderInfoLog(shader, maxLength, length, infoLog));
+    }
+
+    void GetShaderiv(GLuint shader, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetShaderiv(shader, pname, params));
+    }
+
+    void GetUniformfv(GLuint program, GLint location, GLfloat* params SOURCE_LOCATION)
+    {
+        glCheck(glGetUniformfv(program, location, params));
+    }
+
+    void GetUniformiv(GLuint program, GLint location, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetUniformiv(program, location, params));
+    }
+
+    void GetUniformuiv(GLuint program, GLint location, GLuint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetUniformuiv(program, location, params));
+    }
+
+    void Hint(GLenum target, GLenum mode SOURCE_LOCATION)
+    {
+        glCheck(glHint(target, mode));
+    }
+
+    void LinkProgram(GLuint program SOURCE_LOCATION)
+    {
+        glCheck(glLinkProgram(program));
+    }
+
+    void PolygonOffset(GLfloat factor, GLfloat units SOURCE_LOCATION)
+    {
+        glCheck(glPolygonOffset(factor, units));
+    }
+
+    void ReadPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid* pixels SOURCE_LOCATION)
+    {
+        glCheck(glReadPixels(x, y, width, height, format, type, pixels));
+    }
+
+    void ShaderSource(GLuint shader, GLsizei count, const GLchar** string, const GLint* length SOURCE_LOCATION)
+    {
+        glCheck(glShaderSource(shader, count, string, length));
+    }
+
+    void TexImage2D(GLenum target, GLint level, GLint internalFormat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const GLvoid* data SOURCE_LOCATION)
+    {
+        glCheck(glTexImage2D(target, level, internalFormat, width, height, border, format, type, data));
+    }
+
+    void TexImage2DMultisample(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLboolean fixedsamplelocations SOURCE_LOCATION)
+    {
+        glCheck(glTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations));
+    }
+
+    void TexParameterfv(GLenum target, GLenum pname, const GLfloat* params SOURCE_LOCATION)
+    {
+        glCheck(glTexParameterfv(target, pname, params));
+    }
+
+    void TexParameteri(GLenum target, GLenum pname, GLint param SOURCE_LOCATION)
+    {
+        glCheck(glTexParameteri(target, pname, param));
+    }
+
+    void TexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, const GLvoid* pixels SOURCE_LOCATION)
+    {
+        glCheck(glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels));
+    }
+
+    void Uniform1f(GLint location, GLfloat v0 SOURCE_LOCATION)
+    {
+        glCheck(glUniform1f(location, v0));
+    }
+
+    void Uniform1i(GLint location, GLint v0 SOURCE_LOCATION)
+    {
+        glCheck(glUniform1i(location, v0));
+    }
+
+    void Uniform1iv(GLint location, GLsizei count, const GLint* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform1iv(location, count, value));
+    }
+
+    void Uniform1ui(GLint location, GLuint v0 SOURCE_LOCATION)
+    {
+        glCheck(glUniform1ui(location, v0));
+    }
+
+    void Uniform2f(GLint location, GLfloat v0, GLfloat v1 SOURCE_LOCATION)
+    {
+        glCheck(glUniform2f(location, v0, v1));
+    }
+
+    void Uniform2fv(GLint location, GLsizei count, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform2fv(location, count, value));
+    }
+
+    void Uniform2i(GLint location, GLint v0, GLint v1 SOURCE_LOCATION)
+    {
+        glCheck(glUniform2i(location, v0, v1));
+    }
+
+    void Uniform2ui(GLint location, GLuint v0, GLuint v1 SOURCE_LOCATION)
+    {
+        glCheck(glUniform2ui(location, v0, v1));
+    }
+
+    void Uniform3f(GLint location, GLfloat v0, GLfloat v1, GLfloat v2 SOURCE_LOCATION)
+    {
+        glCheck(glUniform3f(location, v0, v1, v2));
+    }
+
+    void Uniform3fv(GLint location, GLsizei count, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform3fv(location, count, value));
+    }
+
+    void Uniform3i(GLint location, GLint v0, GLint v1, GLint v2 SOURCE_LOCATION)
+    {
+        glCheck(glUniform3i(location, v0, v1, v2));
+    }
+
+    void Uniform3ui(GLint location, GLuint v0, GLuint v1, GLuint v2 SOURCE_LOCATION)
+    {
+        glCheck(glUniform3ui(location, v0, v1, v2));
+    }
+
+    void Uniform4f(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3 SOURCE_LOCATION)
+    {
+        glCheck(glUniform4f(location, v0, v1, v2, v3));
+    }
+
+    void Uniform4fv(GLint location, GLsizei count, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform4fv(location, count, value));
+    }
+
+    void Uniform4i(GLint location, GLint v0, GLint v1, GLint v2, GLint v3 SOURCE_LOCATION)
+    {
+        glCheck(glUniform4i(location, v0, v1, v2, v3));
+    }
+
+    void Uniform4ui(GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3 SOURCE_LOCATION)
+    {
+        glCheck(glUniform4ui(location, v0, v1, v2, v3));
+    }
+
+    void UniformMatrix2fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniformMatrix2fv(location, count, transpose, value));
+    }
+
+    void UniformMatrix2x3fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniformMatrix2x3fv(location, count, transpose, value));
+    }
+
+    void UniformMatrix2x4fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniformMatrix2x4fv(location, count, transpose, value));
+    }
+
+    void UniformMatrix3fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniformMatrix3fv(location, count, transpose, value));
+    }
+
+    void UniformMatrix3x2fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniformMatrix3x2fv(location, count, transpose, value));
+    }
+
+    void UniformMatrix3x4fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniformMatrix3x4fv(location, count, transpose, value));
+    }
+
+    void UniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniformMatrix4fv(location, count, transpose, value));
+    }
+
+    void UniformMatrix4x2fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniformMatrix4x2fv(location, count, transpose, value));
+    }
+
+    void UniformMatrix4x3fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniformMatrix4x3fv(location, count, transpose, value));
+    }
+
+    void UseProgram(GLuint program SOURCE_LOCATION)
+    {
+        glCheck(glUseProgram(program));
+    }
+
+    void ClearDepth(GLdouble depth SOURCE_LOCATION)
+    {
+        glCheck(glClearDepth(depth));
+    }
+
+    void ClearStencil(GLint s SOURCE_LOCATION)
+    {
+        glCheck(glClearStencil(s));
+    }
+
+    void ColorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha SOURCE_LOCATION)
+    {
+        glCheck(glColorMask(red, green, blue, alpha));
+    }
+
+    void CopyTexImage2D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border SOURCE_LOCATION)
+    {
+        glCheck(glCopyTexImage2D(target, level, internalformat, x, y, width, height, border));
+    }
+
+    void CopyTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height SOURCE_LOCATION)
+    {
+        glCheck(glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height));
+    }
+
+    void DepthRange(GLdouble nearVal, GLdouble farVal SOURCE_LOCATION)
+    {
+        glCheck(glDepthRange(nearVal, farVal));
+    }
+
+    void DetachShader(GLuint program, GLuint shader SOURCE_LOCATION)
+    {
+        glCheck(glDetachShader(program, shader));
+    }
+
+    void DisableVertexAttribArray(GLuint index SOURCE_LOCATION)
+    {
+        glCheck(glDisableVertexAttribArray(index));
+    }
+
+    void DrawRangeElements(GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const GLvoid* indices SOURCE_LOCATION)
+    {
+        glCheck(glDrawRangeElements(mode, start, end, count, type, indices));
+    }
+
+    void GetAttachedShaders(GLuint program, GLsizei maxCount, GLsizei* count, GLuint* shaders SOURCE_LOCATION)
+    {
+        glCheck(glGetAttachedShaders(program, maxCount, count, shaders));
+    }
+
+    void GetFloatv(GLenum pname, GLfloat* data SOURCE_LOCATION)
+    {
+        glCheck(glGetFloatv(pname, data));
+    }
+
+    void GetShaderSource(GLuint shader, GLsizei bufSize, GLsizei* length, GLchar* source SOURCE_LOCATION)
+    {
+        glCheck(glGetShaderSource(shader, bufSize, length, source));
+    }
+
+    void GetTexParameterfv(GLenum target, GLenum pname, GLfloat* params SOURCE_LOCATION)
+    {
+        glCheck(glGetTexParameterfv(target, pname, params));
+    }
+
+    void GetTexParameteriv(GLenum target, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetTexParameteriv(target, pname, params));
+    }
+
+    void GetVertexAttribfv(GLuint index, GLenum pname, GLfloat* params SOURCE_LOCATION)
+    {
+        glCheck(glGetVertexAttribfv(index, pname, params));
+    }
+
+    void GetVertexAttribiv(GLuint index, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetVertexAttribiv(index, pname, params));
+    }
+
+    void GetVertexAttribPointerv(GLuint index, GLenum pname, GLvoid** pointer SOURCE_LOCATION)
+    {
+        glCheck(glGetVertexAttribPointerv(index, pname, pointer));
+    }
+
+    void LineWidth(GLfloat width SOURCE_LOCATION)
+    {
+        glCheck(glLineWidth(width));
+    }
+
+    void PixelStorei(GLenum pname, GLint param SOURCE_LOCATION)
+    {
+        glCheck(glPixelStorei(pname, param));
+    }
+
+    void Scissor(GLint x, GLint y, GLsizei width, GLsizei height SOURCE_LOCATION)
+    {
+        glCheck(glScissor(x, y, width, height));
+    }
+
+    void StencilMask(GLuint mask SOURCE_LOCATION)
+    {
+        glCheck(glStencilMask(mask));
+    }
+
+    void StencilMaskSeparate(GLenum face, GLuint mask SOURCE_LOCATION)
+    {
+        glCheck(glStencilMaskSeparate(face, mask));
+    }
+
+    void TexParameterf(GLenum target, GLenum pname, GLfloat param SOURCE_LOCATION)
+    {
+        glCheck(glTexParameterf(target, pname, param));
+    }
+
+    void TexParameteriv(GLenum target, GLenum pname, const GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glTexParameteriv(target, pname, params));
+    }
+
+    void Uniform1fv(GLint location, GLsizei count, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform1fv(location, count, value));
+    }
+
+    void Uniform1uiv(GLint location, GLsizei count, const GLuint* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform1uiv(location, count, value));
+    }
+
+    void Uniform2iv(GLint location, GLsizei count, const GLint* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform2iv(location, count, value));
+    }
+
+    void Uniform2uiv(GLint location, GLsizei count, const GLuint* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform2uiv(location, count, value));
+    }
+
+    void Uniform3iv(GLint location, GLsizei count, const GLint* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform3iv(location, count, value));
+    }
+
+    void Uniform3uiv(GLint location, GLsizei count, const GLuint* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform3uiv(location, count, value));
+    }
+
+    void Uniform4iv(GLint location, GLsizei count, const GLint* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform4iv(location, count, value));
+    }
+
+    void Uniform4uiv(GLint location, GLsizei count, const GLuint* value SOURCE_LOCATION)
+    {
+        glCheck(glUniform4uiv(location, count, value));
+    }
+
+    void VertexAttrib1f(GLuint index, GLfloat v0 SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttrib1f(index, v0));
+    }
+
+    void VertexAttrib1fv(GLuint index, const GLfloat* v SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttrib1fv(index, v));
+    }
+
+    void VertexAttrib2f(GLuint index, GLfloat v0, GLfloat v1 SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttrib2f(index, v0, v1));
+    }
+
+    void VertexAttrib2fv(GLuint index, const GLfloat* v SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttrib2fv(index, v));
+    }
+
+    void VertexAttrib3f(GLuint index, GLfloat v0, GLfloat v1, GLfloat v2 SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttrib3f(index, v0, v1, v2));
+    }
+
+    void VertexAttrib3fv(GLuint index, const GLfloat* v SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttrib3fv(index, v));
+    }
+
+    void VertexAttrib4f(GLuint index, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3 SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttrib4f(index, v0, v1, v2, v3));
+    }
+
+    void VertexAttrib4fv(GLuint index, const GLfloat* v SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttrib4fv(index, v));
+    }
+
+    void ValidateProgram(GLuint program SOURCE_LOCATION)
+    {
+        glCheck(glValidateProgram(program));
+    }
+
+    void VertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttribPointer(index, size, type, normalized, stride, pointer));
+    }
+
+    void Viewport(GLint x, GLint y, GLsizei width, GLsizei height SOURCE_LOCATION)
+    {
+        glCheck(glViewport(x, y, width, height));
+    }
+
+    GLenum CheckFramebufferStatus(GLenum target SOURCE_LOCATION)
+    {
+        glCheck(const GLenum status = glCheckFramebufferStatus(target));
+        return status;
+    }
+
+    void BindFramebuffer(GLenum target, GLuint framebuffer SOURCE_LOCATION)
+    {
+        glCheck(glBindFramebuffer(target, framebuffer));
+    }
+
+    void BindRenderbuffer(GLenum target, GLuint renderbuffer SOURCE_LOCATION)
+    {
+        glCheck(glBindRenderbuffer(target, renderbuffer));
+    }
+
+    void BindVertexArray(GLuint array SOURCE_LOCATION)
+    {
+        glCheck(glBindVertexArray(array));
+    }
+
+    void DeleteFramebuffers(GLsizei n, GLuint* framebuffers SOURCE_LOCATION)
+    {
+        glCheck(glDeleteFramebuffers(n, framebuffers));
+    }
+
+    void DeleteVertexArrays(GLsizei n, const GLuint* arrays SOURCE_LOCATION)
+    {
+        glCheck(glDeleteVertexArrays(n, arrays));
+    }
+
+    void FramebufferTexture2D(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level SOURCE_LOCATION)
+    {
+        glCheck(glFramebufferTexture2D(target, attachment, textarget, texture, level));
+    }
+
+    void GenFramebuffers(GLsizei n, GLuint* framebuffers SOURCE_LOCATION)
+    {
+        glCheck(glGenFramebuffers(n, framebuffers));
+    }
+
+    void GenVertexArrays(GLsizei n, GLuint* arrays SOURCE_LOCATION)
+    {
+        glCheck(glGenVertexArrays(n, arrays));
+    }
+
+    GLboolean IsFramebuffer(GLuint framebuffer SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsFramebuffer(framebuffer));
+        return result;
+    }
+
+    GLboolean IsRenderbuffer(GLuint renderbuffer SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsRenderbuffer(renderbuffer));
+        return result;
+    }
+
+    GLboolean IsQuery(GLuint id SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsQuery(id));
+        return result;
+    }
+
+    GLboolean IsSampler(GLuint id SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsSampler(id));
+        return result;
+    }
+
+    GLboolean IsSync(GLsync sync SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsSync(sync));
+        return result;
+    }
+
+    GLboolean IsTransformFeedback(GLuint id SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glIsTransformFeedback(id));
+        return result;
+    }
+
+    GLenum ClientWaitSync(GLsync sync, GLbitfield flags, GLuint64 timeout SOURCE_LOCATION)
+    {
+        glCheck(const auto result = glClientWaitSync(sync, flags, timeout));
+        return result;
+    }
+
+    GLint GetFragDataLocation(GLuint program, const char* name SOURCE_LOCATION)
+    {
+        glCheck(const auto location = glGetFragDataLocation(program, name));
+        return location;
+    }
+
+    GLsync FenceSync(GLenum condition, GLbitfield flags SOURCE_LOCATION)
+    {
+        glCheck(const auto sync = glFenceSync(condition, flags));
+        return sync;
+    }
+
+    GLuint GetUniformBlockIndex(GLuint program, const GLchar* uniformBlockName SOURCE_LOCATION)
+    {
+        glCheck(const auto index = glGetUniformBlockIndex(program, uniformBlockName));
+        return index;
+    }
+
+    void BeginQuery(GLenum target, GLuint id SOURCE_LOCATION)
+    {
+        glCheck(glBeginQuery(target, id));
+    }
+
+    void BeginTransformFeedback(GLenum primitiveMode SOURCE_LOCATION)
+    {
+        glCheck(glBeginTransformFeedback(primitiveMode));
+    }
+
+    void ClearBufferfi(GLenum buffer, GLint drawBuffer, GLfloat depth, GLint stencil SOURCE_LOCATION)
+    {
+        glCheck(glClearBufferfi(buffer, drawBuffer, depth, stencil));
+    }
+
+    void ClearBufferfv(GLenum buffer, GLint drawBuffer, const GLfloat* value SOURCE_LOCATION)
+    {
+        glCheck(glClearBufferfv(buffer, drawBuffer, value));
+    }
+
+    void ClearBufferiv(GLenum buffer, GLint drawBuffer, const GLint* value SOURCE_LOCATION)
+    {
+        glCheck(glClearBufferiv(buffer, drawBuffer, value));
+    }
+
+    void ClearBufferuiv(GLenum buffer, GLint drawBuffer, const GLuint* value SOURCE_LOCATION)
+    {
+        glCheck(glClearBufferuiv(buffer, drawBuffer, value));
+    }
+
+    void ClearDepthf(GLfloat depth SOURCE_LOCATION)
+    {
+        glCheck(glClearDepthf(depth));
+    }
+
+    void CompressedTexImage2D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLsizei imageSize, const GLvoid* data SOURCE_LOCATION)
+    {
+        glCheck(glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data));
+    }
+
+    void CompressedTexImage3D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLsizei imageSize, const GLvoid* data SOURCE_LOCATION)
+    {
+        glCheck(glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data));
+    }
+
+    void CompressedTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, const GLvoid* data SOURCE_LOCATION)
+    {
+        glCheck(glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data));
+    }
+
+    void CompressedTexSubImage3D(
+        GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLsizei imageSize, const GLvoid* data SOURCE_LOCATION)
+    {
+        glCheck(glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data));
+    }
+
+    void CopyBufferSubData(GLenum readtarget, GLenum writetarget, GLintptr readoffset, GLintptr writeoffset, GLsizeiptr size SOURCE_LOCATION)
+    {
+        glCheck(glCopyBufferSubData(readtarget, writetarget, readoffset, writeoffset, size));
+    }
+
+    void CopyTexSubImage3D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height SOURCE_LOCATION)
+    {
+        glCheck(glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height));
+    }
+
+    void CreateRenderbuffers(GLsizei n, GLuint* renderbuffers SOURCE_LOCATION)
+    {
+        glCheck(glCreateRenderbuffers(n, renderbuffers));
+    }
+
+    void CreateSamplers(GLsizei n, GLuint* samplers SOURCE_LOCATION)
+    {
+        glCheck(glCreateSamplers(n, samplers));
+    }
+
+    void CreateTransformFeedbacks(GLsizei n, GLuint* ids SOURCE_LOCATION)
+    {
+        glCheck(glCreateTransformFeedbacks(n, ids));
+    }
+
+    void DeleteQueries(GLsizei n, const GLuint* ids SOURCE_LOCATION)
+    {
+        glCheck(glDeleteQueries(n, ids));
+    }
+
+    void DeleteRenderbuffers(GLsizei n, GLuint* renderbuffers SOURCE_LOCATION)
+    {
+        glCheck(glDeleteRenderbuffers(n, renderbuffers));
+    }
+
+    void DeleteSamplers(GLsizei n, const GLuint* samplers SOURCE_LOCATION)
+    {
+        glCheck(glDeleteSamplers(n, samplers));
+    }
+
+    void DeleteSync(GLsync sync SOURCE_LOCATION)
+    {
+        glCheck(glDeleteSync(sync));
+    }
+
+    void DeleteTransformFeedbacks(GLsizei n, const GLuint* ids SOURCE_LOCATION)
+    {
+        glCheck(glDeleteTransformFeedbacks(n, ids));
+    }
+
+    void DepthRangef(GLfloat n, GLfloat f SOURCE_LOCATION)
+    {
+        glCheck(glDepthRangef(n, f));
+    }
+
+	void DepthFunc(GLenum func SOURCE_LOCATION)
+	{
+        glCheck(glDepthFunc(func));
+	}
+
+	void DrawArraysInstanced(GLenum mode, GLint first, GLsizei count, GLsizei primcount SOURCE_LOCATION)
+    {
+        glCheck(glDrawArraysInstanced(mode, first, count, primcount));
+    }
+
+    void DrawElementsInstanced(GLenum mode, GLsizei count, GLenum type, const void* indices, GLsizei primcount SOURCE_LOCATION)
+    {
+        glCheck(glDrawElementsInstanced(mode, count, type, indices, primcount));
+    }
+
+    void EndQuery(GLenum target SOURCE_LOCATION)
+    {
+        glCheck(glEndQuery(target));
+    }
+
+    void EndTransformFeedback(VOID_SOURCE_LOCATION)
+    {
+        glCheck(glEndTransformFeedback());
+    }
+
+    void FramebufferRenderbuffer(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer SOURCE_LOCATION)
+    {
+        glCheck(glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer));
+    }
+
+    void FramebufferTextureLayer(GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer SOURCE_LOCATION)
+    {
+        glCheck(glFramebufferTextureLayer(target, attachment, texture, level, layer));
+    }
+
+    void GenerateMipmap(GLenum target SOURCE_LOCATION)
+    {
+        glCheck(glGenerateMipmap(target));
+    }
+
+    void GenQueries(GLsizei n, GLuint* ids SOURCE_LOCATION)
+    {
+        glCheck(glGenQueries(n, ids));
+    }
+
+    void GenRenderbuffers(GLsizei n, GLuint* renderbuffers SOURCE_LOCATION)
+    {
+        glCheck(glGenRenderbuffers(n, renderbuffers));
+    }
+
+    void GenSamplers(GLsizei n, GLuint* samplers SOURCE_LOCATION)
+    {
+        glCheck(glGenSamplers(n, samplers));
+    }
+
+    void GenTransformFeedbacks(GLsizei n, GLuint* ids SOURCE_LOCATION)
+    {
+        glCheck(glGenTransformFeedbacks(n, ids));
+    }
+
+    void GetActiveUniformBlockiv(GLuint program, GLuint uniformBlockIndex, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, params));
+    }
+
+    void GetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformBlockName SOURCE_LOCATION)
+    {
+        glCheck(glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName));
+    }
+
+    void GetActiveUniformsiv(GLuint program, GLsizei uniformCount, const GLuint* uniformIndices, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, params));
+    }
+
+    void GetBooleani_v(GLenum target, GLuint index, GLboolean* data SOURCE_LOCATION)
+    {
+        glCheck(glGetBooleani_v(target, index, data));
+    }
+
+    void GetBufferParameteri64v(GLenum target, GLenum value, GLint64* data SOURCE_LOCATION)
+    {
+        glCheck(glGetBufferParameteri64v(target, value, data));
+    }
+
+    void GetBufferParameteriv(GLenum target, GLenum value, GLint* data SOURCE_LOCATION)
+    {
+        glCheck(glGetBufferParameteriv(target, value, data));
+    }
+
+    void GetBufferSubData(GLenum target, GLintptr offset, GLsizeiptr size, GLvoid* data SOURCE_LOCATION)
+    {
+        glCheck(glGetBufferSubData(target, offset, size, data));
+    }
+
+    void GetFramebufferAttachmentParameteriv(GLenum target, GLenum attachment, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetFramebufferAttachmentParameteriv(target, attachment, pname, params));
+    }
+
+    void GetInteger64i_v(GLenum target, GLuint index, GLint64* data SOURCE_LOCATION)
+    {
+        glCheck(glGetInteger64i_v(target, index, data));
+    }
+
+    void GetInteger64v(GLenum pname, GLint64* data SOURCE_LOCATION)
+    {
+        glCheck(glGetInteger64v(pname, data));
+    }
+
+    void GetIntegeri_v(GLenum target, GLuint index, GLint* data SOURCE_LOCATION)
+    {
+        glCheck(glGetIntegeri_v(target, index, data));
+    }
+
+    void GetQueryiv(GLenum target, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetQueryiv(target, pname, params));
+    }
+
+    void GetQueryObjectuiv(GLuint id, GLenum pname, GLuint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetQueryObjectuiv(id, pname, params));
+    }
+
+    void GetRenderbufferParameteriv(GLenum target, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetRenderbufferParameteriv(target, pname, params));
+    }
+
+    void GetSamplerParameterfv(GLuint sampler, GLenum pname, GLfloat* params SOURCE_LOCATION)
+    {
+        glCheck(glGetSamplerParameterfv(sampler, pname, params));
+    }
+
+    void GetSamplerParameteriv(GLuint sampler, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetSamplerParameteriv(sampler, pname, params));
+    }
+
+    void GetSynciv(GLsync sync, GLenum pname, GLsizei bufSize, GLsizei* length, GLint* values SOURCE_LOCATION)
+    {
+        glCheck(glGetSynciv(sync, pname, bufSize, length, values));
+    }
+
+    void GetTransformFeedbackVarying(GLuint program, GLuint index, GLsizei bufSize, GLsizei* length, GLsizei* size, GLenum* type, char* name SOURCE_LOCATION)
+    {
+        glCheck(glGetTransformFeedbackVarying(program, index, bufSize, length, size, type, name));
+    }
+
+    void GetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar** uniformNames, GLuint* uniformIndices SOURCE_LOCATION)
+    {
+        glCheck(glGetUniformIndices(program, uniformCount, uniformNames, uniformIndices));
+    }
+
+    void GetVertexAttribIiv(GLuint index, GLenum pname, GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetVertexAttribIiv(index, pname, params));
+    }
+
+    void GetVertexAttribIuiv(GLuint index, GLenum pname, GLuint* params SOURCE_LOCATION)
+    {
+        glCheck(glGetVertexAttribIuiv(index, pname, params));
+    }
+
+    void PauseTransformFeedback(VOID_SOURCE_LOCATION)
+    {
+        glCheck(glPauseTransformFeedback());
+    }
+
+    void ReadBuffer(GLenum mode SOURCE_LOCATION)
+    {
+        glCheck(glReadBuffer(mode));
+    }
+
+    void RenderbufferStorage(GLenum target, GLenum internalformat, GLsizei width, GLsizei height SOURCE_LOCATION)
+    {
+        glCheck(glRenderbufferStorage(target, internalformat, width, height));
+    }
+
+    void RenderbufferStorageMultisample(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height SOURCE_LOCATION)
+    {
+        glCheck(glRenderbufferStorageMultisample(target, samples, internalformat, width, height));
+    }
+
+    void ResumeTransformFeedback(VOID_SOURCE_LOCATION)
+    {
+        glCheck(glResumeTransformFeedback());
+    }
+
+    void SamplerParameterf(GLuint sampler, GLenum pname, GLfloat param SOURCE_LOCATION)
+    {
+        glCheck(glSamplerParameterf(sampler, pname, param));
+    }
+
+    void SamplerParameterfv(GLuint sampler, GLenum pname, const GLfloat* params SOURCE_LOCATION)
+    {
+        glCheck(glSamplerParameterfv(sampler, pname, params));
+    }
+
+    void SamplerParameteri(GLuint sampler, GLenum pname, GLint param SOURCE_LOCATION)
+    {
+        glCheck(glSamplerParameteri(sampler, pname, param));
+    }
+
+    void SamplerParameteriv(GLuint sampler, GLenum pname, const GLint* params SOURCE_LOCATION)
+    {
+        glCheck(glSamplerParameteriv(sampler, pname, params));
+    }
+
+    void TexImage3D(GLenum target, GLint level, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, const GLvoid* data SOURCE_LOCATION)
+    {
+        glCheck(glTexImage3D(target, level, internalFormat, width, height, depth, border, format, type, data));
+    }
+
+    void TexStorage3D(GLenum target, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth SOURCE_LOCATION)
+    {
+        glCheck(glTexStorage3D(target, levels, internalformat, width, height, depth));
+    }
+
+    void TexSubImage3D(
+        GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const GLvoid* data SOURCE_LOCATION)
+    {
+        glCheck(glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data));
+    }
+
+    void TransformFeedbackVaryings(GLuint program, GLsizei count, const char** varyings, GLenum bufferMode SOURCE_LOCATION)
+    {
+        glCheck(glTransformFeedbackVaryings(program, count, varyings, bufferMode));
+    }
+
+    void UniformBlockBinding(GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding SOURCE_LOCATION)
+    {
+        glCheck(glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding));
+    }
+
+    void VertexAttribDivisor(GLuint index, GLuint divisor SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttribDivisor(index, divisor));
+    }
+
+    void VertexAttribIPointer(GLuint index, GLint size, GLenum type, GLsizei stride, const GLvoid* pointer SOURCE_LOCATION)
+    {
+        glCheck(glVertexAttribIPointer(index, size, type, stride, pointer));
+    }
+
+    void WaitSync(GLsync sync, GLbitfield flags, GLuint64 timeout SOURCE_LOCATION)
+    {
+        glCheck(glWaitSync(sync, flags, timeout));
+    }
+
+    void TexStorage2D(GLenum target, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height SOURCE_LOCATION)
+    {
+        glCheck(glTexStorage2D(target, levels, internalformat, width, height));
+    }
+
+#if !defined(IS_WEBGL2)
+
+    // OpenGL 4.3+ Debug functions
+    void DebugMessageCallback(DEBUGPROC callback, const void* userParam SOURCE_LOCATION)
+    {
+        glCheck(glDebugMessageCallback(callback, userParam));
+    }
+
+    void DebugMessageControl(GLenum source, GLenum type, GLenum severity, GLsizei count, const GLuint* ids, GLboolean enabled SOURCE_LOCATION)
+    {
+        glCheck(glDebugMessageControl(source, type, severity, count, ids, enabled));
+    }
+
+#endif
+
+}
+
+
+

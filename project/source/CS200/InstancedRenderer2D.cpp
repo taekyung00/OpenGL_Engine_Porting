@@ -14,6 +14,9 @@
 #include "OpenGL/VertexArray.h"
 #include "Renderer2DUtils.h"
 
+#include <GL/glew.h>
+#include "Tracy/tracy/Tracy.hpp"
+#include "Tracy/tracy/TracyOpenGL.hpp"
 #include <fstream>
 #include <numeric>
 #include <sstream>
@@ -270,6 +273,7 @@ namespace CS200
 	void InstancedRenderer2D::DrawQuad(
 		const Math::TransformationMatrix& transform, OpenGL::TextureHandle texture, Math::vec2 texture_coord_bl, Math::vec2 texture_coord_tr, CS200::RGBA tintColor, float depth)
 	{
+		ZoneScopedN("Instanced::Draw");
 		if (instanceData.size() >= maxInstances)
 		{
 			flush();
@@ -344,6 +348,8 @@ namespace CS200
 	{
 		if (!instanceData.empty()) [[unlikely]]
 		{
+			ZoneScopedN("Instanced::Textured");
+			TracyGpuZone("Instanced::Textured");
 			GL::BindBuffer(GL_ARRAY_BUFFER, instanceBufferHandle);
 			GL::BufferData(GL_ARRAY_BUFFER, static_cast<GLsizeiptr>(sizeof(QuadInstance) * maxInstances), nullptr, GL_DYNAMIC_DRAW);
 			OpenGL::UpdateBufferData(OpenGL::BufferType::Vertices, instanceBufferHandle, std::as_bytes(std::span{ instanceData.data(), instanceData.size() }));
@@ -362,6 +368,8 @@ namespace CS200
 
 		if (!sdfInstanceData.empty())
 		{
+			ZoneScopedN("Instanced::SDF");
+			TracyGpuZone("Instanced::SDF");
 			GL::BindBuffer(GL_ARRAY_BUFFER, sdfInstanceBufferHandle);
 			GL::BufferData(GL_ARRAY_BUFFER, static_cast<GLsizeiptr>(sizeof(SDFInstance) * maxSDFInstances), nullptr, GL_DYNAMIC_DRAW);
 

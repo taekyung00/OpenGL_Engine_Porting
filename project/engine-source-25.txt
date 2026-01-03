@@ -1,0 +1,494 @@
+Directory: project
+Files analyzed: 243
+
+Estimated tokens: 741.4k
+
+Directory structure:
+└── project/
+    └── source/
+        ├── main.cpp
+        ├── CS200/
+        │   ├── BatchRenderer2D.cpp
+        │   ├── BatchRenderer2D.h
+        │   ├── Image.cpp
+        │   ├── Image.h
+        │   ├── ImGuiHelper.cpp
+        │   ├── ImGuiHelper.h
+        │   ├── ImmediateRenderer2D.cpp
+        │   ├── ImmediateRenderer2D.h
+        │   ├── InstancedRenderer2D.cpp
+        │   ├── InstancedRenderer2D.h
+        │   ├── IRenderer2D.h
+        │   ├── NDC.h
+        │   ├── OffscreenFramebuffer.cpp
+        │   ├── OffscreenFramebuffer.h
+        │   ├── PostProcessingPipeline.cpp
+        │   ├── PostProcessingPipeline.h
+        │   ├── Renderer2DUtils.cpp
+        │   ├── Renderer2DUtils.h
+        │   ├── RenderingAPI.cpp
+        │   ├── RenderingAPI.h
+        │   ├── RGBA.h
+        │   ├── Shape.cpp
+        │   └── Shape.h
+        ├── Demo/
+        │   ├── DemoBatchInstance.cpp
+        │   ├── DemoBatchInstance.h
+        │   ├── DemoBufferTypes.cpp
+        │   ├── DemoBufferTypes.h
+        │   ├── DemoCS230Textures.cpp
+        │   ├── DemoCS230Textures.h
+        │   ├── DemoDepthPost.cpp
+        │   ├── DemoDepthPost.h
+        │   ├── DemoFramebuffer.cpp
+        │   ├── DemoFramebuffer.h
+        │   ├── DemoShapes.cpp
+        │   ├── DemoShapes.h
+        │   ├── DemoText.cpp
+        │   ├── DemoText.h
+        │   ├── DemoTexturing.cpp
+        │   ├── DemoTexturing.h
+        │   ├── DemoVAO.cpp
+        │   ├── DemoVAO.h
+        │   ├── Demo7/
+        │   │   ├── Moon.cpp
+        │   │   ├── Moon.h
+        │   │   ├── Road.cpp
+        │   │   ├── Road.h
+        │   │   ├── Stars.cpp
+        │   │   ├── Stars.h
+        │   │   ├── Triangle.cpp
+        │   │   ├── Triangle.h
+        │   │   └── WorldSize.h
+        │   └── DemoSceneShowcase/
+        │       ├── Map.cpp
+        │       ├── Map.h
+        │       ├── Samurai.cpp
+        │       ├── Samurai.h
+        │       ├── SceneState.cpp
+        │       └── SceneState.h
+        ├── Engine/
+        │   ├── Animation.cpp
+        │   ├── Animation.h
+        │   ├── Camera.cpp
+        │   ├── Camera.h
+        │   ├── Collision.cpp
+        │   ├── Collision.h
+        │   ├── Component.h
+        │   ├── ComponentManager.h
+        │   ├── Engine.cpp
+        │   ├── Engine.h
+        │   ├── Error.h
+        │   ├── Font.cpp
+        │   ├── Font.h
+        │   ├── Fonts.h
+        │   ├── FPS.h
+        │   ├── GameObject.cpp
+        │   ├── GameObject.h
+        │   ├── GameObjectManager.cpp
+        │   ├── GameObjectManager.h
+        │   ├── GameState.h
+        │   ├── GameStateManager.cpp
+        │   ├── GameStateManager.h
+        │   ├── Input.cpp
+        │   ├── Input.h
+        │   ├── Logger.cpp
+        │   ├── Logger.h
+        │   ├── Matrix.cpp
+        │   ├── Matrix.h
+        │   ├── Particle.cpp
+        │   ├── Particle.h
+        │   ├── Path.cpp
+        │   ├── Path.h
+        │   ├── PerformanceMonitor.cpp
+        │   ├── PerformanceMonitor.h
+        │   ├── Random.cpp
+        │   ├── Random.h
+        │   ├── Rect.h
+        │   ├── ShowCollision.cpp
+        │   ├── ShowCollision.h
+        │   ├── Sprite.cpp
+        │   ├── Sprite.h
+        │   ├── TextManager.cpp
+        │   ├── TextManager.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── TextureManager.cpp
+        │   ├── TextureManager.h
+        │   ├── Timer.h
+        │   ├── Vec2.cpp
+        │   ├── Vec2.h
+        │   ├── Window.cpp
+        │   └── Window.h
+        ├── Game/
+        │   ├── Background.cpp
+        │   ├── Background.h
+        │   ├── GameObjectTypes.h
+        │   ├── MainMenu.cpp
+        │   ├── MainMenu.h
+        │   ├── Particles.h
+        │   ├── Score.cpp
+        │   ├── Score.h
+        │   ├── Splash.cpp
+        │   ├── Splash.h
+        │   ├── States.h
+        │   ├── CS230_Final/
+        │   │   ├── Components/
+        │   │   │   ├── Bounce.cpp
+        │   │   │   ├── Bounce.h
+        │   │   │   ├── Grid.cpp
+        │   │   │   ├── Grid.h
+        │   │   │   ├── Random.cpp
+        │   │   │   ├── Random.h
+        │   │   │   ├── Ziggle.cpp
+        │   │   │   └── Ziggle.h
+        │   │   ├── Objects/
+        │   │   │   ├── Bus.cpp
+        │   │   │   ├── Bus.h
+        │   │   │   ├── BusLine.h
+        │   │   │   ├── Constants.h
+        │   │   │   ├── Food.cpp
+        │   │   │   ├── Food.h
+        │   │   │   ├── Obstacle.cpp
+        │   │   │   ├── Obstacle.h
+        │   │   │   ├── Passenger.cpp
+        │   │   │   ├── Passenger.h
+        │   │   │   ├── Player.cpp
+        │   │   │   └── Player.h
+        │   │   └── States/
+        │   │       ├── BadSandwich.cpp
+        │   │       ├── BadSandwich.h
+        │   │       ├── GoodSandwich.cpp
+        │   │       ├── GoodSandwich.h
+        │   │       ├── NormalSandwich.cpp
+        │   │       ├── NormalSandwich.h
+        │   │       ├── Project.cpp
+        │   │       └── Project.h
+        │   └── States/
+        │       ├── ConsoleTest.cpp
+        │       ├── ConsoleTest.h
+        │       ├── RenderingTest.cpp
+        │       └── RenderingTest.h
+        ├── OpenGL/
+        │   ├── Buffer.cpp
+        │   ├── Buffer.h
+        │   ├── Environment.h
+        │   ├── Framebuffer.cpp
+        │   ├── Framebuffer.h
+        │   ├── GL.cpp
+        │   ├── GL.h
+        │   ├── GLConstants.h
+        │   ├── GLTypes.h
+        │   ├── Handle.h
+        │   ├── Shader.cpp
+        │   ├── Shader.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── VertexArray.cpp
+        │   └── VertexArray.h
+        └── Tracy/
+            ├── TracyClient.cpp
+            ├── client/
+            │   ├── tracy_concurrentqueue.h
+            │   ├── tracy_rpmalloc.cpp
+            │   ├── tracy_rpmalloc.hpp
+            │   ├── tracy_SPSCQueue.h
+            │   ├── TracyAlloc.cpp
+            │   ├── TracyArmCpuTable.hpp
+            │   ├── TracyCallstack.cpp
+            │   ├── TracyCallstack.h
+            │   ├── TracyCallstack.hpp
+            │   ├── TracyCpuid.hpp
+            │   ├── TracyDebug.hpp
+            │   ├── TracyDxt1.cpp
+            │   ├── TracyDxt1.hpp
+            │   ├── TracyFastVector.hpp
+            │   ├── TracyKCore.cpp
+            │   ├── TracyKCore.hpp
+            │   ├── TracyLock.hpp
+            │   ├── TracyOverride.cpp
+            │   ├── TracyProfiler.cpp
+            │   ├── TracyProfiler.hpp
+            │   ├── TracyRingBuffer.hpp
+            │   ├── TracyRocprof.cpp
+            │   ├── TracyScoped.hpp
+            │   ├── TracyStringHelpers.hpp
+            │   ├── TracySysPower.cpp
+            │   ├── TracySysPower.hpp
+            │   ├── TracySysTime.cpp
+            │   ├── TracySysTime.hpp
+            │   ├── TracySysTrace.cpp
+            │   ├── TracySysTrace.hpp
+            │   └── TracyThread.hpp
+            ├── common/
+            │   ├── tracy_lz4.cpp
+            │   ├── tracy_lz4.hpp
+            │   ├── tracy_lz4hc.cpp
+            │   ├── tracy_lz4hc.hpp
+            │   ├── TracyAlign.hpp
+            │   ├── TracyAlloc.hpp
+            │   ├── TracyApi.h
+            │   ├── TracyColor.hpp
+            │   ├── TracyForceInline.hpp
+            │   ├── TracyMutex.hpp
+            │   ├── TracyProtocol.hpp
+            │   ├── TracyQueue.hpp
+            │   ├── TracySocket.cpp
+            │   ├── TracySocket.hpp
+            │   ├── TracyStackFrames.cpp
+            │   ├── TracyStackFrames.hpp
+            │   ├── TracySystem.cpp
+            │   ├── TracySystem.hpp
+            │   ├── TracyVersion.hpp
+            │   ├── TracyWinFamily.hpp
+            │   └── TracyYield.hpp
+            ├── libbacktrace/
+            │   ├── alloc.cpp
+            │   ├── backtrace.hpp
+            │   ├── config.h
+            │   ├── dwarf.cpp
+            │   ├── elf.cpp
+            │   ├── fileline.cpp
+            │   ├── filenames.hpp
+            │   ├── internal.hpp
+            │   ├── macho.cpp
+            │   ├── mmapio.cpp
+            │   ├── posix.cpp
+            │   ├── sort.cpp
+            │   └── state.cpp
+            └── tracy/
+                ├── Tracy.hpp
+                ├── TracyC.h
+                ├── TracyCUDA.hpp
+                ├── TracyD3D11.hpp
+                ├── TracyD3D12.hpp
+                ├── TracyLua.hpp
+                ├── TracyOpenCL.hpp
+                ├── TracyOpenGL.hpp
+                └── TracyVulkan.hpp
+
+
+================================================
+FILE: source/Tracy/libbacktrace/backtrace.hpp
+================================================
+/* backtrace.h -- Public header file for stack backtrace library.
+   Copyright (C) 2012-2021 Free Software Foundation, Inc.
+   Written by Ian Lance Taylor, Google.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+    (1) Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+    (2) Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the
+    distribution.
+
+    (3) The name of the author may not be used to
+    endorse or promote products derived from this software without
+    specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.  */
+
+#ifndef BACKTRACE_H
+#define BACKTRACE_H
+
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+
+namespace tracy
+{
+
+/* The backtrace state.  This struct is intentionally not defined in
+   the public interface.  */
+
+struct backtrace_state;
+
+/* The type of the error callback argument to backtrace functions.
+   This function, if not NULL, will be called for certain error cases.
+   The DATA argument is passed to the function that calls this one.
+   The MSG argument is an error message.  The ERRNUM argument, if
+   greater than 0, holds an errno value.  The MSG buffer may become
+   invalid after this function returns.
+
+   As a special case, the ERRNUM argument will be passed as -1 if no
+   debug info can be found for the executable, or if the debug info
+   exists but has an unsupported version, but the function requires
+   debug info (e.g., backtrace_full, backtrace_pcinfo).  The MSG in
+   this case will be something along the lines of "no debug info".
+   Similarly, ERRNUM will be passed as -1 if there is no symbol table,
+   but the function requires a symbol table (e.g., backtrace_syminfo).
+   This may be used as a signal that some other approach should be
+   tried.  */
+
+typedef void (*backtrace_error_callback) (void *data, const char *msg,
+					  int errnum);
+
+/* Create state information for the backtrace routines.  This must be
+   called before any of the other routines, and its return value must
+   be passed to all of the other routines.  FILENAME is the path name
+   of the executable file; if it is NULL the library will try
+   system-specific path names.  If not NULL, FILENAME must point to a
+   permanent buffer.  If THREADED is non-zero the state may be
+   accessed by multiple threads simultaneously, and the library will
+   use appropriate atomic operations.  If THREADED is zero the state
+   may only be accessed by one thread at a time.  This returns a state
+   pointer on success, NULL on error.  If an error occurs, this will
+   call the ERROR_CALLBACK routine.
+
+   Calling this function allocates resources that cannot be freed.
+   There is no backtrace_free_state function.  The state is used to
+   cache information that is expensive to recompute.  Programs are
+   expected to call this function at most once and to save the return
+   value for all later calls to backtrace functions.  */
+
+extern struct backtrace_state *backtrace_create_state (
+    const char *filename, int threaded,
+    backtrace_error_callback error_callback, void *data);
+
+/* The type of the callback argument to the backtrace_full function.
+   DATA is the argument passed to backtrace_full.  PC is the program
+   counter.  FILENAME is the name of the file containing PC, or NULL
+   if not available.  LINENO is the line number in FILENAME containing
+   PC, or 0 if not available.  FUNCTION is the name of the function
+   containing PC, or NULL if not available.  This should return 0 to
+   continuing tracing.  The FILENAME and FUNCTION buffers may become
+   invalid after this function returns.  */
+
+typedef int (*backtrace_full_callback) (void *data, uintptr_t pc, uintptr_t lowaddr,
+					const char *filename, int lineno,
+					const char *function);
+
+/* Get a full stack backtrace.  SKIP is the number of frames to skip;
+   passing 0 will start the trace with the function calling
+   backtrace_full.  DATA is passed to the callback routine.  If any
+   call to CALLBACK returns a non-zero value, the stack backtrace
+   stops, and backtrace returns that value; this may be used to limit
+   the number of stack frames desired.  If all calls to CALLBACK
+   return 0, backtrace returns 0.  The backtrace_full function will
+   make at least one call to either CALLBACK or ERROR_CALLBACK.  This
+   function requires debug info for the executable.  */
+
+extern int backtrace_full (struct backtrace_state *state, int skip,
+			   backtrace_full_callback callback,
+			   backtrace_error_callback error_callback,
+			   void *data);
+
+/* The type of the callback argument to the backtrace_simple function.
+   DATA is the argument passed to simple_backtrace.  PC is the program
+   counter.  This should return 0 to continue tracing.  */
+
+typedef int (*backtrace_simple_callback) (void *data, uintptr_t pc);
+
+/* Get a simple backtrace.  SKIP is the number of frames to skip, as
+   in backtrace.  DATA is passed to the callback routine.  If any call
+   to CALLBACK returns a non-zero value, the stack backtrace stops,
+   and backtrace_simple returns that value.  Otherwise
+   backtrace_simple returns 0.  The backtrace_simple function will
+   make at least one call to either CALLBACK or ERROR_CALLBACK.  This
+   function does not require any debug info for the executable.  */
+
+extern int backtrace_simple (struct backtrace_state *state, int skip,
+			     backtrace_simple_callback callback,
+			     backtrace_error_callback error_callback,
+			     void *data);
+
+/* Print the current backtrace in a user readable format to a FILE.
+   SKIP is the number of frames to skip, as in backtrace_full.  Any
+   error messages are printed to stderr.  This function requires debug
+   info for the executable.  */
+
+extern void backtrace_print (struct backtrace_state *state, int skip, FILE *);
+
+/* Given PC, a program counter in the current program, call the
+   callback function with filename, line number, and function name
+   information.  This will normally call the callback function exactly
+   once.  However, if the PC happens to describe an inlined call, and
+   the debugging information contains the necessary information, then
+   this may call the callback function multiple times.  This will make
+   at least one call to either CALLBACK or ERROR_CALLBACK.  This
+   returns the first non-zero value returned by CALLBACK, or 0.  */
+
+extern int backtrace_pcinfo (struct backtrace_state *state, uintptr_t pc,
+			     backtrace_full_callback callback,
+			     backtrace_error_callback error_callback,
+			     void *data);
+
+/* The type of the callback argument to backtrace_syminfo.  DATA and
+   PC are the arguments passed to backtrace_syminfo.  SYMNAME is the
+   name of the symbol for the corresponding code.  SYMVAL is the
+   value and SYMSIZE is the size of the symbol.  SYMNAME will be NULL
+   if no error occurred but the symbol could not be found.  */
+
+typedef void (*backtrace_syminfo_callback) (void *data, uintptr_t pc,
+					    const char *symname,
+					    uintptr_t symval,
+					    uintptr_t symsize);
+
+/* Given ADDR, an address or program counter in the current program,
+   call the callback information with the symbol name and value
+   describing the function or variable in which ADDR may be found.
+   This will call either CALLBACK or ERROR_CALLBACK exactly once.
+   This returns 1 on success, 0 on failure.  This function requires
+   the symbol table but does not require the debug info.  Note that if
+   the symbol table is present but ADDR could not be found in the
+   table, CALLBACK will be called with a NULL SYMNAME argument.
+   Returns 1 on success, 0 on error.  */
+
+extern int backtrace_syminfo (struct backtrace_state *state, uintptr_t addr,
+			      backtrace_syminfo_callback callback,
+			      backtrace_error_callback error_callback,
+			      void *data);
+
+}
+
+#endif
+
+
+
+================================================
+FILE: source/Tracy/libbacktrace/config.h
+================================================
+#include <limits.h>
+#if defined(__linux__) && !defined(__GLIBC__) && !defined(__WORDSIZE)
+// include __WORDSIZE headers for musl
+#  include <bits/reg.h>
+#endif
+#if __WORDSIZE == 64
+#  define BACKTRACE_ELF_SIZE 64
+#else
+#  define BACKTRACE_ELF_SIZE 32
+#endif
+
+#define HAVE_DLFCN_H 1
+#define HAVE_FCNTL 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_LSTAT 1
+#define HAVE_READLINK 1
+#define HAVE_DL_ITERATE_PHDR 1
+#define HAVE_ATOMIC_FUNCTIONS 1
+#define HAVE_DECL_STRNLEN 1
+
+#ifdef __APPLE__
+#  define HAVE_MACH_O_DYLD_H 1
+#elif defined BSD
+#  define HAVE_KERN_PROC 1
+#  define HAVE_KERN_PROC_ARGS 1
+#endif
+
+
+

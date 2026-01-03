@@ -14,7 +14,9 @@
 #include "Engine.h"
 #include "Error.h"
 #include "Logger.h"
+
 #include <GL/glew.h>
+#include "Tracy/tracy/TracyOpenGL.hpp"
 #include <SDL.h>
 #include <functional>
 #include <sstream>
@@ -97,6 +99,8 @@ namespace CS230
 
         // Initialize our rendering abstraction layer
         CS200::RenderingAPI::Init();
+
+        TracyGpuContext;
     }
 
     void Window::Start(std::string_view title)

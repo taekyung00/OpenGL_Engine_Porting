@@ -1,0 +1,350 @@
+Directory: project
+Files analyzed: 243
+
+Estimated tokens: 741.4k
+
+Directory structure:
+└── project/
+    └── source/
+        ├── main.cpp
+        ├── CS200/
+        │   ├── BatchRenderer2D.cpp
+        │   ├── BatchRenderer2D.h
+        │   ├── Image.cpp
+        │   ├── Image.h
+        │   ├── ImGuiHelper.cpp
+        │   ├── ImGuiHelper.h
+        │   ├── ImmediateRenderer2D.cpp
+        │   ├── ImmediateRenderer2D.h
+        │   ├── InstancedRenderer2D.cpp
+        │   ├── InstancedRenderer2D.h
+        │   ├── IRenderer2D.h
+        │   ├── NDC.h
+        │   ├── OffscreenFramebuffer.cpp
+        │   ├── OffscreenFramebuffer.h
+        │   ├── PostProcessingPipeline.cpp
+        │   ├── PostProcessingPipeline.h
+        │   ├── Renderer2DUtils.cpp
+        │   ├── Renderer2DUtils.h
+        │   ├── RenderingAPI.cpp
+        │   ├── RenderingAPI.h
+        │   ├── RGBA.h
+        │   ├── Shape.cpp
+        │   └── Shape.h
+        ├── Demo/
+        │   ├── DemoBatchInstance.cpp
+        │   ├── DemoBatchInstance.h
+        │   ├── DemoBufferTypes.cpp
+        │   ├── DemoBufferTypes.h
+        │   ├── DemoCS230Textures.cpp
+        │   ├── DemoCS230Textures.h
+        │   ├── DemoDepthPost.cpp
+        │   ├── DemoDepthPost.h
+        │   ├── DemoFramebuffer.cpp
+        │   ├── DemoFramebuffer.h
+        │   ├── DemoShapes.cpp
+        │   ├── DemoShapes.h
+        │   ├── DemoText.cpp
+        │   ├── DemoText.h
+        │   ├── DemoTexturing.cpp
+        │   ├── DemoTexturing.h
+        │   ├── DemoVAO.cpp
+        │   ├── DemoVAO.h
+        │   ├── Demo7/
+        │   │   ├── Moon.cpp
+        │   │   ├── Moon.h
+        │   │   ├── Road.cpp
+        │   │   ├── Road.h
+        │   │   ├── Stars.cpp
+        │   │   ├── Stars.h
+        │   │   ├── Triangle.cpp
+        │   │   ├── Triangle.h
+        │   │   └── WorldSize.h
+        │   └── DemoSceneShowcase/
+        │       ├── Map.cpp
+        │       ├── Map.h
+        │       ├── Samurai.cpp
+        │       ├── Samurai.h
+        │       ├── SceneState.cpp
+        │       └── SceneState.h
+        ├── Engine/
+        │   ├── Animation.cpp
+        │   ├── Animation.h
+        │   ├── Camera.cpp
+        │   ├── Camera.h
+        │   ├── Collision.cpp
+        │   ├── Collision.h
+        │   ├── Component.h
+        │   ├── ComponentManager.h
+        │   ├── Engine.cpp
+        │   ├── Engine.h
+        │   ├── Error.h
+        │   ├── Font.cpp
+        │   ├── Font.h
+        │   ├── Fonts.h
+        │   ├── FPS.h
+        │   ├── GameObject.cpp
+        │   ├── GameObject.h
+        │   ├── GameObjectManager.cpp
+        │   ├── GameObjectManager.h
+        │   ├── GameState.h
+        │   ├── GameStateManager.cpp
+        │   ├── GameStateManager.h
+        │   ├── Input.cpp
+        │   ├── Input.h
+        │   ├── Logger.cpp
+        │   ├── Logger.h
+        │   ├── Matrix.cpp
+        │   ├── Matrix.h
+        │   ├── Particle.cpp
+        │   ├── Particle.h
+        │   ├── Path.cpp
+        │   ├── Path.h
+        │   ├── PerformanceMonitor.cpp
+        │   ├── PerformanceMonitor.h
+        │   ├── Random.cpp
+        │   ├── Random.h
+        │   ├── Rect.h
+        │   ├── ShowCollision.cpp
+        │   ├── ShowCollision.h
+        │   ├── Sprite.cpp
+        │   ├── Sprite.h
+        │   ├── TextManager.cpp
+        │   ├── TextManager.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── TextureManager.cpp
+        │   ├── TextureManager.h
+        │   ├── Timer.h
+        │   ├── Vec2.cpp
+        │   ├── Vec2.h
+        │   ├── Window.cpp
+        │   └── Window.h
+        ├── Game/
+        │   ├── Background.cpp
+        │   ├── Background.h
+        │   ├── GameObjectTypes.h
+        │   ├── MainMenu.cpp
+        │   ├── MainMenu.h
+        │   ├── Particles.h
+        │   ├── Score.cpp
+        │   ├── Score.h
+        │   ├── Splash.cpp
+        │   ├── Splash.h
+        │   ├── States.h
+        │   ├── CS230_Final/
+        │   │   ├── Components/
+        │   │   │   ├── Bounce.cpp
+        │   │   │   ├── Bounce.h
+        │   │   │   ├── Grid.cpp
+        │   │   │   ├── Grid.h
+        │   │   │   ├── Random.cpp
+        │   │   │   ├── Random.h
+        │   │   │   ├── Ziggle.cpp
+        │   │   │   └── Ziggle.h
+        │   │   ├── Objects/
+        │   │   │   ├── Bus.cpp
+        │   │   │   ├── Bus.h
+        │   │   │   ├── BusLine.h
+        │   │   │   ├── Constants.h
+        │   │   │   ├── Food.cpp
+        │   │   │   ├── Food.h
+        │   │   │   ├── Obstacle.cpp
+        │   │   │   ├── Obstacle.h
+        │   │   │   ├── Passenger.cpp
+        │   │   │   ├── Passenger.h
+        │   │   │   ├── Player.cpp
+        │   │   │   └── Player.h
+        │   │   └── States/
+        │   │       ├── BadSandwich.cpp
+        │   │       ├── BadSandwich.h
+        │   │       ├── GoodSandwich.cpp
+        │   │       ├── GoodSandwich.h
+        │   │       ├── NormalSandwich.cpp
+        │   │       ├── NormalSandwich.h
+        │   │       ├── Project.cpp
+        │   │       └── Project.h
+        │   └── States/
+        │       ├── ConsoleTest.cpp
+        │       ├── ConsoleTest.h
+        │       ├── RenderingTest.cpp
+        │       └── RenderingTest.h
+        ├── OpenGL/
+        │   ├── Buffer.cpp
+        │   ├── Buffer.h
+        │   ├── Environment.h
+        │   ├── Framebuffer.cpp
+        │   ├── Framebuffer.h
+        │   ├── GL.cpp
+        │   ├── GL.h
+        │   ├── GLConstants.h
+        │   ├── GLTypes.h
+        │   ├── Handle.h
+        │   ├── Shader.cpp
+        │   ├── Shader.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── VertexArray.cpp
+        │   └── VertexArray.h
+        └── Tracy/
+            ├── TracyClient.cpp
+            ├── client/
+            │   ├── tracy_concurrentqueue.h
+            │   ├── tracy_rpmalloc.cpp
+            │   ├── tracy_rpmalloc.hpp
+            │   ├── tracy_SPSCQueue.h
+            │   ├── TracyAlloc.cpp
+            │   ├── TracyArmCpuTable.hpp
+            │   ├── TracyCallstack.cpp
+            │   ├── TracyCallstack.h
+            │   ├── TracyCallstack.hpp
+            │   ├── TracyCpuid.hpp
+            │   ├── TracyDebug.hpp
+            │   ├── TracyDxt1.cpp
+            │   ├── TracyDxt1.hpp
+            │   ├── TracyFastVector.hpp
+            │   ├── TracyKCore.cpp
+            │   ├── TracyKCore.hpp
+            │   ├── TracyLock.hpp
+            │   ├── TracyOverride.cpp
+            │   ├── TracyProfiler.cpp
+            │   ├── TracyProfiler.hpp
+            │   ├── TracyRingBuffer.hpp
+            │   ├── TracyRocprof.cpp
+            │   ├── TracyScoped.hpp
+            │   ├── TracyStringHelpers.hpp
+            │   ├── TracySysPower.cpp
+            │   ├── TracySysPower.hpp
+            │   ├── TracySysTime.cpp
+            │   ├── TracySysTime.hpp
+            │   ├── TracySysTrace.cpp
+            │   ├── TracySysTrace.hpp
+            │   └── TracyThread.hpp
+            ├── common/
+            │   ├── tracy_lz4.cpp
+            │   ├── tracy_lz4.hpp
+            │   ├── tracy_lz4hc.cpp
+            │   ├── tracy_lz4hc.hpp
+            │   ├── TracyAlign.hpp
+            │   ├── TracyAlloc.hpp
+            │   ├── TracyApi.h
+            │   ├── TracyColor.hpp
+            │   ├── TracyForceInline.hpp
+            │   ├── TracyMutex.hpp
+            │   ├── TracyProtocol.hpp
+            │   ├── TracyQueue.hpp
+            │   ├── TracySocket.cpp
+            │   ├── TracySocket.hpp
+            │   ├── TracyStackFrames.cpp
+            │   ├── TracyStackFrames.hpp
+            │   ├── TracySystem.cpp
+            │   ├── TracySystem.hpp
+            │   ├── TracyVersion.hpp
+            │   ├── TracyWinFamily.hpp
+            │   └── TracyYield.hpp
+            ├── libbacktrace/
+            │   ├── alloc.cpp
+            │   ├── backtrace.hpp
+            │   ├── config.h
+            │   ├── dwarf.cpp
+            │   ├── elf.cpp
+            │   ├── fileline.cpp
+            │   ├── filenames.hpp
+            │   ├── internal.hpp
+            │   ├── macho.cpp
+            │   ├── mmapio.cpp
+            │   ├── posix.cpp
+            │   ├── sort.cpp
+            │   └── state.cpp
+            └── tracy/
+                ├── Tracy.hpp
+                ├── TracyC.h
+                ├── TracyCUDA.hpp
+                ├── TracyD3D11.hpp
+                ├── TracyD3D12.hpp
+                ├── TracyLua.hpp
+                ├── TracyOpenCL.hpp
+                ├── TracyOpenGL.hpp
+                └── TracyVulkan.hpp
+
+
+================================================
+FILE: source/Demo/DemoText.h
+================================================
+/**
+ * \file
+ * \author Generated
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#pragma once
+
+#include "CS200/RGBA.h"
+#include "Engine/Font.h"
+#include "Engine/GameState.h"
+#include "Engine/Vec2.h"
+#include <gsl/gsl>
+#include <memory>
+
+class DemoText : public CS230::GameState
+{
+public:
+    void          Load() override;
+    void          Update(double dt) override;
+    void          Unload() override;
+    void          Draw()  override;
+    void          DrawImGui() override;
+    gsl::czstring GetName() const override;
+
+private:
+    std::unique_ptr<CS230::Font> simpleFont;
+    std::unique_ptr<CS230::Font> outlinedFont;
+
+    double lastOccasionalTextUpdate = 0.0;
+    double lastFrequentTextUpdate   = 0.0;
+
+    std::string staticText     = "This text never changes";
+    std::string occasionalText = "Sometimes changing: 0";
+    std::string frequentText   = "Frequent: 0";
+
+    int occasionalCounter = 0;
+    int frequentCounter   = 0;
+
+    std::shared_ptr<CS230::Texture> staticTextTexture;
+    std::shared_ptr<CS230::Texture> occasionalTextTexture;
+    std::shared_ptr<CS230::Texture> frequentTextTexture;
+
+    void*         staticTextAddress     = nullptr;
+    void*         occasionalTextAddress = nullptr;
+    void*         frequentTextAddress   = nullptr;
+    mutable void* blinkingHeaderAddress = nullptr;
+
+    void* lastStaticAddress   = nullptr;
+    void* lastBlinkingAddress = nullptr;
+
+    struct Settings
+    {
+        bool        ShowSimpleFont           = true;
+        bool        ShowOutlinedFont         = true;
+        bool        ShowCacheAddresses       = true;
+        CS200::RGBA TextColor                = CS200::WHITE;
+        double      TextScale                = 1.0;
+        double      OccasionalUpdateInterval = 2.0;
+        double      FrequentUpdateInterval   = 0.5;
+    } settings;
+
+    static constexpr double   LEFT_MARGIN           = 50.0;
+    static constexpr double   LINE_HEIGHT           = 64.0;
+    static constexpr uint64_t BLINKING_CYCLE_FRAMES = 256;
+    static constexpr uint64_t VISIBLE_START_FRAME   = 30;
+
+private:
+    void updateCachedTextures();
+    void drawText(const std::string& text, const Math::vec2& position, CS230::Font& font, CS200::RGBA color = CS200::WHITE) const;
+    void drawCacheInfo(double start_y, double x_offset) const;
+};
+
+
+

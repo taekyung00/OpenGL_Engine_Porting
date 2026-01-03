@@ -23,6 +23,10 @@
 #include "Window.h"
 #include "PerformanceMonitor.h"
 
+#include <GL/glew.h>
+#include "Tracy/tracy/Tracy.hpp"
+#include "Tracy/tracy/TracyOpenGL.hpp"
+
 #include <chrono>
 
 // Pimpl implementation class
@@ -133,6 +137,7 @@ void Engine::Stop()
 
 void Engine::Update()
 {
+	FrameMark;
 	updateEnvironment();
 
 
@@ -141,7 +146,7 @@ void Engine::Update()
 	impl->window.Update();
 	impl->input.Update();
 	impl->performanceMonitor.Update(environment.DeltaTime);
-
+	
 	auto& state_manager = impl->gameStateManager;
 	state_manager.Update(environment.DeltaTime);
 	const auto		  viewport		= impl->viewport;
@@ -152,6 +157,7 @@ void Engine::Update()
 	state_manager.DrawImGui();
 	impl->performanceMonitor.DrawImGui();
 	ImGuiHelper::End();
+	TracyGpuCollect; 
 }
 
 bool Engine::HasGameEnded()

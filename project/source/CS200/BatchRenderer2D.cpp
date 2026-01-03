@@ -12,6 +12,9 @@
 #include "OpenGL/GL.h"
 #include "OpenGL/VertexArray.h"
 #include "Renderer2DUtils.h"
+#include <GL/glew.h>
+#include "Tracy/tracy/Tracy.hpp"
+#include "Tracy/tracy/TracyOpenGL.hpp"
 #include <fstream>
 #include <numeric>
 #include <sstream>
@@ -240,6 +243,7 @@ namespace CS200
 
 	void BatchRenderer2D::DrawQuad(const Math::TransformationMatrix& transform, OpenGL::TextureHandle texture, Math::vec2 texture_coord_bl, Math::vec2 texture_coord_tr, CS200::RGBA tintColor, float depth)
 	{
+		ZoneScopedN("Batch::Draw");
 		if (sdfIndexCount + 6 > maxIndices)
 		{
 			flush();
@@ -444,6 +448,8 @@ namespace CS200
 	{
 		if (indexCount > 0)
 		{
+			ZoneScopedN("Batch::Textured");
+			TracyGpuZone("Batch::Textured");
 			// upload our vertices(vertex buffer is dynamic)
 			const ptrdiff_t					 vertex_count  = vertexDataEnd - vertexData.data();
 			const std::span					 data_span	   = std::span{ vertexData.data(), static_cast<size_t>(vertex_count) };
@@ -471,6 +477,8 @@ namespace CS200
 
 		if (sdfIndexCount > 0)
 		{
+			ZoneScopedN("Batch::SDF");
+			TracyGpuZone("Batch::SDF");
 			const ptrdiff_t					 sdf_vertex_count_ptrdiff = sdfVertexDataEnd - sdfVertexData.data();
 			const std::span					 sdf_data_span			  = std::span{ sdfVertexData.data(), static_cast<size_t>(sdf_vertex_count_ptrdiff) };
 			const std::span<const std::byte> sdf_bytes_to_send		  = std::as_bytes(sdf_data_span);

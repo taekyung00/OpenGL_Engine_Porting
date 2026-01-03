@@ -1,0 +1,3272 @@
+Directory: project
+Files analyzed: 243
+
+Estimated tokens: 741.4k
+
+Directory structure:
+└── project/
+    └── source/
+        ├── main.cpp
+        ├── CS200/
+        │   ├── BatchRenderer2D.cpp
+        │   ├── BatchRenderer2D.h
+        │   ├── Image.cpp
+        │   ├── Image.h
+        │   ├── ImGuiHelper.cpp
+        │   ├── ImGuiHelper.h
+        │   ├── ImmediateRenderer2D.cpp
+        │   ├── ImmediateRenderer2D.h
+        │   ├── InstancedRenderer2D.cpp
+        │   ├── InstancedRenderer2D.h
+        │   ├── IRenderer2D.h
+        │   ├── NDC.h
+        │   ├── OffscreenFramebuffer.cpp
+        │   ├── OffscreenFramebuffer.h
+        │   ├── PostProcessingPipeline.cpp
+        │   ├── PostProcessingPipeline.h
+        │   ├── Renderer2DUtils.cpp
+        │   ├── Renderer2DUtils.h
+        │   ├── RenderingAPI.cpp
+        │   ├── RenderingAPI.h
+        │   ├── RGBA.h
+        │   ├── Shape.cpp
+        │   └── Shape.h
+        ├── Demo/
+        │   ├── DemoBatchInstance.cpp
+        │   ├── DemoBatchInstance.h
+        │   ├── DemoBufferTypes.cpp
+        │   ├── DemoBufferTypes.h
+        │   ├── DemoCS230Textures.cpp
+        │   ├── DemoCS230Textures.h
+        │   ├── DemoDepthPost.cpp
+        │   ├── DemoDepthPost.h
+        │   ├── DemoFramebuffer.cpp
+        │   ├── DemoFramebuffer.h
+        │   ├── DemoShapes.cpp
+        │   ├── DemoShapes.h
+        │   ├── DemoText.cpp
+        │   ├── DemoText.h
+        │   ├── DemoTexturing.cpp
+        │   ├── DemoTexturing.h
+        │   ├── DemoVAO.cpp
+        │   ├── DemoVAO.h
+        │   ├── Demo7/
+        │   │   ├── Moon.cpp
+        │   │   ├── Moon.h
+        │   │   ├── Road.cpp
+        │   │   ├── Road.h
+        │   │   ├── Stars.cpp
+        │   │   ├── Stars.h
+        │   │   ├── Triangle.cpp
+        │   │   ├── Triangle.h
+        │   │   └── WorldSize.h
+        │   └── DemoSceneShowcase/
+        │       ├── Map.cpp
+        │       ├── Map.h
+        │       ├── Samurai.cpp
+        │       ├── Samurai.h
+        │       ├── SceneState.cpp
+        │       └── SceneState.h
+        ├── Engine/
+        │   ├── Animation.cpp
+        │   ├── Animation.h
+        │   ├── Camera.cpp
+        │   ├── Camera.h
+        │   ├── Collision.cpp
+        │   ├── Collision.h
+        │   ├── Component.h
+        │   ├── ComponentManager.h
+        │   ├── Engine.cpp
+        │   ├── Engine.h
+        │   ├── Error.h
+        │   ├── Font.cpp
+        │   ├── Font.h
+        │   ├── Fonts.h
+        │   ├── FPS.h
+        │   ├── GameObject.cpp
+        │   ├── GameObject.h
+        │   ├── GameObjectManager.cpp
+        │   ├── GameObjectManager.h
+        │   ├── GameState.h
+        │   ├── GameStateManager.cpp
+        │   ├── GameStateManager.h
+        │   ├── Input.cpp
+        │   ├── Input.h
+        │   ├── Logger.cpp
+        │   ├── Logger.h
+        │   ├── Matrix.cpp
+        │   ├── Matrix.h
+        │   ├── Particle.cpp
+        │   ├── Particle.h
+        │   ├── Path.cpp
+        │   ├── Path.h
+        │   ├── PerformanceMonitor.cpp
+        │   ├── PerformanceMonitor.h
+        │   ├── Random.cpp
+        │   ├── Random.h
+        │   ├── Rect.h
+        │   ├── ShowCollision.cpp
+        │   ├── ShowCollision.h
+        │   ├── Sprite.cpp
+        │   ├── Sprite.h
+        │   ├── TextManager.cpp
+        │   ├── TextManager.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── TextureManager.cpp
+        │   ├── TextureManager.h
+        │   ├── Timer.h
+        │   ├── Vec2.cpp
+        │   ├── Vec2.h
+        │   ├── Window.cpp
+        │   └── Window.h
+        ├── Game/
+        │   ├── Background.cpp
+        │   ├── Background.h
+        │   ├── GameObjectTypes.h
+        │   ├── MainMenu.cpp
+        │   ├── MainMenu.h
+        │   ├── Particles.h
+        │   ├── Score.cpp
+        │   ├── Score.h
+        │   ├── Splash.cpp
+        │   ├── Splash.h
+        │   ├── States.h
+        │   ├── CS230_Final/
+        │   │   ├── Components/
+        │   │   │   ├── Bounce.cpp
+        │   │   │   ├── Bounce.h
+        │   │   │   ├── Grid.cpp
+        │   │   │   ├── Grid.h
+        │   │   │   ├── Random.cpp
+        │   │   │   ├── Random.h
+        │   │   │   ├── Ziggle.cpp
+        │   │   │   └── Ziggle.h
+        │   │   ├── Objects/
+        │   │   │   ├── Bus.cpp
+        │   │   │   ├── Bus.h
+        │   │   │   ├── BusLine.h
+        │   │   │   ├── Constants.h
+        │   │   │   ├── Food.cpp
+        │   │   │   ├── Food.h
+        │   │   │   ├── Obstacle.cpp
+        │   │   │   ├── Obstacle.h
+        │   │   │   ├── Passenger.cpp
+        │   │   │   ├── Passenger.h
+        │   │   │   ├── Player.cpp
+        │   │   │   └── Player.h
+        │   │   └── States/
+        │   │       ├── BadSandwich.cpp
+        │   │       ├── BadSandwich.h
+        │   │       ├── GoodSandwich.cpp
+        │   │       ├── GoodSandwich.h
+        │   │       ├── NormalSandwich.cpp
+        │   │       ├── NormalSandwich.h
+        │   │       ├── Project.cpp
+        │   │       └── Project.h
+        │   └── States/
+        │       ├── ConsoleTest.cpp
+        │       ├── ConsoleTest.h
+        │       ├── RenderingTest.cpp
+        │       └── RenderingTest.h
+        ├── OpenGL/
+        │   ├── Buffer.cpp
+        │   ├── Buffer.h
+        │   ├── Environment.h
+        │   ├── Framebuffer.cpp
+        │   ├── Framebuffer.h
+        │   ├── GL.cpp
+        │   ├── GL.h
+        │   ├── GLConstants.h
+        │   ├── GLTypes.h
+        │   ├── Handle.h
+        │   ├── Shader.cpp
+        │   ├── Shader.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── VertexArray.cpp
+        │   └── VertexArray.h
+        └── Tracy/
+            ├── TracyClient.cpp
+            ├── client/
+            │   ├── tracy_concurrentqueue.h
+            │   ├── tracy_rpmalloc.cpp
+            │   ├── tracy_rpmalloc.hpp
+            │   ├── tracy_SPSCQueue.h
+            │   ├── TracyAlloc.cpp
+            │   ├── TracyArmCpuTable.hpp
+            │   ├── TracyCallstack.cpp
+            │   ├── TracyCallstack.h
+            │   ├── TracyCallstack.hpp
+            │   ├── TracyCpuid.hpp
+            │   ├── TracyDebug.hpp
+            │   ├── TracyDxt1.cpp
+            │   ├── TracyDxt1.hpp
+            │   ├── TracyFastVector.hpp
+            │   ├── TracyKCore.cpp
+            │   ├── TracyKCore.hpp
+            │   ├── TracyLock.hpp
+            │   ├── TracyOverride.cpp
+            │   ├── TracyProfiler.cpp
+            │   ├── TracyProfiler.hpp
+            │   ├── TracyRingBuffer.hpp
+            │   ├── TracyRocprof.cpp
+            │   ├── TracyScoped.hpp
+            │   ├── TracyStringHelpers.hpp
+            │   ├── TracySysPower.cpp
+            │   ├── TracySysPower.hpp
+            │   ├── TracySysTime.cpp
+            │   ├── TracySysTime.hpp
+            │   ├── TracySysTrace.cpp
+            │   ├── TracySysTrace.hpp
+            │   └── TracyThread.hpp
+            ├── common/
+            │   ├── tracy_lz4.cpp
+            │   ├── tracy_lz4.hpp
+            │   ├── tracy_lz4hc.cpp
+            │   ├── tracy_lz4hc.hpp
+            │   ├── TracyAlign.hpp
+            │   ├── TracyAlloc.hpp
+            │   ├── TracyApi.h
+            │   ├── TracyColor.hpp
+            │   ├── TracyForceInline.hpp
+            │   ├── TracyMutex.hpp
+            │   ├── TracyProtocol.hpp
+            │   ├── TracyQueue.hpp
+            │   ├── TracySocket.cpp
+            │   ├── TracySocket.hpp
+            │   ├── TracyStackFrames.cpp
+            │   ├── TracyStackFrames.hpp
+            │   ├── TracySystem.cpp
+            │   ├── TracySystem.hpp
+            │   ├── TracyVersion.hpp
+            │   ├── TracyWinFamily.hpp
+            │   └── TracyYield.hpp
+            ├── libbacktrace/
+            │   ├── alloc.cpp
+            │   ├── backtrace.hpp
+            │   ├── config.h
+            │   ├── dwarf.cpp
+            │   ├── elf.cpp
+            │   ├── fileline.cpp
+            │   ├── filenames.hpp
+            │   ├── internal.hpp
+            │   ├── macho.cpp
+            │   ├── mmapio.cpp
+            │   ├── posix.cpp
+            │   ├── sort.cpp
+            │   └── state.cpp
+            └── tracy/
+                ├── Tracy.hpp
+                ├── TracyC.h
+                ├── TracyCUDA.hpp
+                ├── TracyD3D11.hpp
+                ├── TracyD3D12.hpp
+                ├── TracyLua.hpp
+                ├── TracyOpenCL.hpp
+                ├── TracyOpenGL.hpp
+                └── TracyVulkan.hpp
+
+
+================================================
+FILE: source/Engine/Font.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "Font.h"
+
+#include "CS200/Image.h"
+#include "Engine.h"
+#include "Error.h"
+#include "Matrix.h"
+#include "Path.h"
+#include "TextureManager.h"
+#include <algorithm>
+#include <stb_image.h>
+
+/*
+ * 1. Load font texture and parse character boundaries during construction
+ * 2. Measure text dimensions for layout calculations
+ * 3. Render text to texture or directly to screen using character sprites
+ * 4. Support for colored text and transformation matrices
+ */
+namespace CS230
+{
+    Font::Font(const std::filesystem::path& file_name) : texture(file_name), image(file_name /*std::filesystem::path("Assets/Test.png")*/, is_image_flipped)
+    {
+        //  * Font Image Requirements:
+        //  * - Characters arranged horizontally in a single row
+        //  * - First pixel must be white (0xFFFFFFFF) as a format marker
+
+
+        /*[[maybe_unused]] const auto _00       = GetPixel({ 0, 0 });
+        [[maybe_unused]] const auto _00_array = CS200::ColorArray(_00);
+
+        [[maybe_unused]] const auto _10       = GetPixel({ 1, 0 });
+        [[maybe_unused]] const auto _10_array = CS200::ColorArray(_10);
+
+        [[maybe_unused]] const auto _20       = GetPixel({ 2, 0 });
+        [[maybe_unused]] const auto _20_array = CS200::ColorArray(_20);
+
+        [[maybe_unused]] const auto _30       = GetPixel({ 3, 0 });
+        [[maybe_unused]] const auto _30_array = CS200::ColorArray(_30);
+
+        [[maybe_unused]] const auto _01       = GetPixel({ 0, 1 });
+        [[maybe_unused]] const auto _01_array = CS200::ColorArray(_01);
+
+        [[maybe_unused]] const auto _11       = GetPixel({ 1, 1 });
+        [[maybe_unused]] const auto _11_array = CS200::ColorArray(_11);
+
+        [[maybe_unused]] const auto _21       = GetPixel({ 2, 1 });
+        [[maybe_unused]] const auto _21_array = CS200::ColorArray(_21);
+
+        [[maybe_unused]] const auto _31       = GetPixel({ 3, 1 });
+        [[maybe_unused]] const auto _31_array = CS200::ColorArray(_31);
+
+        [[maybe_unused]] const auto _02       = GetPixel({ 0, 2 });
+        [[maybe_unused]] const auto _02_array = CS200::ColorArray(_02);
+
+        [[maybe_unused]] const auto _12       = GetPixel({ 1, 2 });
+        [[maybe_unused]] const auto _12_array = CS200::ColorArray(_12);
+
+        [[maybe_unused]] const auto _22       = GetPixel({ 2, 2 });
+        [[maybe_unused]] const auto _22_array = CS200::ColorArray(_22);
+
+        [[maybe_unused]] const auto _32       = GetPixel({ 3, 2 });
+        [[maybe_unused]] const auto _32_array = CS200::ColorArray(_32);*/
+
+
+        if (GetPixel({ 0, 0 }) == CS200::WHITE)
+        {
+            FindCharRects();
+        }
+        else
+        {
+            Engine::GetLogger().LogError("Font " + file_name.string() + " texture has wrong format!");
+            throw std::runtime_error("Font fromat error");
+        }
+        //  * - Color changes between characters indicate boundaries
+        //  * - Characters cover ASCII range from space (' ') to 'z'
+        //  * - Image should contain exactly the expected number of characters
+        //  *
+        //  * Parsing Process:
+        //  * The constructor scans the top row of pixels to detect color changes,
+        //  * which indicate character boundaries. Each character's rectangular
+        //  * region is calculated and stored for later use during text rendering.
+        //  *
+        //  * Error Handling:
+        //  * If the font file is malformed (wrong format, missing characters, or
+        //  * incorrect structure), the constructor will throw an error to indicate
+        //  * the problem. This ensures that only valid fonts are used for rendering.
+    }
+
+    std::shared_ptr<Texture> Font::PrintToTexture(const std::string& text, CS200::RGBA color)
+    {
+        const auto&       window_environment = Engine::GetWindowEnvironment();
+        //  * Advanced Caching System:
+        //  * - Cache key: Combination of text string and color (format: "text_0xCOLOR")
+        const std::string cache_key{ text + std::string("_0x") + std::to_string(color) };
+
+        //  * - Frame tracking: Each cached texture records when it was last accessed
+        for (auto it = textures.begin(); it != textures.end();)
+        {
+            // ++(it->second.time);
+            //  * - Reference counting: Uses shared_ptr for automatic memory management
+
+            //  * - Intelligent cleanup: Removes old textures only when they have single reference and are older than 60 frames
+            if ((window_environment.FrameCount - it->second.timestamp) > 60 && it->second.texture.use_count() == 1)
+            {
+                it = textures.erase(it);
+            }
+            else
+            {
+                ++it;
+            }
+        }
+
+        //  * - Performance optimization: Eliminates redundant text rendering operations
+
+        //          * Caching Strategy:
+        //  * 1. Check cache using generated key (text + color combination)
+        //  * 2. If found: Update last-used frame timestamp and return cached texture
+        //  * 3. If not found: Create new texture, cache it, and return
+        //  * 4. Periodic cleanup: Remove textures older than 60 frames with reference count of 1
+
+        if (textures.find(cache_key) == textures.end())
+        {
+            //          * Rendering Process (for new textures):
+            //  * 1. Measure total text dimensions to determine optimal texture size
+            const Math::ivec2 text_size = MeasureText(text /*std::string("hello")*/);
+
+            //  * 2. Create render target texture using TextureManager
+            auto& texture_manager = Engine::GetTextureManager();
+            texture_manager.StartRenderTextureMode(text_size.x, text_size.y);
+            Math::TransformationMatrix matrix{};
+            for (const char c : text /*std::string("hello")*/)
+            {
+                DrawChar(matrix, c, color);
+            }
+            auto target_texture = texture_manager.EndRenderTextureMode();
+            //  * 3. Render each character from font atlas to the target texture
+
+            //  * 4. Store in cache with current frame timestamp
+            //  * 5. Return shared_ptr for client use
+
+            textures[cache_key] = { window_environment.FrameCount, target_texture };
+
+            Engine::GetLogger().LogEvent("Loading Texture: " + text);
+        }
+        else
+        {
+            textures[cache_key].timestamp = window_environment.FrameCount;
+        }
+        return textures[cache_key].texture;
+    }
+
+    void Font::FindCharRects()
+    {
+        CS200::RGBA check_color = GetPixel({ 0, 0 });
+        CS200::RGBA next_color;
+
+        int height = texture.GetSize().y;
+
+        int x = 0;
+        for (int index = 0; index < num_chars; index++)
+        {
+            int width = 0;
+
+            do
+            {
+                width++;
+                next_color = GetPixel({ x + width, 0 });
+            } while (check_color == next_color);
+
+            check_color = next_color;
+
+            char_rects[index].point_2 = { x + width , height };
+            char_rects[index].point_1 = { x, 1  }; // 1 mean ignore line above
+            x += width;
+        }
+        // stbi_image_free(image_data);
+        // image.~Image();
+    }
+
+    Math::irect& Font::GetCharRect(char c)
+    {
+        if (c >= ' ' && c <= 'z')
+        {
+            return char_rects[c - ' '];
+        }
+        else
+        {
+            Engine::GetLogger().LogError("Char '" + std::to_string(c) + "' not found");
+            return char_rects[0];
+        }
+    }
+
+    Math::ivec2 Font::MeasureText(std::string text)
+    {
+        Math::ivec2 text_size = GetCharRect(text[0]).Size();
+        for (size_t i = 1; i < text.size(); ++i)
+        {
+            text_size.x += GetCharRect(text[i]).Size().x;
+            if (GetCharRect(text[i]).Size().y > GetCharRect(text[i - 1]).Size().y)
+            {
+                text_size.y = GetCharRect(text[i]).Size().y;
+            }
+        }
+        return text_size;
+    }
+
+    void Font::DrawChar(Math::TransformationMatrix& matrix, char c, CS200::RGBA color)
+	{
+		const Math::irect& display_rect	  = GetCharRect(c);
+		const Math::ivec2  top_left_texel = { display_rect.Left(), display_rect.Bottom() };
+
+		if (c != ' ')
+		{
+			const auto flip = Math::ScaleMatrix(Math::vec2{ 1, -1 });
+			/*===================================added=====================================*/
+			const auto offset_up = Math::TranslationMatrix(Math::vec2{ 0.0, static_cast<double>(display_rect.Size().y) });
+			/*===================================added=====================================*/
+
+			texture.Draw(matrix * offset_up * flip, top_left_texel, display_rect.Size(), color);
+		}
+		matrix *= Math::TranslationMatrix(Math::ivec2{ display_rect.Size().x, 0 });
+	}
+
+    CS200::RGBA Font::GetPixel(Math::ivec2 texel) // tl is (0,0) !!
+    {
+        const CS200::RGBA* image_data = image.data();
+        const auto         image_size = image.GetSize();
+        // if (is_image_flipped)
+        //{
+        //     const int   index        = (image_size.x * image_size.y - 1) - (texel.x + texel.y * image_size.x);
+        //     CS200::RGBA return_color = CS200::rgba_to_abgr(CS200::argb_to_rgba(image_data[index])); // very weird..argb?
+
+        //    return return_color; // endian!!!
+        //}
+        // else
+        //{
+        const int   index        = texel.x + texel.y * image_size.x;
+        CS200::RGBA return_color = CS200::rgba_to_abgr(image_data[index]);
+
+        return return_color; // endian!!!
+        //}
+    }
+
+}    
+
+
+
+================================================
+FILE: source/Engine/Font.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#pragma once
+#include "Rect.h"
+#include "Texture.h"
+#include "Vec2.h"
+#include <filesystem>
+#include <map>
+#include <memory>
+#include <string>
+#include <unordered_map>
+
+namespace CS230
+{
+    /**
+     * \brief Bitmap font system for rendering text using pre-generated font textures
+     *
+     * Font provides a lightweight and efficient text rendering system based on
+     * bitmap font textures. Rather than using complex font rasterization at runtime,
+     * this system loads pre-rendered character sets from image files and uses them
+     * to compose text strings quickly and efficiently.
+     *
+     * Bitmap Font Advantages:
+     * - Consistent visual appearance across all platforms and systems
+     * - Fast rendering performance with minimal runtime computation
+     * - Predictable memory usage and loading times
+     * - Simple integration with existing texture and rendering systems
+     * - Pixel-perfect control over character appearance and spacing
+     *
+     * Font File Format:
+     * The system expects specially formatted font textures where characters are
+     * arranged horizontally in a single row, with specific color markers to
+     * indicate character boundaries. The first pixel must be white, and color
+     * changes signal the separation between characters.
+     *
+     * Character Set:
+     * Supports ASCII characters from space (' ') to lowercase 'z', covering
+     * basic alphanumeric characters, punctuation, and symbols commonly used
+     * in game interfaces and debugging displays.
+     *
+     * Text Rendering Workflow:
+     * 1. Load font texture and parse character boundaries during construction
+     * 2. Measure text dimensions for layout calculations
+     * 3. Render text to texture or directly to screen using character sprites
+     * 4. Support for colored text and transformation matrices
+     *
+     * This font system is particularly well-suited for game development where
+     * consistent, fast text rendering is more important than dynamic font
+     * sizing or complex typography features.
+     */
+    class Font
+    {
+    public:
+        /**
+         * \brief Load and initialize a bitmap font from an image file
+         * \param file_name Path to the font texture image file
+         *
+         * Constructs a Font object by loading a specially formatted bitmap font
+         * texture and parsing the character boundary information. The constructor
+         * analyzes the font image to determine where each character begins and
+         * ends, creating a lookup table for efficient character rendering.
+         *
+         * Font Image Requirements:
+         * - Characters arranged horizontally in a single row
+         * - First pixel must be white (0xFFFFFFFF) as a format marker
+         * - Color changes between characters indicate boundaries
+         * - Characters cover ASCII range from space (' ') to 'z'
+         * - Image should contain exactly the expected number of characters
+         *
+         * Parsing Process:
+         * The constructor scans the top row of pixels to detect color changes,
+         * which indicate character boundaries. Each character's rectangular
+         * region is calculated and stored for later use during text rendering.
+         *
+         * Error Handling:
+         * If the font file is malformed (wrong format, missing characters, or
+         * incorrect structure), the constructor will throw an error to indicate
+         * the problem. This ensures that only valid fonts are used for rendering.
+         *
+         * The loaded font is immediately ready for text rendering operations
+         * and will remain valid for the lifetime of the Font object.
+         */
+        Font(const std::filesystem::path& file_name);
+
+        /**
+         * \brief Render text string to a cached texture for efficient reuse
+         * \param text String of text to render using this font
+         * \param color RGBA color value for the text (default: white)
+         * \return Shared pointer to texture containing the rendered text (cached if previously rendered)
+         *
+         * Creates or retrieves a cached texture containing the rendered text string,
+         * allowing the text to be used like any other texture in the rendering system.
+         * This approach enables text to be drawn with transformations, effects,
+         * and blending modes just like sprite graphics.
+         *
+         * Advanced Caching System:
+         * - Cache key: Combination of text string and color (format: "text_0xCOLOR")
+         * - Frame tracking: Each cached texture records when it was last accessed
+         * - Reference counting: Uses shared_ptr for automatic memory management
+         * - Intelligent cleanup: Removes old textures only when they have single reference and are older than 60 frames
+         * - Performance optimization: Eliminates redundant text rendering operations
+         *
+         * Caching Strategy:
+         * 1. Check cache using generated key (text + color combination)
+         * 2. If found: Update last-used frame timestamp and return cached texture
+         * 3. If not found: Create new texture, cache it, and return
+         * 4. Periodic cleanup: Remove textures older than 60 frames with reference count of 1
+         *
+         * Rendering Process (for new textures):
+         * 1. Measure total text dimensions to determine optimal texture size
+         * 2. Create render target texture using TextureManager
+         * 3. Render each character from font atlas to the target texture
+         * 4. Store in cache with current frame timestamp
+         * 5. Return shared_ptr for client use
+         *
+         * Memory Management Benefits:
+         * - Shared ownership: Multiple objects can reference the same text texture
+         * - Automatic cleanup: Textures are removed when no longer referenced elsewhere
+         * - Frame-based aging: Prevents immediate removal of frequently used text
+         * - Cache efficiency: Only removes textures that are truly unused
+         *
+         * Text-to-Texture Advantages:
+         * - Caching eliminates redundant text rendering for repeated strings
+         * - Supports full transformation matrices (rotation, scaling, positioning)
+         * - Enables text participation in sprite batching and effects systems
+         * - Provides consistent rendering performance regardless of text complexity
+         * - Allows text to be treated as standard texture assets
+         *
+         * Color and Formatting:
+         * The color parameter applies a tint to the entire text string while
+         * preserving original font character shapes, anti-aliasing, and spacing.
+         * Different colors of the same text are cached separately for maximum
+         * flexibility without color bleeding between cache entries.
+         */
+        std::shared_ptr<Texture> PrintToTexture(const std::string& text, CS200::RGBA color = 0xFFFFFFFF);
+
+    private:
+        void         FindCharRects();
+        Math::irect& GetCharRect(char c);
+        Math::ivec2  MeasureText(std::string text);
+        void         DrawChar(Math::TransformationMatrix& matrix, char c, CS200::RGBA color = CS200::WHITE);
+        CS200::RGBA  GetPixel(Math::ivec2 texel);
+
+
+        Texture texture;
+
+        struct TimeTexture
+        {
+            uint64_t                 timestamp{};
+            std::shared_ptr<Texture> texture{};
+        };
+
+        std::map<const std::string, TimeTexture> textures; // <key, <time stamp, texture shared_ptr>>
+        static constexpr int                     num_chars    = 'z' - ' ' + 1;
+        static constexpr int                     num_channels = 4; // rgba
+        Math::irect                              char_rects[num_chars];
+        CS200::Image                             image;
+        Math::ivec2                              dimensions;
+        static constexpr bool                    is_image_flipped = false;
+    };
+}
+
+
+
+================================================
+FILE: source/Engine/Fonts.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Fonts.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    May 5, 2025
+*/
+#pragma once
+enum Fonts {
+    Simple,
+    Outlined
+};
+
+
+
+
+================================================
+FILE: source/Engine/FPS.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include <cmath>
+
+namespace util
+{
+    class FPS
+    {
+        double timeCounter = 0;
+        double numFrames   = 0;
+        double fps         = 0;
+
+    public:
+        constexpr void Update(double delta_time_seconds) noexcept
+        {
+            ++numFrames;
+            timeCounter += delta_time_seconds;
+            if (timeCounter > 1.0)
+            {
+                fps = numFrames / timeCounter;
+                timeCounter -= 1.0;
+                numFrames = 0;
+            }
+        }
+
+        operator long long() const noexcept
+        {
+            return std::llround(fps);
+        }
+
+        operator int() const noexcept
+        {
+            return static_cast<int>(std::lround(fps));
+        }
+    };
+}
+
+
+
+================================================
+FILE: source/Engine/GameObject.cpp
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  GameObject.cpp
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    April 25, 2025
+*/
+#include "GameObject.h"
+#include "GameState.h"
+#include "GameStateManager.h"
+#include "ShowCollision.h"
+
+#include <numbers>
+
+CS230::GameObject::GameObject(Math::vec2 _position) :
+    GameObject(_position, 0, { 1, 1 })
+{
+}
+
+CS230::GameObject::GameObject(Math::vec2 _position, double _rotation, Math::vec2 _scale) :
+    
+    current_state(&state_none),
+    matrix_outdated(true),
+    destroy(false),
+    position(_position),
+    velocity(Math::vec2{ 0.0,0.0 }),
+    scale(_scale),
+    rotation(_rotation)    
+{}
+
+bool CS230::GameObject::IsCollidingWith(GameObject* other_object)
+{
+    Collision* collider = GetGOComponent<Collision>();
+    return collider != nullptr && collider->IsCollidingWith(other_object);
+}
+
+bool CS230::GameObject::IsCollidingWith(Math::vec2 point)
+{
+    Collision* collider = GetGOComponent<Collision>();
+    return collider != nullptr && collider->IsCollidingWith(point);
+}
+
+
+
+bool CS230::GameObject::CanCollideWith([[maybe_unused]]GameObjectTypes other_object_type)
+{
+    return false;
+}
+
+void CS230::GameObject::Update(double dt) {
+    current_state->Update(this, dt);
+    //sprite.Update(dt);
+    if (velocity.x != 0 || velocity.y != 0) {
+        UpdatePosition(velocity * dt);
+    }
+    UpdateGOComponents(dt);
+    current_state->CheckExit(this);
+}
+
+void CS230::GameObject::change_state(State* new_state) {
+    current_state = new_state;
+    current_state->Enter(this);
+}
+
+
+void CS230::GameObject::Draw(Math::TransformationMatrix camera_matrix, unsigned int color , float depth )
+{
+    
+    Sprite* sprite = GetGOComponent<Sprite>();
+    if (sprite != nullptr) {
+
+		float real_depth;
+		if (DrawPriority() != DRAWPRIORITY)
+		{
+			real_depth = 1.f - (static_cast<float>(DrawPriority()) / 100.0f);
+			if (0.7f < real_depth)
+				real_depth = 0.7f;
+			if (0.3f > real_depth)
+				real_depth = 0.3f;
+        }
+		else
+		{
+			real_depth = depth;
+		}
+		sprite->Draw(camera_matrix * GetMatrix(), color, real_depth);
+    }
+    Collision* collision = GetGOComponent<Collision>();
+    ShowCollision* showcollision = Engine::GetGameStateManager().GetGSComponent<ShowCollision>();
+    if (showcollision != nullptr) {
+        if ((collision != nullptr) && (showcollision->Enabled() == true)) {
+            collision->Draw(camera_matrix,0.f);
+        }
+    }
+    
+}
+
+const Math::TransformationMatrix& CS230::GameObject::GetMatrix() {
+    if (matrix_outdated == true) {
+        object_matrix = Math::TranslationMatrix(position) * Math::RotationMatrix(rotation) * Math::ScaleMatrix(scale);
+        matrix_outdated = false;
+    }    
+    return object_matrix;
+}
+
+const Math::vec2& CS230::GameObject::GetPosition() const
+{
+    return position;
+}
+
+const Math::vec2& CS230::GameObject::GetVelocity() const
+{
+    return velocity;
+}
+
+const Math::vec2& CS230::GameObject::GetScale() const
+{
+    return scale;
+}
+
+double CS230::GameObject::GetRotation() const
+{
+    return rotation;
+}
+
+void CS230::GameObject::SetPosition(Math::vec2 new_position) {
+    position = new_position;
+    matrix_outdated = true;
+}
+
+void CS230::GameObject::UpdatePosition(Math::vec2 delta) {
+    position += delta;
+    matrix_outdated = true;
+}
+
+void CS230::GameObject::SetVelocity(Math::vec2 new_velocity){
+    velocity = new_velocity;
+    matrix_outdated = true;
+}
+
+void CS230::GameObject::UpdateVelocity(Math::vec2 delta)
+{
+    velocity += delta;
+    matrix_outdated = true;
+}
+
+void CS230::GameObject::SetScale(Math::vec2 new_scale)
+{
+    scale = new_scale;
+    matrix_outdated = true;
+}
+
+void CS230::GameObject::UpdateScale(Math::vec2 delta)
+{
+    scale += delta;
+    matrix_outdated = true;
+}
+
+void CS230::GameObject::SetRotation(double new_rotation)
+{
+    rotation = new_rotation;
+    matrix_outdated = true;
+}
+
+void CS230::GameObject::UpdateRotation(double delta)
+{
+    rotation += delta;
+    matrix_outdated = true;
+}
+
+
+
+
+
+================================================
+FILE: source/Engine/GameObject.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  GameObject.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    April 25, 2025
+*/
+
+#pragma once
+#include "../Game/GameObjectTypes.h"
+#include "ComponentManager.h"
+#include "ShowCollision.h"
+#include "Sprite.h"
+
+namespace Math
+{
+    class TransformationMatrix;
+}
+
+namespace CS230
+{
+    class Component;
+
+    class GameObject
+    {
+    public:
+        friend class Sprite;
+        GameObject(Math::vec2 position);
+        GameObject(Math::vec2 position, double rotation, Math::vec2 scale);
+
+        virtual ~GameObject()
+        {
+        }
+
+        virtual GameObjectTypes Type()     = 0;
+        virtual std::string     TypeName() = 0;
+
+		virtual int UpdatePriority() const
+		{
+			return UPDATEPRIORITY;
+		}
+
+        virtual int DrawPriority() const
+        {
+			return DRAWPRIORITY; // higher for later, upper means low depth, 30 - 70 fix
+        }
+
+        bool         IsCollidingWith(GameObject* other_object);
+        bool         IsCollidingWith(Math::vec2 point);
+        virtual bool CanCollideWith(GameObjectTypes other_object_type);
+        virtual void ResolveCollision([[maybe_unused]] GameObject* other_object) { };
+
+        virtual void Update(double dt);
+		virtual void Draw(Math::TransformationMatrix camera_matrix, unsigned int color = 0xFFFFFFFF, float depth = 0.5f);
+
+        const Math::TransformationMatrix& GetMatrix();
+        const Math::vec2&                 GetPosition() const;
+        const Math::vec2&                 GetVelocity() const;
+        const Math::vec2&                 GetScale() const;
+        double                            GetRotation() const;
+
+        template <typename T>
+        T* GetGOComponent()
+        {
+            return componentmanager.GetComponent<T>();
+        }
+
+        void SetPosition(Math::vec2 new_position);
+        void SetVelocity(Math::vec2 new_velocity);
+        void UpdateVelocity(Math::vec2 delta);
+
+        const bool& Destroyed() const
+        {
+            return destroy;
+        }
+
+        void Destroy()
+        {
+            destroy = true;
+        }
+
+		static constexpr int DRAWPRIORITY = 50;
+		static constexpr int UPDATEPRIORITY = 10;
+
+    protected:
+
+        void UpdatePosition(Math::vec2 delta);
+
+
+        void SetScale(Math::vec2 new_scale);
+        void UpdateScale(Math::vec2 delta);
+        void SetRotation(double new_rotation);
+        void UpdateRotation(double delta);
+
+        class State
+        {
+        public:
+            virtual void        Enter(GameObject* object)             = 0;
+            virtual void        Update(GameObject* object, double dt) = 0;
+            virtual void        CheckExit(GameObject* object)         = 0;
+            virtual std::string GetName()                             = 0;
+
+            virtual ~State()
+            {
+            }
+        };
+
+        State* current_state;
+        void   change_state(State* new_state);
+
+        bool matrix_outdated;
+
+        void AddGOComponent(Component* component)
+        {
+            componentmanager.AddComponent(component);
+        }
+
+        template <typename T>
+        void RemoveGOComponent()
+        {
+            componentmanager.RemoveComponent<T>();
+        }
+
+        void ClearGOComponents()
+        {
+            componentmanager.Clear();
+        }
+
+        void UpdateGOComponents(double dt)
+        {
+            componentmanager.UpdateAll(dt);
+        }
+
+
+    private:
+        bool destroy;
+
+        class State_None : public State
+        {
+        public:
+            void Enter(GameObject*) override
+            {
+            }
+
+            void Update(GameObject*, double) override
+            {
+            }
+
+            void CheckExit(GameObject*) override
+            {
+            }
+
+            std::string GetName() override
+            {
+                return "";
+            }
+
+            ~State_None()
+            {
+            }
+        };
+
+        State_None state_none;
+
+        Math::TransformationMatrix object_matrix;
+
+
+        Math::vec2 position;
+        Math::vec2 velocity;
+        Math::vec2 scale;
+        double     rotation;
+
+        ComponentManager componentmanager;
+    };
+}
+
+
+
+================================================
+FILE: source/Engine/GameObjectManager.cpp
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  GameObjectManager.cpp
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    April 25, 2025
+*/
+#include "GameObjectManager.h"
+#include "Logger.h"
+
+void CS230::GameObjectManager::Add(GameObject* object){
+	objects.push_back(object);
+}
+
+void CS230::GameObjectManager::Unload(){
+	for (GameObject* object : objects) {
+		delete object;
+	}
+	objects.clear();
+}
+
+void CS230::GameObjectManager::UpdateAll(double dt){
+	std::vector<GameObject*> destroy_objects;
+	for (GameObject* object : objects) {
+		object->Update(dt);
+		if (object->Destroyed() == true) {
+			destroy_objects.push_back(object);
+		}
+	}
+	for (GameObject* destroy_object : destroy_objects) {
+		objects.remove(destroy_object);
+		delete destroy_object;
+	}
+}
+
+void CS230::GameObjectManager::SortForUpdate()
+{
+	objects.sort([](GameObject* a, GameObject* b) { return a->UpdatePriority() < b->UpdatePriority(); });
+}
+
+void CS230::GameObjectManager::DrawAll(Math::TransformationMatrix camera_matrix){
+	for (GameObject* object : objects) {
+		object->Draw(camera_matrix);		
+	}
+}
+
+void CS230::GameObjectManager::CollisionTest()
+{
+	for (GameObject* object1 : objects) {
+		for (GameObject* object2 : objects) {
+			if (object1 != object2 && object1->CanCollideWith(object2->Type())) {
+				if (object1->IsCollidingWith(object2)) {
+					Engine::GetLogger().LogEvent("Collision Detected: " + object1->TypeName() + " and " + object2->TypeName());
+					object1->ResolveCollision(object2);
+				}
+			}
+		}
+	}
+}
+
+
+
+================================================
+FILE: source/Engine/GameObjectManager.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  GameObjectManager.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    April 25, 2025
+*/
+
+#pragma once
+#include <list>
+#include "GameObject.h"
+#include "Matrix.h"
+#include "Component.h"
+
+namespace Math { class TransformationMatrix; }
+
+namespace CS230 {
+    class GameObjectManager : public CS230::Component{
+    public:
+        void Add(GameObject* object);
+        void Unload();
+
+        void UpdateAll(double dt);
+        void SortForUpdate();
+        void DrawAll(Math::TransformationMatrix camera_matrix);
+
+        void CollisionTest();
+
+        const std::list<GameObject*>& GetAll() const { return objects; }
+    private:
+        std::list<GameObject*> objects;
+    };
+}
+
+
+
+================================================
+FILE: source/Engine/GameState.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include "ComponentManager.h"
+#include <gsl/gsl>
+
+namespace CS230
+{
+    class GameState
+    {
+    public:
+        virtual void          Load()            = 0;
+        virtual void          Update(double dt) = 0;
+        virtual void          Unload()          = 0;
+        virtual void          Draw()            = 0;
+        virtual void          DrawImGui()       = 0;
+        virtual gsl::czstring GetName() const   = 0;
+        virtual ~GameState()                    = default;
+
+        template <typename T>
+        T* GetGSComponent()
+        {
+            return componentmanager.GetComponent<T>();
+        }
+
+    protected:
+        void AddGSComponent(Component* component)
+        {
+            componentmanager.AddComponent(component);
+        }
+
+        void UpdateGSComponents(double dt)
+        {
+            componentmanager.UpdateAll(dt);
+        }
+
+        template <typename T>
+        void RemoveGSComponent()
+        {
+            componentmanager.RemoveComponent<T>();
+        }
+
+        void ClearGSComponents()
+        {
+            componentmanager.Clear();
+        }
+
+    private:
+        ComponentManager componentmanager;
+    };
+
+}
+
+
+
+================================================
+FILE: source/Engine/GameStateManager.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "GameStateManager.h"
+#include "GameObjectManager.h"
+
+namespace CS230
+{
+    void GameStateManager::PopState()
+    {
+        using namespace std::literals;
+        auto* const state = mGameStateStack.back().get();
+        mToClear.push_back(std::move(mGameStateStack.back()));
+        mGameStateStack.erase(mGameStateStack.end() - 1);
+        Engine::GetLogger().LogEvent("Exiting state "s + state->GetName());
+        state->Unload();
+    }
+
+    void GameStateManager::Update(double dt)
+    {
+        mToClear.clear();
+        mGameStateStack.back()->Update(dt);
+        if (!mGameStateStack.empty())
+        {
+            GameObjectManager* current_gameobject_manager = mGameStateStack.back()->GetGSComponent<GameObjectManager>();
+            if (current_gameobject_manager != nullptr)
+            {
+                current_gameobject_manager->CollisionTest();
+            }
+        }
+    }
+
+    void GameStateManager::Draw()
+    {
+        for (auto& game_state : mGameStateStack)
+        {
+            game_state->Draw();
+        }
+    }
+
+    void GameStateManager::DrawImGui()
+    {
+        if (!mGameStateStack.empty())
+        {
+            mGameStateStack.back()->DrawImGui();
+        }
+    }
+
+    void GameStateManager::Clear()
+    {
+        while (!mGameStateStack.empty())
+            PopState();
+        mToClear.clear();
+    }
+
+}
+
+
+
+================================================
+FILE: source/Engine/GameStateManager.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include "Engine/Engine.h"
+#include "Engine/Logger.h"
+#include "GameState.h"
+#include <memory>
+#include <vector>
+
+namespace CS230
+{
+    class GameStateManager
+    {
+    public:
+        template <typename STATE>
+        void PushState();
+        void PopState();
+        void Update(double);
+        void Draw();
+        void DrawImGui();
+
+        [[nodiscard]] bool HasGameEnded() const
+        {
+            return mGameStateStack.empty();
+        }
+
+        void Clear();
+
+        template <typename T>
+        T* GetGSComponent()
+        {
+            return mGameStateStack.back()->GetGSComponent<T>();
+        }
+
+    private:
+        std::vector<std::unique_ptr<GameState>> mGameStateStack;
+        std::vector<std::unique_ptr<GameState>> mToClear;
+    };
+
+    template <typename STATE>
+    void GameStateManager::PushState()
+    {
+        using namespace std::literals;
+        mGameStateStack.push_back(std::make_unique<STATE>());
+        const auto& state = mGameStateStack.back();
+        Engine::GetLogger().LogEvent("Entering state "s + state->GetName());
+        state->Load();
+    }
+}
+
+
+
+================================================
+FILE: source/Engine/Input.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "Input.h"
+#include "Engine.h"
+#include "Logger.h"
+#include <SDL.h>
+
+namespace CS230
+{
+    Input::Input()
+    {
+        Init();
+    }
+
+    void Input::Init()
+    {
+        previousKeys.fill(false);
+        currentKeys.fill(false);
+    }
+
+    void Input::Update()
+    {
+        previousKeys = currentKeys;
+        // via SDL get keyboard state
+        // mark each keyboard that is down
+        for (Keys key = Keys::A; key < Keys::Count; ++key)
+        {
+            const auto   sdl_key        = convert_cs230_to_sdl(static_cast<Keys>(key));
+            const Uint8* keyboard_state = SDL_GetKeyboardState(nullptr);
+            SetKeyDown(key, keyboard_state[sdl_key]);
+            if (KeyJustPressed(key))
+            {
+                Engine::GetLogger().LogDebug("Key Pressed");
+            }
+            else if (KeyJustReleased(key))
+            {
+                Engine::GetLogger().LogDebug("Key Released");
+            }
+        }
+    }
+
+    bool Input::KeyDown(Input::Keys key) const
+    {
+        return currentKeys[static_cast<std::size_t>(key)];
+    }
+
+    bool Input::KeyJustReleased(Input::Keys key) const
+    {
+        const std::size_t index = static_cast<std::size_t>(key);
+        return !currentKeys[index] && previousKeys[index];
+    }
+
+    bool Input::KeyJustPressed(Input::Keys key) const
+    {
+        const std::size_t index = static_cast<std::size_t>(key);
+        return currentKeys[index] && !previousKeys[index];
+    }
+
+    void Input::SetKeyDown(Input::Keys key, bool is_pressed)
+    {
+        currentKeys[static_cast<std::size_t>(key)] = is_pressed;
+    }
+
+    SDL_Scancode convert_cs230_to_sdl(Input::Keys cs230_key)
+    {
+        switch (cs230_key)
+        {
+            case CS230::Input::Keys::A: return SDL_SCANCODE_A;
+            case CS230::Input::Keys::B: return SDL_SCANCODE_B;
+            case CS230::Input::Keys::C: return SDL_SCANCODE_C;
+            case CS230::Input::Keys::D: return SDL_SCANCODE_D;
+            case CS230::Input::Keys::E: return SDL_SCANCODE_E;
+            case CS230::Input::Keys::F: return SDL_SCANCODE_F;
+            case CS230::Input::Keys::G: return SDL_SCANCODE_G;
+            case CS230::Input::Keys::H: return SDL_SCANCODE_H;
+            case CS230::Input::Keys::I: return SDL_SCANCODE_I;
+            case CS230::Input::Keys::J: return SDL_SCANCODE_J;
+            case CS230::Input::Keys::K: return SDL_SCANCODE_K;
+            case CS230::Input::Keys::L: return SDL_SCANCODE_L;
+            case CS230::Input::Keys::M: return SDL_SCANCODE_M;
+            case CS230::Input::Keys::N: return SDL_SCANCODE_N;
+            case CS230::Input::Keys::O: return SDL_SCANCODE_O;
+            case CS230::Input::Keys::P: return SDL_SCANCODE_P;
+            case CS230::Input::Keys::Q: return SDL_SCANCODE_Q;
+            case CS230::Input::Keys::R: return SDL_SCANCODE_R;
+            case CS230::Input::Keys::S: return SDL_SCANCODE_S;
+            case CS230::Input::Keys::T: return SDL_SCANCODE_T;
+            case CS230::Input::Keys::U: return SDL_SCANCODE_U;
+            case CS230::Input::Keys::V: return SDL_SCANCODE_V;
+            case CS230::Input::Keys::W: return SDL_SCANCODE_W;
+            case CS230::Input::Keys::X: return SDL_SCANCODE_X;
+            case CS230::Input::Keys::Y: return SDL_SCANCODE_Y;
+            case CS230::Input::Keys::Z: return SDL_SCANCODE_Z;
+            case CS230::Input::Keys::Space: return SDL_SCANCODE_SPACE;
+            case CS230::Input::Keys::Enter: return SDL_SCANCODE_RETURN;
+            case CS230::Input::Keys::Left: return SDL_SCANCODE_LEFT;
+            case CS230::Input::Keys::Up: return SDL_SCANCODE_UP;
+            case CS230::Input::Keys::Right: return SDL_SCANCODE_RIGHT;
+            case CS230::Input::Keys::Down: return SDL_SCANCODE_DOWN;
+            case CS230::Input::Keys::Escape: return SDL_SCANCODE_ESCAPE;
+            case CS230::Input::Keys::Tab: return SDL_SCANCODE_TAB;
+			case CS230::Input::Keys::One: return SDL_SCANCODE_1;
+			case CS230::Input::Keys::Two: return SDL_SCANCODE_2;
+			case CS230::Input::Keys::Three: return SDL_SCANCODE_3;
+			case CS230::Input::Keys::Four: return SDL_SCANCODE_4;
+            default: return SDL_SCANCODE_UNKNOWN; // SDL's equivalent of an unknown key
+        }
+    }
+}
+
+
+
+================================================
+FILE: source/Engine/Input.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#pragma once
+#include <SDL.h>
+#include <gsl/gsl>
+#include <vector>
+
+namespace CS230
+{
+    class Input
+    {
+    public:
+        enum class Keys
+        {
+            A,
+            B,
+            C,
+            D,
+            E,
+            F,
+            G,
+            H,
+            I,
+            J,
+            K,
+            L,
+            M,
+            N,
+            O,
+            P,
+            Q,
+            R,
+            S,
+            T,
+            U,
+            V,
+            W,
+            X,
+            Y,
+            Z,
+            Space,
+            Enter,
+            Left,
+            Up,
+            Right,
+            Down,
+            Escape,
+            Tab,
+			One,
+			Two,
+			Three,
+			Four,
+            Count
+        };
+
+        Input();
+        void Init();
+        void Update();
+
+        bool KeyDown(Keys key) const;
+        bool KeyJustReleased(Keys key) const;
+        bool KeyJustPressed(Keys key) const;
+
+    private:
+        std::array<bool, static_cast<std::size_t>(Keys::Count)> previousKeys;
+        std::array<bool, static_cast<std::size_t>(Keys::Count)> currentKeys;
+        void                                                    SetKeyDown(Keys key, bool is_pressed);
+    };
+
+    constexpr Input::Keys& operator++(Input::Keys& the_key) noexcept
+    {
+        the_key = static_cast<Input::Keys>(static_cast<unsigned>(the_key) + 1);
+        return the_key;
+    }
+
+    SDL_Scancode convert_cs230_to_sdl(Input::Keys cs230_key);
+
+    constexpr gsl::czstring to_string(Input::Keys key) noexcept
+    {
+        switch (key)
+        {
+            case Input::Keys::A: return "A";
+            case Input::Keys::B: return "B";
+            case Input::Keys::C: return "C";
+            case Input::Keys::D: return "D";
+            case Input::Keys::E: return "E";
+            case Input::Keys::F: return "F";
+            case Input::Keys::G: return "G";
+            case Input::Keys::H: return "H";
+            case Input::Keys::I: return "I";
+            case Input::Keys::J: return "J";
+            case Input::Keys::K: return "K";
+            case Input::Keys::L: return "L";
+            case Input::Keys::M: return "M";
+            case Input::Keys::N: return "N";
+            case Input::Keys::O: return "O";
+            case Input::Keys::P: return "P";
+            case Input::Keys::Q: return "Q";
+            case Input::Keys::R: return "R";
+            case Input::Keys::S: return "S";
+            case Input::Keys::T: return "T";
+            case Input::Keys::U: return "U";
+            case Input::Keys::V: return "V";
+            case Input::Keys::W: return "W";
+            case Input::Keys::X: return "X";
+            case Input::Keys::Y: return "Y";
+            case Input::Keys::Z: return "Z";
+            case Input::Keys::Space: return "Space";
+            case Input::Keys::Enter: return "Enter";
+            case Input::Keys::Left: return "Left";
+            case Input::Keys::Up: return "Up";
+            case Input::Keys::Right: return "Right";
+            case Input::Keys::Down: return "Down";
+            case Input::Keys::Escape: return "Escape";
+            case Input::Keys::Tab: return "Tab";
+			case Input::Keys::One: return "One";
+			case Input::Keys::Two: return "Two";
+			case Input::Keys::Three: return "Three";
+			case Input::Keys::Four: return "Four";
+            case Input::Keys::Count: return "Count";
+        }
+        return "Unknown";
+    }
+}
+
+
+
+================================================
+FILE: source/Engine/Logger.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "Logger.h"
+#include <iostream>
+
+namespace CS230
+{
+    Logger::Logger(Severity severity, bool use_console, std::chrono::system_clock::time_point _start_time) : min_level(severity), out_stream("Trace.log"), start_time(_start_time)
+    {
+        if (use_console == true)
+        {
+            out_stream.basic_ios<char>::rdbuf(std::cout.rdbuf());
+            ;
+        }
+    }
+
+    void Logger::LogError(std::string text)
+    {
+        log(Severity::Error, text);
+    }
+
+    void Logger::LogEvent(std::string text)
+    {
+        log(Severity::Event, text);
+    }
+
+    void Logger::LogDebug(std::string text)
+    {
+        log(Severity::Debug, text);
+    }
+
+    void Logger::LogVerbose(std::string text)
+    {
+        log(Severity::Verbose, text);
+    }
+
+    void Logger::log(Severity severity, std::string message)
+    {
+        std::map<CS230::Logger::Severity, std::string> get_error_level = {
+            { CS230::Logger::Severity::Verbose, "Verbose" },
+            {   CS230::Logger::Severity::Debug,   "Debug" },
+            {   CS230::Logger::Severity::Event,   "Event" },
+            {   CS230::Logger::Severity::Error,   "Error" }
+        };
+        std::string answer = get_error_level[severity] + "\t" + message;
+        //===========map_version
+
+
+        if (int(CS230::Logger::min_level) <= int(severity))
+        {
+            out_stream.precision(4);
+            out_stream << '[' << std::fixed << seconds_since_start() << "]\t";
+            out_stream << answer << "\n";
+        }
+        return;
+    }
+
+    double Logger::seconds_since_start()
+    {
+        return std::chrono::duration<double>(std::chrono::system_clock::now() -start_time).count();
+    }
+
+    // note the proper way to redirect the rdbuf is `stream.basic_ios<char>::rdbuf(other_stream.rdbuf());`
+    // note that we don't need a destructor ~Logger() if all we are doing is closing the streams. The std stream classes impl Rule of 5 and will auto flush & close themselves
+}
+
+
+
+================================================
+FILE: source/Engine/Logger.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#pragma once
+#include <chrono>
+#include <fstream>
+#include <map>
+#include <string>
+
+namespace CS230
+{
+    class Logger
+    {
+    public:
+        enum class Severity
+        {
+            Verbose, // Minor messages
+            Debug,   // Only used while actively debugging
+            Event,   // General event, like key press or state change
+            Error    // Errors, such as file load errors
+        };
+        Logger(Severity severity, bool use_console, std::chrono::system_clock::time_point start_time);
+
+        void LogError(std::string text);
+
+        void LogEvent(std::string text);
+
+        void LogDebug(std::string text);
+
+        void LogVerbose(std::string text);
+
+    private:
+        Severity                              min_level;
+        std::ofstream                         out_stream;
+        std::chrono::system_clock::time_point start_time;
+        void                                  log(Severity severity, std::string message);
+        double                                seconds_since_start();
+    };
+}
+
+
+
+================================================
+FILE: source/Engine/Matrix.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \author Taekyung ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "Matrix.h"
+#include <cmath>
+
+namespace Math
+{
+    TransformationMatrix::TransformationMatrix()
+    {
+        Reset();
+    }
+
+    double* TransformationMatrix::operator[](int index)
+    {
+        return const_cast<double*>((static_cast<TransformationMatrix const&>(*this))[index]);
+    }
+
+    const double* TransformationMatrix::operator[](int index) const
+    {
+        return matrix[index];
+    }
+
+    TransformationMatrix TransformationMatrix::operator*(TransformationMatrix m) const
+    {
+        TransformationMatrix result;
+
+        result.matrix[0][0] = matrix[0][0] * m[0][0] + matrix[0][1] * m[1][0] + matrix[0][2] * m[2][0];
+        result.matrix[0][1] = matrix[0][0] * m[0][1] + matrix[0][1] * m[1][1] + matrix[0][2] * m[2][1];
+        result.matrix[0][2] = matrix[0][0] * m[0][2] + matrix[0][1] * m[1][2] + matrix[0][2] * m[2][2];
+        result.matrix[1][0] = matrix[1][0] * m[0][0] + matrix[1][1] * m[1][0] + matrix[1][2] * m[2][0];
+        result.matrix[1][1] = matrix[1][0] * m[0][1] + matrix[1][1] * m[1][1] + matrix[1][2] * m[2][1];
+        result.matrix[1][2] = matrix[1][0] * m[0][2] + matrix[1][1] * m[1][2] + matrix[1][2] * m[2][2];
+        result.matrix[2][0] = matrix[2][0] * m[0][0] + matrix[2][1] * m[1][0] + matrix[2][2] * m[2][0];
+        result.matrix[2][1] = matrix[2][0] * m[0][1] + matrix[2][1] * m[1][1] + matrix[2][2] * m[2][1];
+        result.matrix[2][2] = matrix[2][0] * m[0][2] + matrix[2][1] * m[1][2] + matrix[2][2] * m[2][2];
+
+        return result;
+    }
+
+	TransformationMatrix TransformationMatrix::Inverse() const
+	{
+        TransformationMatrix inv;
+
+        const double m00 = matrix[0][0]; const double m01 = matrix[0][1]; const double m02 = matrix[0][2];
+        const double m10 = matrix[1][0]; const double m11 = matrix[1][1]; const double m12 = matrix[1][2];
+        const double m20 = matrix[2][0]; const double m21 = matrix[2][1]; const double m22 = matrix[2][2];
+
+        double det = m00 * (m11 * m22 - m12 * m21) 
+                   - m01 * (m10 * m22 - m12 * m20) 
+                   + m02 * (m10 * m21 - m11 * m20);
+
+        if (std::abs(det) < 1e-5) 
+        {
+            inv.Reset(); 
+            return inv;
+        }
+
+        double invDet = 1.0 / det;
+		// Row 0
+        inv[0][0] =  (m11 * m22 - m12 * m21) * invDet;
+        inv[0][1] = -(m01 * m22 - m02 * m21) * invDet; // Transposed indices (0,1 -> cofactor of 1,0)
+        inv[0][2] =  (m01 * m12 - m02 * m11) * invDet; 
+
+        // Row 1
+        inv[1][0] = -(m10 * m22 - m12 * m20) * invDet;
+        inv[1][1] =  (m00 * m22 - m02 * m20) * invDet;
+        inv[1][2] = -(m00 * m12 - m02 * m10) * invDet;
+
+        // Row 2
+        inv[2][0] =  (m10 * m21 - m11 * m20) * invDet;
+        inv[2][1] = -(m00 * m21 - m01 * m20) * invDet;
+        inv[2][2] =  (m00 * m11 - m01 * m10) * invDet;
+
+        return inv;
+	}
+
+
+	TransformationMatrix& TransformationMatrix::operator*=(TransformationMatrix m)
+    {
+        (*this) = (*this) * m;
+        return (*this);
+    }
+
+    vec2 TransformationMatrix::operator*(vec2 v) const
+    {
+        Math::vec2 result;
+        result.x = matrix[0][0] * v.x + matrix[0][1] * v.y + matrix[0][2];
+        result.y = matrix[1][0] * v.x + matrix[1][1] * v.y + matrix[1][2];
+        return result;
+    }
+
+    vec3 TransformationMatrix::operator*(vec3 v) const
+    {
+        Math::vec3 result;
+        result.x = matrix[0][0] * v.x + matrix[0][1] * v.y + matrix[0][2] * v.x;
+        result.y = matrix[1][0] * v.x + matrix[1][1] * v.y + matrix[1][2] * v.z;
+        return result;
+    }
+
+    void TransformationMatrix::Reset()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                matrix[i][j] = 0;
+            }
+        }
+        matrix[0][0] = 1.0;
+        matrix[1][1] = 1.0;
+        matrix[2][2] = 1.0;
+    }
+
+    TranslationMatrix::TranslationMatrix(ivec2 translate)
+    {
+        Reset();
+        matrix[0][2] = translate.x;
+        matrix[1][2] = translate.y;
+    }
+
+    TranslationMatrix::TranslationMatrix(vec2 translate)
+    {
+        Reset();
+        matrix[0][2] = translate.x;
+        matrix[1][2] = translate.y;
+    }
+
+    RotationMatrix::RotationMatrix(double theta)
+    {
+        Reset();
+        matrix[0][0] = std::cos(theta);
+        matrix[0][1] = -std::sin(theta);
+        matrix[1][0] = std::sin(theta);
+        matrix[1][1] = std::cos(theta);
+    }
+
+    ScaleMatrix::ScaleMatrix(double scale)
+    {
+        Reset();
+        matrix[0][0] *= scale;
+        matrix[1][1] *= scale;
+    }
+
+    ScaleMatrix::ScaleMatrix(vec2 scale)
+    {
+        Reset();
+        matrix[0][0] *= scale.x;
+        matrix[1][1] *= scale.y;
+    }
+}
+
+
+
+================================================
+FILE: source/Engine/Matrix.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \author Taekyung ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#pragma once
+#include "Vec2.h"
+
+namespace Math
+{
+	class TransformationMatrix
+	{
+	public:
+		TransformationMatrix();
+
+		double* operator[](int index);
+
+		const double* operator[](int index) const;
+
+		TransformationMatrix operator*(TransformationMatrix m) const;
+		TransformationMatrix Inverse() const;
+
+		TransformationMatrix& operator*=(TransformationMatrix m);
+		vec2				  operator*(vec2 v) const;
+		vec3				  operator*(vec3 v) const;
+		void				  Reset();
+
+
+	protected:
+		double matrix[3][3];
+	};
+
+	class TranslationMatrix : public TransformationMatrix
+	{
+	public:
+		TranslationMatrix(ivec2 translate);
+		TranslationMatrix(vec2 translate);
+	};
+
+	class RotationMatrix : public TransformationMatrix
+	{
+	public:
+		RotationMatrix(double theta);
+	};
+
+	class ScaleMatrix : public TransformationMatrix
+	{
+	public:
+		ScaleMatrix(double scale);
+		ScaleMatrix(vec2 scale);
+	};
+
+	inline static bool IsIdentityMatrix(const Math::TransformationMatrix& mat)
+	{
+		return mat[0][0] == 1.0 && mat[0][1] == 0.0 && mat[0][2] == 0.0 && mat[1][0] == 0.0 && mat[1][1] == 1.0 && mat[1][2] == 0.0 && mat[2][0] == 0.0 && mat[2][1] == 0.0 && mat[2][2] == 1.0;
+	}
+}
+
+
+
+================================================
+FILE: source/Engine/Particle.cpp
+================================================
+#include "Particle.h"
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Particle.cpp
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    June 6, 2025
+*/
+
+namespace CS230 {
+	Particle::Particle(const std::filesystem::path& sprite_file) : 
+		
+		GameObject({0,0}),
+		life(0.0)
+	{
+		AddGOComponent(new Sprite(sprite_file, this));
+	}
+
+
+	void Particle::Start(Math::vec2 _position, Math::vec2 _velocity, double max_life, CS200::RGBA _color)
+	{
+		SetPosition(_position);
+		SetVelocity(_velocity);
+		life = max_life;
+		real_color = _color;
+		GetGOComponent<Sprite>()->PlayAnimation(0);
+	}
+
+	void Particle::Update(double dt) {
+		if (Alive()) {
+			life -= dt;
+			//Engine::GetLogger().LogDebug(std::to_string(life));
+			GameObject::Update(dt);
+		}
+	}
+
+	void Particle::Draw(Math::TransformationMatrix camera_matrix, [[maybe_unused]]unsigned int color, float depth)
+	{
+		if (Alive()) {
+			GameObject::Draw(camera_matrix, real_color, depth);
+		}
+	}
+}
+
+
+================================================
+FILE: source/Engine/Particle.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Particle.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    June 6, 2025
+*/
+#pragma once
+#include "../Game/GameObjectTypes.h"
+#include "GameObject.h"
+#include "GameObjectManager.h"
+#include "GameStateManager.h"
+
+namespace CS230
+{
+    class Particle : public GameObject
+    {
+    public:
+        Particle(const std::filesystem::path& sprite_file);
+        void Start(Math::vec2 _position, Math::vec2 _velocity, double max_life, CS200::RGBA _color = CS200::WHITE);
+        void Update(double dt) override;
+		void Draw(Math::TransformationMatrix camera_matrix, unsigned int color = 0xFFFFFFFF, float depth = 0.5f) override;
+
+        int DrawPriority() const override
+		{
+			return 70;
+		}
+        bool Alive()
+        {
+            return life > 0;
+        }
+
+        GameObjectTypes Type() override
+        {
+            return GameObjectTypes::Particle;
+        }
+
+    private:
+        double life;
+		CS200::RGBA real_color;
+    };
+
+    template <typename T>
+    class ParticleManager : public Component
+    {
+    public:
+        ParticleManager();
+        ~ParticleManager();
+        void Emit(size_t count, Math::vec2 emitter_position, Math::vec2 emitter_velocity, Math::vec2 direction, double spread, CS200::RGBA = CS200::WHITE);
+
+    private:
+        std::vector<T*> particles;
+        size_t             index;
+    };
+
+    template <typename T>
+    inline ParticleManager<T>::ParticleManager() : index(0)
+    {
+		int max_count = T::MaxCount;
+		auto game_object_mamager = Engine::GetGameStateManager().GetGSComponent<CS230::GameObjectManager>();
+		for (int i = 0; i < max_count; ++i)
+        {
+            T* new_particle = new T();
+
+            game_object_mamager->Add(new_particle);
+
+            particles.push_back(new_particle);
+        }
+    }
+
+    template <typename T>
+    inline ParticleManager<T>::~ParticleManager()
+    {
+        //for (T* particle : particles)
+        //{
+        //    particle->Destroy();
+        //}
+        particles.clear();
+    }
+
+    template <typename T>
+    inline void ParticleManager<T>::Emit(size_t count, Math::vec2 emitter_position, Math::vec2 emitter_velocity, Math::vec2 direction, double spread, CS200::RGBA color)
+    {
+        for (size_t i = 0; i < count; ++i)
+        {
+            if ((particles[i])&&(particles[i]->Alive()))
+            {
+                Engine::GetLogger().LogEvent("Particle overwritten");
+            }
+            double angle_variation = 0.0;
+            if (spread != 0)
+            {
+                angle_variation = static_cast<double>((rand() % static_cast<int>(spread * 1024)) / 1024) - spread / 2;
+            }
+            Math::vec2 random_magnitude  = direction * static_cast<double>(static_cast<float>((rand() % 1024) / 2048) + 0.5f);
+            Math::vec2 particle_velocity = Math::RotationMatrix(angle_variation) * random_magnitude + emitter_velocity;
+            particles[index]->Start(emitter_position, particle_velocity, T::MaxLife,color);
+
+            ++index;
+            if (index >= particles.size())
+            {
+                index = 0;
+            }
+        }
+    }
+
+}
+
+
+
+================================================
+FILE: source/Engine/Path.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "Path.h"
+
+#include <SDL.h>
+#include <optional>
+
+namespace
+{
+    std::optional<std::filesystem::path> try_get_asset_path(const std::filesystem::path& starting_directory)
+    {
+        namespace fs                 = std::filesystem;
+        fs::path       assets_parent = fs::absolute(starting_directory);
+        const fs::path root          = assets_parent.root_path();
+
+        // note that the do while loop is needed because on the web platform the starting folder is the root and that's also where the assets folder should be
+        do
+        {
+            const fs::path assets_folder = assets_parent / "Assets";
+            if (fs::is_directory(assets_folder))
+            {
+                return assets_parent;
+            }
+            // if assets not found then try looking the in parent folder
+            assets_parent = assets_parent.parent_path();
+        } while (assets_parent != root);
+
+        return std::nullopt;
+    }
+}
+
+namespace assets
+{
+
+    std::filesystem::path get_base_path()
+    {
+        namespace fs                  = std::filesystem;
+        static fs::path assets_folder = []()
+        {
+            auto result = try_get_asset_path(fs::current_path());
+            if (result)
+                return result.value();
+            // try from the exe path rather than the current working directory
+            const auto base_path = SDL_GetBasePath();
+            result               = try_get_asset_path(base_path);
+            SDL_free(base_path);
+            if (result)
+                return result.value();
+            throw std::runtime_error{ "Failed to find Assets folder in parent folders" };
+        }();
+        return assets_folder;
+    }
+
+    std::filesystem::path locate_asset(const std::filesystem::path& asset_path)
+    {
+        auto asset_filepath = asset_path;
+        if (!std::filesystem::exists(asset_filepath))
+        {
+            // try prepending the asset directory path
+            asset_filepath = get_base_path() / asset_filepath;
+            if (!std::filesystem::exists(asset_filepath))
+            {
+                throw std::runtime_error("Failed to locate asset: " + asset_path.string());
+            }
+        }
+        return asset_filepath;
+    }
+}
+
+
+
+================================================
+FILE: source/Engine/Path.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include <filesystem>
+
+namespace assets
+{
+
+    std::filesystem::path get_base_path();
+    std::filesystem::path locate_asset(const std::filesystem::path& asset_path);
+}
+
+
+
+================================================
+FILE: source/Engine/PerformanceMonitor.cpp
+================================================
+Error reading file with 'cp949': 'cp949' codec can't decode byte 0xec in position 2614: illegal multibyte sequence
+
+
+================================================
+FILE: source/Engine/PerformanceMonitor.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2026 Winter
+ */
+
+#pragma once
+#include <cstddef> // size_t
+#include <map>
+#include <string>
+#include <vector>
+
+class PerformanceMonitor
+{
+public:
+	PerformanceMonitor();
+
+	// should be called every frame
+	void Update(double dt);
+
+	// renders the ImGui window
+	void DrawImGui();
+
+	// helper to track game-specific metrics (e.g. "Sprite Count")
+	void SetCustomMetric(const std::string& name, float value);
+
+private:
+	// internal helpers to fetch RAM usage based on OS
+	void updateMemoryUsage();
+
+private:
+    // timing
+    double frameTime = 0.0;
+    double fps = 0.0;
+    double timeAccumulator = 0.0;
+    size_t frameCount = 0;
+
+    // memory(in Bytes)
+    size_t ramUsageBytes = 0;
+    size_t maxRamUsageBytes = 0;
+
+    // history data for Graphs (ring buffers)
+    static constexpr size_t HISTORY_SIZE = 90;
+    std::vector<float> frameTimeHistory;
+    std::vector<float> ramHistory;
+    int historyOffset = 0;
+
+    // custom metrics map
+    std::map<std::string, float> customMetrics;
+};
+
+
+
+================================================
+FILE: source/Engine/Random.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "Random.h"
+
+#include <cassert>
+#include <chrono>
+#include <random>
+#include <thread>
+
+namespace
+{
+    using namespace std;
+    using namespace chrono;
+
+    mt19937_64& RandomEngine()
+    {
+        thread_local static mt19937_64 engine{ static_cast<mt19937_64::result_type>(system_clock::now().time_since_epoch().count()) + hash<thread::id>{}(this_thread::get_id()) };
+        return engine;
+    }
+}
+
+namespace util
+{
+    double random(double min_inclusive, double max_exclusive) noexcept
+    {
+        assert(min_inclusive < max_exclusive);
+        return std::uniform_real_distribution<double>(min_inclusive, max_exclusive)(RandomEngine());
+    }
+
+    int random(int min_inclusive, int max_exclusive) noexcept
+    {
+        assert(min_inclusive < max_exclusive - 1);
+        return std::uniform_int_distribution<int>(min_inclusive, max_exclusive - 1)(RandomEngine());
+    }
+
+    int random(int max_exclusive) noexcept
+    {
+        return random(0, max_exclusive);
+    }
+}
+
+
+
+================================================
+FILE: source/Engine/Random.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+namespace util
+{
+    double random(double min_inclusive = 0.0, double max_exclusive = 1.0) noexcept;
+    int    random(int min_inclusive, int max_exclusive) noexcept;
+    int    random(int max_exclusive) noexcept;
+}
+
+
+
+================================================
+FILE: source/Engine/Rect.h
+================================================
+ /**
+  * \file
+  * \author Rudy Castan
+  * \author Jonathan Holmes
+  * \author Taekyung Ho
+  * \date 2025 Fall
+  * \par CS200 Computer Graphics I
+  * \copyright DigiPen Institute of Technology
+  */
+
+ #pragma once
+ #include "Vec2.h"
+ #include <algorithm>
+
+ namespace Math
+ {
+     struct [[nodiscard]] rect
+     {
+         Math::vec2 point_1{ 0.0, 0.0 };
+         Math::vec2 point_2{ 0.0, 0.0 };
+         
+         double Left() const noexcept
+         {
+             return std::min(point_1.x, point_2.x);
+         }
+
+         double Right() const noexcept
+         {
+             return std::max(point_1.x, point_2.x);
+         }
+
+         double Top() const noexcept
+         {
+             return std::max(point_1.y, point_2.y);
+         }
+
+         double Bottom() const noexcept
+         {
+             return std::min(point_1.y, point_2.y);
+         }
+
+         Math::vec2 Center() const noexcept{
+            return {(Left() + Right()) * 0.5, (Top() + Bottom()) * 0.5};
+         }
+         Math::vec2 Size() const noexcept
+         {
+             return { Right() - Left(), Top() - Bottom() };
+         }
+     };
+
+     struct [[nodiscard]] irect
+     {
+         Math::ivec2 point_1{ 0, 0 };
+         Math::ivec2 point_2{ 0, 0 };
+
+         int Left() const noexcept
+         {
+             return std::min(point_1.x, point_2.x);
+         }
+
+         int Right() const noexcept
+         {
+             return std::max(point_1.x, point_2.x);
+         }
+
+         int Top() const noexcept
+         {
+             return std::max(point_1.y, point_2.y);
+         }
+
+         int Bottom() const noexcept
+         {
+             return std::min(point_1.y, point_2.y);
+         }
+
+         Math::ivec2 Size() const noexcept
+         {
+             return { Right() - Left(), Top() - Bottom() };
+         }
+     };
+ }
+
+
+
+================================================
+FILE: source/Engine/ShowCollision.cpp
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  ShowCollision.cpp
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    May 17, 2025
+*/
+#include "ShowCollision.h"
+#include "Input.h"
+
+CS230::ShowCollision::ShowCollision() : enabled(true) {}
+
+void CS230::ShowCollision::Update([[maybe_unused]]double dt) {
+    if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Tab) == true) {
+        enabled = !enabled;
+    }
+}
+
+bool CS230::ShowCollision::Enabled() {
+    return enabled;
+}
+
+
+
+================================================
+FILE: source/Engine/ShowCollision.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  ShowCollision.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    May 17, 2025
+*/
+#pragma once
+#include "Component.h"
+#include "Engine.h"
+namespace CS230 {
+    class ShowCollision : public CS230::Component {
+    public:
+        ShowCollision();
+        void Update(double dt) override;
+        bool Enabled();
+    private:
+        bool enabled;
+    };
+}
+
+
+
+================================================
+FILE: source/Engine/Sprite.cpp
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Sprite.cpp
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    March 19, 2025
+*/
+
+#include "GameObject.h"
+#include "Sprite.h"
+#include "TextureManager.h"
+#include "Logger.h"
+#include "Path.h"
+#include <fstream>
+
+CS230::Sprite::Sprite(const std::filesystem::path& sprite_file, GameObject* _given_object) {
+    Load(sprite_file, _given_object);
+}
+
+CS230::Sprite::~Sprite()
+{
+    for (Animation* animation : animations) {
+        delete animation;
+    }
+    animations.clear();
+}
+
+CS230::Sprite::Sprite(Sprite&& temporary) noexcept :
+    texture(std::move(temporary.texture)),
+    hotspots(std::move(temporary.hotspots)),
+    current_animation(temporary.current_animation),
+    frame_size(temporary.frame_size),
+    frame_texels(std::move(temporary.frame_texels)),
+    animations(std::move(temporary.animations))
+{}
+
+CS230::Sprite& CS230::Sprite::operator=(Sprite && temporary) noexcept
+{
+    std::swap(texture, temporary.texture);
+    std::swap(hotspots, temporary.hotspots);
+    std::swap(current_animation, temporary.current_animation);
+    std::swap(frame_size, temporary.frame_size);
+    std::swap(frame_texels, frame_texels);
+    std::swap(animations, temporary.animations);
+    return *this;
+}
+
+void CS230::Sprite::Update(double dt)
+{
+    animations[current_animation]->Update(dt);
+}
+
+void CS230::Sprite::Load(const std::filesystem::path& sprite_file, GameObject* _given_object)
+{
+    const std::filesystem::path sprite_path = assets::locate_asset(sprite_file);
+    given_object = _given_object;
+    animations.clear();
+    if (sprite_path.extension() != ".spt")
+    {
+        throw std::runtime_error(sprite_path.generic_string() + " is not a .spt file");
+    }
+    
+    std::ifstream               in_file(sprite_path);
+
+    if (in_file.is_open() == false) {
+        throw std::runtime_error("Failed to load " + sprite_path.generic_string());
+    }
+
+    hotspots.clear();
+    frame_texels.clear();
+
+    std::string text;
+    in_file >> text;
+    texture = Engine::GetTextureManager().Load(text);
+    frame_size = Engine::GetTextureManager().Load(text)->GetSize();
+
+    in_file >> text;
+    while (in_file.eof() == false) {
+        if (text == "FrameSize") {
+            in_file >> frame_size.x;
+            in_file >> frame_size.y;
+        }
+        
+        else if (text == "NumFrames") {
+            int frame_count;
+            in_file >> frame_count;
+            for (int i = 0; i < frame_count; i++) {
+                frame_texels.push_back({ frame_size.x * i, 0 });
+            }
+        }
+        else if (text == "Frame") {
+            int frame_location_x, frame_location_y;
+            in_file >> frame_location_x;
+            in_file >> frame_location_y;
+            frame_texels.push_back({ frame_location_x, frame_location_y });
+        }
+        else if (text == "HotSpot") {
+            int hotspot_x, hotspot_y;
+            in_file >> hotspot_x;
+            in_file >> hotspot_y;
+            hotspots.push_back({ hotspot_x, hotspot_y });
+        }
+        else if (text == "Anim") {
+            in_file >> text;
+            animations.push_back(new Animation(text));
+        }
+        else if (text == "RectCollision") {
+            Math::irect boundary;
+            in_file >> boundary.point_1.x >> boundary.point_1.y >> boundary.point_2.x >> boundary.point_2.y;
+            if (given_object == nullptr) {
+                Engine::GetLogger().LogError("Cannot add collision to a null object");
+            }
+            else {
+                given_object->AddGOComponent(new RectCollision(boundary, given_object));
+            }
+        }
+        else if (text == "CircleCollision") {
+            double radius;
+            in_file >> radius;
+            if (given_object == nullptr) {
+                Engine::GetLogger().LogError("Cannot add collision to a null object");
+            }
+            else {
+                given_object->AddGOComponent(new CircleCollision(radius, given_object));
+            }
+        }
+        else {
+            Engine::GetLogger().LogError("Unknown command: " + text);
+        }
+        in_file >> text;
+    }
+    if (frame_texels.empty() == true) {
+        frame_texels.push_back({ 0,0 });
+    }
+
+    if (animations.empty() == true) {
+        animations.push_back(new Animation());
+        PlayAnimation(0);
+    }
+    
+
+}
+
+void CS230::Sprite::Draw(Math::TransformationMatrix display_matrix, unsigned int color, float depth)
+{
+	texture->Draw(display_matrix * Math::TranslationMatrix(-GetHotSpot(0)), GetFrameTexel(animations[current_animation]->CurrentFrame()), GetFrameSize(), color,depth);
+}
+
+Math::ivec2 CS230::Sprite::GetHotSpot(size_t index)
+{
+	if ( index > hotspots.size()) {
+		Engine::GetLogger().LogDebug("Invalid index in hospot!");
+		return Math::ivec2{ 0,0 };
+	}
+	return hotspots[index];
+}
+
+Math::ivec2 CS230::Sprite::GetFrameSize()
+{
+    return frame_size;
+}
+
+void CS230::Sprite::PlayAnimation(size_t animation)
+{
+    if (animation >= animations.size()) {
+        Engine::GetLogger().LogDebug("Invalid index in animation!");
+        current_animation = 0;
+        return;
+    }
+    current_animation = animation;
+    animations[current_animation]->Reset();
+}
+
+bool CS230::Sprite::AnimationEnded()
+{
+    return animations[current_animation]->Ended();
+}
+
+Math::ivec2 CS230::Sprite::GetFrameTexel(size_t index) const
+{
+    if ( index >= frame_texels.size()) {
+        Engine::GetLogger().LogDebug("Invalid index in frametexles!");
+        return Math::ivec2{ 0,0 };
+    }
+    return frame_texels[index];
+}
+
+
+
+================================================
+FILE: source/Engine/Sprite.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Sprite.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    March 19, 2025
+*/
+
+#pragma once
+#include <string>
+#include "Vec2.h"
+#include "Texture.h"
+#include "Matrix.h"
+#include "Engine.h"
+#include "Animation.h"
+#include "Component.h"
+#include "Collision.h"
+
+
+namespace CS230 {
+    class GameObject;
+    class Sprite : public Component {
+    public:
+        Sprite(const std::filesystem::path& sprite_file,GameObject* given_object);
+        ~Sprite();
+
+        Sprite(const Sprite&) = delete;
+        Sprite& operator=(const Sprite&) = delete;
+
+        Sprite(Sprite&& temporary) noexcept;
+        Sprite& operator=(Sprite&& temporary) noexcept;
+        void Update(double dt) override;
+        void Load(const std::filesystem::path& sprite_file, GameObject* _given_object);
+		void		Draw(Math::TransformationMatrix display_matrix, unsigned int color = 0xFFFFFFFF, float depth = 0.5f);
+        Math::ivec2 GetHotSpot(size_t index);
+        Math::ivec2 GetFrameSize();
+
+        void PlayAnimation(size_t animation);
+        bool AnimationEnded();
+
+        const size_t& CurrentAnimation() const { return current_animation; }
+    private:
+        Math::ivec2 GetFrameTexel(size_t index) const;
+        // Texture* texture;
+        std::shared_ptr<CS230::Texture> texture;
+        std::vector<Math::ivec2> hotspots;
+
+        size_t current_animation;
+        Math::ivec2 frame_size;
+        std::vector<Math::ivec2> frame_texels;
+        std::vector<Animation*> animations;
+
+        GameObject* given_object;
+    };
+}
+
+
+
+================================================
+FILE: source/Engine/TextManager.cpp
+================================================
+#include "TextManager.h"
+
+
+void TextManager::DrawText(const std::string& text, const Math::vec2& position, Fonts font, const Math::vec2& scale, CS200::RGBA color) const
+{
+    if (auto text_texture = fonts[font]->PrintToTexture(text, color); text_texture)
+    {
+        const auto transform = Math::TranslationMatrix(position) * Math::ScaleMatrix(scale);
+        text_texture->Draw(transform, color);
+    }
+}
+
+
+
+void TextManager::Init()
+{
+    add_font("Assets/fonts/Font_Simple.png");
+    add_font("Assets/fonts/Font_Outlined.png");
+}
+
+void TextManager::add_font(const std::filesystem::path& file_name)
+{
+    fonts.push_back(std::make_unique<CS230::Font>(file_name));
+}
+
+
+
+================================================
+FILE: source/Engine/TextManager.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par GAM200 Engine Porting
+ * \copyright DigiPen Institute of Technology
+ */
+#include "Font.h"
+#include "Fonts.h"
+#include <memory>
+#include <vector>
+
+class TextManager
+{
+public:
+    TextManager() = default;
+    void Init();
+    void DrawText(const std::string& text, const Math::vec2& position, Fonts font, const Math::vec2& scale = { 1.0, 1.0 }, CS200::RGBA color = CS200::WHITE) const;
+
+private:
+    // static CS230::Font* get_font(size_t);
+
+    void add_font(const std::filesystem::path& file_name);
+
+    std::vector<std::unique_ptr<CS230::Font>> fonts{};
+};
+
+
+================================================
+FILE: source/Engine/Texture.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "Texture.h"
+
+#include "CS200/IRenderer2D.h"
+#include "CS200/Image.h"
+#include "Engine.h"
+#include "Matrix.h"
+#include "OpenGL/GL.h"
+#include "TextureManager.h"
+#include "Window.h"
+
+namespace CS230
+{
+
+	void Texture::Draw([[maybe_unused]] const Math::TransformationMatrix& display_matrix, unsigned int color, float depth)
+	{
+		Draw(display_matrix, { 0, 0 }, image_size, color, depth);
+	}
+
+	void Texture::Draw(const Math::TransformationMatrix& display_matrix, Math::ivec2 texel_position, Math::ivec2 frame_size, unsigned int color, float depth)
+	{
+		CS200::IRenderer2D* renderer = Engine::GetTextureManager().GetRenderer2D();
+
+
+		// OpenGL Texture: (0,0) Bottom-Left
+		// Image Pixel: (0,0) Top-Left
+		const double u_left	  = static_cast<double>(texel_position.x) / image_size.x;
+		const double u_right  = static_cast<double>(texel_position.x + frame_size.x) / image_size.x;
+		// V_top  = 1.0 - (y / height)
+		// V_bottom  = 1.0 - ((y + h) / height)
+		const double v_top	  = 1.0 - (static_cast<double>(texel_position.y) / image_size.y);
+		const double v_bottom = 1.0 - (static_cast<double>(texel_position.y + frame_size.y) / image_size.y);
+
+		const Math::vec2 texel_coord_bl = { u_left, v_bottom };
+		const Math::vec2 texel_coord_tr = { u_right, v_top };
+
+		Math::vec2 set_bottom_left{ frame_size.x * 0.5, frame_size.y * 0.5 };
+		const auto world_transformation = display_matrix * Math::TranslationMatrix(set_bottom_left) * Math::ScaleMatrix(frame_size);
+
+		renderer->DrawQuad(world_transformation, textureHandle, texel_coord_bl, texel_coord_tr, color, depth);
+	}
+
+	Math::ivec2 Texture::GetSize() const
+	{
+		return image_size;
+	}
+
+	Texture::~Texture()
+	{
+		GL::DeleteTextures(1, &textureHandle), textureHandle = 0;
+	}
+
+	Texture::Texture(Texture&& temporary) noexcept : image_size{ std::move(temporary.image_size) }, textureHandle{ std::move(temporary.textureHandle) }
+	{
+		temporary.textureHandle = 0;
+		temporary.image_size	= { 0, 0 };
+	}
+
+	Texture& Texture::operator=(Texture&& temporary) noexcept
+	{
+		std::swap(image_size, (temporary.image_size));
+		std::swap(textureHandle, temporary.textureHandle);
+		return *this;
+	}
+
+	Texture::Texture(const std::filesystem::path& file_name)
+	{
+		const auto image = CS200::Image{ file_name, true };
+		image_size		 = image.GetSize();
+		textureHandle	 = OpenGL::CreateTextureFromImage(image, OpenGL::Filtering::NearestPixel, OpenGL::Wrapping::ClampToEdge);
+	}
+
+	Texture::Texture([[maybe_unused]] OpenGL::TextureHandle given_texture, [[maybe_unused]] Math::ivec2 the_size) : image_size{ the_size }, textureHandle{ given_texture }
+	{
+	}
+}
+
+
+
+================================================
+FILE: source/Engine/Texture.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#pragma once
+
+#include "CS200/Image.h"
+#include "Matrix.h"
+#include "OpenGL/Texture.h"
+#include <filesystem>
+#include <memory>
+
+#include "Vec2.h"
+
+namespace CS230
+{
+	class Font;
+
+	/**
+	 * \brief High-level texture wrapper for 2D graphics rendering and resource management
+	 *
+	 * Texture provides a convenient, RAII-compliant wrapper around OpenGL texture objects
+	 * that simplifies texture loading, rendering, and resource management. The class handles
+	 * the complex details of OpenGL texture creation, coordinate system transformations,
+	 * and automatic memory cleanup while providing an intuitive interface for 2D graphics.
+	 *
+	 * Key Features:
+	 * - Automatic texture loading from image files with proper format conversion
+	 * - RAII resource management ensuring textures are properly cleaned up
+	 * - High-level drawing interface with transformation matrix support
+	 * - Sprite sheet support for animation and texture atlases
+	 * - Integration with the 2D renderer for efficient batched rendering
+	 * - Move semantics for efficient texture transfers and storage
+	 *
+	 * Resource Management:
+	 * The texture automatically handles OpenGL texture creation and deletion through
+	 * RAII principles. Move-only semantics prevent accidental texture duplication
+	 * while allowing efficient transfer of texture ownership between objects.
+	 *
+	 * Coordinate Systems:
+	 * The class handles the conversion between different coordinate systems:
+	 * - Image coordinates (pixel-based, top-left origin)
+	 * - Texture coordinates (normalized 0-1 range, bottom-left origin)
+	 * - World coordinates (transformation matrix-based positioning)
+	 *
+	 * Common Use Cases:
+	 * - Sprite rendering for games and interactive applications
+	 * - UI element graphics and interface components
+	 * - Texture atlas rendering for efficient sprite animation
+	 * - Background and environment art rendering
+	 * - Font glyph rendering (through Font class integration)
+	 *
+	 * The texture integrates seamlessly with the engine's transformation system,
+	 * allowing for easy scaling, rotation, and positioning of graphics elements.
+	 */
+	class Texture
+	{
+	public:
+		
+
+		friend class TextureManager;
+		friend class Font;
+
+		/**
+		 * \brief Draw the entire texture with transformation and color tinting
+		 * \param display_matrix Transformation matrix for positioning, scaling, and rotation
+		 * \param color RGBA color value for tinting the texture (default: white/no tint)
+		 *
+		 * Renders the complete texture to the screen using the provided transformation
+		 * matrix to control positioning, scaling, and rotation. This is the primary
+		 * method for drawing sprites, UI elements, and other texture-based graphics.
+		 *
+		 * Transformation Handling:
+		 * The method automatically handles the necessary coordinate system conversions
+		 * and applies appropriate scaling and translation to ensure the texture appears
+		 * correctly positioned according to the transformation matrix. The texture is
+		 * drawn with its center as the transformation origin.
+		 *
+		 * Color Tinting:
+		 * The color parameter allows for real-time tinting of the texture without
+		 * modifying the original image data. This enables effects like:
+		 * - Color-based visual feedback (damage flashing, selection highlighting)
+		 * - Transparency and fade effects through alpha channel modification
+		 * - Uniform lighting or environmental color effects
+		 * - UI state visualization (disabled buttons, hover states)
+		 *
+		 * Rendering Integration:
+		 * The method integrates with the engine's 2D renderer for efficient batched
+		 * rendering, automatically managing texture binding and shader state for
+		 * optimal performance when drawing multiple textures.
+		 */
+		void Draw(const Math::TransformationMatrix& display_matrix, unsigned int color = 0xFFFFFFFF, float depth = 0.6f);
+
+		/**
+		 * \brief Draw a rectangular region of the texture (sprite sheet support)
+		 * \param display_matrix Transformation matrix for positioning, scaling, and rotation
+		 * \param texel_position Top-left corner position in pixel coordinates within the texture
+		 * \param frame_size Size of the region to draw in pixels
+		 * \param color RGBA color value for tinting the texture (default: white/no tint)
+		 *
+		 * Renders a specific rectangular region of the texture, enabling sprite sheet
+		 * functionality, texture atlases, and animation frame rendering. This method
+		 * is essential for efficient graphics where multiple sprites or animation
+		 * frames are packed into a single texture file.
+		 *
+		 * Sprite Sheet Applications:
+		 * - Character animation frames stored in a grid layout
+		 * - UI element collections (buttons, icons, decorative elements)
+		 * - Tile sets for 2D game environments
+		 * - Font glyph rendering from character atlases
+		 * - Particle effect textures with multiple variations
+		 *
+		 * Coordinate System:
+		 * The texel_position uses pixel coordinates with (0,0) at the top-left
+		 * of the texture, following standard image coordinate conventions. The
+		 * method automatically converts these to the appropriate OpenGL texture
+		 * coordinates for rendering.
+		 *
+		 * Performance Benefits:
+		 * Using sprite sheets reduces texture binding overhead and improves
+		 * rendering performance by allowing multiple related graphics to be
+		 * stored in a single texture object, enabling more efficient batching.
+		 *
+		 * The transformation matrix affects the final rendered size and position,
+		 * while frame_size determines which portion of the texture is sampled.
+		 */
+		void Draw(const Math::TransformationMatrix& display_matrix, Math::ivec2 texel_position, Math::ivec2 frame_size, unsigned int color = 0xFFFFFFFF, float depth = 0.f);
+
+		/**
+		 * \brief Get the dimensions of the texture in pixels
+		 * \return Vector containing width and height of the texture
+		 *
+		 * Returns the original size of the texture as loaded from the image file,
+		 * providing essential information for layout calculations, collision detection,
+		 * and coordinate system conversions. This size information is particularly
+		 * useful when working with sprite sheets or when precise positioning is required.
+		 *
+		 * Common uses:
+		 * - Calculating sprite sheet frame positions and sizes
+		 * - Determining collision boundaries for texture-based objects
+		 * - Computing appropriate scaling factors for different screen resolutions
+		 * - Layout calculations for UI elements and text rendering
+		 * - Animation frame calculations and sprite positioning
+		 *
+		 * The returned size reflects the texture's native resolution and remains
+		 * constant regardless of how the texture is drawn or transformed during rendering.
+		 */
+		Math::ivec2 GetSize() const;
+
+		/**
+		 * \brief Destructor ensuring proper OpenGL resource cleanup
+		 *
+		 * Automatically releases the underlying OpenGL texture object when the
+		 * Texture instance is destroyed, preventing GPU memory leaks and ensuring
+		 * proper resource management. This follows RAII principles to guarantee
+		 * cleanup even in the presence of exceptions or early returns.
+		 */
+		~Texture();
+
+		/**
+		 * \brief Get the underlying OpenGL texture handle for advanced operations
+		 * \return OpenGL texture handle for direct OpenGL operations
+		 *
+		 * Provides access to the raw OpenGL texture handle for advanced rendering
+		 * operations that require direct OpenGL texture binding or integration
+		 * with custom rendering systems. This method should be used sparingly
+		 * and only when the high-level interface is insufficient.
+		 *
+		 * Advanced use cases:
+		 * - Integration with custom shader programs
+		 * - Direct OpenGL texture operations
+		 * - Interfacing with third-party graphics libraries
+		 * - Performance-critical rendering paths that bypass the 2D renderer
+		 *
+		 * Handle Ownership:
+		 * The returned handle remains owned by the Texture object and should not
+		 * be manually deleted or modified. The handle becomes invalid when the
+		 * Texture object is destroyed.
+		 */
+		[[nodiscard]] OpenGL::TextureHandle GetHandle() const
+		{
+			return textureHandle;
+		}
+
+
+	private:
+		// Private constructors - textures can only be created through TextureManager or Font
+		// This ensures proper resource management and prevents accidental texture duplication
+		explicit Texture(const std::filesystem::path& file_name);
+		// for new texture!! check texturemanager!!
+		Texture(OpenGL::TextureHandle given_texture, Math::ivec2 the_size);
+
+
+	public:
+		/**
+		 * \brief Deleted copy constructor and assignment operator
+		 *
+		 * Textures use move-only semantics to prevent accidental duplication of
+		 * OpenGL resources. Copying textures would require expensive GPU operations
+		 * and could lead to resource management complications, so copy operations
+		 * are explicitly disabled to encourage efficient resource usage patterns.
+		 */
+		Texture(const Texture&)			   = delete;
+		Texture& operator=(const Texture&) = delete;
+
+		/**
+		 * \brief Move constructor for efficient texture transfer
+		 * \param temporary Texture object to move from (will be left in valid but empty state)
+		 *
+		 * Efficiently transfers ownership of the OpenGL texture resource from one
+		 * Texture object to another without copying GPU data. The source texture
+		 * is left in a safe, destructible state with no valid texture handle.
+		 *
+		 * Move semantics enable:
+		 * - Efficient storage of textures in containers (std::vector, std::map)
+		 * - Return of textures from factory functions without copying
+		 * - Transfer of texture ownership between different systems
+		 * - Optimal performance when reorganizing texture collections
+		 */
+		Texture(Texture&& temporary) noexcept;
+
+		/**
+		 * \brief Move assignment operator for efficient texture replacement
+		 * \param temporary Texture object to move from (will be left in valid but empty state)
+		 * \return Reference to this texture after the move operation
+		 *
+		 * Replaces the current texture with another texture's resources using
+		 * efficient move semantics. The previous texture resource is properly
+		 * cleaned up, and the new resource is transferred without GPU data copying.
+		 *
+		 * The operation uses swap semantics to ensure exception safety and
+		 * guarantee that both the old and new textures are handled correctly
+		 * even if unexpected conditions occur during the transfer.
+		 */
+		Texture& operator=(Texture&& temporary) noexcept;
+
+
+	private:
+
+
+		// CS200::Image image; // use initialize member list -> or it will be initialized with default ctor -> but it doesn't exist!!
+		Math::ivec2			  image_size;
+		OpenGL::TextureHandle textureHandle;
+	};
+}
+
+
+

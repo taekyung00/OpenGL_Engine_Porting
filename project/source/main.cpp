@@ -11,6 +11,30 @@
 #include "Engine/Window.h"
 #include "Game/Splash.h"
 
+#include "Tracy/tracy/Tracy.hpp"
+#include <cstdlib> // malloc, free
+
+// --- [추가 시작] 메모리 추적용 오버로딩 ---
+void* operator new(std::size_t count)
+{
+    auto ptr = malloc(count);
+    TracyAlloc(ptr, count); // 할당 보고
+    return ptr;
+}
+
+void operator delete(void* ptr) noexcept
+{
+    TracyFree(ptr); // 해제 보고
+    free(ptr);
+}
+
+void operator delete(void* ptr, std::size_t) noexcept
+{
+    TracyFree(ptr);
+    free(ptr);
+}
+// --- [추가 종료] ---
+
 namespace
 {
     [[maybe_unused]] int  gWindowWidth  = 400;

@@ -1,0 +1,369 @@
+Directory: project
+Files analyzed: 323
+
+Estimated tokens: 806.3k
+Directory structure:
+└── project/
+    ├── README.md
+    ├── CLAUDE.md
+    ├── CMakeLists.txt
+    ├── CMakePresets.json
+    ├── engine.txt
+    ├── questions.txt
+    ├── Report.md
+    ├── .clang-format
+    ├── app_resources/
+    │   └── web/
+    │       └── index_shell.html
+    ├── Assets/
+    │   ├── animations/
+    │   │   ├── None.anm
+    │   │   ├── CS230_Final/
+    │   │   │   ├── PassengerAngry.anm
+    │   │   │   ├── PassengerIdle.anm
+    │   │   │   ├── PassengerSad.anm
+    │   │   │   ├── Shining.anm
+    │   │   │   └── Tears.anm
+    │   │   └── DemoSceneShowcase/
+    │   │       ├── Flame.anm
+    │   │       ├── MeteorBit.anm
+    │   │       └── SamuraiRun.anm
+    │   ├── Data/
+    │   │   └── characters.json
+    │   ├── shaders/
+    │   │   ├── basic_vtx_clr_attribute.frag
+    │   │   ├── pass_thru_pos2d_clr.vert
+    │   │   ├── BatchRenderer2D/
+    │   │   │   ├── quad.frag
+    │   │   │   ├── quad.vert
+    │   │   │   ├── sdf.frag
+    │   │   │   └── sdf.vert
+    │   │   ├── DemoBufferTypes/
+    │   │   │   ├── background.frag
+    │   │   │   ├── background.vert
+    │   │   │   ├── villager.frag
+    │   │   │   └── villager.vert
+    │   │   ├── DemoTexturing/
+    │   │   │   ├── combine.frag
+    │   │   │   └── combine.vert
+    │   │   ├── ImmediateRenderer2D/
+    │   │   │   ├── quad.frag
+    │   │   │   ├── quad.vert
+    │   │   │   ├── sdf.frag
+    │   │   │   └── sdf.vert
+    │   │   ├── InstancedRenderer2D/
+    │   │   │   ├── quad.frag
+    │   │   │   ├── quad.vert
+    │   │   │   ├── sdf.frag
+    │   │   │   └── sdf.vert
+    │   │   ├── PostProcess/
+    │   │   │   ├── box-blur.frag
+    │   │   │   ├── chromatic-aberration.frag
+    │   │   │   ├── gamma-correct.frag
+    │   │   │   ├── pixelize.frag
+    │   │   │   ├── simple-texture.frag
+    │   │   │   └── simple.vert
+    │   │   └── shape/
+    │   │       ├── shape.frag
+    │   │       └── shape.vert
+    │   └── sprites/
+    │       ├── CS230_Final/
+    │       │   ├── Bomb.spt
+    │       │   ├── Bread.spt
+    │       │   ├── Bus.spt
+    │       │   ├── Hotdog.spt
+    │       │   ├── KimBab.spt
+    │       │   ├── Passenger.spt
+    │       │   ├── Player.spt
+    │       │   ├── Shining.spt
+    │       │   ├── Shoes.spt
+    │       │   ├── Snack.spt
+    │       │   ├── Strawberry.spt
+    │       │   └── Tears.spt
+    │       └── DemoSceneShowcase/
+    │           ├── Flame.spt
+    │           ├── Meteor.spt
+    │           └── Samurai.spt
+    ├── cmake/
+    │   ├── CompilerWarnings.cmake
+    │   ├── Dependencies.cmake
+    │   ├── StandardProjectSettings.cmake
+    │   └── dependencies/
+    │       ├── DearImGUI.cmake
+    │       ├── GLEW.cmake
+    │       ├── GSL.cmake
+    │       ├── OpenGL.cmake
+    │       ├── SDL2.cmake
+    │       └── STB.cmake
+    ├── docs/
+    │   ├── DebuggingWeb.md
+    │   └── DevEnvironment.md
+    ├── scripts/
+    │   ├── rename_hpp_to_h.py
+    │   ├── scan_build_project.py
+    │   └── split_ingest.py
+    └── source/
+        ├── CMakeLists.txt
+        ├── main.cpp
+        ├── CS200/
+        │   ├── BatchRenderer2D.cpp
+        │   ├── BatchRenderer2D.h
+        │   ├── Image.cpp
+        │   ├── Image.h
+        │   ├── ImGuiHelper.cpp
+        │   ├── ImGuiHelper.h
+        │   ├── ImmediateRenderer2D.cpp
+        │   ├── ImmediateRenderer2D.h
+        │   ├── InstancedRenderer2D.cpp
+        │   ├── InstancedRenderer2D.h
+        │   ├── IRenderer2D.h
+        │   ├── NDC.h
+        │   ├── OffscreenFramebuffer.cpp
+        │   ├── OffscreenFramebuffer.h
+        │   ├── PostProcessingPipeline.cpp
+        │   ├── PostProcessingPipeline.h
+        │   ├── Renderer2DUtils.cpp
+        │   ├── Renderer2DUtils.h
+        │   ├── RenderingAPI.cpp
+        │   ├── RenderingAPI.h
+        │   ├── RGBA.h
+        │   ├── Shape.cpp
+        │   └── Shape.h
+        ├── Demo/
+        │   ├── DemoBatchInstance.cpp
+        │   ├── DemoBatchInstance.h
+        │   ├── DemoBufferTypes.cpp
+        │   ├── DemoBufferTypes.h
+        │   ├── DemoCS230Textures.cpp
+        │   ├── DemoCS230Textures.h
+        │   ├── DemoDepthPost.cpp
+        │   ├── DemoDepthPost.h
+        │   ├── DemoFramebuffer.cpp
+        │   ├── DemoFramebuffer.h
+        │   ├── DemoShapes.cpp
+        │   ├── DemoShapes.h
+        │   ├── DemoText.cpp
+        │   ├── DemoText.h
+        │   ├── DemoTexturing.cpp
+        │   ├── DemoTexturing.h
+        │   ├── DemoVAO.cpp
+        │   ├── DemoVAO.h
+        │   ├── Demo7/
+        │   │   ├── Moon.cpp
+        │   │   ├── Moon.h
+        │   │   ├── Road.cpp
+        │   │   ├── Road.h
+        │   │   ├── Stars.cpp
+        │   │   ├── Stars.h
+        │   │   ├── Triangle.cpp
+        │   │   ├── Triangle.h
+        │   │   └── WorldSize.h
+        │   └── DemoSceneShowcase/
+        │       ├── Map.cpp
+        │       ├── Map.h
+        │       ├── Samurai.cpp
+        │       ├── Samurai.h
+        │       ├── SceneState.cpp
+        │       └── SceneState.h
+        ├── Engine/
+        │   ├── Animation.cpp
+        │   ├── Animation.h
+        │   ├── Camera.cpp
+        │   ├── Camera.h
+        │   ├── Collision.cpp
+        │   ├── Collision.h
+        │   ├── Component.h
+        │   ├── ComponentManager.h
+        │   ├── Engine.cpp
+        │   ├── Engine.h
+        │   ├── Error.h
+        │   ├── Font.cpp
+        │   ├── Font.h
+        │   ├── Fonts.h
+        │   ├── FPS.h
+        │   ├── GameObject.cpp
+        │   ├── GameObject.h
+        │   ├── GameObjectManager.cpp
+        │   ├── GameObjectManager.h
+        │   ├── GameState.h
+        │   ├── GameStateManager.cpp
+        │   ├── GameStateManager.h
+        │   ├── Input.cpp
+        │   ├── Input.h
+        │   ├── Logger.cpp
+        │   ├── Logger.h
+        │   ├── Matrix.cpp
+        │   ├── Matrix.h
+        │   ├── Particle.cpp
+        │   ├── Particle.h
+        │   ├── Path.cpp
+        │   ├── Path.h
+        │   ├── PerformanceMonitor.cpp
+        │   ├── PerformanceMonitor.h
+        │   ├── Random.cpp
+        │   ├── Random.h
+        │   ├── Rect.h
+        │   ├── ShowCollision.cpp
+        │   ├── ShowCollision.h
+        │   ├── Sprite.cpp
+        │   ├── Sprite.h
+        │   ├── TextManager.cpp
+        │   ├── TextManager.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── TextureManager.cpp
+        │   ├── TextureManager.h
+        │   ├── Timer.h
+        │   ├── Vec2.cpp
+        │   ├── Vec2.h
+        │   ├── Window.cpp
+        │   └── Window.h
+        ├── Game/
+        │   ├── Background.cpp
+        │   ├── Background.h
+        │   ├── GameObjectTypes.h
+        │   ├── MainMenu.cpp
+        │   ├── MainMenu.h
+        │   ├── Particles.h
+        │   ├── Score.cpp
+        │   ├── Score.h
+        │   ├── Splash.cpp
+        │   ├── Splash.h
+        │   ├── States.h
+        │   ├── CS230_Final/
+        │   │   ├── Components/
+        │   │   │   ├── Bounce.cpp
+        │   │   │   ├── Bounce.h
+        │   │   │   ├── Grid.cpp
+        │   │   │   ├── Grid.h
+        │   │   │   ├── Random.cpp
+        │   │   │   ├── Random.h
+        │   │   │   ├── Ziggle.cpp
+        │   │   │   └── Ziggle.h
+        │   │   ├── Objects/
+        │   │   │   ├── Bus.cpp
+        │   │   │   ├── Bus.h
+        │   │   │   ├── BusLine.h
+        │   │   │   ├── Constants.h
+        │   │   │   ├── Food.cpp
+        │   │   │   ├── Food.h
+        │   │   │   ├── Obstacle.cpp
+        │   │   │   ├── Obstacle.h
+        │   │   │   ├── Passenger.cpp
+        │   │   │   ├── Passenger.h
+        │   │   │   ├── Player.cpp
+        │   │   │   └── Player.h
+        │   │   └── States/
+        │   │       ├── BadSandwich.cpp
+        │   │       ├── BadSandwich.h
+        │   │       ├── GoodSandwich.cpp
+        │   │       ├── GoodSandwich.h
+        │   │       ├── NormalSandwich.cpp
+        │   │       ├── NormalSandwich.h
+        │   │       ├── Project.cpp
+        │   │       └── Project.h
+        │   └── States/
+        │       ├── ConsoleTest.cpp
+        │       ├── ConsoleTest.h
+        │       ├── RenderingTest.cpp
+        │       └── RenderingTest.h
+        ├── OpenGL/
+        │   ├── Buffer.cpp
+        │   ├── Buffer.h
+        │   ├── Environment.h
+        │   ├── Framebuffer.cpp
+        │   ├── Framebuffer.h
+        │   ├── GL.cpp
+        │   ├── GL.h
+        │   ├── GLConstants.h
+        │   ├── GLTypes.h
+        │   ├── Handle.h
+        │   ├── Shader.cpp
+        │   ├── Shader.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── VertexArray.cpp
+        │   └── VertexArray.h
+        └── Tracy/
+            ├── TracyClient.cpp
+            ├── TracyClient.F90
+            ├── client/
+            │   ├── tracy_concurrentqueue.h
+            │   ├── tracy_rpmalloc.cpp
+            │   ├── tracy_rpmalloc.hpp
+            │   ├── tracy_SPSCQueue.h
+            │   ├── TracyAlloc.cpp
+            │   ├── TracyArmCpuTable.hpp
+            │   ├── TracyCallstack.cpp
+            │   ├── TracyCallstack.h
+            │   ├── TracyCallstack.hpp
+            │   ├── TracyCpuid.hpp
+            │   ├── TracyDebug.hpp
+            │   ├── TracyDxt1.cpp
+            │   ├── TracyDxt1.hpp
+            │   ├── TracyFastVector.hpp
+            │   ├── TracyKCore.cpp
+            │   ├── TracyKCore.hpp
+            │   ├── TracyLock.hpp
+            │   ├── TracyOverride.cpp
+            │   ├── TracyProfiler.cpp
+            │   ├── TracyProfiler.hpp
+            │   ├── TracyRingBuffer.hpp
+            │   ├── TracyRocprof.cpp
+            │   ├── TracyScoped.hpp
+            │   ├── TracyStringHelpers.hpp
+            │   ├── TracySysPower.cpp
+            │   ├── TracySysPower.hpp
+            │   ├── TracySysTime.cpp
+            │   ├── TracySysTime.hpp
+            │   ├── TracySysTrace.cpp
+            │   ├── TracySysTrace.hpp
+            │   └── TracyThread.hpp
+            ├── common/
+            │   ├── tracy_lz4.cpp
+            │   ├── tracy_lz4.hpp
+            │   ├── tracy_lz4hc.cpp
+            │   ├── tracy_lz4hc.hpp
+            │   ├── TracyAlign.hpp
+            │   ├── TracyAlloc.hpp
+            │   ├── TracyApi.h
+            │   ├── TracyColor.hpp
+            │   ├── TracyForceInline.hpp
+            │   ├── TracyMutex.hpp
+            │   ├── TracyProtocol.hpp
+            │   ├── TracyQueue.hpp
+            │   ├── TracySocket.cpp
+            │   ├── TracySocket.hpp
+            │   ├── TracyStackFrames.cpp
+            │   ├── TracyStackFrames.hpp
+            │   ├── TracySystem.cpp
+            │   ├── TracySystem.hpp
+            │   ├── TracyVersion.hpp
+            │   ├── TracyWinFamily.hpp
+            │   └── TracyYield.hpp
+            ├── libbacktrace/
+            │   ├── alloc.cpp
+            │   ├── backtrace.hpp
+            │   ├── config.h
+            │   ├── dwarf.cpp
+            │   ├── elf.cpp
+            │   ├── fileline.cpp
+            │   ├── filenames.hpp
+            │   ├── internal.hpp
+            │   ├── LICENSE
+            │   ├── macho.cpp
+            │   ├── mmapio.cpp
+            │   ├── posix.cpp
+            │   ├── sort.cpp
+            │   └── state.cpp
+            └── tracy/
+                ├── Tracy.hpp
+                ├── TracyC.h
+                ├── TracyCUDA.hpp
+                ├── TracyD3D11.hpp
+                ├── TracyD3D12.hpp
+                ├── TracyLua.hpp
+                ├── TracyMetal.hmm
+                ├── TracyOpenCL.hpp
+                ├── TracyOpenGL.hpp
+                └── TracyVulkan.hpp

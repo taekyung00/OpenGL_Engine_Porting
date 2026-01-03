@@ -1,0 +1,2861 @@
+Directory: project
+Files analyzed: 243
+
+Estimated tokens: 741.4k
+
+Directory structure:
+└── project/
+    └── source/
+        ├── main.cpp
+        ├── CS200/
+        │   ├── BatchRenderer2D.cpp
+        │   ├── BatchRenderer2D.h
+        │   ├── Image.cpp
+        │   ├── Image.h
+        │   ├── ImGuiHelper.cpp
+        │   ├── ImGuiHelper.h
+        │   ├── ImmediateRenderer2D.cpp
+        │   ├── ImmediateRenderer2D.h
+        │   ├── InstancedRenderer2D.cpp
+        │   ├── InstancedRenderer2D.h
+        │   ├── IRenderer2D.h
+        │   ├── NDC.h
+        │   ├── OffscreenFramebuffer.cpp
+        │   ├── OffscreenFramebuffer.h
+        │   ├── PostProcessingPipeline.cpp
+        │   ├── PostProcessingPipeline.h
+        │   ├── Renderer2DUtils.cpp
+        │   ├── Renderer2DUtils.h
+        │   ├── RenderingAPI.cpp
+        │   ├── RenderingAPI.h
+        │   ├── RGBA.h
+        │   ├── Shape.cpp
+        │   └── Shape.h
+        ├── Demo/
+        │   ├── DemoBatchInstance.cpp
+        │   ├── DemoBatchInstance.h
+        │   ├── DemoBufferTypes.cpp
+        │   ├── DemoBufferTypes.h
+        │   ├── DemoCS230Textures.cpp
+        │   ├── DemoCS230Textures.h
+        │   ├── DemoDepthPost.cpp
+        │   ├── DemoDepthPost.h
+        │   ├── DemoFramebuffer.cpp
+        │   ├── DemoFramebuffer.h
+        │   ├── DemoShapes.cpp
+        │   ├── DemoShapes.h
+        │   ├── DemoText.cpp
+        │   ├── DemoText.h
+        │   ├── DemoTexturing.cpp
+        │   ├── DemoTexturing.h
+        │   ├── DemoVAO.cpp
+        │   ├── DemoVAO.h
+        │   ├── Demo7/
+        │   │   ├── Moon.cpp
+        │   │   ├── Moon.h
+        │   │   ├── Road.cpp
+        │   │   ├── Road.h
+        │   │   ├── Stars.cpp
+        │   │   ├── Stars.h
+        │   │   ├── Triangle.cpp
+        │   │   ├── Triangle.h
+        │   │   └── WorldSize.h
+        │   └── DemoSceneShowcase/
+        │       ├── Map.cpp
+        │       ├── Map.h
+        │       ├── Samurai.cpp
+        │       ├── Samurai.h
+        │       ├── SceneState.cpp
+        │       └── SceneState.h
+        ├── Engine/
+        │   ├── Animation.cpp
+        │   ├── Animation.h
+        │   ├── Camera.cpp
+        │   ├── Camera.h
+        │   ├── Collision.cpp
+        │   ├── Collision.h
+        │   ├── Component.h
+        │   ├── ComponentManager.h
+        │   ├── Engine.cpp
+        │   ├── Engine.h
+        │   ├── Error.h
+        │   ├── Font.cpp
+        │   ├── Font.h
+        │   ├── Fonts.h
+        │   ├── FPS.h
+        │   ├── GameObject.cpp
+        │   ├── GameObject.h
+        │   ├── GameObjectManager.cpp
+        │   ├── GameObjectManager.h
+        │   ├── GameState.h
+        │   ├── GameStateManager.cpp
+        │   ├── GameStateManager.h
+        │   ├── Input.cpp
+        │   ├── Input.h
+        │   ├── Logger.cpp
+        │   ├── Logger.h
+        │   ├── Matrix.cpp
+        │   ├── Matrix.h
+        │   ├── Particle.cpp
+        │   ├── Particle.h
+        │   ├── Path.cpp
+        │   ├── Path.h
+        │   ├── PerformanceMonitor.cpp
+        │   ├── PerformanceMonitor.h
+        │   ├── Random.cpp
+        │   ├── Random.h
+        │   ├── Rect.h
+        │   ├── ShowCollision.cpp
+        │   ├── ShowCollision.h
+        │   ├── Sprite.cpp
+        │   ├── Sprite.h
+        │   ├── TextManager.cpp
+        │   ├── TextManager.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── TextureManager.cpp
+        │   ├── TextureManager.h
+        │   ├── Timer.h
+        │   ├── Vec2.cpp
+        │   ├── Vec2.h
+        │   ├── Window.cpp
+        │   └── Window.h
+        ├── Game/
+        │   ├── Background.cpp
+        │   ├── Background.h
+        │   ├── GameObjectTypes.h
+        │   ├── MainMenu.cpp
+        │   ├── MainMenu.h
+        │   ├── Particles.h
+        │   ├── Score.cpp
+        │   ├── Score.h
+        │   ├── Splash.cpp
+        │   ├── Splash.h
+        │   ├── States.h
+        │   ├── CS230_Final/
+        │   │   ├── Components/
+        │   │   │   ├── Bounce.cpp
+        │   │   │   ├── Bounce.h
+        │   │   │   ├── Grid.cpp
+        │   │   │   ├── Grid.h
+        │   │   │   ├── Random.cpp
+        │   │   │   ├── Random.h
+        │   │   │   ├── Ziggle.cpp
+        │   │   │   └── Ziggle.h
+        │   │   ├── Objects/
+        │   │   │   ├── Bus.cpp
+        │   │   │   ├── Bus.h
+        │   │   │   ├── BusLine.h
+        │   │   │   ├── Constants.h
+        │   │   │   ├── Food.cpp
+        │   │   │   ├── Food.h
+        │   │   │   ├── Obstacle.cpp
+        │   │   │   ├── Obstacle.h
+        │   │   │   ├── Passenger.cpp
+        │   │   │   ├── Passenger.h
+        │   │   │   ├── Player.cpp
+        │   │   │   └── Player.h
+        │   │   └── States/
+        │   │       ├── BadSandwich.cpp
+        │   │       ├── BadSandwich.h
+        │   │       ├── GoodSandwich.cpp
+        │   │       ├── GoodSandwich.h
+        │   │       ├── NormalSandwich.cpp
+        │   │       ├── NormalSandwich.h
+        │   │       ├── Project.cpp
+        │   │       └── Project.h
+        │   └── States/
+        │       ├── ConsoleTest.cpp
+        │       ├── ConsoleTest.h
+        │       ├── RenderingTest.cpp
+        │       └── RenderingTest.h
+        ├── OpenGL/
+        │   ├── Buffer.cpp
+        │   ├── Buffer.h
+        │   ├── Environment.h
+        │   ├── Framebuffer.cpp
+        │   ├── Framebuffer.h
+        │   ├── GL.cpp
+        │   ├── GL.h
+        │   ├── GLConstants.h
+        │   ├── GLTypes.h
+        │   ├── Handle.h
+        │   ├── Shader.cpp
+        │   ├── Shader.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── VertexArray.cpp
+        │   └── VertexArray.h
+        └── Tracy/
+            ├── TracyClient.cpp
+            ├── client/
+            │   ├── tracy_concurrentqueue.h
+            │   ├── tracy_rpmalloc.cpp
+            │   ├── tracy_rpmalloc.hpp
+            │   ├── tracy_SPSCQueue.h
+            │   ├── TracyAlloc.cpp
+            │   ├── TracyArmCpuTable.hpp
+            │   ├── TracyCallstack.cpp
+            │   ├── TracyCallstack.h
+            │   ├── TracyCallstack.hpp
+            │   ├── TracyCpuid.hpp
+            │   ├── TracyDebug.hpp
+            │   ├── TracyDxt1.cpp
+            │   ├── TracyDxt1.hpp
+            │   ├── TracyFastVector.hpp
+            │   ├── TracyKCore.cpp
+            │   ├── TracyKCore.hpp
+            │   ├── TracyLock.hpp
+            │   ├── TracyOverride.cpp
+            │   ├── TracyProfiler.cpp
+            │   ├── TracyProfiler.hpp
+            │   ├── TracyRingBuffer.hpp
+            │   ├── TracyRocprof.cpp
+            │   ├── TracyScoped.hpp
+            │   ├── TracyStringHelpers.hpp
+            │   ├── TracySysPower.cpp
+            │   ├── TracySysPower.hpp
+            │   ├── TracySysTime.cpp
+            │   ├── TracySysTime.hpp
+            │   ├── TracySysTrace.cpp
+            │   ├── TracySysTrace.hpp
+            │   └── TracyThread.hpp
+            ├── common/
+            │   ├── tracy_lz4.cpp
+            │   ├── tracy_lz4.hpp
+            │   ├── tracy_lz4hc.cpp
+            │   ├── tracy_lz4hc.hpp
+            │   ├── TracyAlign.hpp
+            │   ├── TracyAlloc.hpp
+            │   ├── TracyApi.h
+            │   ├── TracyColor.hpp
+            │   ├── TracyForceInline.hpp
+            │   ├── TracyMutex.hpp
+            │   ├── TracyProtocol.hpp
+            │   ├── TracyQueue.hpp
+            │   ├── TracySocket.cpp
+            │   ├── TracySocket.hpp
+            │   ├── TracyStackFrames.cpp
+            │   ├── TracyStackFrames.hpp
+            │   ├── TracySystem.cpp
+            │   ├── TracySystem.hpp
+            │   ├── TracyVersion.hpp
+            │   ├── TracyWinFamily.hpp
+            │   └── TracyYield.hpp
+            ├── libbacktrace/
+            │   ├── alloc.cpp
+            │   ├── backtrace.hpp
+            │   ├── config.h
+            │   ├── dwarf.cpp
+            │   ├── elf.cpp
+            │   ├── fileline.cpp
+            │   ├── filenames.hpp
+            │   ├── internal.hpp
+            │   ├── macho.cpp
+            │   ├── mmapio.cpp
+            │   ├── posix.cpp
+            │   ├── sort.cpp
+            │   └── state.cpp
+            └── tracy/
+                ├── Tracy.hpp
+                ├── TracyC.h
+                ├── TracyCUDA.hpp
+                ├── TracyD3D11.hpp
+                ├── TracyD3D12.hpp
+                ├── TracyLua.hpp
+                ├── TracyOpenCL.hpp
+                ├── TracyOpenGL.hpp
+                └── TracyVulkan.hpp
+
+
+================================================
+FILE: source/Demo/DemoCS230Textures.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "DemoCS230Textures.h"
+
+#include "CS200/IRenderer2D.h"
+#include "CS200/RenderingAPI.h"
+#include "DemoTexturing.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Matrix.h"
+#include "Engine/Texture.h"
+#include "Engine/TextureManager.h"
+#include "Engine/Window.h"
+#include "../Game/MainMenu.h"
+
+#include <cmath>
+#include <imgui.h>
+
+void DemoCS230Textures::Load()
+{
+    auto&      texture_manager        = Engine::GetTextureManager();
+	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+    const auto background_image_paths = { "Assets/images/DemoCS230Textures/Planets.png", "Assets/images/DemoCS230Textures/Ships.png", "Assets/images/DemoCS230Textures/Foreground.png" };
+    for (const auto& path : background_image_paths)
+    {
+        backgroundTextures.push_back(texture_manager.Load(path));
+    }
+
+    robotTexture = texture_manager.Load("Assets/images/DemoCS230Textures/Robot.png");
+    catTexture   = texture_manager.Load("Assets/images/DemoCS230Textures/Cat.png");
+
+    initializeRobotAnimations();
+    initializeCatAnimations();
+
+    CS200::RenderingAPI::SetClearColor(0x2E3440FF);
+}
+
+template <typename T, typename FLOAT = double>
+static void ease_to_target(T& current, const T& target, FLOAT delta_time, FLOAT weight = 1.0)
+{
+    const auto easing = std::min(delta_time * weight, static_cast<FLOAT>(1.0));
+    current += easing * (target - current);
+}
+
+void DemoCS230Textures::Update([[maybe_unused]]double dt)
+{
+    const auto& environment = Engine::GetWindowEnvironment();
+    updateAnimation(environment.DeltaTime);
+    const auto     delta_time = static_cast<float>(environment.DeltaTime);
+    constexpr auto weight     = 1.5f;
+    ease_to_target(backgroundTintColor[0], targetBackgroundTintColor[0], delta_time, weight);
+    ease_to_target(backgroundTintColor[1], targetBackgroundTintColor[1], delta_time, weight);
+    ease_to_target(backgroundTintColor[2], targetBackgroundTintColor[2], delta_time, weight);
+    ease_to_target(backgroundTintColor[3], targetBackgroundTintColor[3], delta_time, weight);
+    ease_to_target(characterTintColor[0], targetCharacterTintColor[0], delta_time, weight);
+    ease_to_target(characterTintColor[1], targetCharacterTintColor[1], delta_time, weight);
+    ease_to_target(characterTintColor[2], targetCharacterTintColor[2], delta_time, weight);
+    ease_to_target(characterTintColor[3], targetCharacterTintColor[3], delta_time, weight);
+}
+
+void DemoCS230Textures::Draw() 
+{
+    CS200::RenderingAPI::Clear();
+    auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+    renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+    const auto background_tint = CS200::pack_color(backgroundTintColor);
+    for (const auto& texture : backgroundTextures)
+    {
+        texture->Draw(Math::TransformationMatrix{}, background_tint);
+    }
+    std::shared_ptr<CS230::Texture>  currentTexture = (selectedCharacter == CharacterType::Robot) ? robotTexture : catTexture;
+    const auto       middle_x       = Engine::GetWindowEnvironment().DisplaySize.x / 2.0;
+    const auto       texel_base     = getCurrentFrameTexelPosition();
+    const auto       frame_size     = getCurrentFrameSize();
+    const auto       hot_spot       = getCurrentHotSpot();
+    constexpr double floor_y        = 80.0;
+    const auto       to_center      = Math::TranslationMatrix(Math::vec2{ static_cast<double>(-hot_spot.x), static_cast<double>(-hot_spot.y) });
+    const auto       scale          = faceRight ? Math::ScaleMatrix({ 1.0, 1.0 }) : Math::ScaleMatrix({ -1.0, 1.0 });
+    const auto       translate      = Math::TranslationMatrix(Math::vec2{ middle_x, floor_y });
+    const auto       transform      = translate * scale * to_center;
+    const auto       character_tint = CS200::pack_color(characterTintColor);
+    currentTexture->Draw(transform, texel_base, frame_size, character_tint);
+    renderer_2d->EndScene();
+}
+
+void DemoCS230Textures::DrawImGui()
+{
+    if (ImGui::Begin("CS230 Textures Demo"))
+    {
+        const auto timing = Engine::GetWindowEnvironment();
+        ImGui::LabelText("FPS", "%d", timing.FPS);
+        ImGui::SeparatorText("Tint Color Controls");
+        ImGui::ColorEdit4("Background Tint", targetBackgroundTintColor.data());
+        ImGui::ColorEdit4("Character Tint", targetCharacterTintColor.data());
+
+        ImGui::SeparatorText("Character Selection");
+
+        static const char* character_names[] = { "Robot", "Cat" };
+        int                character_index   = static_cast<int>(selectedCharacter);
+
+        if (ImGui::Combo("Character", &character_index, character_names, IM_ARRAYSIZE(character_names)))
+        {
+            selectedCharacter = static_cast<CharacterType>(character_index);
+            currentFrameIndex = 0;
+            animationTimer    = 0.0;
+        }
+
+        if (selectedCharacter == CharacterType::Robot)
+        {
+            ImGui::SeparatorText("Robot Animation Controls");
+
+            static const char* robot_animation_names[] = { "None", "RobotDead", "RobotWalking", "RobotAngry" };
+            int                current_anim_index      = static_cast<int>(currentRobotAnimation);
+
+            if (ImGui::Combo("Animation", &current_anim_index, robot_animation_names, IM_ARRAYSIZE(robot_animation_names)))
+            {
+                currentRobotAnimation = static_cast<RobotAnimation>(current_anim_index);
+                currentFrameIndex     = 0;
+                animationTimer        = 0.0;
+            }
+        }
+        else // Cat
+        {
+            ImGui::SeparatorText("Cat Animation Controls");
+
+            static const char* cat_animation_names[] = { "CatIdle", "CatRunning", "CatJumping", "CatFalling" };
+            int                current_anim_index    = static_cast<int>(currentCatAnimation);
+
+            if (ImGui::Combo("Animation", &current_anim_index, cat_animation_names, IM_ARRAYSIZE(cat_animation_names)))
+            {
+                currentCatAnimation = static_cast<CatAnimation>(current_anim_index);
+                currentFrameIndex   = 0;
+                animationTimer      = 0.0;
+            }
+        }
+
+        ImGui::SeparatorText("Direction Controls");
+
+        // Direction control
+        ImGui::BeginDisabled(!faceRight);
+        if (ImGui::Button("Face Left", ImVec2(80, 0)))
+        {
+            faceRight = false;
+        }
+        ImGui::EndDisabled();
+
+        ImGui::SameLine();
+
+        ImGui::BeginDisabled(faceRight);
+        if (ImGui::Button("Face Right", ImVec2(80, 0)))
+        {
+            faceRight = true;
+        }
+        ImGui::EndDisabled();
+
+        ImGui::SeparatorText("Animation Info");
+        const auto& animations = getCurrentAnimations();
+        const int   anim_index = getCurrentAnimationIndex();
+        const auto& anim       = animations[static_cast<size_t>(anim_index)];
+        ImGui::Text("Current Animation: %s", anim.name.c_str());
+        ImGui::Text("Frame Count: %zu", anim.frames.size());
+        ImGui::Text("Current Frame Index: %d", currentFrameIndex);
+        ImGui::Text("Loop Frame: %d", anim.loopFrame);
+        const auto& currentFrame = anim.frames[static_cast<size_t>(currentFrameIndex)];
+        ImGui::Text("Current Sprite Frame: %d", currentFrame.frameIndex);
+        ImGui::Text("Frame Duration: %.2f seconds", currentFrame.duration);
+        ImGui::Text("Animation Timer: %.2f seconds", animationTimer);
+        const double totalDuration = getTotalAnimationDuration();
+        const double elapsedTime   = getCurrentAnimationElapsedTime();
+        const double progress      = elapsedTime / totalDuration;
+        ImGui::Text("Animation Progress: %.1f%% (%.2f/%.2f seconds)", progress * 100.0, elapsedTime, totalDuration);
+        ImGui::ProgressBar(static_cast<float>(progress), ImVec2(-1.0f, 0.0f));
+        if (ImGui::Button("Reset Animation"))
+        {
+            currentFrameIndex = 0;
+            animationTimer    = 0.0;
+        }
+
+
+        ImGui::SeparatorText("Hot Spot and Frame Size");
+        const auto hot_spot   = getCurrentHotSpot();
+        const auto frame_size = getCurrentFrameSize();
+        ImGui::Text("Hot Spot: (%d, %d)", hot_spot.x, hot_spot.y);
+        ImGui::Text("Frame Size: %dx%d", frame_size.x, frame_size.y);
+
+        ImGui::SeparatorText("Switch Demo");
+        if (ImGui::Button("Switch to Demo Texturing"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<DemoTexturing>();
+        }
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
+        }
+    }
+    ImGui::End();
+}
+
+void DemoCS230Textures::Unload()
+{
+    auto& texture_manager = Engine::GetTextureManager();
+    texture_manager.Unload();
+    backgroundTextures.clear();
+    robotTexture = nullptr;
+    catTexture   = nullptr;
+}
+
+gsl::czstring DemoCS230Textures::GetName() const
+{
+    return "Demo CS230 Textures";
+}
+
+void DemoCS230Textures::initializeRobotAnimations()
+{
+    robotAnimations.clear();
+    robotAnimations.resize(4); // 4 animations: None, RobotDead, RobotWalking, RobotAngry
+
+    // Animation: None - PlayFrame 0 10
+    robotAnimations[static_cast<int>(RobotAnimation::None)] = { "None", { { 0, 10.0 } }, 0 };
+
+    // Animation: RobotDead - PlayFrame 2 5
+    robotAnimations[static_cast<int>(RobotAnimation::RobotDead)] = { "RobotDead", { { 2, 5.0 } }, 0 };
+
+    // Animation: RobotWalking - PlayFrame 0 0.2, PlayFrame 1 0.2
+    robotAnimations[static_cast<int>(RobotAnimation::RobotWalking)] = {
+        "RobotWalking", { { 0, 0.2 }, { 1, 0.2 } },
+         0
+    };
+
+    // Animation: RobotAngry - PlayFrame 3 0.1, PlayFrame 4 0.1
+    robotAnimations[static_cast<int>(RobotAnimation::RobotAngry)] = {
+        "RobotAngry", { { 3, 0.1 }, { 4, 0.1 } },
+         0
+    };
+}
+
+void DemoCS230Textures::initializeCatAnimations()
+{
+    catAnimations.clear();
+    catAnimations.resize(4); // 4 animations: CatIdle, CatRunning, CatJumping, CatFalling
+
+    // Animation: CatIdle
+    catAnimations[static_cast<int>(CatAnimation::CatIdle)] = {
+        "CatIdle",
+        { { 0, 6.0 }, { 1, 0.5 }, { 2, 0.1 }, { 1, 0.5 }, { 2, 0.1 }, { 1, 0.5 }, { 0, 3.0 }, { 1, 0.5 }, { 2, 0.3 }, { 1, 0.5 },
+          { 2, 0.3 }, { 1, 0.5 }, { 0, 3.0 }, { 1, 0.5 }, { 2, 1.0 }, { 1, 0.3 }, { 2, 2.0 }, { 3, 0.4 }, { 4, 0.4 }, { 5, 0.4 } },
+        16  // Loop back to frame 16
+    };
+
+    // Animation: CatRunning - PlayFrame 6 .1, PlayFrame 0 .1, PlayFrame 7 .1, PlayFrame 0 .1, Loop 0
+    catAnimations[static_cast<int>(CatAnimation::CatRunning)] = {
+        "CatRunning", { { 6, 0.1 }, { 0, 0.1 }, { 7, 0.1 }, { 0, 0.1 } },
+         0
+    };
+
+    // Animation: CatJumping - PlayFrame 9 3, Loop 0
+    catAnimations[static_cast<int>(CatAnimation::CatJumping)] = { "CatJumping", { { 9, 3.0 } }, 0 };
+
+    // Animation: CatFalling - PlayFrame 8 3, Loop 0
+    catAnimations[static_cast<int>(CatAnimation::CatFalling)] = { "CatFalling", { { 8, 3.0 } }, 0 };
+}
+
+void DemoCS230Textures::updateAnimation(double deltaTime)
+{
+    const auto& animations = getCurrentAnimations();
+    const int   anim_index = getCurrentAnimationIndex();
+    const auto& anim       = animations[static_cast<size_t>(anim_index)];
+    animationTimer += deltaTime;
+    const auto& currentFrame = anim.frames[static_cast<size_t>(currentFrameIndex)];
+    if (animationTimer >= currentFrame.duration)
+    {
+        animationTimer    = 0.0;
+        currentFrameIndex = (currentFrameIndex + 1);
+        if (static_cast<size_t>(currentFrameIndex) >= anim.frames.size())
+        {
+            currentFrameIndex = anim.loopFrame;
+        }
+    }
+}
+
+int DemoCS230Textures::getCurrentSpriteFrame() const
+{
+    const auto& animations = getCurrentAnimations();
+    const int   anim_index = getCurrentAnimationIndex();
+    const auto& anim       = animations[static_cast<size_t>(anim_index)];
+    return anim.frames[static_cast<size_t>(currentFrameIndex)].frameIndex;
+}
+
+Math::ivec2 DemoCS230Textures::getCurrentFrameTexelPosition() const
+{
+    const int spriteFrame = getCurrentSpriteFrame();
+    if (selectedCharacter == CharacterType::Robot)
+    {
+        return Math::ivec2{ spriteFrame * ROBOT_FRAME_SIZE.x, 0 };
+    }
+    else
+    {
+        return CAT_FRAME_POSITIONS[static_cast<size_t>(spriteFrame)];
+    }
+}
+
+Math::ivec2 DemoCS230Textures::getCurrentFrameSize() const
+{
+    return (selectedCharacter == CharacterType::Robot) ? ROBOT_FRAME_SIZE : CAT_FRAME_SIZE;
+}
+
+Math::ivec2 DemoCS230Textures::getCurrentHotSpot() const
+{
+    return (selectedCharacter == CharacterType::Robot) ? ROBOT_HOT_SPOT : CAT_HOT_SPOT;
+}
+
+double DemoCS230Textures::getTotalAnimationDuration() const
+{
+    const auto& animations    = getCurrentAnimations();
+    const int   anim_index    = getCurrentAnimationIndex();
+    const auto& anim          = animations[static_cast<size_t>(anim_index)];
+    double      totalDuration = 0.0;
+    for (const auto& frame : anim.frames)
+    {
+        totalDuration += frame.duration;
+    }
+    return totalDuration;
+}
+
+double DemoCS230Textures::getCurrentAnimationElapsedTime() const
+{
+    const auto& animations  = getCurrentAnimations();
+    const int   anim_index  = getCurrentAnimationIndex();
+    const auto& anim        = animations[static_cast<size_t>(anim_index)];
+    double      elapsedTime = 0.0;
+    for (int i = 0; i < currentFrameIndex && i < static_cast<int>(anim.frames.size()); ++i)
+    {
+        elapsedTime += anim.frames[static_cast<size_t>(i)].duration;
+    }
+    elapsedTime += animationTimer;
+    return elapsedTime;
+}
+
+const std::vector<DemoCS230Textures::Animation>& DemoCS230Textures::getCurrentAnimations() const
+{
+    return (selectedCharacter == CharacterType::Robot) ? robotAnimations : catAnimations;
+}
+
+int DemoCS230Textures::getCurrentAnimationIndex() const
+{
+    return (selectedCharacter == CharacterType::Robot) ? static_cast<int>(currentRobotAnimation) : static_cast<int>(currentCatAnimation);
+}
+
+
+
+================================================
+FILE: source/Demo/DemoCS230Textures.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#pragma once
+
+#include "Engine/GameState.h"
+#include "Engine/Vec2.h"
+#include <array>
+#include <memory>
+#include <string>
+#include <vector>
+
+namespace CS230
+{
+    class Texture;
+}
+
+class DemoCS230Textures : public CS230::GameState
+{
+public:
+    void          Load() override;
+    void          Update(double dt) override;
+    void          Unload() override;
+    void          Draw()  override;
+    void          DrawImGui() override;
+    gsl::czstring GetName() const override;
+
+private:
+
+    struct AnimationFrame
+    {
+        int    frameIndex{};
+        double duration{}; // in seconds
+    };
+
+    struct Animation
+    {
+        std::string                 name{};
+        std::vector<AnimationFrame> frames{};
+        int                         loopFrame{ 0 };
+    };
+
+    enum class RobotAnimation
+    {
+        None         = 0,
+        RobotDead    = 1,
+        RobotWalking = 2,
+        RobotAngry   = 3
+    };
+
+    enum class CatAnimation
+    {
+        CatIdle    = 0,
+        CatRunning = 1,
+        CatJumping = 2,
+        CatFalling = 3
+    };
+
+    enum class CharacterType
+    {
+        Robot = 0,
+        Cat   = 1
+    };
+
+    // Robot sprite sheet info
+    static constexpr Math::ivec2 ROBOT_HOT_SPOT{ 30, 20 };
+    static constexpr Math::ivec2 ROBOT_FRAME_SIZE{ 63, 127 };
+    static constexpr int         ROBOT_NUM_FRAMES = 5;
+
+    // Cat sprite sheet info
+    static constexpr Math::ivec2 CAT_HOT_SPOT{ 65, 15 };
+    static constexpr Math::ivec2 CAT_FRAME_SIZE{ 128, 128 };
+    static constexpr int         CAT_NUM_FRAMES = 10;
+
+    // Cat frame positions in texture (texel coordinates)
+    static constexpr std::array<Math::ivec2, CAT_NUM_FRAMES> CAT_FRAME_POSITIONS = {
+        {
+         { 0, 0 },     // Frame 0
+            { 128, 0 },   // Frame 1
+            { 256, 0 },   // Frame 2
+            { 384, 0 },   // Frame 3
+            { 512, 0 },   // Frame 4
+            { 0, 128 },   // Frame 5
+            { 128, 128 }, // Frame 6
+            { 256, 128 }, // Frame 7
+            { 384, 128 }, // Frame 8
+            { 512, 128 }  // Frame 9
+        }
+    };
+
+    std::vector<std::shared_ptr<CS230::Texture>> backgroundTextures;
+    std::shared_ptr<CS230::Texture>              robotTexture              = nullptr;
+    std::shared_ptr<CS230::Texture>              catTexture                = nullptr;
+    std::array<float, 4>         backgroundTintColor       = { 0.1f, 0.2f, 0.3f, 0.4f };
+    std::array<float, 4>         characterTintColor        = { 0.4f, 0.3f, 0.2f, 0.1f };
+    std::array<float, 4>         targetBackgroundTintColor = { 1.0f, 1.0f, 1.0f, 1.0f };
+    std::array<float, 4>         targetCharacterTintColor  = { 1.0f, 1.0f, 1.0f, 1.0f };
+
+    // Character selection and animation state
+    CharacterType          selectedCharacter = CharacterType::Cat;
+    std::vector<Animation> robotAnimations;
+    std::vector<Animation> catAnimations;
+    RobotAnimation         currentRobotAnimation = RobotAnimation::None;
+    CatAnimation           currentCatAnimation   = CatAnimation::CatIdle;
+    int                    currentFrameIndex     = 0;
+    double                 animationTimer        = 0.0;
+    bool                   faceRight             = true;
+
+private:
+    void                          initializeRobotAnimations();
+    void                          initializeCatAnimations();
+    void                          updateAnimation(double deltaTime);
+    int                           getCurrentSpriteFrame() const;
+    Math::ivec2                   getCurrentFrameTexelPosition() const;
+    Math::ivec2                   getCurrentFrameSize() const;
+    Math::ivec2                   getCurrentHotSpot() const;
+    double                        getTotalAnimationDuration() const;
+    double                        getCurrentAnimationElapsedTime() const;
+    const std::vector<Animation>& getCurrentAnimations() const;
+    int                           getCurrentAnimationIndex() const;
+};
+
+
+
+================================================
+FILE: source/Demo/DemoDepthPost.cpp
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "Demo/DemoDepthPost.h"
+#include "DemoDepthPost.h"
+#include "Engine/TextureManager.h"
+#include <algorithm>
+#include <random>
+
+#include "Engine/Collision.h"
+#include "Engine/Input.h"
+#include "Engine/Path.h"
+#include "Engine/Random.h"
+#include "Engine/TextureManager.h"
+#include "Engine/Timer.h"
+#include "Engine/Window.h"
+#include <imgui.h>
+
+#include "CS200/IRenderer2D.h"
+#include "CS200/ImGuiHelper.h"
+#include "CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
+
+#include "OpenGL/Buffer.h"
+#include "OpenGL/Environment.h"
+#include "OpenGL/GL.h"
+
+#include "Game/CS230_Final/Components/Grid.h"
+#include "Game/MainMenu.h"
+
+void DemoDepthPost::setupScreenTriangle()
+{
+	struct ScreenVertex
+	{
+		float x, y;
+		float u, v;
+	};
+
+	const ScreenVertex vertices[] = {
+		{ -1.0f, -1.0f, 0.0f, 0.0f },
+		{  3.0f, -1.0f, 2.0f, 0.0f },
+		{ -1.0f,	 3.0f, 0.0f, 2.0f },
+	};
+
+	screenVertexCount = static_cast<GLsizei>(std::ssize(vertices));
+
+	screenVBO = OpenGL::CreateBuffer(OpenGL::BufferType::Vertices, std::as_bytes(std::span{ vertices }));
+
+	const auto layout = {
+		OpenGL::VertexBuffer{ screenVBO,
+							  {
+								  OpenGL::Attribute::Float2, // Location 0: Position (x, y)
+								  OpenGL::Attribute::Float2	 // Location 1: TexCoord (u, v)
+							  } }
+	};
+
+	screenVAO = OpenGL::CreateVertexArrayObject(layout);
+}
+
+void DemoDepthPost::Load()
+{
+	Engine::GetWindow().ForceResize(default_window_size.x, default_window_size.y);
+	Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+
+	auto& texture_manager = Engine::GetTextureManager();
+	for (int i = 0; i < NUM_LAYERS; ++i)
+	{
+		background_layers[i].texture = texture_manager.Load("Assets/images/DemoDepthPost/background_" + std::to_string(i) + ".png");
+		background_layers[i].depth	 = static_cast<float>(i) / NUM_LAYERS; // Depth from 0.0, 0.125, ..., 0.875
+	}
+	CS200::RenderingAPI::SetClearColor(CS200::WHITE);
+
+	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Batch);
+
+	// Initialize FPS tracking
+	LastTicks = SDL_GetTicks();
+
+	// Initialize ducks
+	duck_texture = texture_manager.Load("Assets/images/DemoDepthPost/duck.png");
+	for (int i = 0; i < NUM_DUCKS; ++i)
+	{
+		ducks[i].position = { static_cast<double>(util::random(100, default_window_size.x - 100)), static_cast<double>(util::random(100, default_window_size.y - 100)) };
+		uint8_t r		  = static_cast<uint8_t>(util::random(256));
+		uint8_t g		  = static_cast<uint8_t>(util::random(256));
+		uint8_t b		  = static_cast<uint8_t>(util::random(256));
+		uint8_t a		  = static_cast<uint8_t>(util::random(100, 250)); // get transparency between 100 and 250
+		ducks[i].color	  = CS200::pack_color(std::array<uint8_t, 4>{ r, g, b, a });
+		ducks[i].depth	  = static_cast<float>(util::random(-0.9, -0.1)); // Depth between -0.9 to -0.1
+	}
+
+	// sort ducks by depth back to front(painter's algorithm)
+	std::sort(std::begin(ducks), std::end(ducks), [](const Duck& left, const Duck& right) { return left.depth > right.depth; });
+
+	// msaa settings
+	const auto use_msaa = useMSAA ? OffscreenFramebuffer::MSAA::True : OffscreenFramebuffer::MSAA::False;
+	offscreenBuffer.Initialize(default_window_size.x, default_window_size.y, use_msaa, MSAASamples);
+
+	const std::filesystem::path screen_vert = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
+	const std::filesystem::path screen_frag = assets::locate_asset("Assets/shaders/PostProcess/simple-texture.frag");
+	screenShader							= OpenGL::CreateShader(screen_vert, screen_frag);
+
+	setupScreenTriangle();
+
+	postProcessing.Initialize(default_window_size.x, default_window_size.y);
+
+	{
+		const std::filesystem::path box_blur_vert	= assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
+		const std::filesystem::path box_blur_frag	= assets::locate_asset("Assets/shaders/PostProcess/box-blur.frag");
+		auto						box_blur_shader = OpenGL::CreateShader(box_blur_vert, box_blur_frag);
+
+		postProcessing.AddEffect(PostProcessingEffect(
+			"Box Blur", PostProcessingEffect::Enable::False, box_blur_shader,
+			[&](const OpenGL::CompiledShader& shader)
+			{
+				GL::Uniform1i(shader.UniformLocations.at("uBlurSize"), static_cast<int>(boxBlurSize));
+				GL::Uniform1f(shader.UniformLocations.at("uSeparation"), boxBlurSeparation);
+			}));
+	}
+
+	{
+		const std::filesystem::path gamma_vert	 = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
+		const std::filesystem::path gamma_frag	 = assets::locate_asset("Assets/shaders/PostProcess/gamma-correct.frag");
+		auto						gamma_shader = OpenGL::CreateShader(gamma_vert, gamma_frag);
+
+		postProcessing.AddEffect(PostProcessingEffect(
+			"Gamma Correction", PostProcessingEffect::Enable::True, gamma_shader, [&](const OpenGL::CompiledShader& shader) { GL::Uniform1f(shader.UniformLocations.at("uGamma"), gammaValue); }));
+	}
+
+	{
+		const std::filesystem::path chroma_vert	  = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
+		const std::filesystem::path chroma_frag	  = assets::locate_asset("Assets/shaders/PostProcess/chromatic-aberration.frag");
+		auto						chroma_shader = OpenGL::CreateShader(chroma_vert, chroma_frag);
+
+		postProcessing.AddEffect(PostProcessingEffect(
+			"Chromatic Aberration", PostProcessingEffect::Enable::True, chroma_shader,
+			[&](const OpenGL::CompiledShader& shader) { GL::Uniform2f(shader.UniformLocations.at("uMouseFocusPoint"), chromaticAberrationMouseX, chromaticAberrationMouseY); }));
+	}
+	{
+		const std::filesystem::path pixel_vert	 = assets::locate_asset("Assets/shaders/PostProcess/simple.vert");
+		const std::filesystem::path pixel_frag	 = assets::locate_asset("Assets/shaders/PostProcess/pixelize.frag");
+		auto						pixel_shader = OpenGL::CreateShader(pixel_vert, pixel_frag);
+
+		postProcessing.AddEffect(PostProcessingEffect(
+			"Pixelization", PostProcessingEffect::Enable::True, pixel_shader,
+			[&](const OpenGL::CompiledShader& shader) { GL::Uniform1i(shader.UniformLocations.at("pixelSize"), pixelSize); })); // must be odd
+	}
+
+	GL::Enable(GL_BLEND);
+	GL::BlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	if (useMSAA)
+	{
+		GL::Enable(GL_MULTISAMPLE);
+	}
+
+	AddGSComponent(new CS230::Camera(Math::rect{ Math::to_vec2(default_window_size) * 0.3, Math::to_vec2(default_window_size) * 0.7 }));
+	CS230::Camera* camera = GetGSComponent<CS230::Camera>();
+	camera->SetLimit(
+		{
+			{ 0, 0 },
+			  default_window_size
+	  });
+	camera->SetAnchoring() = true;
+	camera->SetPosition({ default_window_size.x / 2.0, default_window_size.y / 2.0 });
+	camera->SetFirstPersonView() = false;
+	camera->SetScale({ scale, scale });
+	camera->SetRotation(0.0);
+	camera->SetSmoothing() = false;
+}
+
+void DemoDepthPost::Update([[maybe_unused]] double dt)
+{
+	// Update FPS tracker
+	const Uint32 currentTicks = SDL_GetTicks();
+	const Uint32 deltaTicks	  = currentTicks - LastTicks;
+	const double deltaSeconds = deltaTicks / 1000.0;
+	LastTicks				  = currentTicks;
+	FPSTracker.Update(deltaSeconds);
+
+	if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape))
+	{
+		Engine::GetGameStateManager().PopState();
+		Engine::GetGameStateManager().PushState<MainMenu>();
+	}
+}
+
+void DemoDepthPost::Unload()
+{
+	offscreenBuffer.Shutdown();
+	postProcessing.Shutdown();
+	if (screenVAO != 0)
+	{
+		GL::DeleteVertexArrays(1, &screenVAO);
+		screenVAO = 0;
+	}
+	if (screenVBO != 0)
+	{
+		GL::DeleteBuffers(1, &screenVBO);
+		screenVBO = 0;
+	}
+	if (screenShader.Shader != 0)
+	{
+		OpenGL::DestroyShader(screenShader);
+	}
+}
+
+void DemoDepthPost::Draw()
+{
+	static int last_width  = 0;
+	static int last_height = 0;
+	const Math::ivec2 window_size = Engine::GetWindow().GetSize();
+	if (window_size.x != last_width || window_size.y != last_height)
+	{
+		offscreenBuffer.Resize(window_size.x, window_size.y);
+		postProcessing.Resize(window_size.x, window_size.y);
+		last_width	= window_size.x;
+		last_height = window_size.y;
+	}
+	// 1. Render to Offscreen FBO
+	GL::Enable(GL_DEPTH_TEST);
+	offscreenBuffer.BindForRendering();
+	CS200::IRenderer2D* renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize(), true) * GetGSComponent<CS230::Camera>()->GetMatrix());
+
+	
+	CS200::RenderingAPI::Clear(); // Clear Color & Depth
+
+	// opaque background layers
+	GL::DepthMask(GL_TRUE); // enable depth write
+	GL::DepthFunc(GL_LESS); // set depth function to less
+
+	CS200::RenderingAPI::SetViewport(window_size, { 0, 0 });
+
+	for (const auto& layer : background_layers)
+	{
+		layer.texture->Draw(Math::TransformationMatrix(), 0xFFFFFFFF, layer.depth);
+	}
+
+	// transparent ducks
+	GL::DepthMask(GL_FALSE); // disable depth write
+	for (const auto& duck : ducks)
+	{
+		duck_texture->Draw(Math::TranslationMatrix(duck.position), duck.color, duck.depth);
+	}
+	GL::DepthMask(GL_TRUE); // enable depth write
+	renderer_2d->EndScene();
+
+	// 2. Resolve (MSAA -> Texture) & PostProcess
+	OpenGL::TextureHandle scene_texture = offscreenBuffer.GetTexture();
+	OpenGL::TextureHandle final_texture = scene_texture;
+
+	GL::Disable(GL_DEPTH_TEST);
+	if (enablePostFX)
+	{
+		final_texture = postProcessing.Apply(scene_texture);
+	}
+
+	// 3. Render Final Texture to Screen
+	GL::Clear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	GL::Viewport(0, 0, default_window_size.x, default_window_size.y);
+
+
+	GL::UseProgram(screenShader.Shader);
+
+	GL::ActiveTexture(GL_TEXTURE0);
+	GL::BindTexture(GL_TEXTURE_2D, final_texture);
+
+	if (screenShader.UniformLocations.count("uColorTexture"))
+	{
+		GL::Uniform1i(screenShader.UniformLocations.at("uColorTexture"), 0);
+	}
+
+	GL::BindVertexArray(screenVAO);
+	GL::DrawArrays(GL_TRIANGLES, 0, screenVertexCount);
+
+	GL::BindVertexArray(0);
+	GL::BindTexture(GL_TEXTURE_2D, 0);
+	GL::UseProgram(0);
+
+
+	GL::Enable(GL_DEPTH_TEST);
+	renderer_2d->EndScene();
+}
+
+void DemoDepthPost::DrawImGui()
+{
+	ImGui::Begin("Demo Depth & Post-Processing Controls");
+	// Display FPS at the top
+	ImGui::Text("FPS: %d", static_cast<int>(FPSTracker));
+	ImGui::Separator();
+
+	ImGui::SeparatorText("Depth Settings");
+
+	if (ImGui::Button("Sort as Painters Algorithm"))
+	{
+		std::sort(std::begin(background_layers), std::end(background_layers), [](const BackGroundLayer& left, const BackGroundLayer& right) { return left.depth > right.depth; });
+	}
+
+	if (ImGui::Button("Sort as Front to Back"))
+	{
+		std::sort(
+			std::begin(background_layers), std::end(background_layers),
+			[](const BackGroundLayer& left, const BackGroundLayer& right)
+			{
+				return left.depth < right.depth; // then smaller depth drawn first, and frag of larger depth gonna be skipped over by depth test, and hopefully save effort of fragment shader
+			});
+	}
+
+	if (ImGui::Button("Sort Randomly"))
+	{
+		std::random_device rd;
+		std::mt19937	   g(rd());
+		std::shuffle(std::begin(background_layers), std::end(background_layers), g);
+	}
+	ImGui::SeparatorText("Camera Scale");
+	float previous_scale = static_cast<float>(scale);
+	ImGui::SliderFloat("Zoom", &previous_scale, 0.1f, 10.0f);
+	if (previous_scale != static_cast<float>(scale))
+	{
+		CS230::Camera* camera = GetGSComponent<CS230::Camera>();
+		camera->SetScale({ static_cast<double>(previous_scale), static_cast<double>(previous_scale) });
+		scale = static_cast<double>(previous_scale);
+	}
+	ImGui::SeparatorText("MSAA Settings");
+	bool msaa_changed = ImGui::Checkbox("Enable MSAA", &useMSAA);
+
+	ImGui::BeginDisabled(!useMSAA);
+
+
+	static GLint max_msaa_samples = 0;
+	if (max_msaa_samples == 0)
+	{
+		glGetIntegerv(GL_MAX_SAMPLES, &max_msaa_samples);
+	}
+
+
+	static std::vector<int> valid_samples;
+	if (valid_samples.empty())
+	{
+		for (int samples = 2; samples <= max_msaa_samples; samples *= 2)
+		{
+			valid_samples.push_back(samples);
+		}
+	}
+
+
+	int current_index = 0;
+	for (size_t i = 0; i < valid_samples.size(); ++i)
+	{
+		if (valid_samples[i] == MSAASamples)
+		{
+			current_index = static_cast<int>(i);
+			break;
+		}
+	}
+
+
+	std::string preview = std::to_string(MSAASamples) + "x";
+	if (ImGui::BeginCombo("MSAA Samples", preview.c_str()))
+	{
+		for (size_t i = 0; i < valid_samples.size(); ++i)
+		{
+			bool		is_selected = (current_index == static_cast<int>(i));
+			std::string label		= std::to_string(valid_samples[i]) + "x";
+
+			if (ImGui::Selectable(label.c_str(), is_selected))
+			{
+				MSAASamples	 = valid_samples[i];
+				msaa_changed = true;
+			}
+
+			if (is_selected)
+			{
+				ImGui::SetItemDefaultFocus();
+			}
+		}
+		ImGui::EndCombo();
+	}
+
+	ImGui::EndDisabled();
+
+	if (msaa_changed)
+	{
+		const auto use_msaa = useMSAA ? OffscreenFramebuffer::MSAA::True : OffscreenFramebuffer::MSAA::False;
+		offscreenBuffer.SetMSAA(use_msaa, MSAASamples);
+
+		MSAASamples = offscreenBuffer.GetMSAASamples();
+
+		if (useMSAA)
+		{
+			GL::Enable(GL_MULTISAMPLE);
+		}
+		else
+		{
+			GL::Disable(GL_MULTISAMPLE);
+		}
+	}
+
+	    ImGui::SeparatorText("Post-Processing Effects");
+    ImGui::Checkbox("Enable Post-FX", &enablePostFX);
+
+    ImGui::BeginDisabled(!enablePostFX);
+
+
+    if (auto* box_blur = postProcessing.GetEffect("Box Blur"))
+    {
+        ImGui::Checkbox(box_blur->Name.c_str(), reinterpret_cast<bool*>(&box_blur->Enabled));
+
+        ImGui::BeginDisabled(box_blur->Enabled == PostProcessingEffect::Enable::False);
+        ImGui::Indent();
+        ImGui::SliderFloat("Blur Size", &boxBlurSize, 0.0f, 10.0f);
+        ImGui::SliderFloat("Blur Separation", &boxBlurSeparation, 1.0f, 5.0f);
+        ImGui::Unindent();
+        ImGui::EndDisabled();
+    }
+
+
+    if (auto* gamma = postProcessing.GetEffect("Gamma Correction"))
+    {
+        ImGui::Checkbox(gamma->Name.c_str(), reinterpret_cast<bool*>(&gamma->Enabled));
+
+        ImGui::BeginDisabled(gamma->Enabled == PostProcessingEffect::Enable::False);
+        ImGui::Indent();
+        ImGui::SliderFloat("Gamma", &gammaValue, 0.5f, 4.0f);
+        ImGui::Unindent();
+        ImGui::EndDisabled();
+    }
+
+
+    if (auto* chroma = postProcessing.GetEffect("Chromatic Aberration"))
+    {
+        ImGui::Checkbox(chroma->Name.c_str(), reinterpret_cast<bool*>(&chroma->Enabled));
+
+        ImGui::BeginDisabled(chroma->Enabled == PostProcessingEffect::Enable::False);
+        ImGui::Indent();
+        ImGui::SliderFloat("Focus X", &chromaticAberrationMouseX, 0.0f, 1.0f);
+        ImGui::SliderFloat("Focus Y", &chromaticAberrationMouseY, 0.0f, 1.0f);
+        ImGui::Unindent();
+        ImGui::EndDisabled();
+    }
+
+    if (auto* pixelization = postProcessing.GetEffect("Pixelization"))
+    {
+        ImGui::Checkbox(pixelization->Name.c_str(), reinterpret_cast<bool*>(&pixelization->Enabled));
+
+        ImGui::BeginDisabled(pixelization->Enabled == PostProcessingEffect::Enable::False);
+        ImGui::SliderInt("Pixel Size", &pixelSize, 1, 800);
+        if ((pixelSize & 1) == 0)
+        {
+            pixelSize += 1; // make sure it's odd
+        }
+        // ImGui::Indent();
+        // ImGui::Unindent();
+        ImGui::EndDisabled();
+    }
+
+    ImGui::EndDisabled();
+
+    ImGui::SeparatorText("Render Textures");
+
+
+    static int         selected_effect_index = -1;
+    static const char* effect_names[]        = { "Box Blur", "Gamma Correction", "Chromatic Aberration", "Pixelization" };
+    static const char* current_effect_name   = "None";
+
+    if (selected_effect_index >= 0 && selected_effect_index < 4)
+    {
+        current_effect_name = effect_names[selected_effect_index];
+    }
+
+    if (ImGui::BeginCombo("View Effect", current_effect_name))
+    {
+        if (ImGui::Selectable("None", selected_effect_index == -1))
+        {
+            selected_effect_index = -1;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            bool is_selected = (selected_effect_index == i);
+            if (ImGui::Selectable(effect_names[i], is_selected))
+            {
+                selected_effect_index = i;
+            }
+            if (is_selected)
+            {
+                ImGui::SetItemDefaultFocus();
+            }
+        }
+        ImGui::EndCombo();
+    }
+
+
+    if (enablePostFX && selected_effect_index >= 0 && selected_effect_index < 4)
+    {
+        if (auto* effect = postProcessing.GetEffect(effect_names[selected_effect_index]))
+        {
+            if (effect->Enabled == PostProcessingEffect::Enable::True && effect->Framebuffer)
+            {
+                ImGui::Text("Output Texture (%s):", effect->Name.c_str());
+                OpenGL::TextureHandle texture = effect->Framebuffer->GetTexture();
+
+                const float     aspect_ratio   = static_cast<float>(default_window_size.x) / static_cast<float>(default_window_size.y);
+                constexpr float display_width  = 400.0f;
+                const float     display_height = display_width / aspect_ratio;
+
+                ImGui::Image(static_cast<ImTextureRef>(texture), ImVec2(display_width, display_height), ImVec2(0, 1), ImVec2(1, 0));
+            }
+            else if (effect->Enabled == PostProcessingEffect::Enable::False)
+            {
+                ImGui::TextColored(ImVec4(1.0f, 0.5f, 0.0f, 1.0f), "Effect is disabled");
+            }
+        }
+    }
+	ImGui::End();
+}
+
+
+
+================================================
+FILE: source/Demo/DemoDepthPost.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include <SDL.h>
+
+#include "Engine/FPS.h"
+#include "Engine/GameObjectManager.h"
+#include "Engine/GameState.h"
+#include "Engine/Particle.h"
+#include "Engine/Vec2.h"
+
+#include "CS200/OffscreenFramebuffer.h"
+#include "CS200/PostProcessingPipeline.h"
+#include "OpenGL/VertexArray.h"
+
+class DemoDepthPost : public CS230::GameState
+{
+public:
+	DemoDepthPost() = default;
+	void Load() override;
+	void Update(double dt) override;
+	void Unload() override;
+	void Draw() override;
+	void DrawImGui() override;
+
+	gsl::czstring GetName() const override
+	{
+		return "Demo Depth & Post-Processing";
+	}
+
+private:
+	struct BackGroundLayer
+	{
+		std::shared_ptr<CS230::Texture> texture;
+		float							depth;
+	};
+
+	static constexpr int					NUM_LAYERS = 8;
+	std::array<BackGroundLayer, NUM_LAYERS> background_layers{};
+	static constexpr Math::ivec2			default_window_size{ 1920, 1080 };
+	double									scale = 1.0;
+
+	struct Duck
+	{
+		Math::vec2	position;
+		CS200::RGBA color;
+		float		depth;
+	};
+
+	std::shared_ptr<CS230::Texture> duck_texture;
+
+	static constexpr int		NUM_DUCKS = 10;
+	std::array<Duck, NUM_DUCKS> ducks{};
+
+	util::FPS FPSTracker;
+	Uint32	  LastTicks = 0;
+
+	// msaa, post-processing
+	bool				 useMSAA = true;
+	OffscreenFramebuffer offscreenBuffer{};
+	int					 MSAASamples = 4;
+
+	OpenGL::CompiledShader	  screenShader{};
+	OpenGL::BufferHandle	  screenVBO{};
+	OpenGL::VertexArrayHandle screenVAO{};
+	GLsizei					  screenVertexCount = 0;
+
+	void setupScreenTriangle();
+
+	PostProcessingPipeline postProcessing{};
+
+	bool enablePostFX = true;
+
+
+	float boxBlurSize				= 2.0f;
+	float boxBlurSeparation			= 1.0f;
+	float gammaValue				= 2.2f;
+	float chromaticAberrationMouseX = 0.5f;
+	float chromaticAberrationMouseY = 0.5f;
+	int	  pixelSize					= 5;
+};
+
+
+================================================
+FILE: source/Demo/DemoFramebuffer.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "DemoFramebuffer.h"
+
+#include "CS200/IRenderer2D.h"
+#include "CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
+#include "DemoShapes.h"
+#include "DemoText.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Matrix.h"
+#include "Engine/Random.h"
+#include "Engine/Texture.h"
+#include "Engine/TextureManager.h"
+#include "Engine/Window.h"
+#include "OpenGL/GL.h"
+#include "../Game/MainMenu.h"
+
+#include <cmath>
+#include <imgui.h>
+
+void DemoFramebuffer::Load()
+{
+	auto& texture_manager = Engine::GetTextureManager();
+	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+    const auto background_image_paths = { "Assets/images/DemoFramebuffer/Planets.png", "Assets/images/DemoFramebuffer/Ships.png", "Assets/images/DemoFramebuffer/Foreground.png" };
+    for (const auto& path : background_image_paths)
+    {
+        backgroundTextures.push_back(texture_manager.Load(path));
+    }
+
+    robotTexture = texture_manager.Load("Assets/images/DemoFramebuffer/Robot.png");
+    catTexture   = texture_manager.Load("Assets/images/DemoFramebuffer/Cat.png");
+
+    initializeRobotAnimations();
+    initializeCatAnimations();
+
+    CS200::RenderingAPI::SetClearColor(0x2E3440FF);
+
+    // Initialize character states
+    idleCat.animation  = CatAnimation::CatIdle;
+    idleCat.frameIndex = 0;
+    idleCat.timer      = 0.0;
+    idleCat.position   = Math::vec2{ 70.0, 80.0 };
+    idleCat.faceRight  = true;
+
+    jumpingCat.animation  = CatAnimation::CatJumping;
+    jumpingCat.frameIndex = 0;
+    jumpingCat.timer      = 0.0;
+    jumpingCat.position   = Math::vec2{ 700.0, 80.0 };
+    jumpingCat.faceRight  = true;
+
+    walkingRobot.animation     = RobotAnimation::RobotWalking;
+    walkingRobot.frameIndex    = 0;
+    walkingRobot.timer         = 0.0;
+    walkingRobot.position      = Math::vec2{ 400.0, 80.0 };
+    walkingRobot.faceRight     = true;
+    walkingRobot.walkDirection = 1.0;   // 1 for right, -1 for left
+    walkingRobot.walkSpeed     = 100.0; // pixels per second
+
+    initializeWindParticles();
+}
+
+template <typename T, typename FLOAT = double>
+static void ease_to_target(T& current, const T& target, FLOAT delta_time, FLOAT weight = 1.0)
+{
+    const auto easing = std::min(delta_time * weight, static_cast<FLOAT>(1.0));
+    current += easing * (target - current);
+}
+
+void DemoFramebuffer::Update([[maybe_unused]]double dt)
+{
+    const auto&  environment = Engine::GetWindowEnvironment();
+    const double delta_time  = environment.DeltaTime;
+
+    // Ease wind direction towards target
+    ease_to_target(windDirection, targetWindDirection, static_cast<float>(delta_time), 1.0f);
+
+    ease_to_target(currentParticleCount, static_cast<float>(targetParticleCount), static_cast<float>(delta_time), 0.5f);
+    const int newParticleCount = static_cast<int>(std::round(currentParticleCount));
+    if (newParticleCount != particleCount)
+    {
+        particleCount = newParticleCount;
+        windParticles.resize(static_cast<size_t>(particleCount));
+    }
+
+    // Update idle cat
+    updateCatAnimation(idleCat, delta_time);
+
+    // Update jumping cat with vertical movement
+    updateCatAnimation(jumpingCat, delta_time);
+    // Add jumping motion (simple sine wave based on animation progress)
+    const double jump_progress = jumpingCat.timer / catAnimations[static_cast<int>(CatAnimation::CatJumping)].frames[0].duration;
+    const double jump_height   = 150.0 * std::sin(jump_progress * 3.14159); // Simple arc
+    jumpingCat.position.y      = 80.0 + jump_height;
+
+    // Update walking robot with horizontal movement
+    updateRobotAnimation(walkingRobot, delta_time);
+    walkingRobot.position.x += walkingRobot.walkDirection * walkingRobot.walkSpeed * delta_time;
+
+    if (walkingRobot.position.x <= 130.0)
+    {
+        walkingRobot.walkDirection = 1.0;
+        walkingRobot.faceRight     = true;
+    }
+    else if (walkingRobot.position.x >= 670.0)
+    {
+        walkingRobot.walkDirection = -1.0;
+        walkingRobot.faceRight     = false;
+    }
+
+    updateWindParticles(delta_time);
+}
+
+void DemoFramebuffer::Draw() 
+{
+    CS200::RenderingAPI::Clear();
+
+    auto renderer_2d          = Engine::GetTextureManager().GetRenderer2D();
+    const auto [width, height] = Engine::GetWindow().GetSize();
+
+    // Begin offscreen rendering for wind particles
+    const auto render_info = beginOffscreenRendering();
+
+    // Render wind particles to offscreen buffer
+    drawWindParticles();
+
+    // End offscreen rendering and get the scene texture
+    const auto scene_texture = endOffscreenRendering(render_info);
+
+    // Store texture for ImGui display (clean up previous texture)
+    if (lastFramebufferTexture != 0)
+    {
+        GL::DeleteTextures(1, &lastFramebufferTexture);
+    }
+    lastFramebufferTexture = scene_texture;
+
+    // Render main scene to screen
+    renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+
+    // Draw background
+    for (const auto& texture : backgroundTextures)
+    {
+        texture->Draw(Math::TransformationMatrix{});
+    }
+
+    // Draw characters
+    drawCat(idleCat);
+    drawCat(jumpingCat);
+    drawRobot(walkingRobot);
+
+    // Conditionally draw scene texture overlay
+    if (enableFramebufferOverlay)
+    {
+        const auto to_center = Math::TranslationMatrix(Math::vec2{ static_cast<double>(width) / 2.0, static_cast<double>(height) / 2.0 });
+        const auto scale     = Math::ScaleMatrix({ static_cast<double>(width), static_cast<double>(height) });
+        const auto rotate    = Math::RotationMatrix(static_cast<double>(windDirection));
+        const auto transform = to_center * rotate * scale;
+        renderer_2d->DrawQuad(transform, scene_texture);
+    }
+
+    renderer_2d->EndScene();
+
+    // Note: Don't delete scene_texture here anymore since we're storing it for ImGui
+}
+
+void DemoFramebuffer::DrawImGui()
+{
+    // Main control panel
+    if (ImGui::Begin("Demo Controls"))
+    {
+        ImGui::Checkbox("Enable Framebuffer Overlay", &enableFramebufferOverlay);
+
+        ImGui::SeparatorText("Wind Particle System Controls");
+        ImGui::SliderAngle("Wind Direction", &targetWindDirection, 0.0f, 360.0f);
+        ImGui::SliderInt("Particle Count", &targetParticleCount, 0, 100);
+
+        // Wind speed and direction controls
+        ImGui::Text("Wind Speed Range:");
+        ImGui::SliderFloat("Min Speed", &windSpeedMin, 10.0f, 200.0f, "%.1f px/s");
+        ImGui::SliderFloat("Max Speed", &windSpeedMax, 10.0f, 201.0f, "%.1f px/s");
+        if (windSpeedMin >= windSpeedMax)
+        {
+            windSpeedMax = windSpeedMin + 1.0f;
+        }
+
+        ImGui::Text("Particle Size Range:");
+        ImGui::SliderFloat("Min Size", &particleSizeMin, 0.5f, 10.0f, "%.1f px");
+        ImGui::SliderFloat("Max Size", &particleSizeMax, 0.5f, 11.0f, "%.1f px");
+        if (particleSizeMin >= particleSizeMax)
+        {
+            particleSizeMax = particleSizeMin + 1.0f;
+        }
+
+        ImGui::Text("Particle Color:");
+        ImGui::ColorEdit3("Color", particleColor, ImGuiColorEditFlags_Float);
+
+        ImGui::SeparatorText("Framebuffer Information");
+        if (lastFramebufferTexture != 0)
+        {
+            const auto [width, height] = Engine::GetWindow().GetSize();
+            const auto fb_width        = width / 2;
+            const auto fb_height       = height / 2;
+            ImGui::Text("Resolution: %dx%d", fb_width, fb_height);
+
+            ImGui::SeparatorText("Texture Viewer");
+            const float aspect_ratio   = static_cast<float>(fb_width) / static_cast<float>(fb_height);
+            const float window_width   = ImGui::GetContentRegionAvail().x;
+            const float display_width  = std::max(window_width - 20.0f, 20.0f);
+            const float display_height = display_width / aspect_ratio;
+            ImGui::Text("Wind Particles Texture");
+
+            // Calculate contrasting background color based on particle color
+            // Convert particle color to perceived brightness using luminance formula
+            const float  luminance     = 0.299f * particleColor[0] + 0.587f * particleColor[1] + 0.114f * particleColor[2];
+            const float  contrast_grey = 1.0f - (3.0f * luminance * luminance - 2.0f * luminance * luminance * luminance);
+            const ImVec4 background_color(contrast_grey, contrast_grey, contrast_grey, 1.0f);
+
+            // Note: ImGui expects texture coordinates with (0,0) at top-left, but OpenGL has (0,0) at bottom-left
+            // So we need to flip the V coordinate
+            ImGui::ImageWithBg(
+                static_cast<ImTextureID>(lastFramebufferTexture), ImVec2(display_width, display_height), ImVec2(0, 1), // uv0 - top-left in ImGui = bottom-left in OpenGL
+                ImVec2(1, 0), background_color);
+        }
+
+        ImGui::SeparatorText("Switch Demo");
+        if (ImGui::Button("Switch to Demo Shapes"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<DemoShapes>();
+        }
+        if (ImGui::Button("Switch to Demo Text"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<DemoText>();
+        }
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
+        }
+    }
+    ImGui::End();
+}
+
+void DemoFramebuffer::Unload()
+{
+    // Clean up stored framebuffer texture
+    if (lastFramebufferTexture != 0)
+    {
+        GL::DeleteTextures(1, &lastFramebufferTexture);
+        lastFramebufferTexture = 0;
+    }
+}
+
+gsl::czstring DemoFramebuffer::GetName() const
+{
+    return "Demo Framebuffer";
+}
+
+void DemoFramebuffer::initializeRobotAnimations()
+{
+    robotAnimations.clear();
+    robotAnimations.resize(4); // 4 animations: None, RobotDead, RobotWalking, RobotAngry
+
+    // Animation: None - PlayFrame 0 10
+    robotAnimations[static_cast<int>(RobotAnimation::None)] = { "None", { { 0, 10.0 } }, 0 };
+
+    // Animation: RobotDead - PlayFrame 2 5
+    robotAnimations[static_cast<int>(RobotAnimation::RobotDead)] = { "RobotDead", { { 2, 5.0 } }, 0 };
+
+    // Animation: RobotWalking - PlayFrame 0 0.2, PlayFrame 1 0.2
+    robotAnimations[static_cast<int>(RobotAnimation::RobotWalking)] = {
+        "RobotWalking", { { 0, 0.2 }, { 1, 0.2 } },
+         0
+    };
+
+    // Animation: RobotAngry - PlayFrame 3 0.1, PlayFrame 4 0.1
+    robotAnimations[static_cast<int>(RobotAnimation::RobotAngry)] = {
+        "RobotAngry", { { 3, 0.1 }, { 4, 0.1 } },
+         0
+    };
+}
+
+void DemoFramebuffer::initializeCatAnimations()
+{
+    catAnimations.clear();
+    catAnimations.resize(4); // 4 animations: CatIdle, CatRunning, CatJumping, CatFalling
+
+    // Animation: CatIdle
+    catAnimations[static_cast<int>(CatAnimation::CatIdle)] = {
+        "CatIdle",
+        { { 0, 6.0 }, { 1, 0.5 }, { 2, 0.1 }, { 1, 0.5 }, { 2, 0.1 }, { 1, 0.5 }, { 0, 3.0 }, { 1, 0.5 }, { 2, 0.3 }, { 1, 0.5 },
+          { 2, 0.3 }, { 1, 0.5 }, { 0, 3.0 }, { 1, 0.5 }, { 2, 1.0 }, { 1, 0.3 }, { 2, 2.0 }, { 3, 0.4 }, { 4, 0.4 }, { 5, 0.4 } },
+        16  // Loop back to frame 16
+    };
+
+    // Animation: CatRunning - PlayFrame 6 .1, PlayFrame 0 .1, PlayFrame 7 .1, PlayFrame 0 .1, Loop 0
+    catAnimations[static_cast<int>(CatAnimation::CatRunning)] = {
+        "CatRunning", { { 6, 0.1 }, { 0, 0.1 }, { 7, 0.1 }, { 0, 0.1 } },
+         0
+    };
+
+    // Animation: CatJumping - PlayFrame 9 3, Loop 0
+    catAnimations[static_cast<int>(CatAnimation::CatJumping)] = { "CatJumping", { { 9, 3.0 } }, 0 };
+
+    // Animation: CatFalling - PlayFrame 8 3, Loop 0
+    catAnimations[static_cast<int>(CatAnimation::CatFalling)] = { "CatFalling", { { 8, 3.0 } }, 0 };
+}
+
+void DemoFramebuffer::updateCatAnimation(CatState& character, double delta_time)
+{
+    const auto& anim = catAnimations[static_cast<size_t>(character.animation)];
+    character.timer += delta_time;
+    const auto& current_frame = anim.frames[static_cast<size_t>(character.frameIndex)];
+    if (character.timer >= current_frame.duration)
+    {
+        character.timer      = 0.0;
+        character.frameIndex = (character.frameIndex + 1);
+        if (static_cast<size_t>(character.frameIndex) >= anim.frames.size())
+        {
+            character.frameIndex = anim.loopFrame;
+        }
+    }
+}
+
+void DemoFramebuffer::updateRobotAnimation(RobotState& character, double delta_time)
+{
+    const auto& anim = robotAnimations[static_cast<size_t>(character.animation)];
+    character.timer += delta_time;
+    const auto& current_frame = anim.frames[static_cast<size_t>(character.frameIndex)];
+    if (character.timer >= current_frame.duration)
+    {
+        character.timer      = 0.0;
+        character.frameIndex = (character.frameIndex + 1);
+        if (static_cast<size_t>(character.frameIndex) >= anim.frames.size())
+        {
+            character.frameIndex = anim.loopFrame;
+        }
+    }
+}
+
+void DemoFramebuffer::drawCat(const CatState& character) const
+{
+    const auto& anim         = catAnimations[static_cast<size_t>(character.animation)];
+    const int   sprite_frame = anim.frames[static_cast<size_t>(character.frameIndex)].frameIndex;
+    const auto  texel_base   = CAT_FRAME_POSITIONS[static_cast<size_t>(sprite_frame)];
+    const auto  frame_size   = CAT_FRAME_SIZE;
+    const auto  hot_spot     = CAT_HOT_SPOT;
+
+    const auto to_center = Math::TranslationMatrix(Math::vec2{ static_cast<double>(-hot_spot.x), static_cast<double>(-hot_spot.y) });
+    const auto scale     = character.faceRight ? Math::ScaleMatrix({ 1.0, 1.0 }) : Math::ScaleMatrix({ -1.0, 1.0 });
+    const auto translate = Math::TranslationMatrix(character.position);
+    const auto transform = translate * scale * to_center;
+
+    catTexture->Draw(transform, texel_base, frame_size);
+}
+
+void DemoFramebuffer::drawRobot(const RobotState& character) const
+{
+    const auto& anim         = robotAnimations[static_cast<size_t>(character.animation)];
+    const int   sprite_frame = anim.frames[static_cast<size_t>(character.frameIndex)].frameIndex;
+    const auto  texel_base   = Math::ivec2{ sprite_frame * ROBOT_FRAME_SIZE.x, 0 };
+    const auto  frame_size   = ROBOT_FRAME_SIZE;
+    const auto  hot_spot     = ROBOT_HOT_SPOT;
+
+    const auto to_center = Math::TranslationMatrix(Math::vec2{ static_cast<double>(-hot_spot.x), static_cast<double>(-hot_spot.y) });
+    const auto scale     = character.faceRight ? Math::ScaleMatrix({ 1.0, 1.0 }) : Math::ScaleMatrix({ -1.0, 1.0 });
+    const auto translate = Math::TranslationMatrix(character.position);
+    const auto transform = translate * scale * to_center;
+
+    robotTexture->Draw(transform, texel_base, frame_size);
+}
+
+void DemoFramebuffer::initializeWindParticles()
+{
+    windParticles.clear();
+    for (int i = 0; i < particleCount; ++i)
+    {
+        WindParticle particle;
+        spawnWindParticle(particle);
+        windParticles.push_back(particle);
+    }
+}
+
+void DemoFramebuffer::spawnWindParticle(WindParticle& particle) const
+{
+    const auto [width, height] = Engine::GetWindow().GetSize() / 2;
+    // Always spawn from left edge for left-to-right movement
+    particle.position          = Math::vec2{ -20.0, util::random(0.0, static_cast<double>(height)) };
+
+    // Calculate velocity for left-to-right movement
+    const double speed = util::random(static_cast<double>(windSpeedMin), static_cast<double>(windSpeedMax));
+    particle.velocity  = Math::vec2{
+        speed,                  // Horizontal movement (left to right)
+        util::random(-5.0, 5.0) // Small vertical variation
+    };
+
+    particle.size      = util::random(static_cast<double>(particleSizeMin), static_cast<double>(particleSizeMax));
+    particle.lifeTimer = 0.0;
+    particle.maxLife   = util::random(3.0, 4.0 + 4 * width / 400.0);
+}
+
+void DemoFramebuffer::updateWindParticles(double delta_time)
+{
+    const auto [width, height] = Engine::GetWindow().GetSize() / 2;
+
+    for (auto& particle : windParticles)
+    {
+        particle.position.x += particle.velocity.x * delta_time;
+        particle.position.y += particle.velocity.y * delta_time + std::sin(particle.lifeTimer * 3.1415) * 0.1 * particle.size;
+        particle.lifeTimer += delta_time;
+        const double life_ratio = particle.lifeTimer / particle.maxLife;
+        particle.alpha          = (1.0 - life_ratio);
+        if (particle.position.x > width + 20 || particle.lifeTimer >= particle.maxLife)
+        {
+            spawnWindParticle(particle);
+        }
+    }
+}
+
+void DemoFramebuffer::drawWindParticles() const
+{
+	auto texture_manager = Engine::GetTextureManager();
+	auto renderer_2d = texture_manager.GetRenderer2D();
+
+    for (const auto& particle : windParticles)
+    {
+        if (particle.alpha > 0.0)
+        {
+            // Create transform for particle
+            const auto        translate  = Math::TranslationMatrix(particle.position);
+            const auto        scale      = Math::ScaleMatrix({ particle.size, particle.size });
+            const auto        transform  = translate * scale;
+            // Set color with alpha using configurable color
+            const float       alpha      = static_cast<float>(particle.alpha);
+            const CS200::RGBA dust_color = CS200::pack_color(std::array<float, 4>{ particleColor[0], particleColor[1], particleColor[2], alpha });
+            // Draw particle as a small circle
+            renderer_2d->DrawCircle(transform, dust_color, CS200::CLEAR);
+        }
+    }
+}
+
+DemoFramebuffer::RenderInfo DemoFramebuffer::beginOffscreenRendering() const
+{
+    RenderInfo render_info;
+    auto      renderer_2d     = Engine::GetTextureManager().GetRenderer2D();
+    const auto [width, height] = Engine::GetWindow().GetSize();
+
+    // End current scene
+    renderer_2d->EndScene();
+
+    // Set up offscreen framebuffer
+    render_info.Size   = { width / 2, height / 2 };
+    render_info.Target = OpenGL::CreateFramebufferWithColor(render_info.Size);
+
+    // Save current OpenGL state
+    GL::GetFloatv(GL_COLOR_CLEAR_VALUE, render_info.ClearColor.data());
+    GL::GetIntegerv(GL_VIEWPORT, render_info.Viewport.data());
+
+    // Switch to offscreen rendering
+    const auto ndc_matrix = Math::ScaleMatrix({ 1.0, 1.0 }) * CS200::build_ndc_matrix(render_info.Size);
+    renderer_2d->BeginScene(ndc_matrix);
+    GL::BindFramebuffer(GL_FRAMEBUFFER, render_info.Target.Framebuffer);
+    GL::Viewport(0, 0, render_info.Size.x, render_info.Size.y);
+    GL::ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    GL::Clear(GL_COLOR_BUFFER_BIT);
+
+    return render_info;
+}
+
+GLuint DemoFramebuffer::endOffscreenRendering(const RenderInfo& render_info) const
+{
+    auto renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+
+    // End offscreen scene
+    renderer_2d->EndScene();
+
+    // Restore OpenGL state
+    GL::BindFramebuffer(GL_FRAMEBUFFER, 0);
+    GL::Viewport(render_info.Viewport[0], render_info.Viewport[1], render_info.Viewport[2], render_info.Viewport[3]);
+    GL::ClearColor(render_info.ClearColor[0], render_info.ClearColor[1], render_info.ClearColor[2], render_info.ClearColor[3]);
+
+    // Clean up framebuffer but keep the color texture
+    const auto scene_texture         = render_info.Target.ColorAttachment;
+    auto       framebuffer_to_delete = render_info.Target.Framebuffer;
+    GL::DeleteFramebuffers(1, &framebuffer_to_delete);
+
+    return scene_texture;
+}
+
+
+
+================================================
+FILE: source/Demo/DemoFramebuffer.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#pragma once
+
+#include "Engine/GameState.h"
+#include "Engine/Vec2.h"
+#include "OpenGL/Framebuffer.h"
+#include <array>
+#include <memory>
+#include <string>
+#include <vector>
+
+namespace CS230
+{
+    class Texture;
+}
+
+class DemoFramebuffer : public CS230::GameState
+{
+public:
+    void          Load() override;
+    void          Update(double dt) override;
+    void          Unload() override;
+    void          Draw()  override;
+    void          DrawImGui() override;
+    gsl::czstring GetName() const override;
+
+private:
+
+    struct AnimationFrame
+    {
+        int    frameIndex{};
+        double duration{}; // in seconds
+    };
+
+    struct Animation
+    {
+        std::string                 name{};
+        std::vector<AnimationFrame> frames{};
+        int                         loopFrame{ 0 };
+    };
+
+    enum class RobotAnimation
+    {
+        None         = 0,
+        RobotDead    = 1,
+        RobotWalking = 2,
+        RobotAngry   = 3
+    };
+
+    enum class CatAnimation
+    {
+        CatIdle    = 0,
+        CatRunning = 1,
+        CatJumping = 2,
+        CatFalling = 3
+    };
+
+    // Robot sprite sheet info
+    static constexpr Math::ivec2 ROBOT_HOT_SPOT{ 30, 20 };
+    static constexpr Math::ivec2 ROBOT_FRAME_SIZE{ 63, 127 };
+    static constexpr int         ROBOT_NUM_FRAMES = 5;
+
+    // Cat sprite sheet info
+    static constexpr Math::ivec2 CAT_HOT_SPOT{ 65, 15 };
+    static constexpr Math::ivec2 CAT_FRAME_SIZE{ 128, 128 };
+    static constexpr int         CAT_NUM_FRAMES = 10;
+
+    // Cat frame positions in texture (texel coordinates)
+    static constexpr std::array<Math::ivec2, CAT_NUM_FRAMES> CAT_FRAME_POSITIONS = {
+        Math::ivec2{   0,   0 }, // Frame 0
+        Math::ivec2{ 128,   0 }, // Frame 1
+        Math::ivec2{ 256,   0 }, // Frame 2
+        Math::ivec2{ 384,   0 }, // Frame 3
+        Math::ivec2{ 512,   0 }, // Frame 4
+        Math::ivec2{   0, 128 }, // Frame 5
+        Math::ivec2{ 128, 128 }, // Frame 6
+        Math::ivec2{ 256, 128 }, // Frame 7
+        Math::ivec2{ 384, 128 }, // Frame 8
+        Math::ivec2{ 512, 128 }  // Frame 9
+    };
+
+    std::vector<std::shared_ptr<CS230::Texture>> backgroundTextures;
+    std::shared_ptr<CS230::Texture>              robotTexture = nullptr;
+    std::shared_ptr<CS230::Texture>              catTexture   = nullptr;
+
+    // Animation data
+    std::vector<Animation> robotAnimations;
+    std::vector<Animation> catAnimations;
+
+    struct CatState
+    {
+        CatAnimation animation{};
+        int          frameIndex{};
+        double       timer{};
+        Math::vec2   position{};
+        bool         faceRight{};
+    };
+
+    struct RobotState
+    {
+        RobotAnimation animation{};
+        int            frameIndex{};
+        double         timer{};
+        Math::vec2     position{};
+        bool           faceRight{};
+        double         walkDirection{}; // 1 for right, -1 for left
+        double         walkSpeed{};     // pixels per second
+    };
+
+    CatState   idleCat;
+    CatState   jumpingCat;
+    RobotState walkingRobot;
+
+    struct RenderInfo
+    {
+        OpenGL::FramebufferWithColor Target{};
+        Math::ivec2                  Size{};
+        std::array<GLfloat, 4>       ClearColor{};
+        std::array<GLint, 4>         Viewport{};
+    };
+
+    struct WindParticle
+    {
+        Math::vec2 position{};
+        Math::vec2 velocity{};
+        double     size{};
+        double     alpha{};
+        double     lifeTimer{};
+        double     maxLife{};
+    };
+
+    std::vector<WindParticle> windParticles;
+
+    // ImGui control variables
+    bool enableFramebufferOverlay = true;
+
+    // Wind particle controls
+    int   particleCount        = 3;
+    int   targetParticleCount  = 50;
+    float currentParticleCount = 3.0f;
+    float windSpeedMin         = 80.0f;
+    float windSpeedMax         = 140.0f;
+    float particleSizeMin      = 1.5f;
+    float particleSizeMax      = 4.5f;
+    float particleColor[3]     = { 0.9f, 0.8f, 0.6f }; // RGB color
+    float windDirection        = 0.0f;
+    float targetWindDirection  = 0.0f;
+
+    // Store the last rendered framebuffer texture for ImGui display
+    mutable GLuint lastFramebufferTexture = 0;
+
+private:
+    void       initializeRobotAnimations();
+    void       initializeCatAnimations();
+    void       updateRobotAnimation(RobotState& character, double delta_time);
+    void       updateCatAnimation(CatState& character, double delta_time);
+    void       drawRobot(const RobotState& character) const;
+    void       drawCat(const CatState& character) const;
+    void       initializeWindParticles();
+    void       spawnWindParticle(WindParticle& particle) const;
+    void       updateWindParticles(double delta_time);
+    void       drawWindParticles() const;
+    RenderInfo beginOffscreenRendering() const;
+    GLuint     endOffscreenRendering(const RenderInfo& render_info) const;
+};
+
+
+
+================================================
+FILE: source/Demo/DemoShapes.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "DemoShapes.h"
+#include "CS200/IRenderer2D.h"
+#include "CS200/NDC.h"
+#include "CS200/RGBA.h"
+#include "CS200/RenderingAPI.h"
+#include "DemoFramebuffer.h"
+#include "DemoText.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Input.h"
+#include "Engine/Logger.h"
+#include "Engine/Matrix.h"
+#include "Engine/Window.h"
+#include "Engine/TextureManager.h"
+#include "../Game/MainMenu.h"
+#include <cmath>
+#include <imgui.h>
+#include <iomanip>
+#include <numbers>
+#include <sstream>
+
+// Arithmetic operators for std::array<float, 4> to support color easing
+namespace
+{
+    std::array<float, 4> operator-(const std::array<float, 4>& a, const std::array<float, 4>& b)
+    {
+        return { a[0] - b[0], a[1] - b[1], a[2] - b[2], a[3] - b[3] };
+    }
+
+    std::array<float, 4> operator*(double scalar, const std::array<float, 4>& arr)
+    {
+        const auto s = static_cast<float>(scalar);
+        return { s * arr[0], s * arr[1], s * arr[2], s * arr[3] };
+    }
+
+    std::array<float, 4>& operator+=(std::array<float, 4>& a, const std::array<float, 4>& b)
+    {
+        a[0] += b[0];
+        a[1] += b[1];
+        a[2] += b[2];
+        a[3] += b[3];
+        return a;
+    }
+}
+
+void DemoShapes::Load()
+{
+	auto& texture_manager = Engine::GetTextureManager();
+	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+
+    CS200::RenderingAPI::SetClearColor(0x252525FF);
+
+    targetShapePosition     = shapePosition;
+    targetShapeRotation     = 0.0;
+    targetShapeScale        = { 100.0, 100.0 };
+    currentFillColor        = CS200::unpack_color(fillColor);
+    currentLineColor        = CS200::unpack_color(lineColor);
+}
+
+template <typename T, typename FLOAT = double>
+static void ease_to_target(T& current, const T& target, FLOAT delta_time, FLOAT weight = 1.0)
+{
+    const auto easing = std::min(delta_time * weight, static_cast<FLOAT>(1.0));
+    current += easing * (target - current);
+}
+
+void DemoShapes::Update([[maybe_unused]]double dt)
+{
+    const auto& environment = Engine::GetWindowEnvironment();
+
+    // Update input handling (which modifies target values)
+    updateInput();
+
+    // Apply animations if enabled (modify target values)
+    if (animateRotation)
+    {
+        targetShapeRotation += environment.DeltaTime * 1.5; // 1.5 radians per second
+    }
+    if (targetShapeRotation > std::numbers::pi * 2.0 && shapeRotation > std::numbers::pi * 2.0)
+    {
+        targetShapeRotation -= std::numbers::pi * 2.0;
+        shapeRotation -= std::numbers::pi * 2.0;
+    }
+    if (animateScale)
+    {
+        const double scale_factor_x = 1.0 + 0.3 * std::sin(environment.ElapsedTime * 2.0);
+        const double scale_factor_y = 1.0 + 0.3 * std::cos(environment.ElapsedTime * 2.0);
+        targetShapeScale            = { 200.0 * scale_factor_x, 200.0 * scale_factor_y };
+    }
+
+    // Check if shape is offscreen and bring it back to center
+    const auto   window_size  = Engine::GetWindow().GetSize();
+    // Use shape size as margin - larger shapes trigger reset sooner
+    const double margin       = std::max(shapeScale.x, shapeScale.y) + 50.0; // Shape size + 50px buffer
+    const bool   is_offscreen = (shapePosition.x < -margin || shapePosition.x > window_size.x + margin || shapePosition.y < -margin || shapePosition.y > window_size.y + margin);
+
+    if (is_offscreen)
+    {
+        // Reset target position to window center to bring shape back
+        targetShapePosition.x = window_size.x / 2.0;
+        targetShapePosition.y = window_size.y / 2.0;
+    }
+
+    // Ease current values toward target values
+    ease_to_target(shapePosition, targetShapePosition, environment.DeltaTime, 2.0);
+    ease_to_target(shapeRotation, targetShapeRotation, environment.DeltaTime, 2.0);
+    ease_to_target(shapeScale, targetShapeScale, environment.DeltaTime, 2.0);
+    ease_to_target(lineWidth, targetLineWidth, environment.DeltaTime, 2.0);
+
+    // Ease colors toward target colors and update packed colors
+    ease_to_target(currentFillColor, targetFillColor, environment.DeltaTime, 2.0);
+    ease_to_target(currentLineColor, targetLineColor, environment.DeltaTime, 2.0);
+    fillColor = CS200::pack_color(currentFillColor);
+    lineColor = CS200::pack_color(currentLineColor);
+}
+
+void DemoShapes::Draw() 
+{
+    CS200::RenderingAPI::Clear();
+    auto renderer2d = Engine::GetTextureManager().GetRenderer2D();
+    renderer2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+
+    drawCurrentShape();
+
+    renderer2d->EndScene();
+}
+
+void DemoShapes::DrawImGui()
+{
+    if (ImGui::Begin("Demo Controls"))
+    {
+        // Shape selection
+        ImGui::Text("Shape Type:");
+        if (ImGui::RadioButton("Rectangle", currentShape == ShapeType::Rectangle))
+            currentShape = ShapeType::Rectangle;
+        ImGui::SameLine();
+        if (ImGui::RadioButton("Circle", currentShape == ShapeType::Circle))
+            currentShape = ShapeType::Circle;
+        ImGui::SameLine();
+        if (ImGui::RadioButton("Line", currentShape == ShapeType::Line))
+            currentShape = ShapeType::Line;
+
+        ImGui::SeparatorText("Render Mode");
+
+        // Render mode selection
+        if (ImGui::RadioButton("Filled", currentRenderMode == RenderMode::Filled))
+            currentRenderMode = RenderMode::Filled;
+        ImGui::SameLine();
+        if (ImGui::RadioButton("Outlined", currentRenderMode == RenderMode::Outlined))
+            currentRenderMode = RenderMode::Outlined;
+        ImGui::SameLine();
+        if (ImGui::RadioButton("Both", currentRenderMode == RenderMode::Both))
+            currentRenderMode = RenderMode::Both;
+
+        ImGui::SeparatorText("Transform");
+
+        // Transform controls (modify target values for smooth easing)
+        float      pos[2]      = { static_cast<float>(targetShapePosition.x), static_cast<float>(targetShapePosition.y) };
+        const auto window_size = Engine::GetWindow().GetSize();
+        const auto range_limit = static_cast<float>(std::max(window_size.x, window_size.y) + 100);
+        if (ImGui::SliderFloat2("Position", pos, -100.0f, range_limit))
+        {
+            targetShapePosition.x = static_cast<double>(pos[0]);
+            targetShapePosition.y = static_cast<double>(pos[1]);
+        }
+
+        float rotation = static_cast<float>(targetShapeRotation);
+        if (ImGui::SliderAngle("Rotation", &rotation))
+            targetShapeRotation = static_cast<double>(rotation);
+
+        float scale[2] = { static_cast<float>(targetShapeScale.x), static_cast<float>(targetShapeScale.y) };
+        if (ImGui::SliderFloat2("Scale", scale, 10.0f, 300.0f))
+        {
+            targetShapeScale.x = static_cast<double>(scale[0]);
+            targetShapeScale.y = static_cast<double>(scale[1]);
+        }
+
+        ImGui::SeparatorText("Colors");
+
+        // Color controls (modify target colors for smooth easing)
+        ImGui::ColorEdit3("Fill Color", targetFillColor.data());
+        ImGui::ColorEdit3("Line Color", targetLineColor.data());
+
+        float line_width_float = static_cast<float>(targetLineWidth);
+        if (ImGui::SliderFloat("Line Width", &line_width_float, 0.5f, 64.0f))
+        {
+            targetLineWidth = static_cast<double>(line_width_float);
+        }
+
+        ImGui::SeparatorText("Animation");
+
+        // Animation controls
+        ImGui::Checkbox("Animate Rotation", &animateRotation);
+        ImGui::Checkbox("Animate Scale", &animateScale);
+
+        ImGui::SeparatorText("Statistics");
+
+        // Statistics
+        ImGui::Text("Controls: Arrow Keys - Move, Q/E - Rotate");
+        ImGui::Text("Current Mode: %s", getRenderModeString());
+        ImGui::Text("Current Shape: %s", getShapeTypeString());
+
+        ImGui::SeparatorText("Switch Demo");
+        if (ImGui::Button("Switch to Demo Framebuffer"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<DemoFramebuffer>();
+        }
+        if (ImGui::Button("Switch to Demo Text"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<DemoText>();
+        }
+
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
+        }
+    }
+    ImGui::End();
+}
+
+void DemoShapes::Unload()
+{
+    Engine::GetLogger().LogEvent("DemoShapes: Unloaded");
+}
+
+gsl::czstring DemoShapes::GetName() const
+{
+    return "Demo Shapes - 2D Rendering Showcase";
+}
+
+void DemoShapes::updateInput()
+{
+    const auto&  input          = Engine::GetInput();
+    const auto&  environment    = Engine::GetWindowEnvironment();
+    const double move_speed     = 200.0; // pixels per second
+    const double rotation_speed = 2.0;   // radians per second
+
+    // Movement controls (modify target values for smooth easing)
+    if (input.KeyDown(CS230::Input::Keys::Left))
+        targetShapePosition.x -= move_speed * environment.DeltaTime;
+    if (input.KeyDown(CS230::Input::Keys::Right))
+        targetShapePosition.x += move_speed * environment.DeltaTime;
+    if (input.KeyDown(CS230::Input::Keys::Up))
+        targetShapePosition.y += move_speed * environment.DeltaTime;
+    if (input.KeyDown(CS230::Input::Keys::Down))
+        targetShapePosition.y -= move_speed * environment.DeltaTime;
+
+    // Rotation controls (modify target values for smooth easing)
+    if (input.KeyDown(CS230::Input::Keys::Q))
+        targetShapeRotation -= rotation_speed * environment.DeltaTime;
+    if (input.KeyDown(CS230::Input::Keys::E))
+        targetShapeRotation += rotation_speed * environment.DeltaTime;
+}
+
+void DemoShapes::drawCurrentShape() const
+{
+    switch (currentShape)
+    {
+        case ShapeType::Rectangle: drawRectangles(); break;
+        case ShapeType::Circle: drawCircles(); break;
+        case ShapeType::Line: drawLines(); break;
+    }
+}
+
+void DemoShapes::drawRectangles() const
+{
+    auto      renderer2d = Engine::GetTextureManager().GetRenderer2D();
+    const auto transform  = getShapeTransform();
+
+    // Draw main rectangle with current settings
+    renderer2d->DrawRectangle(transform, getFillColor(), getLineColor(), lineWidth);
+
+    // Draw additional example rectangles to show different modes
+    const double offset_x    = 200.0;
+    const double small_scale = 60.0;
+
+    // Filled only example
+    auto filled_transform =
+        Math::TranslationMatrix(Math::vec2{ shapePosition.x - offset_x, shapePosition.y + 150.0 }) * Math::RotationMatrix(shapeRotation * 0.5) * Math::ScaleMatrix({ small_scale, small_scale });
+    renderer2d->DrawRectangle(filled_transform, 0x4CAF50FF, CS200::CLEAR, 0.0);
+
+    // Outlined only example
+    auto outlined_transform =
+        Math::TranslationMatrix(Math::vec2{ shapePosition.x, shapePosition.y + 150.0 }) * Math::RotationMatrix(-shapeRotation * 0.5) * Math::ScaleMatrix({ small_scale, small_scale });
+    renderer2d->DrawRectangle(outlined_transform, CS200::CLEAR, 0xFF9800FF, 2.0);
+
+    // Both fill and outline example
+    auto both_transform =
+        Math::TranslationMatrix(Math::vec2{ shapePosition.x + offset_x, shapePosition.y + 150.0 }) * Math::RotationMatrix(shapeRotation * 0.3) * Math::ScaleMatrix({ small_scale, small_scale });
+    renderer2d->DrawRectangle(both_transform, 0x9C27B0FF, 0xFFEB3BFF, 3.0);
+}
+
+void DemoShapes::drawCircles() const
+{
+    auto      renderer2d = Engine::GetTextureManager().GetRenderer2D();
+    const auto transform  = getShapeTransform();
+
+    // Draw main circle with current settings
+    renderer2d->DrawCircle(transform, getFillColor(), getLineColor(), lineWidth);
+
+    // Draw additional example circles to show different modes
+    const double offset_x    = 200.0;
+    const double small_scale = 60.0;
+
+    // Filled only example
+    auto filled_transform = Math::TranslationMatrix(Math::vec2{ shapePosition.x - offset_x, shapePosition.y + 150.0 }) * Math::ScaleMatrix({ small_scale, small_scale });
+    renderer2d->DrawCircle(filled_transform, 0xF44336FF, CS200::CLEAR, 0.0);
+
+    // Outlined only example
+    auto outlined_transform = Math::TranslationMatrix(Math::vec2{ shapePosition.x, shapePosition.y + 150.0 }) * Math::ScaleMatrix({ small_scale, small_scale });
+    renderer2d->DrawCircle(outlined_transform, CS200::CLEAR, 0x2196F3FF, 2.0);
+
+    // Both fill and outline example
+    auto both_transform = Math::TranslationMatrix(Math::vec2{ shapePosition.x + offset_x, shapePosition.y + 150.0 }) * Math::ScaleMatrix({ small_scale, small_scale });
+    renderer2d->DrawCircle(both_transform, 0xFF5722FF, 0x00BCD4FF, 3.0);
+}
+
+void DemoShapes::drawLines() const
+{
+	auto renderer2d = Engine::GetTextureManager().GetRenderer2D();
+
+    // Draw transformation-based line (transforms with the shape)
+    const auto transform = Math::TranslationMatrix(shapePosition) * Math::RotationMatrix(shapeRotation);
+    renderer2d->DrawLine(transform * Math::ScaleMatrix({ shapeScale.x, 1.0 }), Math::vec2{ -0.5, 0.0 }, Math::vec2{ 0.5, 0.0 }, getLineColor(), lineWidth);
+    renderer2d->DrawLine(transform * Math::ScaleMatrix({ 1.0, shapeScale.y }), Math::vec2{ 0.0, -0.5 }, Math::vec2{ 0.0, 0.5 }, getLineColor(), lineWidth);
+
+    const auto display_size = Engine::GetWindowEnvironment().DisplaySize;
+    // Draw world-coordinate lines (fixed positions)
+    const auto into_screen  = lineWidth * 0.5;
+    renderer2d->DrawLine({ 0.0, into_screen }, { display_size.x, into_screen }, lineColor, lineWidth);
+    renderer2d->DrawLine({ into_screen, 0.0 }, { into_screen, display_size.y }, lineColor, lineWidth);
+    renderer2d->DrawLine({ 0.0, display_size.y - into_screen }, { display_size.x, display_size.y - into_screen }, lineColor, lineWidth);
+    renderer2d->DrawLine({ display_size.x - into_screen, 0.0 }, { display_size.x - into_screen, display_size.y }, lineColor, lineWidth);
+}
+
+Math::TransformationMatrix DemoShapes::getShapeTransform() const
+{
+    return Math::TranslationMatrix(shapePosition) * Math::RotationMatrix(shapeRotation) * Math::ScaleMatrix(shapeScale);
+}
+
+CS200::RGBA DemoShapes::getFillColor() const
+{
+    switch (currentRenderMode)
+    {
+        case RenderMode::Filled:
+        case RenderMode::Both: return fillColor;
+        case RenderMode::Outlined: return CS200::CLEAR;
+        default: return CS200::CLEAR;
+    }
+}
+
+CS200::RGBA DemoShapes::getLineColor() const
+{
+    switch (currentRenderMode)
+    {
+        case RenderMode::Outlined:
+        case RenderMode::Both: return lineColor;
+        case RenderMode::Filled: return CS200::CLEAR;
+        default: return CS200::CLEAR;
+    }
+}
+
+const char* DemoShapes::getRenderModeString() const
+{
+    switch (currentRenderMode)
+    {
+        case RenderMode::Filled: return "Filled";
+        case RenderMode::Outlined: return "Outlined";
+        case RenderMode::Both: return "Both";
+        default: return "Unknown";
+    }
+}
+
+const char* DemoShapes::getShapeTypeString() const
+{
+    switch (currentShape)
+    {
+        case ShapeType::Rectangle: return "Rectangle";
+        case ShapeType::Circle: return "Circle";
+        case ShapeType::Line: return "Line";
+        default: return "Unknown";
+    }
+}
+
+
+
+================================================
+FILE: source/Demo/DemoShapes.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#pragma once
+
+#include "CS200/RGBA.h"
+#include "Engine/GameState.h"
+#include "Engine/Matrix.h"
+#include "Engine/Vec2.h"
+#include <array>
+#include <gsl/gsl>
+
+class DemoShapes : public CS230::GameState
+{
+public:
+    void          Load() override;
+    void          Update(double dt) override;
+    void          Unload() override;
+    void          Draw() override;
+    void          DrawImGui() override;
+    gsl::czstring GetName() const override;
+
+private:
+
+    enum class RenderMode
+    {
+        Filled,
+        Outlined,
+        Both
+    };
+
+
+    enum class ShapeType
+    {
+        Rectangle,
+        Circle,
+        Line
+    };
+
+    // Shape properties
+    Math::vec2 shapePosition{ -300.0, -300.0 };
+    double     shapeRotation = 0.0;
+    Math::vec2 shapeScale{ 100.0, 100.0 };
+
+    // Target values for smooth easing
+    Math::vec2 targetShapePosition{ 0.0, 0.0 };
+    double     targetShapeRotation = 0.0;
+    Math::vec2 targetShapeScale{ 100.0, 100.0 };
+
+    // Visual properties
+    CS200::RGBA fillColor = CS200::BLACK;
+    CS200::RGBA lineColor = CS200::BLACK;
+    double      lineWidth = 10.0;
+
+    // Current visual properties (using float arrays for smooth color easing)
+    std::array<float, 4> currentFillColor = { 0.259f, 0.522f, 0.957f, 1.0f };
+    std::array<float, 4> currentLineColor = { 0.859f, 0.267f, 0.216f, 1.0f };
+    double               targetLineWidth  = 4.0;
+    std::array<float, 4> targetFillColor  = { 0.259f, 0.522f, 0.957f, 1.0f };
+    std::array<float, 4> targetLineColor  = { 0.859f, 0.267f, 0.216f, 1.0f };
+
+    // Demo state
+    RenderMode currentRenderMode = RenderMode::Both;
+    ShapeType  currentShape      = ShapeType::Rectangle;
+
+    // Animation and interaction
+    bool animateRotation = false;
+    bool animateScale    = false;
+
+private:
+    void                       updateInput();
+    void                       drawCurrentShape() const;
+    void                       drawRectangles() const;
+    void                       drawCircles() const;
+    void                       drawLines() const;
+    void                       drawColorPalette() const;
+    Math::TransformationMatrix getShapeTransform() const;
+    CS200::RGBA                getFillColor() const;
+    CS200::RGBA                getLineColor() const;
+    const char*                getRenderModeString() const;
+    const char*                getShapeTypeString() const;
+};
+
+
+
+================================================
+FILE: source/Demo/DemoText.cpp
+================================================
+/**
+ * \file
+ * \author Generated
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "DemoText.h"
+#include "CS200/IRenderer2D.h"
+#include "CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
+#include "DemoFramebuffer.h"
+#include "DemoShapes.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "Engine/Texture.h"
+#include "Engine/Window.h"
+#include "Engine/TextureManager.h"
+#include "../Game/MainMenu.h"
+#include <imgui.h>
+#include <sstream>
+
+void DemoText::Load()
+{
+	auto& texture_manager = Engine::GetTextureManager();
+	texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+    CS200::RenderingAPI::SetClearColor(0x2E3440FF);
+
+    simpleFont   = std::make_unique<CS230::Font>("Assets/fonts/Font_Simple.png");
+    outlinedFont = std::make_unique<CS230::Font>("Assets/fonts/Font_Outlined.png");
+
+    updateCachedTextures();
+}
+
+void DemoText::Update([[maybe_unused]]double dt)
+{
+    const auto& environment = Engine::GetWindowEnvironment();
+
+    if (environment.ElapsedTime - lastOccasionalTextUpdate >= settings.OccasionalUpdateInterval)
+    {
+        lastOccasionalTextUpdate = environment.ElapsedTime;
+        occasionalCounter++;
+        occasionalText = "Sometimes changing: " + std::to_string(occasionalCounter);
+    }
+
+    if (environment.ElapsedTime - lastFrequentTextUpdate >= settings.FrequentUpdateInterval)
+    {
+        lastFrequentTextUpdate = environment.ElapsedTime;
+        frequentCounter++;
+        frequentText = "Frequent: " + std::to_string(frequentCounter);
+    }
+
+    updateCachedTextures();
+}
+
+void DemoText::Unload()
+{
+}
+
+void DemoText::Draw() 
+{
+    CS200::RenderingAPI::Clear();
+	auto renderer2d = Engine::GetTextureManager().GetRenderer2D();
+    renderer2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+
+    const auto   display_size = Engine::GetWindowEnvironment().DisplaySize;
+    // Draw world-coordinate lines (fixed positions)
+    const double line_width   = 16.0;
+    const auto   into_screen  = line_width * 0.5;
+    const auto   rect_size    = display_size - Math::vec2{ into_screen, into_screen };
+    // const auto lineColor = CS200::BLACK;
+    renderer2d->DrawRectangle(Math::TranslationMatrix(rect_size * 0.5) * Math::ScaleMatrix(rect_size), 0x2E3440FF, CS200::BLACK, line_width);
+    // renderer2d.DrawLine({ 0.0, into_screen }, { display_size.x, into_screen }, lineColor, line_width);
+    // renderer2d.DrawLine({ into_screen, 0.0 }, { into_screen, display_size.y }, lineColor, line_width);
+    // renderer2d.DrawLine({ 0.0, display_size.y - into_screen }, { display_size.x, display_size.y - into_screen }, lineColor, line_width);
+    // renderer2d.DrawLine({ display_size.x - into_screen, 0.0 }, { display_size.x - into_screen, display_size.y }, lineColor, line_width);
+
+    constexpr double BOTTOM_START = 10.0;
+
+    // Calculate center X position based on the widest text
+    double center_x  = LEFT_MARGIN;
+    double max_width = 0.0;
+
+    // Find the widest text among all displayed texts
+    if (settings.ShowSimpleFont)
+    {
+        if (auto texture = simpleFont->PrintToTexture(frequentText, 0x00FFFFFF))
+            max_width = std::max(max_width, static_cast<double>(texture->GetSize().x) * settings.TextScale);
+        if (auto texture = simpleFont->PrintToTexture(occasionalText, 0xFF00FFFF))
+            max_width = std::max(max_width, static_cast<double>(texture->GetSize().x) * settings.TextScale);
+        if (auto texture = simpleFont->PrintToTexture(staticText, settings.TextColor))
+            max_width = std::max(max_width, static_cast<double>(texture->GetSize().x) * settings.TextScale);
+    }
+
+    if (settings.ShowOutlinedFont)
+    {
+        if (auto texture = outlinedFont->PrintToTexture(frequentText, 0xFF8000FF))
+            max_width = std::max(max_width, static_cast<double>(texture->GetSize().x) * settings.TextScale);
+        if (auto texture = outlinedFont->PrintToTexture(occasionalText, 0xFFFF00FF))
+            max_width = std::max(max_width, static_cast<double>(texture->GetSize().x) * settings.TextScale);
+        if (auto texture = outlinedFont->PrintToTexture(staticText, settings.TextColor))
+            max_width = std::max(max_width, static_cast<double>(texture->GetSize().x) * settings.TextScale);
+    }
+
+    // Calculate the starting X position for center alignment
+    const auto window_size = Engine::GetWindow().GetSize();
+    center_x               = (window_size.x - max_width) / 2.0;
+
+    double current_y = BOTTOM_START;
+
+    if (settings.ShowSimpleFont)
+    {
+        drawText(frequentText, Math::vec2{ center_x, current_y }, *simpleFont, 0x00FFFFFF);
+        current_y += LINE_HEIGHT;
+
+        drawText(occasionalText, Math::vec2{ center_x, current_y }, *simpleFont, 0xFF00FFFF);
+        current_y += LINE_HEIGHT;
+
+        drawText(staticText, Math::vec2{ center_x, current_y }, *simpleFont, settings.TextColor);
+        current_y += LINE_HEIGHT;
+    }
+
+    if (settings.ShowOutlinedFont)
+    {
+        drawText(frequentText, Math::vec2{ center_x, current_y }, *outlinedFont, 0xFF8000FF);
+        current_y += LINE_HEIGHT;
+
+        drawText(occasionalText, Math::vec2{ center_x, current_y }, *outlinedFont, 0xFFFF00FF);
+        current_y += LINE_HEIGHT;
+
+        drawText(staticText, Math::vec2{ center_x, current_y }, *outlinedFont, settings.TextColor);
+        current_y += LINE_HEIGHT;
+    }
+
+    if (settings.ShowCacheAddresses)
+    {
+        drawCacheInfo(current_y, center_x);
+    }
+
+    renderer2d->EndScene();
+}
+
+void DemoText::DrawImGui()
+{
+    if (ImGui::Begin("Demo Controls"))
+    {
+        ImGui::Checkbox("Show Simple Font", &settings.ShowSimpleFont);
+        ImGui::Checkbox("Show Outlined Font", &settings.ShowOutlinedFont);
+        ImGui::Checkbox("Show Cache Addresses", &settings.ShowCacheAddresses);
+
+        ImGui::SeparatorText("Text Appearance");
+
+        float color[4] = { static_cast<float>((settings.TextColor >> 24) & 0xFF) / 255.0f, static_cast<float>((settings.TextColor >> 16) & 0xFF) / 255.0f,
+                           static_cast<float>((settings.TextColor >> 8) & 0xFF) / 255.0f, static_cast<float>(settings.TextColor & 0xFF) / 255.0f };
+        if (ImGui::ColorEdit4("Text Color", color))
+        {
+            settings.TextColor =
+                (static_cast<uint32_t>(color[0] * 255) << 24) | (static_cast<uint32_t>(color[1] * 255) << 16) | (static_cast<uint32_t>(color[2] * 255) << 8) | static_cast<uint32_t>(color[3] * 255);
+        }
+
+        float text_scale = static_cast<float>(settings.TextScale);
+        ImGui::SliderFloat("Text Scale", &text_scale, 0.5f, 3.0f);
+        settings.TextScale = static_cast<double>(text_scale);
+
+        ImGui::SeparatorText("Update Intervals");
+
+        float intervals[] = { static_cast<float>(settings.OccasionalUpdateInterval), static_cast<float>(settings.FrequentUpdateInterval) };
+        ImGui::SliderFloat("Occasional Update Interval", intervals, 0.5f, 5.0f);
+        ImGui::SliderFloat("Frequent Update Interval", intervals + 1, 0.1f, 2.0f);
+        settings.OccasionalUpdateInterval = static_cast<double>(intervals[0]);
+        settings.FrequentUpdateInterval   = static_cast<double>(intervals[1]);
+
+        ImGui::SeparatorText("Current Text Content");
+        ImGui::TextWrapped("Static: %s", staticText.c_str());
+        ImGui::TextWrapped("Occasional: %s", occasionalText.c_str());
+        ImGui::TextWrapped("Frequent: %s", frequentText.c_str());
+
+        ImGui::SeparatorText("Cache Information");
+        ImGui::Text("Static Text Address: %p", staticTextAddress);
+        ImGui::Text("Occasional Text Address: %p", occasionalTextAddress);
+        ImGui::Text("Frequent Text Address: %p", frequentTextAddress);
+        ImGui::Text("Blinking Header Address: %p", blinkingHeaderAddress);
+
+        ImGui::SeparatorText("Cache Analysis");
+
+        if (staticTextAddress == lastStaticAddress && lastStaticAddress != nullptr)
+        {
+            ImGui::TextColored(ImVec4(0, 1, 0, 1), "Static text is cached (same address)");
+        }
+        else
+        {
+            ImGui::TextColored(ImVec4(1, 1, 0, 1), "Static text address changed");
+            lastStaticAddress = staticTextAddress;
+        }
+
+        if (blinkingHeaderAddress == lastBlinkingAddress && lastBlinkingAddress != nullptr)
+        {
+            ImGui::TextColored(ImVec4(0, 1, 0, 1), "Blinking header is cached (same address)");
+        }
+        else
+        {
+            ImGui::TextColored(ImVec4(1, 1, 0, 1), "Blinking header address changed");
+            lastBlinkingAddress = blinkingHeaderAddress;
+        }
+
+        ImGui::SeparatorText("Switch Demo");
+        if (ImGui::Button("Switch to Demo Framebuffer"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<DemoFramebuffer>();
+        }
+        if (ImGui::Button("Switch to Demo Shapes"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<DemoShapes>();
+        }
+
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
+        }
+    }
+
+    ImGui::End();
+}
+
+gsl::czstring DemoText::GetName() const
+{
+    return "Text Demo";
+}
+
+void DemoText::updateCachedTextures()
+{
+    if (simpleFont)
+    {
+        staticTextTexture = simpleFont->PrintToTexture(staticText, settings.TextColor);
+        staticTextAddress = staticTextTexture.get();
+
+        occasionalTextTexture = simpleFont->PrintToTexture(occasionalText, 0xFF00FFFF);
+        occasionalTextAddress = occasionalTextTexture.get();
+
+        frequentTextTexture = simpleFont->PrintToTexture(frequentText, 0x00FFFFFF);
+        frequentTextAddress = frequentTextTexture.get();
+    }
+}
+
+void DemoText::drawText(const std::string& text, const Math::vec2& position, CS230::Font& font, CS200::RGBA color) const
+{
+    if (auto text_texture = font.PrintToTexture(text, color); text_texture)
+    {
+        const auto transform = Math::TranslationMatrix(position) * Math::ScaleMatrix(Math::vec2{ settings.TextScale, settings.TextScale });
+        text_texture->Draw(transform, color);
+    }
+}
+
+void DemoText::drawCacheInfo(double start_y, double x_offset) const
+{
+    if (!simpleFont)
+        return;
+
+    double current_y = start_y;
+
+    std::stringstream frequent_info;
+    frequent_info << "Frequent: " << std::hex << frequentTextAddress;
+    drawText(frequent_info.str(), Math::vec2{ x_offset, current_y }, *outlinedFont, CS200::WHITE);
+    current_y += LINE_HEIGHT;
+
+    std::stringstream occasional_info;
+    occasional_info << "Occasional: " << std::hex << occasionalTextAddress;
+    drawText(occasional_info.str(), Math::vec2{ x_offset, current_y }, *outlinedFont, CS200::WHITE);
+    current_y += LINE_HEIGHT;
+
+    std::stringstream static_info;
+    static_info << "Static: " << std::hex << staticTextAddress;
+    drawText(static_info.str(), Math::vec2{ x_offset, current_y }, *outlinedFont, CS200::WHITE);
+    current_y += LINE_HEIGHT;
+
+    std::stringstream blinking_info;
+    blinking_info << "Blinking: " << std::hex << blinkingHeaderAddress;
+    drawText(blinking_info.str(), Math::vec2{ x_offset, current_y }, *outlinedFont, 0xAAAAAAFF);
+    current_y += LINE_HEIGHT;
+
+    const uint64_t current_frame = Engine::GetWindowEnvironment().FrameCount;
+    const uint64_t cycle_frame   = current_frame & (BLINKING_CYCLE_FRAMES - 1);
+
+    if (const bool should_show_blinking_header = cycle_frame >= VISIBLE_START_FRAME; should_show_blinking_header)
+    {
+        auto temp_blinking_texture = outlinedFont->PrintToTexture("Cache Demo - Memory Addresses:", CS200::WHITE);
+        blinkingHeaderAddress      = temp_blinking_texture.get();
+        const auto transform       = Math::TranslationMatrix(Math::vec2{ x_offset, current_y }) * Math::ScaleMatrix(Math::vec2{ settings.TextScale, settings.TextScale });
+        temp_blinking_texture->Draw(transform, CS200::WHITE);
+    }
+}
+
+
+

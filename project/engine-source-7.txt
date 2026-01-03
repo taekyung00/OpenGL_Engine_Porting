@@ -1,0 +1,2958 @@
+Directory: project
+Files analyzed: 243
+
+Estimated tokens: 741.4k
+
+Directory structure:
+└── project/
+    └── source/
+        ├── main.cpp
+        ├── CS200/
+        │   ├── BatchRenderer2D.cpp
+        │   ├── BatchRenderer2D.h
+        │   ├── Image.cpp
+        │   ├── Image.h
+        │   ├── ImGuiHelper.cpp
+        │   ├── ImGuiHelper.h
+        │   ├── ImmediateRenderer2D.cpp
+        │   ├── ImmediateRenderer2D.h
+        │   ├── InstancedRenderer2D.cpp
+        │   ├── InstancedRenderer2D.h
+        │   ├── IRenderer2D.h
+        │   ├── NDC.h
+        │   ├── OffscreenFramebuffer.cpp
+        │   ├── OffscreenFramebuffer.h
+        │   ├── PostProcessingPipeline.cpp
+        │   ├── PostProcessingPipeline.h
+        │   ├── Renderer2DUtils.cpp
+        │   ├── Renderer2DUtils.h
+        │   ├── RenderingAPI.cpp
+        │   ├── RenderingAPI.h
+        │   ├── RGBA.h
+        │   ├── Shape.cpp
+        │   └── Shape.h
+        ├── Demo/
+        │   ├── DemoBatchInstance.cpp
+        │   ├── DemoBatchInstance.h
+        │   ├── DemoBufferTypes.cpp
+        │   ├── DemoBufferTypes.h
+        │   ├── DemoCS230Textures.cpp
+        │   ├── DemoCS230Textures.h
+        │   ├── DemoDepthPost.cpp
+        │   ├── DemoDepthPost.h
+        │   ├── DemoFramebuffer.cpp
+        │   ├── DemoFramebuffer.h
+        │   ├── DemoShapes.cpp
+        │   ├── DemoShapes.h
+        │   ├── DemoText.cpp
+        │   ├── DemoText.h
+        │   ├── DemoTexturing.cpp
+        │   ├── DemoTexturing.h
+        │   ├── DemoVAO.cpp
+        │   ├── DemoVAO.h
+        │   ├── Demo7/
+        │   │   ├── Moon.cpp
+        │   │   ├── Moon.h
+        │   │   ├── Road.cpp
+        │   │   ├── Road.h
+        │   │   ├── Stars.cpp
+        │   │   ├── Stars.h
+        │   │   ├── Triangle.cpp
+        │   │   ├── Triangle.h
+        │   │   └── WorldSize.h
+        │   └── DemoSceneShowcase/
+        │       ├── Map.cpp
+        │       ├── Map.h
+        │       ├── Samurai.cpp
+        │       ├── Samurai.h
+        │       ├── SceneState.cpp
+        │       └── SceneState.h
+        ├── Engine/
+        │   ├── Animation.cpp
+        │   ├── Animation.h
+        │   ├── Camera.cpp
+        │   ├── Camera.h
+        │   ├── Collision.cpp
+        │   ├── Collision.h
+        │   ├── Component.h
+        │   ├── ComponentManager.h
+        │   ├── Engine.cpp
+        │   ├── Engine.h
+        │   ├── Error.h
+        │   ├── Font.cpp
+        │   ├── Font.h
+        │   ├── Fonts.h
+        │   ├── FPS.h
+        │   ├── GameObject.cpp
+        │   ├── GameObject.h
+        │   ├── GameObjectManager.cpp
+        │   ├── GameObjectManager.h
+        │   ├── GameState.h
+        │   ├── GameStateManager.cpp
+        │   ├── GameStateManager.h
+        │   ├── Input.cpp
+        │   ├── Input.h
+        │   ├── Logger.cpp
+        │   ├── Logger.h
+        │   ├── Matrix.cpp
+        │   ├── Matrix.h
+        │   ├── Particle.cpp
+        │   ├── Particle.h
+        │   ├── Path.cpp
+        │   ├── Path.h
+        │   ├── PerformanceMonitor.cpp
+        │   ├── PerformanceMonitor.h
+        │   ├── Random.cpp
+        │   ├── Random.h
+        │   ├── Rect.h
+        │   ├── ShowCollision.cpp
+        │   ├── ShowCollision.h
+        │   ├── Sprite.cpp
+        │   ├── Sprite.h
+        │   ├── TextManager.cpp
+        │   ├── TextManager.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── TextureManager.cpp
+        │   ├── TextureManager.h
+        │   ├── Timer.h
+        │   ├── Vec2.cpp
+        │   ├── Vec2.h
+        │   ├── Window.cpp
+        │   └── Window.h
+        ├── Game/
+        │   ├── Background.cpp
+        │   ├── Background.h
+        │   ├── GameObjectTypes.h
+        │   ├── MainMenu.cpp
+        │   ├── MainMenu.h
+        │   ├── Particles.h
+        │   ├── Score.cpp
+        │   ├── Score.h
+        │   ├── Splash.cpp
+        │   ├── Splash.h
+        │   ├── States.h
+        │   ├── CS230_Final/
+        │   │   ├── Components/
+        │   │   │   ├── Bounce.cpp
+        │   │   │   ├── Bounce.h
+        │   │   │   ├── Grid.cpp
+        │   │   │   ├── Grid.h
+        │   │   │   ├── Random.cpp
+        │   │   │   ├── Random.h
+        │   │   │   ├── Ziggle.cpp
+        │   │   │   └── Ziggle.h
+        │   │   ├── Objects/
+        │   │   │   ├── Bus.cpp
+        │   │   │   ├── Bus.h
+        │   │   │   ├── BusLine.h
+        │   │   │   ├── Constants.h
+        │   │   │   ├── Food.cpp
+        │   │   │   ├── Food.h
+        │   │   │   ├── Obstacle.cpp
+        │   │   │   ├── Obstacle.h
+        │   │   │   ├── Passenger.cpp
+        │   │   │   ├── Passenger.h
+        │   │   │   ├── Player.cpp
+        │   │   │   └── Player.h
+        │   │   └── States/
+        │   │       ├── BadSandwich.cpp
+        │   │       ├── BadSandwich.h
+        │   │       ├── GoodSandwich.cpp
+        │   │       ├── GoodSandwich.h
+        │   │       ├── NormalSandwich.cpp
+        │   │       ├── NormalSandwich.h
+        │   │       ├── Project.cpp
+        │   │       └── Project.h
+        │   └── States/
+        │       ├── ConsoleTest.cpp
+        │       ├── ConsoleTest.h
+        │       ├── RenderingTest.cpp
+        │       └── RenderingTest.h
+        ├── OpenGL/
+        │   ├── Buffer.cpp
+        │   ├── Buffer.h
+        │   ├── Environment.h
+        │   ├── Framebuffer.cpp
+        │   ├── Framebuffer.h
+        │   ├── GL.cpp
+        │   ├── GL.h
+        │   ├── GLConstants.h
+        │   ├── GLTypes.h
+        │   ├── Handle.h
+        │   ├── Shader.cpp
+        │   ├── Shader.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── VertexArray.cpp
+        │   └── VertexArray.h
+        └── Tracy/
+            ├── TracyClient.cpp
+            ├── client/
+            │   ├── tracy_concurrentqueue.h
+            │   ├── tracy_rpmalloc.cpp
+            │   ├── tracy_rpmalloc.hpp
+            │   ├── tracy_SPSCQueue.h
+            │   ├── TracyAlloc.cpp
+            │   ├── TracyArmCpuTable.hpp
+            │   ├── TracyCallstack.cpp
+            │   ├── TracyCallstack.h
+            │   ├── TracyCallstack.hpp
+            │   ├── TracyCpuid.hpp
+            │   ├── TracyDebug.hpp
+            │   ├── TracyDxt1.cpp
+            │   ├── TracyDxt1.hpp
+            │   ├── TracyFastVector.hpp
+            │   ├── TracyKCore.cpp
+            │   ├── TracyKCore.hpp
+            │   ├── TracyLock.hpp
+            │   ├── TracyOverride.cpp
+            │   ├── TracyProfiler.cpp
+            │   ├── TracyProfiler.hpp
+            │   ├── TracyRingBuffer.hpp
+            │   ├── TracyRocprof.cpp
+            │   ├── TracyScoped.hpp
+            │   ├── TracyStringHelpers.hpp
+            │   ├── TracySysPower.cpp
+            │   ├── TracySysPower.hpp
+            │   ├── TracySysTime.cpp
+            │   ├── TracySysTime.hpp
+            │   ├── TracySysTrace.cpp
+            │   ├── TracySysTrace.hpp
+            │   └── TracyThread.hpp
+            ├── common/
+            │   ├── tracy_lz4.cpp
+            │   ├── tracy_lz4.hpp
+            │   ├── tracy_lz4hc.cpp
+            │   ├── tracy_lz4hc.hpp
+            │   ├── TracyAlign.hpp
+            │   ├── TracyAlloc.hpp
+            │   ├── TracyApi.h
+            │   ├── TracyColor.hpp
+            │   ├── TracyForceInline.hpp
+            │   ├── TracyMutex.hpp
+            │   ├── TracyProtocol.hpp
+            │   ├── TracyQueue.hpp
+            │   ├── TracySocket.cpp
+            │   ├── TracySocket.hpp
+            │   ├── TracyStackFrames.cpp
+            │   ├── TracyStackFrames.hpp
+            │   ├── TracySystem.cpp
+            │   ├── TracySystem.hpp
+            │   ├── TracyVersion.hpp
+            │   ├── TracyWinFamily.hpp
+            │   └── TracyYield.hpp
+            ├── libbacktrace/
+            │   ├── alloc.cpp
+            │   ├── backtrace.hpp
+            │   ├── config.h
+            │   ├── dwarf.cpp
+            │   ├── elf.cpp
+            │   ├── fileline.cpp
+            │   ├── filenames.hpp
+            │   ├── internal.hpp
+            │   ├── macho.cpp
+            │   ├── mmapio.cpp
+            │   ├── posix.cpp
+            │   ├── sort.cpp
+            │   └── state.cpp
+            └── tracy/
+                ├── Tracy.hpp
+                ├── TracyC.h
+                ├── TracyCUDA.hpp
+                ├── TracyD3D11.hpp
+                ├── TracyD3D12.hpp
+                ├── TracyLua.hpp
+                ├── TracyOpenCL.hpp
+                ├── TracyOpenGL.hpp
+                └── TracyVulkan.hpp
+
+
+================================================
+FILE: source/Demo/DemoTexturing.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "CS200/NDC.h"
+#include "CS200/RGBA.h"
+#include "Engine/GameState.h"
+#include "OpenGL/Buffer.h"
+#include "OpenGL/Shader.h"
+#include "OpenGL/Texture.h"
+#include "OpenGL/VertexArray.h"
+#include <array>
+#include <vector>
+
+class DemoTexturing : public CS230::GameState
+{
+public:
+    void          Load() override;
+    void          Unload() override;
+    void          Update(double dt) override;
+    void          Draw() override;
+    void          DrawImGui() override;
+    gsl::czstring GetName() const override;
+
+private:
+    OpenGL::CompiledShader texturingCombineShader{};
+
+    struct object
+    {
+        OpenGL::BufferHandle      positionBufferHandle{};
+        OpenGL::BufferHandle      colorBufferHandle{};
+        OpenGL::BufferHandle      texCoordBufferHandle{};
+        OpenGL::BufferHandle      indexBufferHandle{};
+        GLsizei                   indicesCount{};
+        OpenGL::VertexArrayHandle modelHandle{};
+    } quad{};
+
+    constexpr static int QuadSize = 256;
+
+    OpenGL::TextureHandle duckTextureHandle{};
+    OpenGL::TextureHandle noiseTextureHandle{};
+    OpenGL::TextureHandle logoTextureHandle{};
+
+    enum class TextureType
+    {
+        Duck  = 0,
+        Noise = 1,
+        Logo  = 2
+    };
+
+    struct Settings
+    {
+        int                   FilteringIndex           = 0;
+        std::array<int, 2>    WrapIndex                = { 0, 0 };
+        float                 TexCoordScale            = 1.0f;
+        float                 TargetTexCoordScale      = 1.0f;
+        bool                  ModulateColor            = false;
+        bool                  ApplyProceduralTexture   = false;
+        float                 ProceduralTileSize       = 32.0f;
+        float                 TargetProceduralTileSize = 32.0f;
+        bool                  UseTexture               = true;
+        TextureType           SelectedTexture          = TextureType::Duck;
+        bool                  DoBlending               = false;
+        bool                  AnimateProceduralTexture = false;
+        static constexpr auto MAX_TILE_SIZE            = 256.0f;
+        static constexpr auto MIN_TILE_SIZE            = 16.0f;
+    } settings;
+
+
+private:
+    void loadShaders();
+    void createQuadModel();
+    void createNoiseTexture();
+    void createLogoTexture();
+    void imgui_pick_filtering();
+    void imgui_pick_wrapping(const char* label, OpenGL::TextureCoordinate which_coord);
+};
+
+
+
+================================================
+FILE: source/Demo/DemoVAO.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "DemoVAO.h"
+#include "CS200/RenderingAPI.h"
+#include "Engine/Engine.h"
+#include "Engine/GameStateManager.h"
+#include "OpenGL/GL.h"
+#include "OpenGL/Shader.h"
+#include "OpenGL/VertexArray.h"
+#include "../Game/MainMenu.h"
+#include <algorithm>
+#include <imgui.h>
+
+void DemoVAO::Load()
+{
+    using filepath = std::filesystem::path;
+    simpleShader   = OpenGL::CreateShader(filepath{ "Assets/shaders/pass_thru_pos2d_clr.vert" }, filepath{ "Assets/shaders/basic_vtx_clr_attribute.frag" });
+
+    GL::GenBuffers(static_cast<GLsizei>(bufferHandles.size()), bufferHandles.data());
+    GL::GenBuffers(static_cast<GLsizei>(indexBufferHandles.size()), indexBufferHandles.data());
+
+    create_1buffer_struct_of_arrays_style();
+    create_1buffer_array_of_structs_style();
+    create_parallel_buffers_style();
+}
+
+void DemoVAO::Unload()
+{
+    OpenGL::DestroyShader(simpleShader);
+    GL::DeleteVertexArrays(1, &leftEyeModel), leftEyeModel   = 0;
+    GL::DeleteVertexArrays(1, &rightEyeModel), rightEyeModel = 0;
+    GL::DeleteVertexArrays(1, &mouthModel), mouthModel       = 0;
+    GL::DeleteBuffers(static_cast<GLsizei>(bufferHandles.size()), bufferHandles.data());
+    std::fill(std::begin(bufferHandles), std::end(bufferHandles), 0);
+    GL::DeleteBuffers(static_cast<GLsizei>(indexBufferHandles.size()), indexBufferHandles.data());
+    std::fill(std::begin(indexBufferHandles), std::end(indexBufferHandles), 0);
+}
+
+void DemoVAO::Update([[maybe_unused]]double dt)
+{
+    hue += 0.25f;
+    if (hue >= 360.0f)
+        hue -= 360.0f;
+}
+
+void DemoVAO::Draw() 
+{
+    constexpr GLsizei        indices_count            = 6;
+    constexpr GLenum         primitive_pattern        = GL_TRIANGLES;
+    constexpr GLenum         left_eye_indices_type    = GL_UNSIGNED_INT;
+    constexpr GLenum         right_eye_indices_type   = GL_UNSIGNED_SHORT;
+    constexpr GLenum         mouth_indices_type       = GL_UNSIGNED_BYTE;
+    constexpr GLvoid*        byte_offset_into_indices = nullptr;
+    constexpr OpenGL::Handle no_object                = 0;
+
+    calculate_and_set_clear_color();
+    CS200::RenderingAPI::Clear();
+
+    GL::UseProgram(simpleShader.Shader);
+
+    GL::BindVertexArray(leftEyeModel);
+    GL::DrawElements(primitive_pattern, indices_count, left_eye_indices_type, byte_offset_into_indices);
+
+    GL::BindVertexArray(rightEyeModel);
+    GL::DrawElements(primitive_pattern, indices_count, right_eye_indices_type, byte_offset_into_indices);
+
+    GL::BindVertexArray(mouthModel);
+    GL::DrawElements(primitive_pattern, indices_count, mouth_indices_type, byte_offset_into_indices);
+
+    GL::BindVertexArray(no_object);
+    GL::UseProgram(no_object);
+}
+
+void DemoVAO::DrawImGui()
+{
+    ImGui::Begin("Program Info");
+    {
+        ImGui::LabelText("FPS", "%d", Engine::GetWindowEnvironment().FPS);
+        {
+            float r = 0, g = 0, b = 0;
+            ImGui::ColorConvertHSVtoRGB(hue / 360.0f, saturation, value, r, g, b);
+            ImGui::LabelText("Background Color", "RGB(%.0f,%.0f,%.0f)", static_cast<double>(r * 255), static_cast<double>(g * 255), static_cast<double>(b * 255));
+        }
+        ImGui::SeparatorText("Switch Demo");
+        if (ImGui::Button("Switch to MainMenu"))
+        {
+            Engine::GetGameStateManager().PopState();
+            Engine::GetGameStateManager().PushState<MainMenu>();
+        }
+
+    }
+    ImGui::End();
+}
+
+DemoVAO::~DemoVAO()
+{
+    Unload();
+}
+
+void DemoVAO::calculate_and_set_clear_color() const
+{
+    float r = 0, g = 0, b = 0;
+    ImGui::ColorConvertHSVtoRGB(hue / 360.0f, saturation, value, r, g, b);
+    GL::ClearColor(r, g, b, 1.0f);
+}
+
+namespace
+{
+    struct vec2
+    {
+        float x = 0;
+        float y = 0;
+    };
+
+    struct color3
+    {
+        float r = 0;
+        float g = 0;
+        float b = 0;
+    };
+}
+
+void DemoVAO::create_1buffer_struct_of_arrays_style() //left eye
+{
+    constexpr std::array positions = {
+        vec2{ -0.2f, 0.2f },
+        vec2{ -0.2f, 0.6f },
+        vec2{ -0.6f, 0.6f },
+        vec2{ -0.6f, 0.2f }
+    };
+    constexpr auto       positions_byte_size = static_cast<GLsizeiptr>(sizeof(vec2) * positions.size());
+    constexpr std::array colors              = {
+        color3{ 1, 1, 1 },
+        color3{ 1, 0, 0 },
+        color3{ 0, 1, 0 },
+        color3{ 0, 0, 1 }
+    };
+    constexpr auto                    colors_byte_size   = static_cast<GLsizeiptr>(sizeof(color3) * colors.size());
+    constexpr auto                    buffer_size        = positions_byte_size + colors_byte_size;
+    constexpr std::array<unsigned, 6> indices            = { 0, 1, 2, 2, 3, 0 };
+    constexpr const void*             no_data            = nullptr;
+    const auto&                       leftEyeVertBuffer  = bufferHandles[0];
+    const auto&                       leftEyeIndexBuffer = indexBufferHandles[0];
+
+    GL::BindBuffer(GL_ARRAY_BUFFER, leftEyeVertBuffer);
+    GL::BufferData(GL_ARRAY_BUFFER, buffer_size, no_data, GL_STATIC_DRAW);//whole data size
+    GL::BufferSubData(GL_ARRAY_BUFFER, 0, positions_byte_size, positions.data()); //sub data size
+    GL::BufferSubData(GL_ARRAY_BUFFER, positions_byte_size, colors_byte_size, colors.data());
+    GL::BindBuffer(GL_ARRAY_BUFFER, 0);
+
+    GL::BindBuffer(GL_ELEMENT_ARRAY_BUFFER, leftEyeIndexBuffer);
+    GL::BufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(indices[0]), indices.data(), GL_STATIC_DRAW);
+    GL::BindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+    const auto layout_description = {
+        OpenGL::VertexBuffer{ leftEyeVertBuffer,                      OpenGL::BufferLayout{ { OpenGL::Attribute::Float2 } } },
+        OpenGL::VertexBuffer{ leftEyeVertBuffer, OpenGL::BufferLayout{ positions_byte_size, { OpenGL::Attribute::Float3 } } }
+    };
+    leftEyeModel = OpenGL::CreateVertexArrayObject(layout_description, leftEyeIndexBuffer);
+}
+
+namespace
+{
+    struct Vertex
+    {
+        vec2   position{};
+        color3 color{};
+    };
+
+}
+
+void DemoVAO::create_1buffer_array_of_structs_style() //right eye
+{
+    constexpr std::array vertices = {
+        Vertex{ vec2{ 0.6f, 0.2f }, color3{ 1, 0, 0 } },
+        Vertex{ vec2{ 0.6f, 0.6f }, color3{ 0, 1, 0 } },
+        Vertex{ vec2{ 0.2f, 0.6f }, color3{ 0, 0, 1 } },
+        Vertex{ vec2{ 0.2f, 0.2f }, color3{ 1, 1, 1 } }
+    };
+    constexpr std::array<unsigned short, 6> indices = { 0, 1, 2, 2, 3, 0 };
+
+    const auto& rightEyeVertBuffer  = bufferHandles[1];
+    const auto& rightEyeIndexBuffer = indexBufferHandles[1];
+
+    GL::BindBuffer(GL_ARRAY_BUFFER, rightEyeVertBuffer);
+    GL::BufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vertices[0]), vertices.data(), GL_STATIC_DRAW);
+    GL::BindBuffer(GL_ARRAY_BUFFER, 0);
+
+    GL::BindBuffer(GL_ELEMENT_ARRAY_BUFFER, rightEyeIndexBuffer);
+    GL::BufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(indices[0]), indices.data(), GL_STATIC_DRAW);
+    GL::BindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+    const auto layout = OpenGL::VertexBuffer{ rightEyeVertBuffer, OpenGL::BufferLayout{ { OpenGL::Attribute::Float2, OpenGL::Attribute::Float3 } } };
+    rightEyeModel     = OpenGL::CreateVertexArrayObject(layout, rightEyeIndexBuffer);
+}
+
+void DemoVAO::create_parallel_buffers_style() //mouth //why parallel?
+{
+    constexpr std::array positions = {
+        vec2{  0.6f, -0.6f },
+        vec2{  0.6f, -0.2f },
+        vec2{ -0.6f, -0.2f },
+        vec2{ -0.6f, -0.6f }
+    };
+    constexpr std::array colors = {
+        color3{ 0, 0, 1 },
+        color3{ 1, 1, 1 },
+        color3{ 1, 0, 0 },
+        color3{ 0, 1, 0 }
+    };
+    constexpr std::array<unsigned char, 6> indices = { 0, 1, 2, 2, 3, 0 };
+
+    const auto& mouthVertBufferPosition = bufferHandles[2];
+    const auto& mouthVertBufferColor    = bufferHandles[3];
+    const auto& mouthIndexBuffer        = indexBufferHandles[2];
+
+
+    GL::BindBuffer(GL_ARRAY_BUFFER, mouthVertBufferPosition);
+    GL::BufferData(GL_ARRAY_BUFFER, positions.size() * sizeof(positions[0]), positions.data(), GL_STATIC_DRAW);
+    GL::BindBuffer(GL_ARRAY_BUFFER, 0);
+
+
+    GL::BindBuffer(GL_ARRAY_BUFFER, mouthVertBufferColor);
+    GL::BufferData(GL_ARRAY_BUFFER, colors.size() * sizeof(colors[0]), colors.data(), GL_STATIC_DRAW);
+    GL::BindBuffer(GL_ARRAY_BUFFER, 0);
+
+    GL::BindBuffer(GL_ELEMENT_ARRAY_BUFFER, mouthIndexBuffer);
+    GL::BufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(indices[0]), indices.data(), GL_STATIC_DRAW);
+    GL::BindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+    const auto layout_description = {
+        OpenGL::VertexBuffer{ mouthVertBufferPosition, OpenGL::BufferLayout{ { OpenGL::Attribute::Float2 } } },
+        OpenGL::VertexBuffer{    mouthVertBufferColor, OpenGL::BufferLayout{ { OpenGL::Attribute::Float3 } } }
+    };
+    mouthModel = OpenGL::CreateVertexArrayObject(layout_description, mouthIndexBuffer);
+}
+
+
+
+================================================
+FILE: source/Demo/DemoVAO.h
+================================================
+#pragma once
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "Engine/GameState.h"
+#include "OpenGL/Handle.h"
+#include "OpenGL/Shader.h"
+#include <array>
+
+namespace OpenGL
+{
+    using BufferHandle      = Handle;
+    using VertexArrayHandle = Handle;
+}
+
+class DemoVAO : public CS230::GameState
+{
+public:
+    void Load() override;
+    void Unload() override;
+    void Update(double dt) override;
+    void Draw() override;
+    void DrawImGui() override;
+
+    gsl::czstring GetName() const override
+    {
+        return "Demo VOA";
+    }
+
+public:
+    DemoVAO() = default;
+    ~DemoVAO() override;
+    DemoVAO(const DemoVAO&)            = delete;
+    DemoVAO(DemoVAO&&)                 = delete;
+    DemoVAO& operator=(const DemoVAO&) = delete;
+    DemoVAO& operator=(DemoVAO&&)      = delete;
+
+private:
+    float                               hue        = 218.5f;
+    static constexpr float              saturation = 0.578f;
+    static constexpr float              value      = 0.929f;
+    OpenGL::CompiledShader              simpleShader{};
+    std::array<OpenGL::BufferHandle, 4> bufferHandles{};
+    std::array<OpenGL::BufferHandle, 3> indexBufferHandles{};
+    OpenGL::VertexArrayHandle           leftEyeModel{}, rightEyeModel{}, mouthModel{};
+
+private:
+    void calculate_and_set_clear_color() const;
+    void create_1buffer_struct_of_arrays_style(); // left eye
+    void create_1buffer_array_of_structs_style(); // right eye
+    void create_parallel_buffers_style();         // mouth
+};
+
+
+
+================================================
+FILE: source/Demo/Demo7/Moon.cpp
+================================================
+#include "Moon.h"
+#include <numbers>
+#include "CS200/Shape.h"
+#include "Engine/Window.h"
+
+Moon::Moon() : GameObject(Math::vec2(Engine::GetWindow().GetSize())-Math::vec2{radius * 2,radius * 2})
+{
+	std::vector<CS230::Shape::Shape::Vertex> vertices;
+	constexpr int							 numSegments = 64;
+	// Center vertex with texture center
+	vertices.emplace_back(0.0f, 0.0f);
+	// Outer vertices
+	for (int i = 0; i <= numSegments; ++i)
+	{
+		const float angle = static_cast<float>(i) * 2.0f * std::numbers::pi_v<float> / static_cast<float>(numSegments);
+		const float x	  = std::cos(angle) * 0.5f;
+		const float y	  = std::sin(angle) * 0.5f;
+		vertices.emplace_back(x, y);
+	}
+	AddGOComponent(new CS230::Shape(CS230::Shape::PrimitivePattern::TriangleFan, vertices));
+	SetScale({ radius * 2, radius * 2 });
+}
+
+void Moon::Draw(Math::TransformationMatrix camera_matrix, [[maybe_unused]]unsigned int color, [[maybe_unused]]float depth)
+{
+	CS230::Shape* shape = GetGOComponent<CS230::Shape>();
+	if (shape)
+	{
+		shape->Draw(camera_matrix * GetMatrix(), CS200::YELLOW, 0.8f);
+	}
+}
+
+
+================================================
+FILE: source/Demo/Demo7/Moon.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "Engine/GameObject.h"
+#include "Engine/Matrix.h"
+
+class Moon : public CS230::GameObject
+{
+public:
+	Moon();
+
+	GameObjectTypes Type() override
+	{
+		return GameObjectTypes::Moon;
+	}
+
+	std::string TypeName() override
+	{
+		return "Moon";
+	}
+
+	bool CanCollideWith([[maybe_unused]] GameObjectTypes other_object_type) override
+	{
+		return true;
+	};
+
+	void ResolveCollision([[maybe_unused]] GameObject* other_object) override {};
+	void Draw(Math::TransformationMatrix camera_matrix, unsigned int color, float depth) override;
+
+private:
+    static constexpr double radius = 60.0;
+};
+
+
+================================================
+FILE: source/Demo/Demo7/Road.cpp
+================================================
+#include "Road.h"
+#include "CS200/Shape.h"
+#include <numbers>
+
+Road::Road() : GameObject({ 400, 0 })
+{
+	std::vector<CS230::Shape::Shape::Vertex> vertices;
+	const int								 numSegments = 20;
+	const float								 width		 = 1000.0f;
+	const float								 height		 = 100.0f;
+
+	for (int i = 0; i <= numSegments; ++i)
+	{
+		const float t	 = static_cast<float>(i) / static_cast<float>(numSegments);
+			const float x	 = -width / 2.0f + t * width;
+			const float wave = std::sin(t * 4.0f * std::numbers::pi_v<float>) * 10.0f;
+
+		vertices.emplace_back(x, -height / 2.0f + wave);
+		vertices.emplace_back(x, height / 2.0f + wave);
+	}
+
+    AddGOComponent(new CS230::Shape(CS230::Shape::PrimitivePattern::TriangleStrip, vertices));
+    SetRotation(45.0);
+}
+
+void Road::Draw(Math::TransformationMatrix camera_matrix,[[maybe_unused]]unsigned int color, [[maybe_unused]]float depth)
+{
+    CS230::Shape* shape = GetGOComponent<CS230::Shape>();
+	if (shape)
+	{
+		shape->Draw(camera_matrix * GetMatrix(), CS200::PURPLE, 0.8f);
+	}
+}
+
+
+
+================================================
+FILE: source/Demo/Demo7/Road.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "Engine/GameObject.h"
+#include "Engine/Matrix.h"
+
+class Road : public CS230::GameObject
+{
+public:
+	Road();
+
+	GameObjectTypes Type() override
+	{
+		return GameObjectTypes::Road;
+	}
+
+	std::string TypeName() override
+	{
+		return "Road";
+	}
+
+	bool CanCollideWith([[maybe_unused]] GameObjectTypes other_object_type) override
+	{
+		return true;
+	};
+
+	void ResolveCollision([[maybe_unused]] GameObject* other_object) override {};
+	void Draw(Math::TransformationMatrix camera_matrix, unsigned int color, float depth) override;
+
+private:
+};
+
+
+================================================
+FILE: source/Demo/Demo7/Stars.cpp
+================================================
+#include "Stars.h"
+#include "CS200/Shape.h"
+#include "Engine/Random.h"
+#include "Engine/Window.h"
+
+Stars::Stars() : GameObject({ 0, Engine::GetWindow().GetSize().y * 3.0/4})
+{
+	std::vector<CS230::Shape::Shape::Vertex> vertices;
+	constexpr size_t		   count = 1000;
+		vertices.reserve(count);
+		for (size_t i = 0; i < count; ++i)
+		{
+			const float x = static_cast<float>(util::random(-0.5f, 0.5f));
+			const float y = static_cast<float>(util::random(-0.5f, 0.5f));
+			vertices.emplace_back(x, y); // emplace_back - calling a constructor
+		}
+	AddGOComponent(new CS230::Shape(CS230::Shape::PrimitivePattern::Points, vertices));
+    SetScale({static_cast<double>(Engine::GetWindow().GetSize().x),Engine::GetWindow().GetSize().y * 1.0/4});
+}
+
+void Stars::Update([[maybe_unused]]double dt)
+{
+    
+}
+
+void Stars::Draw(Math::TransformationMatrix camera_matrix, [[maybe_unused]]unsigned int color, [[maybe_unused]]float depth)
+{
+	CS230::Shape* shape = GetGOComponent<CS230::Shape>();
+	if (shape)
+	{
+		shape->Draw(camera_matrix * GetMatrix(), CS200::YELLOW, 0.8f);
+	}
+}
+
+
+================================================
+FILE: source/Demo/Demo7/Stars.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "Engine/GameObject.h"
+#include "Engine/Matrix.h"
+
+class Stars : public CS230::GameObject
+{
+public:
+	Stars();
+
+	GameObjectTypes Type() override
+	{
+		return GameObjectTypes::Stars;
+	}
+
+	std::string TypeName() override
+	{
+		return "Stars";
+	}
+
+	bool CanCollideWith([[maybe_unused]] GameObjectTypes other_object_type) override
+	{
+		return true;
+	};
+
+	void ResolveCollision([[maybe_unused]] GameObject* other_object) override {};
+	void Update(double dt) override;
+	void Draw(Math::TransformationMatrix camera_matrix, unsigned int color, float depth) override;
+
+private:
+};
+
+
+================================================
+FILE: source/Demo/Demo7/Triangle.cpp
+================================================
+#include "Triangle.h"
+
+#include "CS200/Shape.h"
+
+Triangle::Triangle() : GameObject({ 0.0, 0.0 })
+{
+	std::vector<CS230::Shape::Shape::Vertex> vertices;
+	vertices.emplace_back(0.0f, -0.5f, 0.0f, 0.0f);
+	vertices.emplace_back(0.5f, 0.5f, 0.0f, 0.0f);
+	vertices.emplace_back(-0.5f, 0.5f, 0.0f, 0.0f);
+	AddGOComponent(new CS230::Shape(CS230::Shape::PrimitivePattern::Triangles, vertices));
+    SetScale({ 32.0, 32.0 });
+}
+
+void Triangle::Update([[maybe_unused]]double dt)
+{
+    
+}
+
+void Triangle::Draw(Math::TransformationMatrix camera_matrix, [[maybe_unused]]unsigned int color, [[maybe_unused]]float depth)
+{
+	CS230::Shape* shape = GetGOComponent<CS230::Shape>();
+	if (shape)
+	{
+		shape->Draw(camera_matrix * GetMatrix(), CS200::ORANGE, 0.8f);
+	}
+}
+
+
+
+================================================
+FILE: source/Demo/Demo7/Triangle.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "Engine/GameObject.h"
+#include "Engine/Matrix.h"
+
+class Triangle : public CS230::GameObject
+{
+public:
+	Triangle();
+
+	GameObjectTypes Type() override
+	{
+		return GameObjectTypes::Triangle;
+	}
+
+	std::string TypeName() override
+	{
+		return "Triangle";
+	}
+
+	bool CanCollideWith([[maybe_unused]] GameObjectTypes other_object_type) override
+	{
+		return true;
+	};
+
+	void ResolveCollision([[maybe_unused]] GameObject* other_object) override {};
+	void Update(double dt) override;
+	void Draw(Math::TransformationMatrix camera_matrix, unsigned int color, float depth) override;
+
+private:
+};
+
+
+================================================
+FILE: source/Demo/Demo7/WorldSize.h
+================================================
+#pragma once
+#include "Engine/Vec2.h"
+
+constexpr Math::ivec2 WORLD_SIZE = {2400,3200};
+
+
+================================================
+FILE: source/Demo/DemoSceneShowcase/Map.cpp
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "Map.h"
+#include <numbers>
+
+#include "Engine/GameStateManager.h"
+#include "Engine/TextureManager.h"
+
+#include "Game/Particles.h"
+
+Map::Map(Math::ivec2 tileSize, Math::ivec2 tileAmount, Samurai* samurai_ptr)
+	: tile_size(tileSize), tile_amount(tileAmount), samurai(samurai_ptr)
+{
+	for (int i = 0; i < tile_amount.x; ++i)
+	{
+		for (int j = 0; j < tile_amount.y; ++j)
+		{
+			grid_info[{ i, j }].first = false;
+		}
+	}
+}
+
+void Map::Update([[maybe_unused]] double dt)
+{
+	const Math::vec2 samurai_position = samurai->GetPosition() /*+ static_cast<Math::vec2>(samurai->GetGOComponent<CS230::Sprite>()->GetHotSpot(1))*/;
+	Math::vec2		 grid_pos{};
+	for (int i = 0; i < tile_amount.x; ++i)
+	{
+		for (int j = 0; j < tile_amount.y; ++j)
+		{
+			if ((samurai_position.x >= i * tile_size.x && samurai_position.x <= (i + 1) * tile_size.x) && (samurai_position.y >= j * tile_size.y && samurai_position.y <= (j + 1) * tile_size.y))
+			{
+				grid_pos				  = Math::vec2{ static_cast<double>(i * tile_size.x), static_cast<double>(j * tile_size.y) } + Math::vec2{ tile_size.x / 2.0, tile_size.y / 2.0 };
+				grid_info[{ i, j }].first = true;
+				grid_info[{ i, j }].second += dt;
+			}
+			else
+			{
+				grid_info[{ i, j }].first = false;
+				grid_info[{ i, j }].second += dt;
+			}
+		}
+	}
+}
+
+void Map::Draw(float depth)
+{
+	CS200::RGBA			tile_color;
+	CS200::IRenderer2D* renderer_ptr = Engine::GetTextureManager().GetRenderer2D();
+	Math::vec2			grid_pos{};
+	const auto			tears_particle = Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Tears>>();
+	const auto			shine_particle = Engine::GetGameStateManager().GetGSComponent<CS230::ParticleManager<Particles::Shining>>();
+
+	for (int i = 0; i < tile_amount.x; ++i)
+	{
+		for (int j = 0; j < tile_amount.y; ++j)
+		{
+			grid_pos = Math::vec2{ static_cast<double>(i * tile_size.x), static_cast<double>(j * tile_size.y) } + Math::vec2{ tile_size.x / 2.0, tile_size.y / 2.0 };
+			if (grid_info[{ i, j }].first)
+			{
+				tile_color = CS200::PURPLE;
+				if (tears_particle && grid_info[{ i, j }].second >= PARTICLE_TIME)
+				{
+					tears_particle->Emit(5, grid_pos + Math::to_vec2(tile_size) * 0.5, { 0, 0 }, { -100, -100 }, std::numbers::pi);
+					grid_info[{ i, j }].second = 0.0;
+				}
+			}
+			else
+			{
+				tile_color = CS200::BLACK;
+				if (shine_particle && grid_info[{ i, j }].second >= PARTICLE_TIME)
+				{
+					shine_particle->Emit(5, grid_pos + Math::to_vec2(tile_size) * 0.5, { 0, 0 }, { -100, -100 }, std::numbers::pi);
+					grid_info[{ i, j }].second = 0.0;
+				}
+			}
+			renderer_ptr->DrawRectangle(Math::TranslationMatrix(grid_pos) * Math::ScaleMatrix(tile_size), tile_color, CS200::WHITE, 2.0, depth);
+		}
+	}
+}
+
+
+
+================================================
+FILE: source/Demo/DemoSceneShowcase/Map.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include <map>
+#include "Engine/Component.h"
+#include "Engine/Vec2.h"
+#include "Engine/Timer.h"
+
+#include "Demo/DemoSceneShowcase/Samurai.h"
+
+class Map : public CS230::Component
+{
+public:
+	Map(Math::ivec2 tileSize,Math::ivec2 tileAmount,Samurai* samurai_ptr);
+	void Update(double dt) override;
+	void Draw(float depth);
+
+private:
+	static constexpr double			  PARTICLE_TIME = 2.5;
+    const Math::ivec2 tile_size;
+    const Math::ivec2 tile_amount;
+	std::map<std::pair<int, int>, std::pair<bool, double>> grid_info; //<x,y> , <on_player,time>
+    Samurai* samurai;
+};
+
+
+================================================
+FILE: source/Demo/DemoSceneShowcase/Samurai.cpp
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+#include "Samurai.h"
+#include "Engine/Input.h"
+
+Samurai::Samurai() : 
+	GameObject({100,100})
+{
+	AddGOComponent(new CS230::Sprite("Assets/sprites/DemoSceneShowcase/Samurai.spt", this));
+	AddGOComponent(new CS230::ShowCollision());
+	GetGOComponent<CS230::Sprite>()->PlayAnimation(0);
+}
+
+void Samurai::Update([[maybe_unused]] double dt)
+{
+
+	if(Engine::GetInput().KeyDown(CS230::Input::Keys::A))
+	{
+		UpdateRotation(ROTATIONSPEED * dt);
+	}
+	if(Engine::GetInput().KeyDown(CS230::Input::Keys::D))
+	{
+		UpdateRotation(-ROTATIONSPEED * dt);
+	}
+
+	if (Engine::GetInput().KeyDown(CS230::Input::Keys::W))
+	{
+		UpdateVelocity(Math::RotationMatrix(GetRotation()) * Math::vec2{ 0, SPEED * dt });
+	}
+	if (Engine::GetInput().KeyDown(CS230::Input::Keys::S))
+	{
+		UpdateVelocity(Math::RotationMatrix(GetRotation()) * Math::vec2{ 0, -SPEED * dt });
+	}
+	UpdateVelocity({ -DRAG * dt * GetVelocity() });
+	GameObject::Update(dt);
+}
+
+void Samurai::Draw(Math::TransformationMatrix camera_matrix, unsigned int color, float depth)
+{
+	GameObject::Draw(camera_matrix * Math::ScaleMatrix(1.0), color, depth);
+}
+
+
+
+================================================
+FILE: source/Demo/DemoSceneShowcase/Samurai.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "Engine/GameObject.h"
+#include "Engine/Matrix.h"
+
+class Samurai : public CS230::GameObject
+{
+public:
+	Samurai();
+
+	GameObjectTypes Type() override
+	{
+		return GameObjectTypes::Samurai;
+	}
+
+	std::string TypeName() override
+	{
+		return "Samurai";
+	}
+
+	bool CanCollideWith([[maybe_unused]] GameObjectTypes other_object_type) override
+	{
+		return true;
+	};
+
+	void ResolveCollision([[maybe_unused]] GameObject* other_object) override { };
+	void Update(double dt) override;
+	void Draw(Math::TransformationMatrix camera_matrix, unsigned int color, float depth) override;
+
+private:
+	Math::vec2 velocity = { 100.0, 100.0 };
+	static constexpr double ROTATIONSPEED = 2;
+	static constexpr double SPEED		  = 500;
+	static constexpr double DRAG		  = 1;
+};
+
+
+================================================
+FILE: source/Demo/DemoSceneShowcase/SceneState.cpp
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "SceneState.h"
+#include <imgui.h>
+#include "Engine/Collision.h"
+#include "Engine/Input.h"
+#include "Engine/TextureManager.h"
+#include "Engine/Window.h"
+#include "Engine/Timer.h"
+
+#include "CS200/IRenderer2D.h"
+#include "CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
+#include "CS200/ImGuiHelper.h"
+
+#include "OpenGL/Environment.h"
+
+#include "Game/CS230_Final/Components/Grid.h"
+#include "Game/MainMenu.h"
+#include "Game/Particles.h"
+
+#include "Demo/DemoSceneShowcase/Map.h"
+#include "Demo/DemoSceneShowcase/Samurai.h"
+
+void SceneState::Load()
+{
+	Engine::GetTextureManager().SwitchRenderer(CS230::TextureManager::RendererType::Batch);
+
+#ifdef DEVELOPER_VERSION
+	AddGSComponent(new CS230::ShowCollision());
+	//AddGSComponent(new Grid());
+#endif
+
+	if (!OpenGL::IsWebGL)
+	{
+		Engine::GetWindow().ForceResize(TILESIZE.x * TILEAMOUNT.x, TILESIZE.y * TILEAMOUNT.y);
+		Engine::GetWindow().SetWindowPosition(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+	}
+	AddGSComponent(new CS230::GameObjectManager);
+	AddGSComponent(new CS230::ParticleManager<Particles::Shining>());
+	AddGSComponent(new CS230::ParticleManager<Particles::Tears>());
+
+	samurai = new Samurai();
+	GetGSComponent<CS230::GameObjectManager>()->Add(samurai);
+	AddGSComponent(new Map(TILESIZE, TILEAMOUNT, samurai));
+
+	// Initialize FPS tracking
+	LastTicks = SDL_GetTicks();
+
+	CS200::RenderingAPI::SetClearColor(0xFFFFFFFF);
+}
+
+void SceneState::Update([[maybe_unused]] double dt)
+{
+	UpdateGSComponents(dt);
+	GetGSComponent<CS230::GameObjectManager>()->UpdateAll(dt);
+
+	// Update FPS tracker
+	const Uint32 currentTicks = SDL_GetTicks();
+	const Uint32 deltaTicks	  = currentTicks - LastTicks;
+	const double deltaSeconds = deltaTicks / 1000.0;
+	LastTicks				  = currentTicks;
+	FPSTracker.Update(deltaSeconds);
+
+	if (Engine::GetInput().KeyJustReleased(CS230::Input::Keys::Escape))
+	{
+		Engine::GetGameStateManager().PopState();
+		Engine::GetGameStateManager().PushState<MainMenu>();
+	}
+}
+
+void SceneState::Unload()
+{
+	GetGSComponent<CS230::GameObjectManager>()->Unload();
+	ClearGSComponents();
+}
+
+void SceneState::Draw()
+{
+	CS200::RenderingAPI::Clear();
+	CS200::IRenderer2D* renderer_2d = Engine::GetTextureManager().GetRenderer2D();
+	renderer_2d->BeginScene(CS200::build_ndc_matrix(Engine::GetWindow().GetSize()));
+	GetGSComponent<Map>()->Draw(0.8f);
+#ifdef DEVELOPER_VERSION
+	//GetGSComponent<Grid>()->Draw(Grid::DotColor::black,0.2f);
+#endif
+	GetGSComponent<CS230::GameObjectManager>()->DrawAll(Math::TransformationMatrix());
+
+	renderer_2d->EndScene();
+	current_draw_call = renderer_2d->GetDrawCallCounter();
+	current_draw_texture_call = renderer_2d->GetDrawTextureCounter();
+}
+
+void SceneState::DrawImGui()
+{
+	
+	ImGui::Begin("Demo Settings");
+
+	// Display FPS at the top
+	ImGui::Text("FPS: %d", static_cast<int>(FPSTracker));
+	ImGui::Separator();
+
+	ImGui::Text("Draw Call Counter: %d", static_cast<int>(current_draw_call));
+	ImGui::Text("Draw Texture Call Counter: %d", static_cast<int>(current_draw_texture_call));
+	ImGui::Separator();
+
+	// VSync toggle
+	if (ImGui::Checkbox("VSync", &VSyncEnabled))
+	{
+		// https://wiki.libsdl.org/SDL_GL_SetSwapInterval
+		constexpr int ADAPTIVE_VSYNC = -1;
+		constexpr int VSYNC			 = 1;
+		constexpr int NO_VSYNC		 = 0;
+
+		if (VSyncEnabled)
+		{
+			// Try adaptive vsync first, fall back to regular vsync
+			if (const auto result = SDL_GL_SetSwapInterval(ADAPTIVE_VSYNC); result != 0)
+			{
+				SDL_GL_SetSwapInterval(VSYNC);
+			}
+		}
+		else
+		{
+			SDL_GL_SetSwapInterval(NO_VSYNC);
+		}
+	}
+	ImGui::Separator();
+
+	// Renderer selection
+	auto&	   texture_manager		 = Engine::GetTextureManager();
+	const auto current_renderer_type = texture_manager.GetCurrentRendererType();
+	// const auto renderer_2d = texture_manager.GetRenderer2D();
+	ImGui::Text("Renderer:");
+
+	if (ImGui::RadioButton("Batch", current_renderer_type == CS230::TextureManager::RendererType::Batch))
+	{
+		texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Batch);
+	}
+
+	ImGui::SameLine();
+	if (ImGui::RadioButton("Instanced", current_renderer_type == CS230::TextureManager::RendererType::Instanced))
+	{
+		texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Instanced);
+	}
+	ImGui::Separator();
+
+	ImGui::End();
+
+	
+}
+
+
+
+================================================
+FILE: source/Demo/DemoSceneShowcase/SceneState.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include <SDL.h>
+
+#include "Engine/GameState.h"
+#include "Engine/GameObjectManager.h"
+#include "Engine/Particle.h"
+#include "Engine/Vec2.h"
+#include "Engine/FPS.h"
+
+#include "Game/Particles.h"
+
+#include "Demo/DemoSceneShowcase/Samurai.h"
+
+class SceneState : public CS230::GameState
+{
+public:
+	SceneState() = default;
+	void Load() override;
+	void Update(double dt) override;
+	void Unload() override;
+	void Draw() override;
+	void DrawImGui() override;
+
+	gsl::czstring GetName() const override
+	{
+		return "Demo Scene state";
+	}
+
+private:
+	Samurai* samurai = nullptr;
+	static constexpr Math::ivec2 TILESIZE = { 96, 96 };
+	static constexpr Math::ivec2 TILEAMOUNT  = { 8, 8 };
+
+	util::FPS FPSTracker;
+	Uint32	  LastTicks = 0;
+	bool	  VSyncEnabled = true;
+
+	size_t current_draw_call = 0;
+	size_t current_draw_texture_call = 0;
+};
+
+
+================================================
+FILE: source/Engine/Animation.cpp
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Animation.cpp
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    April 16, 2025
+*/
+#include "Animation.h"
+#include "Logger.h"
+#include "Path.h"
+
+CS230::Animation::Animation(const std::filesystem::path& animation_file) : current_command(0)
+{
+    const std::filesystem::path anm_path = assets::locate_asset(animation_file);
+
+    if (anm_path.extension() != ".anm")
+    {
+        throw std::runtime_error(animation_file.generic_string() + " is not a .anm file");
+    }
+
+
+    std::ifstream in_file(anm_path);
+    if (in_file.is_open() == false)
+    {
+        throw std::runtime_error("Failed to load " + animation_file.generic_string());
+    }
+
+    std::string command;
+    while (in_file.eof() == false)
+    {
+        in_file >> command;
+        if (command == "PlayFrame")
+        {
+            size_t frame;
+            float  target_time;
+            in_file >> frame;
+            in_file >> target_time;
+
+            commands.push_back(new PlayFrame(frame, static_cast<double>(target_time)));
+        }
+        else if (command == "Loop")
+        {
+            size_t loop_to_frame;
+            in_file >> loop_to_frame;
+            commands.push_back(new Loop(loop_to_frame));
+        }
+        else if (command == "End")
+        {
+            commands.push_back(new End());
+        }
+        else
+        {
+            Engine::GetLogger().LogError(command + " in " + animation_file.generic_string());
+        }
+    }
+    Reset();
+}
+
+CS230::Animation::Animation() : Animation("./Assets/animations/None.anm")
+{
+}
+
+CS230::Animation::~Animation()
+{
+    for (Command* command : commands)
+    {
+        delete command;
+    }
+    commands.clear();
+}
+
+void CS230::Animation::Update(double dt)
+{
+    current_frame->Update(dt);
+    if (current_frame->Ended() == true)
+    {
+        current_frame->ResetTime();
+        current_command++;
+        if (commands[current_command]->Type() == CommandType::PlayFrame)
+        {
+            current_frame = static_cast<PlayFrame*>(commands[current_command]);
+        }
+        else if (commands[current_command]->Type() == CommandType::Loop)
+        {
+            Loop* loop_data = static_cast<Loop*>(commands[current_command]);
+            current_command = loop_data->LoopIndex();
+            if (commands[current_command]->Type() == CommandType::PlayFrame)
+            {
+                current_frame = static_cast<PlayFrame*>(commands[current_command]);
+            }
+            else
+            {
+                Engine::GetLogger().LogError("Loop does not go to PlayFrame");
+                Reset();
+            }
+        }
+        else if (commands[current_command]->Type() == CommandType::End)
+        {
+            ended = true;
+        }
+    }
+}
+
+size_t CS230::Animation::CurrentFrame()
+{
+    return current_frame->Frame();
+}
+
+void CS230::Animation::Reset()
+{
+    current_command = 0;
+    ended           = false;
+    current_frame   = static_cast<PlayFrame*>(commands[current_command]);
+    current_frame->ResetTime();
+}
+
+bool CS230::Animation::Ended()
+{
+    return ended;
+}
+
+CS230::Animation::PlayFrame::PlayFrame(size_t _frame, double duration) : frame(_frame), target_time(duration), timer(0.0)
+{
+}
+
+void CS230::Animation::PlayFrame::Update(double dt)
+{
+    timer += dt;
+}
+
+bool CS230::Animation::PlayFrame::Ended()
+{
+    if (timer >= target_time)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void CS230::Animation::PlayFrame::ResetTime()
+{
+    timer = 0.0;
+}
+
+size_t CS230::Animation::PlayFrame::Frame()
+{
+    return frame;
+}
+
+CS230::Animation::Loop::Loop(size_t _loop_index) : loop_index(_loop_index)
+{
+}
+
+size_t CS230::Animation::Loop::LoopIndex()
+{
+    return loop_index;
+}
+
+
+
+================================================
+FILE: source/Engine/Animation.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Animation.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    April 16, 2025
+*/
+
+#pragma once
+#include <vector>
+#include <filesystem>
+#include "Engine.h"
+
+namespace CS230 {
+    class Animation {
+    public:
+        Animation();
+        Animation(const std::filesystem::path& animation_file);
+        ~Animation();
+
+        void Update(double dt);
+        size_t CurrentFrame();
+        void Reset();
+        bool Ended();
+    private:
+        enum class CommandType {
+            PlayFrame,
+            Loop,
+            End,
+        };
+        class Command {
+        public:
+            virtual ~Command() {}
+            virtual CommandType Type() = 0;
+        };
+
+
+        class End : public Command {
+        public:
+            virtual CommandType Type() override { return CommandType::End; }
+        private:
+        };
+
+
+        class Loop : public Command {
+        public:
+            Loop(size_t loop_index);
+            virtual CommandType Type() override { return CommandType::Loop; }
+            size_t LoopIndex();
+        private:
+            size_t loop_index;
+        };
+
+        class PlayFrame : public Command {
+        public:
+            PlayFrame(size_t frame, double duration);
+            virtual CommandType Type() override { return CommandType::PlayFrame; }
+            void Update(double dt);
+            bool Ended();
+            void ResetTime();
+            size_t Frame();
+        private:
+            size_t frame;
+            double target_time;
+            double timer;
+        };
+
+        size_t current_command;
+        std::vector<Command*> commands;
+        bool ended;
+        PlayFrame* current_frame;
+    };
+}
+
+
+
+
+================================================
+FILE: source/Engine/Camera.cpp
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Camera.cpp
+Project:    CS230 Engine
+Author:     Jonathan Holmes
+Created:    March 8, 2023
+*/
+#include "Camera.h"
+#include "Engine.h"
+#include "Matrix.h"
+
+namespace
+{
+  template <typename T, typename FLOAT = double>
+  void ease_to_target(T& current, const T& target, FLOAT delta_time, FLOAT weight = 1.0)
+  {
+	const auto easing = std::min(delta_time * weight, static_cast<FLOAT>(1.0));
+	current += easing * (target - current);
+  }
+} // namespace
+
+CS230::Camera::Camera(Math::rect _player_zone, size_t camera_amount)
+{
+  cameras.resize(camera_amount);
+  for (CameraSettings& cam : cameras)
+  {
+	cam.player_zone = _player_zone;
+	cam.position	= Math::vec2{ 0.0, 0.0 };
+	cam.offset		= Math::vec2{ 0.0, 0.0 };
+	cam.rotation	= 0.0;
+	cam.scale		= Math::vec2{ 1.0, 1.0 };
+  }
+}
+
+bool& CS230::Camera::SetFirstPersonView(size_t camera_index)
+{
+  return cameras[camera_index].first_person_view;
+}
+
+bool& CS230::Camera::SetAnchoring(size_t camera_index)
+{
+  return cameras[camera_index].anchoring;
+}
+
+bool& CS230::Camera::SetSmoothing(size_t camera_index)
+{
+  return cameras[camera_index].enable_smoothing;
+}
+
+void CS230::Camera::SetPosition(Math::vec2 new_position, size_t camera_index)
+{
+  cameras[camera_index].position			 = new_position;
+  cameras[camera_index].is_position_outdated = true;
+}
+
+void CS230::Camera::SetRotation(double new_rotation, size_t camera_index)
+{
+  if (cameras[camera_index].first_person_view)
+  {
+	cameras[camera_index].rotation			   = new_rotation;
+	cameras[camera_index].is_rotation_outdated = true;
+  }
+}
+
+void CS230::Camera::SetScale(Math::vec2 new_scale, size_t camera_index)
+{
+  cameras[camera_index].scale			  = new_scale;
+  cameras[camera_index].is_scale_outdated = true;
+}
+
+void CS230::Camera::SetPositionOffset(Math::vec2 new_offset, size_t camera_index)
+{
+  cameras[camera_index].offset				 = new_offset;
+  cameras[camera_index].is_position_outdated = true;
+}
+
+const Math::vec2& CS230::Camera::GetPosition(size_t camera_index) const
+{
+  return cameras[camera_index].position;
+}
+
+void CS230::Camera::SetLimit(Math::irect new_limit, size_t camera_index)
+{
+  cameras[camera_index].limit = new_limit;
+}
+
+void CS230::Camera::Update(const Math::vec2& player_position, double dt, size_t camera_index)
+{
+  CameraSettings& cam = cameras[camera_index];
+
+  // 1. Target Position Calculation Step
+  //    Start based on current position, adjust target according to player zone
+  Math::vec2 targetPos = cam.position;
+
+  if (cam.anchoring)
+  {
+	targetPos = player_position;
+  }
+  else
+  {
+	// Player Zone Check: Adjust target position if player leaves the box
+	if (player_position.x > cam.player_zone.Right() + targetPos.x)
+	{
+	  targetPos.x = player_position.x - cam.player_zone.Right();
+	}
+	if (player_position.x - targetPos.x < cam.player_zone.Left())
+	{
+	  targetPos.x = player_position.x - cam.player_zone.Left();
+	}
+
+	if (player_position.y > cam.player_zone.Top() + targetPos.y)
+	{
+	  targetPos.y = player_position.y - cam.player_zone.Top();
+	}
+	if (player_position.y - targetPos.y < cam.player_zone.Bottom())
+	{
+	  targetPos.y = player_position.y - cam.player_zone.Bottom();
+	}
+  }
+
+  // World Limit Check: Ensure target position doesn't go out of map bounds
+  if (targetPos.x < cam.limit.Left())
+	targetPos.x = cam.limit.Left();
+  if (targetPos.x > cam.limit.Right())
+	targetPos.x = cam.limit.Right();
+  if (targetPos.y < cam.limit.Bottom())
+	targetPos.y = cam.limit.Bottom();
+  if (targetPos.y > cam.limit.Top())
+	targetPos.y = cam.limit.Top();
+
+
+  // 2. Final Application Step (Use SetPosition)
+  if (cam.enable_smoothing)
+  {
+	// Get current position
+	Math::vec2 nextPos = GetPosition(camera_index);
+
+	// Move nextPos slightly towards targetPos using interpolation function (Weight 5.0)
+	ease_to_target(nextPos, targetPos, dt, 5.0);
+
+	// Apply calculated position
+	SetPosition(nextPos, camera_index);
+  }
+  else
+  {
+	// If smoothing is off, move to target position immediately
+	// (Call only when values differ to reduce unnecessary operations)
+	if (cam.position.x != targetPos.x || cam.position.y != targetPos.y)
+	{
+	  SetPosition(targetPos, camera_index);
+	}
+  }
+}
+
+Math::TransformationMatrix CS230::Camera::GetMatrix(size_t camera_index)
+{
+  if (cameras[camera_index].first_person_view)
+  {
+	if (cameras[camera_index].is_position_outdated || cameras[camera_index].is_rotation_outdated || cameras[camera_index].is_scale_outdated)
+	{
+	  cameras[camera_index].camera_matrix =
+		Math::TranslationMatrix(cameras[camera_index].position - cameras[camera_index].offset) * Math::RotationMatrix(cameras[camera_index].rotation) * Math::ScaleMatrix(cameras[camera_index].scale);
+	  cameras[camera_index].view_matrix = cameras[camera_index].camera_matrix;
+	  std::swap(cameras[camera_index].view_matrix[0][1], cameras[camera_index].view_matrix[1][0]);
+	  cameras[camera_index].view_matrix[0][2] =
+		-(cameras[camera_index].camera_matrix[0][0] * cameras[camera_index].camera_matrix[0][2] + cameras[camera_index].camera_matrix[1][0] * cameras[camera_index].camera_matrix[1][2]);
+	  cameras[camera_index].view_matrix[1][2] =
+		-(cameras[camera_index].camera_matrix[0][1] * cameras[camera_index].camera_matrix[0][2] + cameras[camera_index].camera_matrix[1][1] * cameras[camera_index].camera_matrix[1][2]);
+	  cameras[camera_index].is_position_outdated = false;
+	  cameras[camera_index].is_rotation_outdated = false;
+	  cameras[camera_index].is_scale_outdated	 = false;
+	}
+  }
+  else
+  {
+	if (cameras[camera_index].is_position_outdated || cameras[camera_index].is_scale_outdated)
+	{
+	  cameras[camera_index].camera_matrix =
+		Math::TranslationMatrix(cameras[camera_index].position - cameras[camera_index].offset) * Math::ScaleMatrix(cameras[camera_index].scale);
+	  cameras[camera_index].view_matrix = cameras[camera_index].camera_matrix;
+	  std::swap(cameras[camera_index].view_matrix[0][1], cameras[camera_index].view_matrix[1][0]);
+	  cameras[camera_index].view_matrix[0][2] =
+		-(cameras[camera_index].camera_matrix[0][0] * cameras[camera_index].camera_matrix[0][2] + cameras[camera_index].camera_matrix[1][0] * cameras[camera_index].camera_matrix[1][2]);
+	  cameras[camera_index].view_matrix[1][2] =
+		-(cameras[camera_index].camera_matrix[0][1] * cameras[camera_index].camera_matrix[0][2] + cameras[camera_index].camera_matrix[1][1] * cameras[camera_index].camera_matrix[1][2]);
+	  cameras[camera_index].is_position_outdated = false;
+	  cameras[camera_index].is_scale_outdated	 = false;
+	}
+	// if(cameras[camera_index].is_position_outdated){
+	//     cameras[camera_index].camera_matrix = Math::TranslationMatrix(cameras[camera_index].position - cameras[camera_index].offset) ;
+	//     cameras[camera_index].view_matrix = cameras[camera_index].camera_matrix;
+	//     cameras[camera_index].view_matrix[0][2] = -(cameras[camera_index].camera_matrix[0][0] * cameras[camera_index].camera_matrix[0][2] + cameras[camera_index].camera_matrix[1][0] *
+	//     cameras[camera_index].camera_matrix[1][2]); cameras[camera_index].view_matrix[1][2] = -(cameras[camera_index].camera_matrix[0][1] * cameras[camera_index].camera_matrix[0][2] +
+	//     cameras[camera_index].camera_matrix[1][1] * cameras[camera_index].camera_matrix[1][2]); cameras[camera_index].is_position_outdated = false;
+	// }
+  }
+  return cameras[camera_index].view_matrix;
+}
+
+
+
+================================================
+FILE: source/Engine/Camera.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Camera.h
+Project:    CS230 Engine
+Author:     Jonathan Holmes
+Created:    March 8, 2023
+*/
+
+#pragma once
+
+#include "Component.h"
+#include "Matrix.h"
+#include "Rect.h"
+#include "Vec2.h"
+#include <vector>
+namespace CS230
+{
+	class Camera : public Component
+	{
+	public:
+		Camera(Math::rect player_zone, size_t camera_amount = 1);
+		bool&			  SetFirstPersonView(size_t camera_index = 0);
+		bool&			  SetAnchoring(size_t camera_index = 0);
+		bool&             SetSmoothing(size_t camera_index = 0);
+		void			  SetPosition(Math::vec2 new_position, size_t camera_index = 0);
+		void			  SetRotation(double new_rotation, size_t camera_index = 0);
+		void			  SetScale(Math::vec2 new_scale, size_t camera_index = 0);
+		void			  SetPositionOffset(Math::vec2 new_offset, size_t camera_index = 0);
+		const Math::vec2& GetPosition(size_t camera_index = 0) const;
+		void			  SetLimit(Math::irect new_limit, size_t camera_index = 0);
+		using Component::Update; // say i'll use this version too, so don't hide anymore
+		void			  Update(const Math::vec2& player_position, double dt, size_t camera_index = 0);
+		Math::TransformationMatrix GetMatrix(size_t camera_index = 0);
+
+	private:
+		struct CameraSettings
+		{
+			Math::irect				   limit;
+			bool					   first_person_view{ true };
+			bool					   anchoring{ true };
+			bool                       enable_smoothing{ true };
+			Math::vec2				   position;
+			Math::vec2				   offset;
+			bool					   is_position_outdated{ true };
+			double					   rotation;
+			bool					   is_rotation_outdated{ true };
+			Math::vec2				   scale;
+			bool					   is_scale_outdated{ true };
+			Math::rect				   player_zone;
+			Math::TransformationMatrix camera_matrix{};
+			Math::TransformationMatrix view_matrix{};
+		} ;
+		std::vector<CameraSettings> cameras;
+	};
+}
+
+
+
+================================================
+FILE: source/Engine/Collision.cpp
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Component.cpp
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    May 17, 2025
+*/
+
+#include "Collision.h"
+#include "../CS200/IRenderer2D.h"
+#include "../CS200/RGBA.h"
+#include "Engine.h"
+#include "Logger.h"
+#include "TextureManager.h"
+
+namespace CS230
+{
+    RectCollision::RectCollision(Math::irect _boundary, CS230::GameObject* _object) : boundary(_boundary), object(_object)
+    {
+    }
+
+    void RectCollision::Draw(Math::TransformationMatrix display_matrix, float depth)
+    {
+        /*const double render_height = rlGetFramebufferHeight();
+
+        bottom_left.y = bottom_left.y * -1 + render_height;
+        bottom_right.y = bottom_right.y * -1 + render_height;
+        top_left.y = top_left.y * -1 + render_height;
+        top_right.y = top_right.y * -1 + render_height;
+
+
+        DrawLine(int(top_left.x), int(top_left.y), int(top_right.x), int(top_right.y), WHITE);
+        DrawLine(int(bottom_right.x), int(bottom_right.y), int(top_right.x), int(top_right.y), WHITE);
+        DrawLine(int(bottom_right.x), int(bottom_right.y), int(bottom_left.x), int(bottom_left.y), WHITE);
+        DrawLine(int(top_left.x), int(top_left.y), int(bottom_left.x), int(bottom_left.y), WHITE);*/
+		auto& texture_manager = Engine::GetTextureManager();
+		//texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+        Math::rect world_boundary = WorldBoundary();
+		auto	   renderer2d	  = texture_manager.GetRenderer2D();
+
+        // [[maybe_unused]] Math::vec2 bottom_left  = /*display_matrix * */ Math::vec2{ world_boundary.Left(), world_boundary.Bottom() };
+        // [[maybe_unused]] Math::vec2 bottom_right = /*display_matrix * */ Math::vec2{ world_boundary.Right(), world_boundary.Bottom() };
+        // [[maybe_unused]] Math::vec2 top_left     = /*display_matrix * */ Math::vec2{ world_boundary.Left(), world_boundary.Top() };
+        // [[maybe_unused]] Math::vec2 top_right    = /*display_matrix * */ Math::vec2{ world_boundary.Right(), world_boundary.Top() };
+
+        // const auto center_matrix = display_matrix * Math::TranslationMatrix(world_boundary.Center());
+
+        renderer2d->DrawRectangle(display_matrix*Math::TranslationMatrix(world_boundary.Center())*Math::ScaleMatrix(world_boundary.Size()), CS200::CLEAR, CS200::BLACK, line_width,depth);
+    }
+
+    Math::rect RectCollision::WorldBoundary()
+    {
+        return { object->GetMatrix() * static_cast<Math::vec2>(boundary.point_1), object->GetMatrix() * static_cast<Math::vec2>(boundary.point_2) };
+    }
+
+    bool RectCollision::IsCollidingWith(GameObject* other_object)
+    {
+        Collision* other_collider = other_object->GetGOComponent<Collision>();
+
+
+        if (other_collider == nullptr)
+        {
+            // Engine::GetLogger().LogError("No collision component found");
+            return false;
+        }
+
+
+        if (other_collider->Shape() != CollisionShape::Rect)
+        {
+            Engine::GetLogger().LogError("Rect vs unsupported type");
+            return false;
+        }
+
+        Math::rect rectangle_1 = WorldBoundary();
+        Math::rect rectangle_2 = dynamic_cast<RectCollision*>(other_collider)->WorldBoundary();
+
+        if (!((rectangle_1.Right() <= rectangle_2.Left()) || (rectangle_1.Left() >= rectangle_2.Right()) || (rectangle_1.Top() <= rectangle_2.Bottom()) || (rectangle_1.Bottom() >= rectangle_2.Top())))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    bool RectCollision::IsCollidingWith(Math::vec2 point)
+    {
+        Math::rect rectangle = WorldBoundary();
+        if (!((rectangle.Left() > point.x) || (rectangle.Right() < point.x) || (rectangle.Top() < point.y) || (rectangle.Bottom() > point.y)))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    CircleCollision::CircleCollision(double _radius, GameObject* _object) :  object(_object), radius(_radius)
+    {
+    }
+
+    void CircleCollision::Draw(Math::TransformationMatrix display_matrix,float depth)
+    {
+        // const double render_height = rlGetFramebufferHeight();
+        // Math::vec2 transformed_position = display_matrix * object->GetPosition();
+        // transformed_position.y = transformed_position.y * -1 + render_height;
+        // const int num_segments = 36;
+        // Math::vec2 previous_vertex;
+        // for (int i = 0; i <= num_segments + 1; i++) {
+        //     double theta = 2.0 * PI * static_cast<double>(i) / static_cast<double>(num_segments);
+        //     Math::vec2 vertex = {
+        //         transformed_position.x + GetRadius() * std::cos(theta),
+        //         transformed_position.y + GetRadius() * std::sin(theta)
+        //     };
+        //     if (i > 0) {
+        //         DrawLine(int(vertex.x), int(vertex.y), int(previous_vertex.x), int(previous_vertex.y), WHITE);
+        //     }
+        //     previous_vertex = vertex;
+        // }
+		auto& texture_manager = Engine::GetTextureManager();
+		//texture_manager.SwitchRenderer(CS230::TextureManager::RendererType::Immediate);
+        const auto transform = display_matrix * Math::TranslationMatrix(object->GetPosition()) * Math::ScaleMatrix(2 * GetRadius());
+		auto	   renderer2d = texture_manager.GetRenderer2D();
+		renderer2d->DrawCircle(transform, CS200::CLEAR, CS200::BLACK, line_width, depth);
+    }
+
+    double CircleCollision::GetRadius()
+    {
+        return std::min(object->GetScale().x, object->GetScale().x) * radius;
+    }
+
+    bool CircleCollision::IsCollidingWith(GameObject* other_object)
+    {
+        Collision* other_collider = other_object->GetGOComponent<Collision>();
+
+
+        if (other_collider == nullptr)
+        {
+            // Engine::GetLogger().LogError("No collision component found");
+            return false;
+        }
+
+
+        if (other_collider->Shape() != CollisionShape::Circle)
+        {
+            Engine::GetLogger().LogError("Circle vs unsupported type");
+            return false;
+        }
+        double     _radius        = GetRadius();
+        Math::vec2 position       = object->GetPosition();
+        double     other_radius   = dynamic_cast<CircleCollision*>(other_collider)->GetRadius();
+        Math::vec2 other_position = other_object->GetPosition();
+
+        if (((position.x - other_position.x) * (position.x - other_position.x) + (position.y - other_position.y) * (position.y - other_position.y)) <
+            ((_radius + other_radius) * (_radius + other_radius)))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    bool CircleCollision::IsCollidingWith(Math::vec2 point)
+    {
+        double     _radius  = GetRadius();
+        Math::vec2 position = object->GetPosition();
+
+        if (((position.x - point.x) * (position.x - point.x) + (position.y - point.y) * (position.y - point.y)) < (_radius * _radius))
+        {
+            return true;
+        }
+        return false;
+    }
+}
+
+
+
+================================================
+FILE: source/Engine/Collision.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Collision.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    May 18, 2025
+*/
+#pragma once
+#include "Component.h"
+#include "Rect.h"
+#include "GameObject.h"
+#include "Matrix.h"
+
+namespace Math {
+    class TransformationMatrix;
+}
+
+namespace CS230 {
+    class GameObject;
+
+    class Collision : public Component {
+    public:
+        enum class CollisionShape {
+            Rect,
+            Circle
+        };
+        virtual CollisionShape Shape() = 0;
+        virtual void Draw(Math::TransformationMatrix display_matrix,float depth = 0.f) = 0;
+        virtual bool IsCollidingWith(GameObject* other_object) = 0;
+        virtual bool IsCollidingWith(Math::vec2 point) = 0;
+    };
+
+    class RectCollision : public Collision {
+    public:
+        RectCollision(Math::irect _boundary, GameObject* _object);
+        CollisionShape Shape() override {
+            return CollisionShape::Rect;
+        }
+        void Draw(Math::TransformationMatrix display_matrix, float depth) override;
+        Math::rect WorldBoundary();
+        bool IsCollidingWith(GameObject* other_object) override;
+        bool IsCollidingWith(Math::vec2 point) override;
+    private:
+        Math::irect boundary;
+        GameObject* object;
+        
+        static constexpr double line_width = 2.0;
+    };
+
+    class CircleCollision : public Collision {
+    public:
+        CircleCollision(double radius, GameObject* object);
+        CollisionShape Shape() override {
+            return CollisionShape::Circle;
+        }
+
+        void Draw(Math::TransformationMatrix display_matrix,float depth) override;
+        double GetRadius();
+        bool IsCollidingWith(GameObject* other_object) override;
+        bool IsCollidingWith(Math::vec2 point) override;
+    private:
+        GameObject* object;
+        double radius;
+        static constexpr double line_width = 5.0;
+    };
+
+}
+
+
+
+
+================================================
+FILE: source/Engine/Component.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  Component.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    May 17, 2025
+*/
+#pragma once
+
+namespace CS230 {
+    class Component {
+    public:
+        virtual ~Component() {};
+        virtual void Update([[maybe_unused]] double dt) {};
+    };
+}
+
+
+
+
+================================================
+FILE: source/Engine/ComponentManager.h
+================================================
+/*
+Copyright (C) 2023 DigiPen Institute of Technology
+Reproduction or distribution of this file or its contents without
+prior written consent is prohibited
+File Name:  ComponentManager.h
+Project:    CS230 Engine
+Author:     Taekyung Ho
+Created:    May 17, 2025
+*/
+#pragma once
+#include <algorithm>
+#include <vector>
+#include <stdexcept>
+
+#include "Component.h"
+
+namespace CS230
+{
+    class ComponentManager
+    {
+    public:
+        ~ComponentManager()
+        {
+            Clear();
+        }
+
+        void UpdateAll(double dt)
+        {
+            for (Component* component : components)
+            {
+                component->Update(dt);
+            }
+        }
+
+        void AddComponent(Component* component)
+        {
+            components.push_back(component);
+        }
+
+        template <typename T>
+        T* GetComponent()
+        {
+            for (Component* component : components)
+            {
+                T* ptr = dynamic_cast<T*>(component);
+                if (ptr != nullptr)
+                {
+                    return ptr;
+                }
+            }
+            return nullptr;
+        }
+
+        template <typename T>
+        void RemoveComponent()
+        {
+            auto it = std::find_if(components.begin(), components.end(), [](Component* element) { return (dynamic_cast<T*>(element) != nullptr); });
+            delete *it;
+            components.erase(it);
+        }
+
+        void Clear()
+        {
+            for (Component* component : components)
+            {
+                delete component;
+            }
+            components.clear();
+        }
+
+    private:
+        std::vector<Component*> components;
+    };
+}
+
+
+
+================================================
+FILE: source/Engine/Engine.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "Engine.h"
+#include "CS200/ImGuiHelper.h"
+#include "CS200/ImmediateRenderer2D.h"
+#include "CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
+#include "FPS.h"
+#include "Font.h"
+#include "GameState.h"
+#include "GameStateManager.h"
+#include "Input.h"
+#include "Logger.h"
+#include "TextManager.h"
+#include "TextureManager.h"
+#include "Timer.h"
+#include "Window.h"
+#include "PerformanceMonitor.h"
+
+#include <chrono>
+
+// Pimpl implementation class
+class Engine::Impl
+{
+public:
+	Impl()
+		:
+#ifdef DEVELOPER_VERSION
+		  logger(CS230::Logger::Severity::Debug, true, std::chrono::system_clock::now())
+#else
+		  logger(CS230::Logger::Severity::Debug, true, std::chrono::system_clock::now())
+#endif
+		  ,
+		  window{}, input{}
+	{
+	}
+
+	CS230::Logger			logger;
+	CS230::Window			window{};
+	CS230::Input			input{};
+	ImGuiHelper::Viewport	viewport{};
+	util::FPS				fps{};
+	util::Timer				timer{};
+	WindowEnvironment		environment{};
+	CS230::GameStateManager gameStateManager{};
+	// CS200::IRenderer2D*		renderer2D = nullptr;
+	CS230::TextureManager	textureManager{};
+	TextManager				textManager{};
+	PerformanceMonitor      performanceMonitor{};
+};
+
+Engine& Engine::Instance()
+{
+	static Engine instance;
+	return instance;
+}
+
+CS230::Logger& Engine::GetLogger()
+{
+	return Instance().impl->logger;
+}
+
+CS230::Window& Engine::GetWindow()
+{
+	return Instance().impl->window;
+}
+
+CS230::Input& Engine::GetInput()
+{
+	return Instance().impl->input;
+}
+
+const WindowEnvironment& Engine::GetWindowEnvironment()
+{
+	return Instance().impl->environment;
+}
+
+CS230::GameStateManager& Engine::GetGameStateManager()
+{
+	return Instance().impl->gameStateManager;
+}
+
+// CS200::IRenderer2D& Engine::GetRenderer2D()
+// {
+// 	return Instance().impl->renderer2D;
+// }
+
+CS230::TextureManager& Engine::GetTextureManager()
+{
+	return Instance().impl->textureManager;
+}
+
+TextManager& Engine::GetTextManager()
+{
+	return Instance().impl->textManager;
+}
+
+void Engine::Start(std::string_view window_title)
+{
+	impl->logger.LogEvent("Engine Started");
+#if defined(DEVELOPER_VERSION)
+	impl->logger.LogEvent("Developer Build");
+#endif
+	impl->window.Start(window_title);
+	auto& window = impl->window;
+
+	const auto window_size = window.GetSize();
+	impl->viewport		   = { 0, 0, window_size.x, window_size.y };
+	CS200::RenderingAPI::SetViewport(window_size);
+	impl->environment.DisplaySize = { static_cast<double>(window_size.x), static_cast<double>(window_size.y) };
+	ImGuiHelper::Initialize(window.GetSDLWindow(), window.GetGLContext());
+	window.SetEventCallback(ImGuiHelper::FeedEvent);
+    impl->textureManager.Init();
+	// impl->renderer2D.Init();
+	impl->timer.ResetTimeStamp();
+	impl->textManager.Init();
+}
+
+void Engine::Stop()
+{
+    impl->textureManager.Shutdown();
+	// impl->renderer2D.Shutdown();
+	impl->gameStateManager.Clear();
+	ImGuiHelper::Shutdown();
+	impl->logger.LogEvent("Engine Stopped");
+}
+
+void Engine::Update()
+{
+	updateEnvironment();
+
+
+	// service update
+	auto& environment = impl->environment;
+	impl->window.Update();
+	impl->input.Update();
+	impl->performanceMonitor.Update(environment.DeltaTime);
+
+	auto& state_manager = impl->gameStateManager;
+	state_manager.Update(environment.DeltaTime);
+	const auto		  viewport		= impl->viewport;
+	const Math::ivec2 viewport_size = { viewport.width, viewport.height };
+	CS200::RenderingAPI::SetViewport(viewport_size, { viewport.x, viewport.y });
+	state_manager.Draw();
+	impl->viewport = ImGuiHelper::Begin();
+	state_manager.DrawImGui();
+	impl->performanceMonitor.DrawImGui();
+	ImGuiHelper::End();
+}
+
+bool Engine::HasGameEnded()
+{
+	return impl->window.IsClosed() || impl->gameStateManager.HasGameEnded();
+}
+
+Engine::Engine() : impl(new Impl())
+{
+}
+
+Engine::~Engine()
+{
+	delete impl;
+}
+
+void Engine::updateEnvironment()
+{
+	auto& environment	  = impl->environment;
+	environment.DeltaTime = impl->timer.GetElapsedSeconds();
+	impl->timer.ResetTimeStamp();
+	environment.ElapsedTime += environment.DeltaTime;
+	++environment.FrameCount;
+	impl->fps.Update(environment.DeltaTime);
+	environment.FPS				  = impl->fps;
+	const auto viewport			  = impl->viewport;
+	impl->environment.DisplaySize = { static_cast<double>(viewport.width), static_cast<double>(viewport.height) };
+}
+
+
+
+================================================
+FILE: source/Engine/Engine.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Jonathan Holmes
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include "Vec2.h"
+#include <filesystem>
+#include <gsl/gsl>
+#include <memory>
+#include <string_view>
+
+namespace CS230
+{
+    class Logger;
+    class Window;
+    class Input;
+    class GameState;
+    class GameStateManager;
+    class TextureManager;
+    class Font;
+
+}
+
+namespace CS200
+{
+    class IRenderer2D;
+}
+
+class TextManager;
+class EventBus;
+class CombatSystem;
+class PerformanceMonitor;
+
+/**
+ * \brief Runtime information about the window and application state
+ *
+ * WindowEnvironment provides access to essential runtime metrics and window
+ * properties that are commonly needed by game logic, rendering systems, and
+ * debugging tools. This information is updated each frame to reflect the
+ * current state of the application.
+ *
+ * Timing Information:
+ * - DeltaTime: Time elapsed since the last frame (for frame-rate independent movement)
+ * - ElapsedTime: Total time since application started (for animations and effects)
+ * - FrameCount: Total number of frames rendered (for debugging and profiling)
+ * - FPS: Current frames per second (for performance monitoring)
+ *
+ * Display Information:
+ * - DisplaySize: Current viewport dimensions in pixels (for coordinate calculations)
+ *
+ * Common use cases:
+ * - Frame-rate independent animations and movement
+ * - Performance monitoring and debugging
+ * - UI scaling based on viewport size
+ * - Time-based effects and animations
+ */
+struct WindowEnvironment
+{
+    int        FPS         = 0;   ///< Current frames per second
+    uint64_t   FrameCount  = 0;   ///< Total frames rendered since start
+    double     DeltaTime   = 0.0; ///< Time in seconds since last frame
+    double     ElapsedTime = 0.0; ///< Total time in seconds since application start
+    Math::vec2 DisplaySize{};     ///< Current viewport size in pixels
+};
+
+/**
+ * \brief Central application engine managing all core systems and subsystems
+ *
+ * Engine serves as the main application framework that coordinates all major
+ * subsystems including windowing, input handling, rendering, game state management,
+ * and resource management. It implements the singleton pattern to provide global
+ * access to these systems while maintaining proper initialization order and
+ * cleanup procedures.
+ *
+ * Architecture and Design:
+ * - Singleton pattern ensures single engine instance across the application
+ * - Pimpl idiom hides implementation details and reduces compilation dependencies
+ * - Static accessor methods provide convenient access to subsystems
+ * - Manages complete application lifecycle from startup to shutdown
+ *
+ * Core Subsystems:
+ * - Window: SDL-based window management and OpenGL context creation
+ * - Input: Keyboard, mouse, and controller input handling
+ * - Renderer2D: High-level 2D graphics rendering system
+ * - GameStateManager: State machine for different application screens/modes
+ * - TextureManager: Resource management for texture assets
+ * - Logger: Debug and event logging system
+ *
+ * Application Lifecycle:
+ * 1. Start(): Initialize all subsystems and create window
+ * 2. Update(): Process one frame of the main loop (input, logic, rendering)
+ * 3. HasGameEnded(): Check if application should terminate
+ * 4. Stop(): Clean shutdown of all subsystems
+ *
+ * The engine handles the complex initialization order required by modern
+ * graphics applications, including OpenGL context creation, ImGui setup,
+ * and proper resource management throughout the application lifecycle.
+ */
+
+class Engine
+{
+public:
+    /**
+     * \brief Get the singleton Engine instance
+     * \return Reference to the single Engine instance
+     *
+     * Provides access to the singleton Engine instance, creating it on first
+     * access using lazy initialization. This ensures the engine is available
+     * throughout the application lifetime while maintaining single-instance
+     * semantics.
+     *
+     * The singleton is implemented with a static local variable, providing
+     * thread-safe initialization in C++11 and later, and automatic cleanup
+     * when the application terminates.
+     */
+    static Engine& Instance();
+
+    /**
+     * \brief Access the application logging system
+     * \return Reference to the Logger instance for debug and event logging
+     *
+     * Provides access to the centralized logging system for debug output,
+     * error reporting, and event tracking. The logger configuration differs
+     * between development and release builds, with more verbose output
+     * available in development versions.
+     *
+     * Common uses:
+     * - Debug information and variable values
+     * - Error reporting and exception details
+     * - Performance metrics and timing information
+     * - Application lifecycle events
+     */
+    static CS230::Logger& GetLogger();
+
+    /**
+     * \brief Access the window management system
+     * \return Reference to the Window instance for display and context management
+     *
+     * Provides access to the window system that manages the application window,
+     * OpenGL context, and display properties. This includes window creation,
+     * resizing, fullscreen control, and event handling integration.
+     *
+     * Window capabilities:
+     * - Window creation and destruction
+     * - OpenGL context management
+     * - Display mode and resolution control
+     * - Event system integration
+     * - Cross-platform window handling
+     */
+    static CS230::Window& GetWindow();
+
+    /**
+     * \brief Access the input handling system
+     * \return Reference to the Input instance for keyboard, mouse, and controller input
+     *
+     * Provides access to the unified input system that handles all user input
+     * devices including keyboard, mouse, and game controllers. The system
+     * provides both immediate state queries and event-based input handling.
+     *
+     * Input capabilities:
+     * - Keyboard state and key press/release events
+     * - Mouse position, button states, and scroll wheel
+     * - Game controller support with analog and digital inputs
+     * - Input mapping and configuration
+     * - Frame-coherent input state management
+     */
+    static CS230::Input& GetInput();
+
+    /**
+     * \brief Access current window and timing environment information
+     * \return Const reference to WindowEnvironment with current frame data
+     *
+     * Provides read-only access to essential runtime information including
+     * timing data, frame statistics, and display properties. This information
+     * is updated each frame and is commonly used for frame-rate independent
+     * calculations and performance monitoring.
+     *
+     * Available information:
+     * - Delta time for frame-rate independent movement
+     * - Total elapsed time for animations and effects
+     * - Current FPS for performance monitoring
+     * - Frame count for debugging and profiling
+     * - Current viewport size for coordinate calculations
+     */
+    static const WindowEnvironment& GetWindowEnvironment();
+
+    /**
+     * \brief Access the game state management system
+     * \return Reference to GameStateManager for application state control
+     *
+     * Provides access to the state machine that manages different application
+     * modes such as menus, gameplay, pause screens, and loading states. The
+     * state manager handles transitions between states and ensures proper
+     * initialization and cleanup of state-specific resources.
+     *
+     * State management features:
+     * - State transitions with proper lifecycle management
+     * - State stack for overlay states (pause menus, dialogs)
+     * - Automatic resource management per state
+     * - Event propagation to active states
+     * - Clean separation of application logic by state
+     */
+    static CS230::GameStateManager& GetGameStateManager();
+
+    /**
+     * \brief Access the 2D rendering system
+     * \return Reference to IRenderer2D for all 2D graphics operations
+     *
+     * Provides access to the high-level 2D rendering system that abstracts
+     * OpenGL complexity and provides efficient rendering of 2D graphics
+     * primitives. The renderer handles batching, state management, and
+     * coordinate system transformations automatically.
+     *
+     * Rendering capabilities:
+     * - Sprite and texture rendering with transformations
+     * - Primitive shapes (rectangles, circles, lines)
+     * - Text rendering with font support
+     * - Efficient batch rendering for performance
+     * - Camera and viewport transformations
+     * - Blend modes and rendering effects
+     */
+    // static CS200::IRenderer2D& GetRenderer2D();
+
+    /**
+     * \brief Access the texture resource management system
+     * \return Reference to TextureManager for texture loading and caching
+     *
+     * Provides access to the texture management system that handles loading,
+     * caching, and lifecycle management of texture resources. The manager
+     * prevents duplicate loading of textures and ensures efficient GPU
+     * memory usage.
+     *
+     * Texture management features:
+     * - Automatic texture loading from various image formats
+     * - Reference counting and automatic cleanup
+     * - Texture caching to prevent duplicate resources
+     * - Efficient GPU memory management
+     * - Support for different texture formats and properties
+     */
+    static CS230::TextureManager& GetTextureManager();
+
+    static TextManager& GetTextManager();
+
+    static PerformanceMonitor& GetPerformanceMonitor();
+
+
+public:
+    /**
+     * \brief Initialize and start the engine with all subsystems
+     * \param window_title Title to display in the window title bar
+     *
+     * Performs complete engine initialization including window creation, OpenGL
+     * context setup, subsystem initialization, and resource loading. This must
+     * be called before any other engine operations and establishes the foundation
+     * for all subsequent application functionality.
+     *
+     * Initialization sequence:
+     * - Creates application window with OpenGL context
+     * - Initializes OpenGL state and rendering API
+     * - Sets up ImGui for debugging and development UI
+     * - Initializes 2D renderer and graphics systems
+     * - Configures input handling and event processing
+     * - Starts timing systems for frame rate calculation
+     *
+     * The function handles the complex dependencies between subsystems and
+     * ensures everything is properly configured before the application begins
+     * its main execution loop.
+     *
+     * Error handling:
+     * If initialization fails, the function may throw exceptions or log
+     * critical errors. The application should handle these cases appropriately.
+     */
+    void Start(std::string_view window_title);
+
+    /**
+     * \brief Shutdown the engine and clean up all resources
+     *
+     * Performs orderly shutdown of all engine subsystems, ensuring proper
+     * cleanup of resources and graceful termination. This should be called
+     * when the application is ready to exit, typically after the main loop
+     * has ended.
+     *
+     * Shutdown sequence:
+     * - Cleans up 2D renderer and graphics resources
+     * - Clears all game states and their resources
+     * - Shuts down ImGui and development tools
+     * - Releases OpenGL context and window resources
+     * - Performs final logging and cleanup
+     *
+     * The shutdown process ensures that all GPU resources are properly
+     * released and that the application can terminate cleanly without
+     * resource leaks or system instability.
+     */
+    void Stop();
+
+    /**
+     * \brief Process one frame of the application main loop
+     *
+     * Executes a complete frame cycle including input processing, game logic
+     * updates, rendering operations, and timing calculations. This function
+     * should be called repeatedly in the main application loop until the
+     * application is ready to terminate.
+     *
+     * Frame processing sequence:
+     * - Updates timing information and frame statistics
+     * - Processes window events and input state
+     * - Updates the current game state logic
+     * - Sets up rendering viewport and coordinate systems
+     * - Renders the current game state with 2D graphics
+     * - Handles ImGui rendering for development tools
+     * - Prepares for the next frame
+     *
+     * The function handles the coordination between all subsystems and
+     * ensures that each frame is processed consistently and efficiently.
+     * It also manages the rendering pipeline and coordinate system
+     * transformations automatically.
+     */
+    void Update();
+
+    /**
+     * \brief Check if the application should terminate
+     * \return True if the application should exit, false to continue running
+     *
+     * Determines whether the application main loop should continue or terminate
+     * based on window close events, user input, or game state conditions.
+     * This is typically checked after each Update() call to decide whether
+     * to continue the main loop.
+     *
+     * Termination conditions:
+     * - User closes the window (clicking X button or Alt+F4)
+     * - Game state manager signals application end
+     * - Critical errors that require application termination
+     *
+     * The function provides a clean way to check for termination conditions
+     * without requiring direct access to window or state management internals.
+     */
+    bool HasGameEnded();
+
+private:
+    // Forward declaration for Pimpl (Pointer to Implementation) idiom
+    // This hides implementation details and reduces compilation dependencies
+    class Impl;
+    gsl::owner<Impl*> impl = nullptr;
+
+private:
+    // Singleton pattern: private constructor and destructor
+    // prevent external instantiation and ensure single instance
+    Engine();
+    ~Engine();
+
+    // Internal method for updating frame timing and window environment
+    // Called each frame to maintain current runtime statistics
+    void updateEnvironment();
+};
+
+
+
+================================================
+FILE: source/Engine/Error.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include "Engine.h"
+#include "Logger.h"
+#include <filesystem>
+#include <source_location>
+#include <sstream>
+#include <utility>
+
+namespace details
+{
+    template <typename... Messages>
+    [[noreturn]] void internal_throw_report_and_throw_error(std::source_location caller_location, Messages&&... more_messages)
+    {
+        std::ostringstream error_message_stream;
+        error_message_stream << '{' << std::filesystem::path(caller_location.file_name()).filename().string() << "}(" << caller_location.line() << ") : " << caller_location.function_name() << '\n';
+        (error_message_stream << ... << std::forward<Messages>(more_messages));
+        const auto message_string = error_message_stream.str();
+        Engine::GetLogger().LogError(message_string);
+        throw std::runtime_error{ message_string };
+    }
+}
+
+template <typename M1>
+[[noreturn]] void throw_error_message(M1&& m1, std::source_location caller_location = std::source_location::current())
+{
+    details::internal_throw_report_and_throw_error(caller_location, std::forward<M1>(m1));
+}
+
+template <typename M1, typename M2>
+[[noreturn]] void throw_error_message(M1&& m1, M2&& m2, std::source_location caller_location = std::source_location::current())
+{
+    details::internal_throw_report_and_throw_error(caller_location, std::forward<M1>(m1), std::forward<M2>(m2));
+}
+
+template <typename M1, typename M2, typename M3>
+[[noreturn]] void throw_error_message(M1&& m1, M2&& m2, M3&& m3, std::source_location caller_location = std::source_location::current())
+{
+    details::internal_throw_report_and_throw_error(caller_location, std::forward<M1>(m1), std::forward<M2>(m2), std::forward<M3>(m3));
+}
+
+template <typename M1, typename M2, typename M3, typename M4>
+[[noreturn]] void throw_error_message(M1&& m1, M2&& m2, M3&& m3, M4&& m4, std::source_location caller_location = std::source_location::current())
+{
+    details::internal_throw_report_and_throw_error(caller_location, std::forward<M1>(m1), std::forward<M2>(m2), std::forward<M3>(m3), std::forward<M4>(m4));
+}
+
+template <typename M1, typename M2, typename M3, typename M4, typename M5>
+[[noreturn]] void throw_error_message(M1&& m1, M2&& m2, M3&& m3, M4&& m4, M5&& m5, std::source_location caller_location = std::source_location::current())
+{
+    details::internal_throw_report_and_throw_error(caller_location, std::forward<M1>(m1), std::forward<M2>(m2), std::forward<M3>(m3), std::forward<M4>(m4), std::forward<M5>(m5));
+}
+
+template <typename M1, typename M2, typename M3, typename M4, typename M5, typename M6>
+[[noreturn]] void throw_error_message(M1&& m1, M2&& m2, M3&& m3, M4&& m4, M5&& m5, M6&& m6, std::source_location caller_location = std::source_location::current())
+{
+    details::internal_throw_report_and_throw_error(caller_location, std::forward<M1>(m1), std::forward<M2>(m2), std::forward<M3>(m3), std::forward<M4>(m4), std::forward<M5>(m5), std::forward<M6>(m6));
+}
+
+template <typename M1, typename M2, typename M3, typename M4, typename M5, typename M6, typename M7>
+[[noreturn]] void throw_error_message(M1&& m1, M2&& m2, M3&& m3, M4&& m4, M5&& m5, M6&& m6, M7&& m7, std::source_location caller_location = std::source_location::current())
+{
+    details::internal_throw_report_and_throw_error(
+        caller_location, std::forward<M1>(m1), std::forward<M2>(m2), std::forward<M3>(m3), std::forward<M4>(m4), std::forward<M5>(m5), std::forward<M6>(m6), std::forward<M7>(m7));
+}
+
+template <typename M1, typename M2, typename M3, typename M4, typename M5, typename M6, typename M7, typename M8>
+[[noreturn]] void throw_error_message(M1&& m1, M2&& m2, M3&& m3, M4&& m4, M5&& m5, M6&& m6, M7&& m7, M8&& m8, std::source_location caller_location = std::source_location::current())
+{
+    details::internal_throw_report_and_throw_error(
+        caller_location, std::forward<M1>(m1), std::forward<M2>(m2), std::forward<M3>(m3), std::forward<M4>(m4), std::forward<M5>(m5), std::forward<M6>(m6), std::forward<M7>(m7),
+        std::forward<M8>(m8));
+}
+
+template <typename M1, typename M2, typename M3, typename M4, typename M5, typename M6, typename M7, typename M8, typename M9>
+[[noreturn]] void throw_error_message(M1&& m1, M2&& m2, M3&& m3, M4&& m4, M5&& m5, M6&& m6, M7&& m7, M8&& m8, M9&& m9, std::source_location caller_location = std::source_location::current())
+{
+    details::internal_throw_report_and_throw_error(
+        caller_location, std::forward<M1>(m1), std::forward<M2>(m2), std::forward<M3>(m3), std::forward<M4>(m4), std::forward<M5>(m5), std::forward<M6>(m6), std::forward<M7>(m7), std::forward<M8>(m8),
+        std::forward<M9>(m9));
+}
+
+template <typename M1, typename M2, typename M3, typename M4, typename M5, typename M6, typename M7, typename M8, typename M9, typename M10>
+[[noreturn]] void
+    throw_error_message(M1&& m1, M2&& m2, M3&& m3, M4&& m4, M5&& m5, M6&& m6, M7&& m7, M8&& m8, M9&& m9, M10&& m10, std::source_location caller_location = std::source_location::current())
+{
+    details::internal_throw_report_and_throw_error(
+        caller_location, std::forward<M1>(m1), std::forward<M2>(m2), std::forward<M3>(m3), std::forward<M4>(m4), std::forward<M5>(m5), std::forward<M6>(m6), std::forward<M7>(m7), std::forward<M8>(m8),
+        std::forward<M9>(m9), std::forward<M10>(m10));
+}
+
+
+

@@ -1,0 +1,1647 @@
+Directory: project
+Files analyzed: 243
+
+Estimated tokens: 741.4k
+
+Directory structure:
+└── project/
+    └── source/
+        ├── main.cpp
+        ├── CS200/
+        │   ├── BatchRenderer2D.cpp
+        │   ├── BatchRenderer2D.h
+        │   ├── Image.cpp
+        │   ├── Image.h
+        │   ├── ImGuiHelper.cpp
+        │   ├── ImGuiHelper.h
+        │   ├── ImmediateRenderer2D.cpp
+        │   ├── ImmediateRenderer2D.h
+        │   ├── InstancedRenderer2D.cpp
+        │   ├── InstancedRenderer2D.h
+        │   ├── IRenderer2D.h
+        │   ├── NDC.h
+        │   ├── OffscreenFramebuffer.cpp
+        │   ├── OffscreenFramebuffer.h
+        │   ├── PostProcessingPipeline.cpp
+        │   ├── PostProcessingPipeline.h
+        │   ├── Renderer2DUtils.cpp
+        │   ├── Renderer2DUtils.h
+        │   ├── RenderingAPI.cpp
+        │   ├── RenderingAPI.h
+        │   ├── RGBA.h
+        │   ├── Shape.cpp
+        │   └── Shape.h
+        ├── Demo/
+        │   ├── DemoBatchInstance.cpp
+        │   ├── DemoBatchInstance.h
+        │   ├── DemoBufferTypes.cpp
+        │   ├── DemoBufferTypes.h
+        │   ├── DemoCS230Textures.cpp
+        │   ├── DemoCS230Textures.h
+        │   ├── DemoDepthPost.cpp
+        │   ├── DemoDepthPost.h
+        │   ├── DemoFramebuffer.cpp
+        │   ├── DemoFramebuffer.h
+        │   ├── DemoShapes.cpp
+        │   ├── DemoShapes.h
+        │   ├── DemoText.cpp
+        │   ├── DemoText.h
+        │   ├── DemoTexturing.cpp
+        │   ├── DemoTexturing.h
+        │   ├── DemoVAO.cpp
+        │   ├── DemoVAO.h
+        │   ├── Demo7/
+        │   │   ├── Moon.cpp
+        │   │   ├── Moon.h
+        │   │   ├── Road.cpp
+        │   │   ├── Road.h
+        │   │   ├── Stars.cpp
+        │   │   ├── Stars.h
+        │   │   ├── Triangle.cpp
+        │   │   ├── Triangle.h
+        │   │   └── WorldSize.h
+        │   └── DemoSceneShowcase/
+        │       ├── Map.cpp
+        │       ├── Map.h
+        │       ├── Samurai.cpp
+        │       ├── Samurai.h
+        │       ├── SceneState.cpp
+        │       └── SceneState.h
+        ├── Engine/
+        │   ├── Animation.cpp
+        │   ├── Animation.h
+        │   ├── Camera.cpp
+        │   ├── Camera.h
+        │   ├── Collision.cpp
+        │   ├── Collision.h
+        │   ├── Component.h
+        │   ├── ComponentManager.h
+        │   ├── Engine.cpp
+        │   ├── Engine.h
+        │   ├── Error.h
+        │   ├── Font.cpp
+        │   ├── Font.h
+        │   ├── Fonts.h
+        │   ├── FPS.h
+        │   ├── GameObject.cpp
+        │   ├── GameObject.h
+        │   ├── GameObjectManager.cpp
+        │   ├── GameObjectManager.h
+        │   ├── GameState.h
+        │   ├── GameStateManager.cpp
+        │   ├── GameStateManager.h
+        │   ├── Input.cpp
+        │   ├── Input.h
+        │   ├── Logger.cpp
+        │   ├── Logger.h
+        │   ├── Matrix.cpp
+        │   ├── Matrix.h
+        │   ├── Particle.cpp
+        │   ├── Particle.h
+        │   ├── Path.cpp
+        │   ├── Path.h
+        │   ├── PerformanceMonitor.cpp
+        │   ├── PerformanceMonitor.h
+        │   ├── Random.cpp
+        │   ├── Random.h
+        │   ├── Rect.h
+        │   ├── ShowCollision.cpp
+        │   ├── ShowCollision.h
+        │   ├── Sprite.cpp
+        │   ├── Sprite.h
+        │   ├── TextManager.cpp
+        │   ├── TextManager.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── TextureManager.cpp
+        │   ├── TextureManager.h
+        │   ├── Timer.h
+        │   ├── Vec2.cpp
+        │   ├── Vec2.h
+        │   ├── Window.cpp
+        │   └── Window.h
+        ├── Game/
+        │   ├── Background.cpp
+        │   ├── Background.h
+        │   ├── GameObjectTypes.h
+        │   ├── MainMenu.cpp
+        │   ├── MainMenu.h
+        │   ├── Particles.h
+        │   ├── Score.cpp
+        │   ├── Score.h
+        │   ├── Splash.cpp
+        │   ├── Splash.h
+        │   ├── States.h
+        │   ├── CS230_Final/
+        │   │   ├── Components/
+        │   │   │   ├── Bounce.cpp
+        │   │   │   ├── Bounce.h
+        │   │   │   ├── Grid.cpp
+        │   │   │   ├── Grid.h
+        │   │   │   ├── Random.cpp
+        │   │   │   ├── Random.h
+        │   │   │   ├── Ziggle.cpp
+        │   │   │   └── Ziggle.h
+        │   │   ├── Objects/
+        │   │   │   ├── Bus.cpp
+        │   │   │   ├── Bus.h
+        │   │   │   ├── BusLine.h
+        │   │   │   ├── Constants.h
+        │   │   │   ├── Food.cpp
+        │   │   │   ├── Food.h
+        │   │   │   ├── Obstacle.cpp
+        │   │   │   ├── Obstacle.h
+        │   │   │   ├── Passenger.cpp
+        │   │   │   ├── Passenger.h
+        │   │   │   ├── Player.cpp
+        │   │   │   └── Player.h
+        │   │   └── States/
+        │   │       ├── BadSandwich.cpp
+        │   │       ├── BadSandwich.h
+        │   │       ├── GoodSandwich.cpp
+        │   │       ├── GoodSandwich.h
+        │   │       ├── NormalSandwich.cpp
+        │   │       ├── NormalSandwich.h
+        │   │       ├── Project.cpp
+        │   │       └── Project.h
+        │   └── States/
+        │       ├── ConsoleTest.cpp
+        │       ├── ConsoleTest.h
+        │       ├── RenderingTest.cpp
+        │       └── RenderingTest.h
+        ├── OpenGL/
+        │   ├── Buffer.cpp
+        │   ├── Buffer.h
+        │   ├── Environment.h
+        │   ├── Framebuffer.cpp
+        │   ├── Framebuffer.h
+        │   ├── GL.cpp
+        │   ├── GL.h
+        │   ├── GLConstants.h
+        │   ├── GLTypes.h
+        │   ├── Handle.h
+        │   ├── Shader.cpp
+        │   ├── Shader.h
+        │   ├── Texture.cpp
+        │   ├── Texture.h
+        │   ├── VertexArray.cpp
+        │   └── VertexArray.h
+        └── Tracy/
+            ├── TracyClient.cpp
+            ├── client/
+            │   ├── tracy_concurrentqueue.h
+            │   ├── tracy_rpmalloc.cpp
+            │   ├── tracy_rpmalloc.hpp
+            │   ├── tracy_SPSCQueue.h
+            │   ├── TracyAlloc.cpp
+            │   ├── TracyArmCpuTable.hpp
+            │   ├── TracyCallstack.cpp
+            │   ├── TracyCallstack.h
+            │   ├── TracyCallstack.hpp
+            │   ├── TracyCpuid.hpp
+            │   ├── TracyDebug.hpp
+            │   ├── TracyDxt1.cpp
+            │   ├── TracyDxt1.hpp
+            │   ├── TracyFastVector.hpp
+            │   ├── TracyKCore.cpp
+            │   ├── TracyKCore.hpp
+            │   ├── TracyLock.hpp
+            │   ├── TracyOverride.cpp
+            │   ├── TracyProfiler.cpp
+            │   ├── TracyProfiler.hpp
+            │   ├── TracyRingBuffer.hpp
+            │   ├── TracyRocprof.cpp
+            │   ├── TracyScoped.hpp
+            │   ├── TracyStringHelpers.hpp
+            │   ├── TracySysPower.cpp
+            │   ├── TracySysPower.hpp
+            │   ├── TracySysTime.cpp
+            │   ├── TracySysTime.hpp
+            │   ├── TracySysTrace.cpp
+            │   ├── TracySysTrace.hpp
+            │   └── TracyThread.hpp
+            ├── common/
+            │   ├── tracy_lz4.cpp
+            │   ├── tracy_lz4.hpp
+            │   ├── tracy_lz4hc.cpp
+            │   ├── tracy_lz4hc.hpp
+            │   ├── TracyAlign.hpp
+            │   ├── TracyAlloc.hpp
+            │   ├── TracyApi.h
+            │   ├── TracyColor.hpp
+            │   ├── TracyForceInline.hpp
+            │   ├── TracyMutex.hpp
+            │   ├── TracyProtocol.hpp
+            │   ├── TracyQueue.hpp
+            │   ├── TracySocket.cpp
+            │   ├── TracySocket.hpp
+            │   ├── TracyStackFrames.cpp
+            │   ├── TracyStackFrames.hpp
+            │   ├── TracySystem.cpp
+            │   ├── TracySystem.hpp
+            │   ├── TracyVersion.hpp
+            │   ├── TracyWinFamily.hpp
+            │   └── TracyYield.hpp
+            ├── libbacktrace/
+            │   ├── alloc.cpp
+            │   ├── backtrace.hpp
+            │   ├── config.h
+            │   ├── dwarf.cpp
+            │   ├── elf.cpp
+            │   ├── fileline.cpp
+            │   ├── filenames.hpp
+            │   ├── internal.hpp
+            │   ├── macho.cpp
+            │   ├── mmapio.cpp
+            │   ├── posix.cpp
+            │   ├── sort.cpp
+            │   └── state.cpp
+            └── tracy/
+                ├── Tracy.hpp
+                ├── TracyC.h
+                ├── TracyCUDA.hpp
+                ├── TracyD3D11.hpp
+                ├── TracyD3D12.hpp
+                ├── TracyLua.hpp
+                ├── TracyOpenCL.hpp
+                ├── TracyOpenGL.hpp
+                └── TracyVulkan.hpp
+
+
+================================================
+FILE: source/CS200/NDC.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Taekyung ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include "Engine/Matrix.h"
+#include "Engine/Vec2.h"
+
+namespace CS200
+{
+    /**
+     * \brief Create a transformation matrix that converts screen coordinates to NDC
+     * \param view_size Width and height of the viewport/screen in pixels
+     * \return Transformation matrix for screen-to-NDC conversion
+     *
+     * \note The returned matrix transforms FROM screen coordinates TO NDC coordinates
+     * \note This is typically used once per frame in BeginScene()
+     * \note Screen coordinates assume (0,0) at bottom-left, (width,height) at top-right
+     *
+     * NDC (Normalized Device Coordinates) is a standard coordinate system used by graphics
+     * APIs where all visible coordinates range from -1 to +1 in both X and Y axes.
+     * This system is hardware-standard and allows graphics pipelines to work consistently
+     * across different screen resolutions and aspect ratios.
+     *
+     * Purpose and Benefits:
+     * - Provides resolution-independent coordinate system for rendering
+     * - Standardizes coordinate space for graphics hardware (GPUs expect NDC)
+     * - Enables consistent camera/viewport transformations
+     * - Simplifies clipping and culling operations in graphics pipeline
+     * - Makes shaders and rendering code portable across different screen sizes
+     *
+     * Coordinate System Mapping:
+     * \code
+     * We want to map (0, w) to (-1,1) and (0,h) to (-1,1)
+     *             (w,h)                  (1,1)
+     *      +--------+             +--------+
+     *      |        |             |        |
+     *      | cam    |     --->    | ndc    |
+     *      +--------+             +--------+
+     *    (0,0)                 (-1,-1)
+     * \endcode
+     *
+     * Mathematical Transformation:
+     * 1. Scale: Divide by half-dimensions to get 0-2 range
+     * 2. Translate: Subtract 1 to center around origin (-1 to +1)
+     * 3. Formula: ndc = (screen_coord / (dimension/2)) - 1
+     *
+     * Common Use Cases:
+     * - Camera/view matrix setup for 2D rendering
+     * - Converting mouse coordinates to world coordinates
+     * - Setting up orthographic projections
+     * - Viewport-independent UI positioning
+     * - Cross-platform graphics coordinate normalization
+     *
+     * Integration with Graphics Pipeline:
+     * Window Coordinates -> World Coordinates -> NDC -> GPU Rendering
+     */
+    inline Math::TransformationMatrix build_ndc_matrix(Math::ivec2 view_size, [[maybe_unused]] bool is_centered = false) noexcept
+    {
+        if(is_centered)
+        {
+            return Math::ScaleMatrix({ 2.0 / view_size.x, 2.0 / view_size.y });
+        }
+        return Math::TranslationMatrix(Math::vec2{ -1.0, -1.0 }) * Math::ScaleMatrix({ 2.0 / view_size.x, 2.0 / view_size.y });
+    }
+}
+
+
+
+================================================
+FILE: source/CS200/OffscreenFramebuffer.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+
+#include "OffscreenFramebuffer.h"
+#include "OpenGL/GL.h"
+#include <algorithm>
+#include <iostream>
+
+namespace
+{
+    int ValidateMSAASamples(int samples)
+    {
+        GLint max_samples = 0;
+        GL::GetIntegerv(GL_MAX_SAMPLES, &max_samples);
+
+        samples = std::max(2, std::min(samples, max_samples));
+
+        samples = samples & ~1;
+
+        return samples;
+    }
+}
+
+OffscreenFramebuffer::~OffscreenFramebuffer()
+{
+    Shutdown();
+}
+
+void OffscreenFramebuffer::Initialize(int width, int height, [[maybe_unused]] MSAA use_msaa, [[maybe_unused]] int msaa_samples)
+{
+    currentWidth  = width;
+    currentHeight = height;
+
+    useMSAA       = (use_msaa == MSAA::True);
+    msaaSamples   = ValidateMSAASamples(msaa_samples);
+
+    createResolveFramebuffer();
+    createMSAAFramebuffer();
+}
+
+void OffscreenFramebuffer::BindForRendering()
+{
+
+    GLuint target = useMSAA ? msaaFramebuffer : resolveFramebuffer;
+    // GLuint target = resolveFramebuffer;
+    GL::BindFramebuffer(GL_FRAMEBUFFER, target);
+}
+
+OpenGL::TextureHandle OffscreenFramebuffer::GetTexture()
+{
+    resolveMSAA();
+    return resolveTexture;
+}
+
+void OffscreenFramebuffer::Resize(int width, int height)
+{
+    currentWidth  = width;
+    currentHeight = height;
+
+    createResolveFramebuffer();
+    createMSAAFramebuffer();
+}
+
+void OffscreenFramebuffer::SetMSAA([[maybe_unused]] MSAA use_msaa, [[maybe_unused]] int msaa_samples)
+{
+    useMSAA     = use_msaa == MSAA::False ? false : true;
+    msaaSamples = ValidateMSAASamples(msaa_samples);
+
+    if (currentWidth > 0 && currentHeight > 0)
+    {
+        createMSAAFramebuffer();
+    }
+}
+
+void OffscreenFramebuffer::Shutdown()
+{
+    if (resolveFramebuffer != 0)
+    {
+        GL::DeleteFramebuffers(1, &resolveFramebuffer);resolveFramebuffer = 0;
+    }
+    if (resolveTexture != 0)
+    {
+        GL::DeleteTextures(1, &resolveTexture);resolveTexture = 0;
+    }
+
+    if (msaaFramebuffer != 0)
+    {
+        GL::DeleteFramebuffers(1, &msaaFramebuffer);msaaFramebuffer = 0;
+    }
+    if (msaaColorRenderbuffer != 0)
+    {
+        GL::DeleteRenderbuffers(1, &msaaColorRenderbuffer);msaaColorRenderbuffer = 0;
+    }
+
+    if (depthRenderbuffer != 0)
+    {
+        GL::DeleteRenderbuffers(1, &depthRenderbuffer);
+        depthRenderbuffer = 0;
+    }
+}
+
+void OffscreenFramebuffer::createResolveFramebuffer()
+{
+    if (resolveFramebuffer == 0)
+    {
+        GL::GenFramebuffers(1, &resolveFramebuffer);
+    }
+
+    if (resolveTexture != 0)
+    {
+        GL::DeleteTextures(1, &resolveTexture);
+        resolveTexture = 0;
+    }
+
+    GL::GenTextures(1, &resolveTexture);
+    GL::BindTexture(GL_TEXTURE_2D, resolveTexture);
+    GL::TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    GL::TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    GL::TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    GL::TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+#ifdef IS_WEBGL2
+    GL::TexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA8, currentWidth, currentHeight);
+#else
+    GL::TexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, currentWidth, currentHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+#endif
+    GL::BindTexture(GL_TEXTURE_2D, 0);
+    GL::BindFramebuffer(GL_FRAMEBUFFER, resolveFramebuffer);
+    GL::FramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, resolveTexture, 0);
+
+    if (!useMSAA) 
+    {
+        if (depthRenderbuffer != 0) { GL::DeleteRenderbuffers(1, &depthRenderbuffer); depthRenderbuffer = 0; }
+        GL::GenRenderbuffers(1, &depthRenderbuffer);
+        GL::BindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);
+        GL::RenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, currentWidth, currentHeight);
+        GL::BindRenderbuffer(GL_RENDERBUFFER, 0);
+
+        GL::FramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, depthRenderbuffer);
+    }
+    auto status = GL::CheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE)
+    {
+        std::cerr << "Failed to create resolve framebuffer\n";
+        std::exit(-1);
+    }
+    GL::BindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void OffscreenFramebuffer::createMSAAFramebuffer()
+{
+    if (!useMSAA)
+        return;
+
+    if (msaaFramebuffer == 0)
+    {
+        GL::GenFramebuffers(1, &msaaFramebuffer);
+    }
+
+    if (msaaColorRenderbuffer != 0)
+    {
+        GL::DeleteRenderbuffers(1, &msaaColorRenderbuffer);
+        msaaColorRenderbuffer = 0;
+    }
+
+    GL::GenRenderbuffers(1, &msaaColorRenderbuffer);
+    GL::BindRenderbuffer(GL_RENDERBUFFER, msaaColorRenderbuffer);
+    GL::RenderbufferStorageMultisample(GL_RENDERBUFFER, msaaSamples, GL_RGBA8, currentWidth, currentHeight);
+    GL::BindRenderbuffer(GL_RENDERBUFFER, 0);
+
+    GL::BindFramebuffer(GL_FRAMEBUFFER, msaaFramebuffer);
+    GL::FramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, msaaColorRenderbuffer);
+
+    if (depthRenderbuffer != 0) { GL::DeleteRenderbuffers(1, &depthRenderbuffer); depthRenderbuffer = 0; }
+    GL::GenRenderbuffers(1, &depthRenderbuffer);
+    GL::BindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);
+    //use GL::RenderbufferStorageMultisample to create a multisampled depth-stencil renderbuffer
+    GL::RenderbufferStorageMultisample(GL_RENDERBUFFER, msaaSamples, GL_DEPTH24_STENCIL8, currentWidth, currentHeight);
+    GL::BindRenderbuffer(GL_RENDERBUFFER, 0);
+
+
+    GL::FramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, depthRenderbuffer);
+    auto status = GL::CheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE)
+    {
+        std::cerr << "Failed to create MSAA framebuffer\n";
+        std::exit(-1);
+    }
+    GL::BindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void OffscreenFramebuffer::resolveMSAA()
+{
+
+    if (!useMSAA)
+        return;
+
+    GL::BindFramebuffer(GL_READ_FRAMEBUFFER, msaaFramebuffer);
+    GL::BindFramebuffer(GL_DRAW_FRAMEBUFFER, resolveFramebuffer);
+    GL::BlitFramebuffer(0, 0, currentWidth, currentHeight, 0, 0, currentWidth, currentHeight, GL_COLOR_BUFFER_BIT, GL_LINEAR);
+    GL::BindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+
+
+================================================
+FILE: source/CS200/OffscreenFramebuffer.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+
+#pragma once
+
+#include "OpenGL/Shader.h"
+#include "OpenGL/Framebuffer.h"
+#include <GL/glew.h>
+
+class OffscreenFramebuffer
+{
+public:
+    OffscreenFramebuffer() = default;
+    ~OffscreenFramebuffer();
+
+
+    OffscreenFramebuffer(const OffscreenFramebuffer&)            = delete;
+    OffscreenFramebuffer& operator=(const OffscreenFramebuffer&) = delete;
+
+    enum class MSAA : bool
+    {
+        False,
+        True
+    };
+    void   Initialize(int width, int height, MSAA use_msaa = MSAA::False, int msaa_samples = 4);
+    void   BindForRendering();
+    OpenGL::TextureHandle GetTexture();
+    void   Resize(int width, int height);
+    void   SetMSAA(MSAA use_msaa, int msaa_samples);
+
+    int GetMSAASamples() const
+    {
+        return msaaSamples;
+        // return 0;
+    }
+
+    void Shutdown();
+
+private:
+    int            currentWidth{ 0 };
+    int            currentHeight{ 0 };
+
+    bool           useMSAA{ false };
+    int            msaaSamples{ 4 };
+    OpenGL::FramebufferHandle resolveFramebuffer{ 0 };
+    OpenGL::TextureHandle resolveTexture{ 0 };
+
+    OpenGL::FramebufferHandle msaaFramebuffer{ 0 };
+    OpenGL::Handle msaaColorRenderbuffer{ 0 };
+    OpenGL::Handle depthRenderbuffer{ 0 };
+
+    void createResolveFramebuffer();
+    void createMSAAFramebuffer();
+    void resolveMSAA();
+};
+
+
+
+================================================
+FILE: source/CS200/PostProcessingPipeline.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+
+#include "PostProcessingPipeline.h"
+
+#include "OpenGL/GL.h"
+#include "OpenGL/Buffer.h"
+#include "OpenGL/VertexArray.h"
+#include <array>
+#include <iostream>
+
+PostProcessingPipeline::~PostProcessingPipeline()
+{
+    Shutdown();
+}
+
+void PostProcessingPipeline::Initialize(int width, int height)
+{
+    currentWidth  = width;
+    currentHeight = height;
+
+    setupFullscreenTriangle();
+
+    for (auto& effect : effects)
+    {
+        createFramebuffer(effect);
+    }
+}
+
+void PostProcessingPipeline::AddEffect(PostProcessingEffect&& effect)
+{
+    effects.push_back(std::move(effect));
+
+    if (currentWidth > 0 && currentHeight > 0)
+    {
+        createFramebuffer(effects.back());
+    }
+}
+
+OpenGL::TextureHandle PostProcessingPipeline::Apply(OpenGL::TextureHandle input_texture)
+{
+    OpenGL::TextureHandle current_texture = input_texture;
+
+    for (const auto& effect : effects)
+    {
+        if (effect.Enabled == PostProcessingEffect::Enable::True && effect.Framebuffer)
+        {
+            renderEffect(effect, current_texture);
+            current_texture = effect.Framebuffer->GetTexture();
+        }
+    }
+
+    return current_texture;
+}
+
+void PostProcessingPipeline::Resize(int width, int height)
+{
+    currentWidth  = width;
+    currentHeight = height;
+
+    for (auto& effect : effects)
+    {
+        if (effect.Framebuffer)
+        {
+            effect.Framebuffer->Resize(currentWidth, currentHeight);
+        }
+    }
+}
+
+void PostProcessingPipeline::Shutdown()
+{
+    for (auto& effect : effects)
+    {
+        if (effect.Framebuffer)
+        {
+            effect.Framebuffer->Shutdown();
+            effect.Framebuffer.reset();
+        }
+        if (effect.Shader.Shader != 0)
+        {
+            glDeleteProgram(effect.Shader.Shader);
+            effect.Shader.Shader = 0;
+        }
+    }
+    effects.clear();
+
+    if (fullscreenVAO != 0)
+    {
+        glDeleteVertexArrays(1, &fullscreenVAO);
+        fullscreenVAO = 0;
+    }
+    if (fullscreenVBO != 0)
+    {
+        glDeleteBuffers(1, &fullscreenVBO);
+        fullscreenVBO = 0;
+    }
+}
+
+PostProcessingEffect* PostProcessingPipeline::GetEffect(const std::string& name)
+{
+    for (auto& effect : effects)
+    {
+        if (effect.Name == name)
+        {
+            return &effect;
+        }
+    }
+    return nullptr;
+}
+
+void PostProcessingPipeline::createFramebuffer(PostProcessingEffect& effect)
+{
+    if (!effect.Framebuffer)
+    {
+        effect.Framebuffer = std::make_unique<OffscreenFramebuffer>();
+    }
+
+    effect.Framebuffer->Initialize(currentWidth, currentHeight, OffscreenFramebuffer::MSAA::False);
+}
+
+void PostProcessingPipeline::renderEffect(const PostProcessingEffect& effect, GLuint input_texture)
+{
+    effect.Framebuffer->BindForRendering();
+    GL::ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    GL::Clear(GL_COLOR_BUFFER_BIT);
+    GL::Viewport(0, 0, currentWidth, currentHeight);
+
+    GL::UseProgram(effect.Shader.Shader);
+
+    effect.SetUniforms(effect.Shader);
+
+    GL::ActiveTexture(GL_TEXTURE0);
+    GL::BindTexture(GL_TEXTURE_2D, input_texture);
+    GL::Uniform1i(effect.Shader.UniformLocations.at("uColorTexture"), 0);
+
+    GL::BindVertexArray(fullscreenVAO);
+    GL::DrawArrays(GL_TRIANGLES, 0, fullscreenVertexCount);
+    GL::BindVertexArray(0);
+    GL::BindTexture(GL_TEXTURE_2D, 0);
+    GL::UseProgram(0);
+    GL::BindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void PostProcessingPipeline::setupFullscreenTriangle()
+{
+    struct FullscreenVertex
+    {
+        float x, y;
+        float u, v;
+    };
+
+    const FullscreenVertex vertices[] = {
+        { -1.0f, -1.0f, 0.0f, 0.0f },
+        {  3.0f, -1.0f, 2.0f, 0.0f },
+        { -1.0f,  3.0f, 0.0f, 2.0f },
+    };
+
+    fullscreenVertexCount = static_cast<GLsizei>(std::ssize(vertices));
+
+    fullscreenVBO = OpenGL::CreateBuffer(OpenGL::BufferType::Vertices, std::as_bytes(std::span{ vertices }));
+
+    const auto layout = {
+        OpenGL::VertexBuffer{ 
+            fullscreenVBO, 
+            { 
+                OpenGL::Attribute::Float2, // Position
+                OpenGL::Attribute::Float2  // UV
+            } 
+        }
+    };
+
+    fullscreenVAO = OpenGL::CreateVertexArrayObject(layout);
+}
+
+
+
+================================================
+FILE: source/CS200/PostProcessingPipeline.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+
+
+#pragma once
+
+#include "OffscreenFramebuffer.h"
+#include "OpenGL/Shader.h"
+#include "OpenGL/Texture.h"
+#include <GL/glew.h>
+#include <functional>
+#include <memory>
+#include <string>
+#include <vector>
+
+struct PostProcessingEffect
+{
+    std::string Name;
+    enum class Enable : bool
+    {
+        False,
+        True
+    };
+    Enable                                Enabled;
+    OpenGL::CompiledShader                Shader;
+    std::unique_ptr<OffscreenFramebuffer> Framebuffer;
+
+    using SetUniformsFunction = std::function<void(const OpenGL::CompiledShader&)>;
+    SetUniformsFunction SetUniforms;
+
+    PostProcessingEffect(
+        const std::string& name, Enable enabled, OpenGL::CompiledShader shader, SetUniformsFunction set_uniforms = [](const OpenGL::CompiledShader&) { })
+        : Name(name), Enabled(enabled), Shader(shader), Framebuffer(nullptr), SetUniforms(set_uniforms)
+    {
+    }
+};
+
+class PostProcessingPipeline
+{
+public:
+    PostProcessingPipeline() = default;
+    ~PostProcessingPipeline();
+
+    PostProcessingPipeline(const PostProcessingPipeline&)            = delete;
+    PostProcessingPipeline& operator=(const PostProcessingPipeline&) = delete;
+
+    void                  Initialize(int width, int height);
+    void                  AddEffect(PostProcessingEffect&& effect);
+    OpenGL::TextureHandle Apply(OpenGL::TextureHandle input_texture);
+    void                  Resize(int width, int height);
+    void                  Shutdown();
+    PostProcessingEffect* GetEffect(const std::string& name);
+
+private:
+    std::vector<PostProcessingEffect> effects{};
+    int                               currentWidth{ 0 };
+    int                               currentHeight{ 0 };
+    OpenGL::Handle                    fullscreenVAO{ 0 };
+    OpenGL::Handle                    fullscreenVBO{ 0 };
+    GLsizei                           fullscreenVertexCount{ 0 };
+
+    void createFramebuffer(PostProcessingEffect& effect);
+    void renderEffect(const PostProcessingEffect& effect, GLuint input_texture);
+    void setupFullscreenTriangle();
+};
+
+
+
+================================================
+FILE: source/CS200/Renderer2DUtils.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "Renderer2DUtils.h"
+
+#include <algorithm>
+#include <cmath>
+
+namespace CS200::Renderer2DUtils
+{
+    Math::TransformationMatrix CalculateLineTransform(const Math::TransformationMatrix& transform, const Math::vec2& start_point, const Math::vec2& end_point, double line_width) noexcept
+    {
+        const Math::vec2 line_vector = end_point - start_point;
+
+        const double            angle             = std::atan2(line_vector.y, line_vector.x);
+        constexpr double        center_multiplier = 0.5;
+        const Math::vec2        center_point      = (start_point + end_point) * center_multiplier;
+        const Math::ScaleMatrix scale_matrix{
+            { line_vector.Length(), line_width }
+        };
+        const Math::RotationMatrix    rotation_matrix{ angle };
+        const Math::TranslationMatrix translation_matrix{ center_point };
+        const auto                    final_transform = transform * translation_matrix * rotation_matrix * scale_matrix;
+        return final_transform;
+    }
+
+    SDFTransform CalculateSDFTransform(const Math::TransformationMatrix& transform, double line_width) noexcept
+    {
+        const vec2  world_size{ static_cast<float>(std::sqrt(transform[0][0] * transform[0][0] + transform[1][0] * transform[1][0])),
+                               static_cast<float>(std::sqrt(transform[0][1] * transform[0][1] + transform[1][1] * transform[1][1])) };
+        const float line_width_addition = std::max(static_cast<float>(line_width), 0.0f);
+        const vec2  quad_size           = { world_size[0] + line_width_addition, world_size[1] + line_width_addition };
+
+        const vec2 scale_up       = { quad_size[0] / world_size[0], quad_size[1] / world_size[1] };
+        mat3       quad_transform = to_opengl_mat3(transform);
+        quad_transform[0] *= scale_up[0];
+        quad_transform[1] *= scale_up[0];
+        quad_transform[3] *= scale_up[1];
+        quad_transform[4] *= scale_up[1];
+        return { quad_transform, world_size, quad_size };
+    }
+}
+
+
+
+================================================
+FILE: source/CS200/Renderer2DUtils.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include "Engine/Matrix.h"
+#include "Engine/Vec2.h"
+#include "RGBA.h"
+#include <array>
+#include <optional>
+
+namespace CS200::Renderer2DUtils
+{
+    
+    using mat3 = std::array<float, 9>; 
+    using vec2 = std::array<float, 2>; 
+
+   
+    inline mat3 to_opengl_mat3(const Math::TransformationMatrix& transform) noexcept
+    {
+        return { static_cast<float>(transform[0][0]), static_cast<float>(transform[1][0]), static_cast<float>(transform[2][0]),
+                 static_cast<float>(transform[0][1]), static_cast<float>(transform[1][1]), static_cast<float>(transform[2][1]),
+                 static_cast<float>(transform[0][2]), static_cast<float>(transform[1][2]), static_cast<float>(transform[2][2]) };
+    }
+
+    
+    Math::TransformationMatrix CalculateLineTransform(const Math::TransformationMatrix& transform, const Math::vec2& start_point, const Math::vec2& end_point, double line_width) noexcept;
+
+    
+    struct SDFTransform
+    {
+        mat3 QuadTransform; 
+        vec2 WorldSize;     
+        vec2 QuadSize;      
+    };
+
+    
+    SDFTransform CalculateSDFTransform(const Math::TransformationMatrix& transform, double line_width) noexcept;
+}
+
+
+
+================================================
+FILE: source/CS200/RenderingAPI.cpp
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#include "RenderingAPI.h"
+
+#include "Engine/Engine.h"
+#include "Engine/Error.h"
+#include "Engine/Logger.h"
+#include "OpenGL/Environment.h"
+#include <GL/glew.h>
+#include <cassert>
+
+#include "OpenGL/GL.h"
+
+namespace
+{
+#if defined(DEVELOPER_VERSION) && not defined(IS_WEBGL2)
+    void OpenGLMessageCallback(
+        [[maybe_unused]] unsigned source, [[maybe_unused]] unsigned type, [[maybe_unused]] unsigned id, unsigned severity, [[maybe_unused]] int length, const char* message,
+        [[maybe_unused]] const void* userParam)
+    {
+        switch (severity)
+        {
+            case GL_DEBUG_SEVERITY_HIGH: Engine::GetLogger().LogError(message); return;
+            case GL_DEBUG_SEVERITY_MEDIUM: Engine::GetLogger().LogError(message); return;
+            case GL_DEBUG_SEVERITY_LOW: Engine::GetLogger().LogVerbose(message); return;
+            case GL_DEBUG_SEVERITY_NOTIFICATION: Engine::GetLogger().LogVerbose(message); return;
+        }
+
+        assert(false && "Unknown severity level!");
+    }
+#endif
+}
+
+namespace CS200::RenderingAPI
+{
+    void Init() noexcept
+    {
+        GLint major = 0, minor = 0;
+
+        GL::GetIntegerv(GL_MAJOR_VERSION, &major);
+        GL::GetIntegerv(GL_MINOR_VERSION, &minor);
+        if (OpenGL::version(major, minor) < OpenGL::version(OpenGL::MinimumRequiredMajorVersion, OpenGL::MinimumRequiredMinorVersion))
+            throw_error_message("Unsupported OpenGL version ", major, '.', minor, "\n We need OpenGL ", OpenGL::MinimumRequiredMajorVersion, '.', OpenGL::MinimumRequiredMinorVersion, " or higher");
+
+        if (OpenGL::MajorVersion == 0)
+        {
+            OpenGL::MajorVersion = major;
+            OpenGL::MinorVersion = minor;
+        }
+
+        GL::GetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &OpenGL::MaxTextureImageUnits);
+        GL::GetIntegerv(GL_MAX_TEXTURE_SIZE, &OpenGL::MaxTextureSize);
+        GL::GetIntegerv(GL_MAJOR_VERSION, &OpenGL::MajorVersion);
+        GL::GetIntegerv(GL_MINOR_VERSION, &OpenGL::MinorVersion);
+        int max_element_vertices;
+        GL::GetIntegerv(GL_MAX_ELEMENTS_VERTICES, &max_element_vertices);
+        int max_element_indices;
+        GL::GetIntegerv(GL_MAX_ELEMENTS_INDICES, &max_element_indices);
+        int max_viewport_dims[2];
+        GL::GetIntegerv(GL_MAX_VIEWPORT_DIMS, max_viewport_dims);
+
+#if defined(DEVELOPER_VERSION) && not defined(IS_WEBGL2)
+        // Debug callback functionality requires OpenGL 4.3+ or KHR_debug extension
+        if (OpenGL::current_version() >= OpenGL::version(4, 3))
+        {
+            GL::Enable(GL_DEBUG_OUTPUT);
+            GL::Enable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+            GL::DebugMessageCallback(OpenGLMessageCallback, nullptr);
+            GL::DebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, nullptr, GL_FALSE);
+        }
+#endif
+
+        GL::Enable(GL_BLEND);
+        GL::BlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        //GL::Disable(GL_DEPTH_TEST);
+		GL::Enable(GL_DEPTH_TEST);
+
+        // GL_MAX_TEXTURE_IMAGE_UNITS, GL_MAX_TEXTURE_SIZE, GL_MAX_VIEWPORT_DIMS
+        Engine::GetLogger().LogDebug("VENDOR : " + std::to_string(GL_VENDOR));
+        Engine::GetLogger().LogDebug("RENDERER : " + std::to_string(GL_RENDERER));
+        Engine::GetLogger().LogDebug("VERSION : " + std::to_string(GL_VERSION));
+        Engine::GetLogger().LogDebug("SHADING LANGUAGE VERSION : " + std::to_string(GL_SHADING_LANGUAGE_VERSION));
+        Engine::GetLogger().LogDebug("MAJOR VERSION : " + std::to_string(OpenGL::MajorVersion));
+        Engine::GetLogger().LogDebug("MINOR VERSION : " + std::to_string(OpenGL::MinorVersion));
+        Engine::GetLogger().LogDebug("MAX ELEMENTS VERTICES : " + std::to_string(max_element_vertices));
+        Engine::GetLogger().LogDebug("MAX ELEMENTS INDICES : " + std::to_string(max_element_indices));
+        Engine::GetLogger().LogDebug("MAX TEXTURE IMAGE UNITS : " + std::to_string(OpenGL::MaxTextureImageUnits));
+        Engine::GetLogger().LogDebug("MAX TEXTURE SIZE : " + std::to_string(OpenGL::MaxTextureSize));
+        Engine::GetLogger().LogDebug("MAX VIEWPORT DIMS : " + std::to_string(max_viewport_dims[0]) + ", " + std::to_string(max_viewport_dims[1]));
+    }
+
+    void SetClearColor(CS200::RGBA color) noexcept
+    {
+        const auto rgba = CS200::unpack_color(color);
+        GL::ClearColor(rgba[0], rgba[1], rgba[2], rgba[3]);
+    }
+
+    void Clear() noexcept
+    {
+        //GL::Clear(GL_COLOR_BUFFER_BIT);
+		GL::Clear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    }
+
+    void SetViewport(Math::ivec2 size, Math::ivec2 anchor_left_bottom) noexcept
+    {
+        GL::Viewport(anchor_left_bottom.x, anchor_left_bottom.y, size.x, size.y);
+    }
+}
+
+
+
+================================================
+FILE: source/CS200/RenderingAPI.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include "Engine/Vec2.h"
+#include "RGBA.h"
+
+namespace CS200::RenderingAPI
+{
+    void Init() noexcept;
+    void SetClearColor(CS200::RGBA color) noexcept;
+    void Clear() noexcept;
+    void SetViewport(Math::ivec2 size, Math::ivec2 anchor_left_bottom = { 0, 0 }) noexcept;
+}
+
+
+
+================================================
+FILE: source/CS200/RGBA.h
+================================================
+/**
+ * \file
+ * \author Rudy Castan
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+
+#include <array>
+#include <cstdint>
+
+namespace CS200
+{
+    /**
+     * \brief Compact 32-bit color representation for efficient graphics operations
+     *
+     * RGBA provides a memory-efficient way to store and manipulate colors using a single
+     * 32-bit integer. This format is widely used in graphics programming because it packs
+     * four 8-bit color channels (Red, Green, Blue, Alpha) into one value that can be
+     * easily passed around, stored in arrays, and processed by graphics hardware.
+     *
+     * The color format uses the layout: 0xRRGGBBAA where:
+     * - RR = Red channel (bits 31-24)
+     * - GG = Green channel (bits 23-16)
+     * - BB = Blue channel (bits 15-8)
+     * - AA = Alpha channel (bits 7-0)
+     *
+     * Each channel ranges from 0x00 (0) to 0xFF (255), providing 256 levels per channel
+     * and over 16 million possible color combinations with transparency support.
+     *
+     * This compact representation is ideal for:
+     * - Storing vertex colors in graphics buffers
+     * - Passing colors as function parameters
+     * - Performing fast bitwise color operations
+     * - Interfacing with graphics APIs that expect packed colors
+     */
+    using RGBA = uint32_t;
+
+    /** \brief Pure white color (255, 255, 255, 255) - fully opaque white */
+    constexpr RGBA WHITE = 0xffffffff;
+
+    /** \brief Pure black color (0, 0, 0, 255) - fully opaque black */
+    constexpr RGBA BLACK = 0x000000ff;
+
+    /** \brief Transparent color (0, 0, 0, 0) - completely transparent black */
+    constexpr RGBA CLEAR = 0x00000000;
+
+    /** \brief Light Gray color (200, 200, 200, 255) */
+    constexpr RGBA LIGHTGRAY = 0xc8c8c8ff;
+
+    /** \brief Gray color (130, 130, 130, 255) */
+    constexpr RGBA GRAY = 0x828282ff;
+
+    /** \brief Dark Gray color (80, 80, 80, 255) */
+    constexpr RGBA DARKGRAY = 0x505050ff;
+
+    /** \brief Yellow color (253, 249, 0, 255) */
+    constexpr RGBA YELLOW = 0xfdf900ff;
+
+    /** \brief Gold color (255, 203, 0, 255) */
+    constexpr RGBA GOLD = 0xffcb00ff;
+
+    /** \brief Orange color (255, 161, 0, 255) */
+    constexpr RGBA ORANGE = 0xffa100ff;
+
+    /** \brief Pink color (255, 109, 194, 255) */
+    constexpr RGBA PINK = 0xff6dc2ff;
+
+    /** \brief Red color (230, 41, 55, 255) */
+    constexpr RGBA RED = 0xe62937ff;
+
+    /** \brief Maroon color (190, 33, 55, 255) */
+    constexpr RGBA MAROON = 0xbe2137ff;
+
+    /** \brief Green color (0, 228, 48, 255) */
+    constexpr RGBA GREEN = 0x00e430ff;
+
+    /** \brief Lime color (0, 158, 47, 255) */
+    constexpr RGBA LIME = 0x009e2fff;
+
+    /** \brief Dark Green color (0, 117, 44, 255) */
+    constexpr RGBA DARKGREEN = 0x00752cff;
+
+    /** \brief Sky Blue color (102, 191, 255, 255) */
+    constexpr RGBA SKYBLUE = 0x66bffff;
+
+    /** \brief Blue color (0, 121, 241, 255) */
+    constexpr RGBA BLUE = 0x0079f1ff;
+
+    /** \brief Dark Blue color (0, 82, 172, 255) */
+    constexpr RGBA DARKBLUE = 0x0052acff;
+
+    /** \brief Purple color (200, 122, 255, 255) */
+    constexpr RGBA PURPLE = 0xc87affff;
+
+    /** \brief Violet color (135, 60, 190, 255) */
+    constexpr RGBA VIOLET = 0x873cbeff;
+
+    /** \brief Dark Purple color (112, 31, 126, 255) */
+    constexpr RGBA DARKPURPLE = 0x701f7eff;
+
+    /** \brief Beige color (211, 176, 131, 255) */
+    constexpr RGBA BEIGE = 0xd3b083ff;
+
+    /** \brief Brown color (127, 106, 79, 255) */
+    constexpr RGBA BROWN = 0x7f6a4fff;
+
+    /** \brief Dark Brown color (76, 63, 47, 255) */
+    constexpr RGBA DARKBROWN = 0x4c3f2fff;
+
+    /** \brief Magenta color (255, 0, 255, 255) */
+    constexpr RGBA MAGENTA = 0xff00ffff;
+
+
+
+    /**
+     * \brief Convert packed RGBA color to floating-point component array
+     * \param rgba 32-bit packed color in RGBA format
+     * \return Array of 4 floats [r, g, b, a] normalized to [0.0, 1.0] range
+     *
+     * Unpacks a compact RGBA color into separate floating-point components that
+     * are commonly required by graphics APIs like OpenGL. Each 8-bit integer
+     * channel (0-255) is converted to a normalized float (0.0-1.0).
+     *
+     * This conversion is essential for:
+     * - Passing colors to OpenGL shader uniforms
+     * - Performing floating-point color math operations
+     * - Interfacing with APIs that expect normalized color values
+     * - Blending and interpolation calculations
+     *
+     * The bit extraction isolates each color channel:
+     * - Red: (rgba & 0xff000000) >> 24
+     * - Green: (rgba & 0x00ff0000) >> 16
+     * - Blue: (rgba & 0x0000ff00) >> 8
+     * - Alpha: (rgba & 0x000000ff) >> 0
+     *
+     * Each extracted value is then divided by 255.0f to normalize to [0.0, 1.0].
+     */
+    constexpr std::array<float, 4> unpack_color(RGBA rgba) noexcept
+    {
+        constexpr float scale = 1.0f / 255.0f;
+        return { static_cast<float>((rgba & 0xff000000) >> 24) * scale, static_cast<float>((rgba & 0x00ff0000) >> 16) * scale, static_cast<float>((rgba & 0x0000ff00) >> 8) * scale,
+                 static_cast<float>((rgba & 0x000000ff) >> 0) * scale };
+    }
+
+    /**
+     * \brief Convert floating-point color components to packed RGBA format
+     * \param color Array of 4 floats [r, g, b, a] in normalized [0.0, 1.0] range
+     * \return 32-bit packed color in RGBA format (0xRRGGBBAA)
+     *
+     * Packs separate floating-point color components into a compact RGBA color
+     * suitable for efficient storage and graphics operations. This is the inverse
+     * operation of unpack_color(), converting normalized float values back into
+     * the 8-bit integer format used by graphics hardware and APIs.
+     *
+     * This conversion is essential for:
+     * - Converting computed color results back to graphics-friendly format
+     * - Storing blended or interpolated colors efficiently
+     * - Interfacing with graphics APIs that expect packed color values
+     * - Optimizing memory usage in color arrays and vertex buffers
+     *
+     * The packing process:
+     * 1. Scale each float component from [0.0, 1.0] to [0.0, 255.0]
+     * 2. Clamp values to valid range [0, 255] to handle out-of-bounds inputs
+     * 3. Convert to 8-bit integers (uint8_t)
+     * 4. Shift and combine channels into final RGBA format:
+     *    - Red: bits 31-24 (R << 24)
+     *    - Green: bits 23-16 (G << 16)
+     *    - Blue: bits 15-8 (B << 8)
+     *    - Alpha: bits 7-0 (A << 0)
+     *
+     * Input values are automatically clamped to [0.0, 1.0] range to prevent
+     * overflow and ensure valid color output even with out-of-range inputs.
+     */
+    constexpr RGBA pack_color(const std::array<float, 4>& color) noexcept
+    {
+        constexpr float scale = 255.0f;
+        const float     r = color[0] * scale, g = color[1] * scale, b = color[2] * scale, a = color[3] * scale;
+        const uint8_t   R = static_cast<uint8_t>(r <= 255.0f ? (r >= 0.0f ? r : 0.0f) : 255.0f);
+        const uint8_t   G = static_cast<uint8_t>(g <= 255.0f ? (g >= 0.0f ? g : 0.0f) : 255.0f);
+        const uint8_t   B = static_cast<uint8_t>(b <= 255.0f ? (b >= 0.0f ? b : 0.0f) : 255.0f);
+        const uint8_t   A = static_cast<uint8_t>(a <= 255.0f ? (a >= 0.0f ? a : 0.0f) : 255.0f);
+        return (static_cast<RGBA>(R) << 24) | (static_cast<RGBA>(G) << 16) | (static_cast<RGBA>(B) << 8) | (static_cast<RGBA>(A) << 0);
+    }
+    constexpr RGBA pack_color(const std::array<uint8_t, 4>& color) noexcept
+    {
+        return (static_cast<RGBA>(color[0]) << 24) | (static_cast<RGBA>(color[1]) << 16) | (static_cast<RGBA>(color[2]) << 8) | (static_cast<RGBA>(color[3]) << 0);
+    }
+    /**
+     * \brief Convert RGBA format to ABGR format by reversing byte order
+     * \param rgba Color in RGBA format (0xRRGGBBAA)
+     * \return Color converted to ABGR format (0xAABBGGRR)
+     *
+     * Converts between different color byte ordering formats that are used by
+     * various graphics systems and file formats. This conversion is necessary
+     * when interfacing with systems that expect colors in ABGR order instead
+     * of the standard RGBA order.
+     *
+     * The conversion process:
+     * 1. Extract each color channel from the original RGBA value
+     * 2. Rearrange the channels from RGBA order to ABGR order
+     * 3. Pack the rearranged channels into a new 32-bit value
+     *
+     * Common use cases:
+     * - Converting colors for specific graphics APIs or hardware
+     * - Interfacing with image file formats that use different byte orders
+     * - Preparing colors for systems with different endianness
+     * - Working with legacy graphics formats that expect ABGR ordering
+     *
+     * The byte reversal ensures compatibility across different systems while
+     * maintaining the same color information in a different memory layout.
+     */
+    constexpr uint32_t rgba_to_abgr(RGBA rgba) noexcept
+    {
+        const uint8_t r = static_cast<uint8_t>((rgba & 0xff000000) >> 24);
+        const uint8_t g = static_cast<uint8_t>((rgba & 0x00ff0000) >> 16);
+        const uint8_t b = static_cast<uint8_t>((rgba & 0x0000ff00) >> 8);
+        const uint8_t a = static_cast<uint8_t>((rgba & 0x000000ff) >> 0);
+
+        return (static_cast<uint32_t>(a) << 24) | (static_cast<uint32_t>(b) << 16) | (static_cast<uint32_t>(g) << 8) | (static_cast<uint32_t>(r) << 0);
+    }
+
+    constexpr uint32_t argb_to_rgba(RGBA rgba) noexcept
+    {
+        const uint8_t r = static_cast<uint8_t>((rgba & 0x00ff0000) >> 16);
+        const uint8_t g = static_cast<uint8_t>((rgba & 0x0000ff00) >> 8);
+        const uint8_t b = static_cast<uint8_t>((rgba & 0x000000ff) >> 0);
+        const uint8_t a = static_cast<uint8_t>((rgba & 0xff000000) >> 24);
+
+        return (static_cast<uint32_t>(a) << 24) | (static_cast<uint32_t>(b) << 16) | (static_cast<uint32_t>(g) << 8) | (static_cast<uint32_t>(r) << 0);
+    }
+
+    constexpr std::array<unsigned char, 4> ColorArray(RGBA rgba)
+    {
+        return std::array<unsigned char, 4>({ static_cast<unsigned char>((rgba & 0xff000000) >> 24), static_cast<unsigned char>((rgba & 0x00ff0000) >> 16),
+                                              static_cast<unsigned char>((rgba & 0x0000ff00) >> 8), static_cast<unsigned char>((rgba & 0x000000ff) >> 0) });
+    }
+
+
+}
+
+
+
+================================================
+FILE: source/CS200/Shape.cpp
+================================================
+#include "Shape.h"
+#include "CS200/RGBA.h"
+#include "CS200/Renderer2DUtils.h"
+#include "Engine/Path.h"
+#include "OpenGL/GL.h"
+#include <span>
+
+namespace CS230
+{
+  Shape::Shape(PrimitivePattern pattern, std::span<const Vertex> vertices)
+  {
+	setup(pattern, /* WhiteTexture() */ OpenGL::CreateTextureFromMemory({ 1, 1 }, std::array<CS200::RGBA, 1>{ CS200::WHITE }), vertices);
+  }
+
+  Shape::Shape(PrimitivePattern pattern, OpenGL::TextureHandle texture, std::span<const Vertex> vertices)
+  {
+	setup(pattern, texture, vertices);
+  }
+
+  Shape::~Shape()
+  {
+	GL::DeleteBuffers(1, &vertexBuffer), vertexBuffer				 = 0;
+	GL::DeleteTextures(1, &textureHandle), textureHandle			 = 0;
+	GL::DeleteVertexArrays(1, &vertexArrayObject), vertexArrayObject = 0;
+	OpenGL::DestroyShader(shapeShader);
+  }
+
+  Shape::Shape(Shape&& other) noexcept
+	  : vertexBuffer(other.vertexBuffer), vertexArrayObject(other.vertexArrayObject), textureHandle(other.textureHandle), shapeShader(std::move(other.shapeShader)), primitivePattern(other.primitivePattern),
+		vertexCount(other.vertexCount)
+  {
+	other.vertexBuffer		= 0;
+	other.vertexArrayObject = 0;
+	other.textureHandle		= 0;
+	other.vertexCount		= 0;
+	other.shapeShader		= {};
+  }
+
+  Shape& Shape::operator=(Shape&& other) noexcept
+  {
+	std::swap(vertexBuffer, other.vertexBuffer);
+	std::swap(vertexArrayObject, other.vertexArrayObject);
+	std::swap(textureHandle, other.textureHandle);
+	std::swap(primitivePattern, other.primitivePattern);
+	std::swap(vertexCount, other.vertexCount);
+	std::swap(shapeShader, other.shapeShader);
+	return *this;
+  }
+
+  void Shape::Draw(Math::TransformationMatrix model_matrix, unsigned int color, float depth) const noexcept
+  {
+	GL::UseProgram(shapeShader.Shader);
+
+	const auto&				   locations			 = shapeShader.UniformLocations;
+	Math::TransformationMatrix anchored_model_matrix = model_matrix * Math::TranslationMatrix(Math::vec2{ 0.5, 0.5 });
+	const auto				   model_matrix_opengl	 = CS200::Renderer2DUtils::to_opengl_mat3(anchored_model_matrix);
+	GL::UniformMatrix3fv(locations.at("uTransform"), 1, GL_FALSE, model_matrix_opengl.data());
+	GL::Uniform4fv(locations.at("uTint"), 1, CS200::unpack_color(color).data());
+	GL::Uniform1f(locations.at("uDepth"), depth);
+
+	GL::ActiveTexture(GL_TEXTURE0);
+	GL::BindTexture(GL_TEXTURE_2D, textureHandle);
+	GL::BindVertexArray(vertexArrayObject);
+
+	GL::DrawArrays(static_cast<GLenum>(primitivePattern), 0, vertexCount);
+
+	GL::BindTexture(GL_TEXTURE_2D, 0);
+	GL::BindVertexArray(0);
+	GL::UseProgram(0);
+  }
+
+  void Shape::setup(PrimitivePattern pattern, OpenGL::TextureHandle texture, std::span<const Vertex> vertices)
+  {
+	shapeShader		 = OpenGL::CreateShader(assets::locate_asset("Assets/shaders/shape/shape.vert"), assets::locate_asset("Assets/shaders/shape/shape.frag"));
+	primitivePattern = pattern;
+	textureHandle	 = texture;
+	vertexCount		 = static_cast<GLsizei>(vertices.size());
+
+	// Create vertex buffer
+	vertexBuffer = OpenGL::CreateBuffer(OpenGL::BufferType::Vertices, std::as_bytes(vertices));
+
+	// no index buffer this time
+
+	// Create vertex array object
+	const auto layout = {
+	  OpenGL::VertexBuffer{ vertexBuffer, { OpenGL::Attribute::Float2, OpenGL::Attribute::Float2 } }
+	};
+	vertexArrayObject = OpenGL::CreateVertexArrayObject(layout);
+  }
+}
+
+
+
+================================================
+FILE: source/CS200/Shape.h
+================================================
+#pragma once
+
+#include "OpenGL/Buffer.h"
+#include "OpenGL/Shader.h"
+#include "OpenGL/Texture.h"
+#include "OpenGL/VertexArray.h"
+
+#include "Engine/Component.h"
+#include "Engine/Matrix.h"
+
+#include <GL/glew.h>
+#include <array>
+#include <memory>
+#include <span>
+
+namespace CS230
+{
+	class Shape : public Component
+	{
+	public:
+		enum class PrimitivePattern : GLenum
+		{
+			Points		  = GL_POINTS,
+			Lines		  = GL_LINES,
+			LineStrip	  = GL_LINE_STRIP,
+			LineLoop	  = GL_LINE_LOOP,
+			Triangles	  = GL_TRIANGLES,
+			TriangleStrip = GL_TRIANGLE_STRIP,
+			TriangleFan	  = GL_TRIANGLE_FAN
+		};
+
+		struct Vertex
+		{
+			float						 x = 0, y = 0; //layout1
+			float						 s = 0, t = 0; //layout2
+			// std::array<unsigned char, 4> tint{ 255, 255, 255, 255 }; //layout3
+
+			constexpr Vertex() noexcept = default;
+
+			constexpr Vertex(float x_, float y_, float s_, float t_) noexcept : x(x_), y(y_), s(s_), t(t_)
+			{
+			}
+
+			constexpr Vertex(float x_, float y_) noexcept : Vertex(x_, y_, 0.0f, 0.0f)
+			{
+			}
+
+
+		};
+
+	public:
+		Shape(PrimitivePattern pattern, std::span<const Vertex> vertices);
+		Shape(PrimitivePattern pattern, OpenGL::TextureHandle texture, std::span<const Vertex> vertices);
+
+		~Shape();
+		Shape(const Shape&)			   = delete;
+		Shape& operator=(const Shape&) = delete;
+		Shape(Shape&& other) noexcept;
+		Shape& operator=(Shape&& other) noexcept;
+
+		void Draw(Math::TransformationMatrix model_matrix, unsigned int color = 0xFFFFFFFF, float depth = 0.5f) const noexcept;
+
+
+	private:
+		OpenGL::BufferHandle	  vertexBuffer		= 0;
+		OpenGL::VertexArrayHandle vertexArrayObject = 0;
+		OpenGL::TextureHandle	  textureHandle		= 0;
+		OpenGL::CompiledShader	  shapeShader{};
+		PrimitivePattern		  primitivePattern = PrimitivePattern::Triangles;
+		GLsizei					  vertexCount	   = 0;
+
+	private:
+		void setup(PrimitivePattern pattern, OpenGL::TextureHandle texture, std::span<const Vertex> vertices);
+	};
+}
+
+
+
+================================================
+FILE: source/Demo/DemoBatchInstance.cpp
+================================================
+Error reading file with 'cp949': 'cp949' codec can't decode byte 0xed in position 2879: illegal multibyte sequence
+
+
+================================================
+FILE: source/Demo/DemoBatchInstance.h
+================================================
+/**
+ * \file
+ * \author Taekyung Ho
+ * \date 2025 Fall
+ * \par CS200 Computer Graphics I
+ * \copyright DigiPen Institute of Technology
+ */
+#pragma once
+#include <GL/glew.h>
+#include <SDL.h>
+#include <array>
+#include <imgui.h>
+#include <memory>
+#include <stb_image.h>
+#include <vector>
+
+#include "Engine/Engine.h"
+#include "Engine/FPS.h"
+#include "Engine/GameState.h"
+#include "Engine/Texture.h"
+#include "Engine/Vec2.h"
+#include "Engine/Window.h"
+
+#include "OpenGL/Buffer.h"
+
+#include "CS200/IRenderer2D.h"
+#include "CS200/ImmediateRenderer2D.h"
+#include "CS200/NDC.h"
+#include "CS200/RenderingAPI.h"
+#include "OpenGL/GL.h"
+
+class DemoBatchInstance : public CS230::GameState
+{
+public:
+	void Load() override;
+	void Unload() override;
+	void Update(double dt) override;
+	void Draw() override;
+	void DrawImGui() override;
+
+	gsl::czstring GetName() const override
+	{
+		return "DemoBatchInstance";
+	};
+
+private:
+
+	// Robot sprite sheet constants
+	static constexpr Math::ivec2 ROBOT_FRAME_SIZE{ 63, 127 };
+	static constexpr int		 ROBOT_NUM_FRAMES = 5;
+	static constexpr size_t		 ROBOT_VARIATIONS = 64;
+
+	// Robot instance data
+	struct Robot
+	{
+		Math::vec2 position;
+		int		   frame;
+		float	   r, g, b; // tint color
+		int		   variation;
+	};
+
+	std::vector<Robot>											  Robots;
+	// std::unique_ptr<CS200::IRenderer2D>			 Renderer;
+	// OpenGL::Handle				 gRobotTexture = 0;
+	// std::array<OpenGL::Handle, ROBOT_VARIATIONS> RobotTextures{};
+	std::array<std::shared_ptr<CS230::Texture>, ROBOT_VARIATIONS> robotTextures{};
+	util::FPS													  FPSTracker;
+	Uint32														  LastTicks		  = 0;
+	bool														  VSyncEnabled	  = true;
+	const char*													  OpenGLRenderer  = nullptr;
+	int															  MaxTextureUnits = 0;
+	size_t current_draw_call = 0;
+	size_t current_draw_texture_call = 0;
+
+
+	// Helper function to create a random robot
+	Robot CreateRandomRobot();
+};
+
+
